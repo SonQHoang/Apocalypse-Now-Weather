@@ -18,6 +18,7 @@ login.login_view = 'auth.unauthorized'
 
 
 @login.user_loader
+# Populates current user; stores a complete instance of the user in current_user (See auth_routes.py)
 def load_user(id):
     return User.query.get(int(id))
 
