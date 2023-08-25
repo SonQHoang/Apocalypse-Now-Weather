@@ -21,13 +21,13 @@ export default function StoryComments() {
   if (currentUser && currentUser.id) {
     currentUserId = currentUser.id;
   }
-  const props = { spotId, currentUserId };
+  const props = { storyId, currentUserId };
 
   useEffect(() => {
-    dispatch(getStoryComments(spotId));
-  }, [dispatch, spotId]);
+    dispatch(getStoryComments(storyId));
+  }, [dispatch, storyId]);
 
-  const commentsList = Object.values(reviews);
+  const commentsList = Object.values(storyComments);
 
 
   let createdAtSplit;
