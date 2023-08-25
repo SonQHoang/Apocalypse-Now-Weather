@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import StoryComments from "./components/StoryComments";
+
+import Tips from "./components/Tips"
+
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
 
 function App() {
@@ -29,6 +32,15 @@ function App() {
             {/* Checks for a logged in user [Front-end protection] */}
             {/* <ProtectedRoute path ="/feed" */}
             {/* <Feed /> */}
+          </Route>
+          <Route path="/forecast">
+            {/* Need to add Forecast Component */}
+          </Route>
+          <Route path="/stories">
+            {/* Need to add Stories Component */}
+          </Route>
+          <Route path="/tips">
+            <Tips/>
           </Route>
         </Switch>
       )}
