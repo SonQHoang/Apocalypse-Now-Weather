@@ -1,8 +1,8 @@
-import { csrfFetch } from "./csrf";
-import { getStory } from "./stories";
+// import { getStory } from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
+const PUT_COMMENTS = "comments/update";
 
 export const getStoryComments = (storyId) => {
   return {
@@ -19,7 +19,7 @@ export const addComment = (comment) => {
 };
 
 export const getComments = (storyId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/stories/${storyId}/comments`, {
+  const response = await fetch(`/api/stories/${storyId}/comments`, {
     method: "GET",
   });
   const data = await response.json();
@@ -27,12 +27,13 @@ export const getComments = (storyId) => async (dispatch) => {
     dispatch(getStoryComments(data));
     return response;
   } else if(!response.ok && data.message) {
-    dispatch(getStoryComments({Reviews: []}))
+    dispatch(getStoryComments({Comments: []}))
   }
 };
 
-export const postComment = (spotId, payload) => async (dispatch) => {
-  const response = await csrfFetch(`/api/stories/${storyId}/comments`, {
+//create comment thunk action creator
+export const postComment = (storyId, payload) => async (dispatch) => {
+  const response = await fetch(`/api/stories/${storyId}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -40,20 +41,23 @@ export const postComment = (spotId, payload) => async (dispatch) => {
   if (response.ok) {
     const comment = await response.json();
     dispatch(getComments(storyId));
-    dispatch(getStories(storyId))
+    // dispatch(getStory(storyId))
     return comment;
   }
 };
 
-//delete Review thunk action creator
+//need an edit comment thunk action creator
+
+
+//delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/comment/${id}`, {
+  const response = await fetch(`/api/comment/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
     const comment = await response.json();
     const waiting = await dispatch(getComments(storyId))
-    const stillWaiting = await dispatch(getStory(storyId))
+    // const stillWaiting = await dispatch(getStory(storyId))
     return comment;
   }
 }
