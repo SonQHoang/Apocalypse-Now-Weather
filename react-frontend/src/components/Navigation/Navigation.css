@@ -1,7 +1,49 @@
 .profile-dropdown {
   position: absolute;
+  transform: translateX(-50%)
+}
+
+.profile-button-container {
+  margin-left: 10px;
+}
+
+.dropdown-button {
+  width: 150px
 }
 
 .hidden {
   display: none;
+}
+
+.navbar {
+  color: white
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-left li,
+.nav-right li {
+  margin: 0 10px;
+}
+
+.nav-left a,
+.nav-right a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px
 }
