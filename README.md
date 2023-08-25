@@ -1,6 +1,9 @@
 ** WIP **
-## 
+##
 Documenation is in the Wiki
+
+
+-- SHOULD ADD SNIPPET OF WEBSITE ONCE ITS DONE --
 ##
 
 # Flask React Project
