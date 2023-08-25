@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getStoryComments } from "../../store/storycomments";
-import "./SpotStoryComments.css";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-import PostCommentModal from "../PostReviewModal";
-import DeleteCommentModal from "../DeleteReviewModal";
+import { getStoryComments } from "../../store/comments";
+import "./StoryComments.css";
+// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+// import PostCommentModal from "../PostCommentModal";
+// import DeleteCommentModal from "../DeleteReviewModal";
 
+review
 export default function StoryComments() {
   const storyId = useParams().storyId;
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function StoryComments() {
   const props = { storyId, currentUserId };
 
   useEffect(() => {
-    dispatch(getStoryComments(storyId));
+    dispatch(getComments(storyId));
   }, [dispatch, storyId]);
 
   const commentsList = Object.values(storyComments);
@@ -45,12 +46,12 @@ export default function StoryComments() {
   return (
     <div>
       <div className="div-post-your-comment-button">
-        <button className="post-your-comment-button">
+        {/* <button className="post-your-comment-button">
               <OpenModalMenuItem
                 itemText="Post A Comment"
                 modalComponent={<PostCommentModal props={props} />}
               />
-        </button>
+        </button> */}
       </div>
       <div className="comments-div-holder">
         {commentsList.map(({ id, comment, User, createdAt, storyId }) => (
@@ -60,7 +61,7 @@ export default function StoryComments() {
             <div className="comment-comment">{comment}</div>
             {User.id === currentUserId && (
               <>
-                <button className="comment-update-button">
+                {/* <button className="comment-update-button">
                 {" "}
                   <OpenModalMenuItem
                     itemText="Update"
@@ -77,7 +78,7 @@ export default function StoryComments() {
                       <DeleteCommentModal props={{ id, storyId }} />
                     }
                   />
-                </button>
+                </button> */}
               </>
             )}
           </div>
