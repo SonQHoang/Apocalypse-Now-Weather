@@ -27,10 +27,11 @@ export const getComments = (storyId) => async (dispatch) => {
     dispatch(getStoryComments(data));
     return response;
   } else if(!response.ok && data.message) {
-    dispatch(getStoryComments({Reviews: []}))
+    dispatch(getStoryComments({Comments: []}))
   }
 };
 
+//create comment thunk action creator
 export const postComment = (storyId, payload) => async (dispatch) => {
   const response = await fetch(`/api/stories/${storyId}/comments`, {
     method: "POST",
@@ -45,7 +46,10 @@ export const postComment = (storyId, payload) => async (dispatch) => {
   }
 };
 
-//delete Review thunk action creator
+//need an edit comment thunk action creator
+
+
+//delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
   const response = await fetch(`/api/comment/${id}`, {
     method: 'DELETE'

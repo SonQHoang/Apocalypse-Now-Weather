@@ -44,7 +44,6 @@ function App() {
           </Route>
         </Switch>
       )}
-      <StoryComments />
     </>
   );
 }

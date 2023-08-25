@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../../store/comments";
 import "./StoryComments.css";
-import OpenModalButton from "../OpenModalButton";
+import OpenModal from "../OpenModalButton";
 import PostCommentModal from "../PostCommentModal";
 import DeleteCommentModal from "../DeleteCommentModal";
+import EditCommentModal from "../UpdateCommentModal";
 
 
 export default function StoryComments() {
@@ -46,12 +47,14 @@ export default function StoryComments() {
   return (
     <div>
       <div className="div-post-your-comment-button">
-        { <button className="post-your-comment-button">
-              <OpenModalButton
-                itemText="Post A Comment"
+        {
+
+              <OpenModal
+                buttonText="Post A Comment"
                 modalComponent={<PostCommentModal /*props={props}*/ />}
               />
-        </button> }
+
+         }
       </div>
       <div className="comments-div-holder">
         {/* {commentsList.map(({ id, comment, User, createdAt, storyId }) => ( */}
@@ -61,24 +64,21 @@ export default function StoryComments() {
             <div className="comment-comment">comment</div>
             {/*User.id === currentUserId &&*/  (
               <>
-                <button className="comment-update-button">
                 {" "}
-                  {/* <OpenModalButton
-                    itemText="Update"
+                  { <OpenModal
+                    buttonText="Update"
                     modalComponent={
-                      <UpdateCommentModal props={{ id, storyId }} />
+                      <EditCommentModal props={{/* id, storyId */ }} />
                     }
-                  /> */}
-                </button>
-                <button className="comment-delete-button">
-                  {" "}
-                  { <OpenModalButton
-                    itemText="Delete"
+                  /> }
+
+                  { <OpenModal
+                    buttonText="Delete"
                     modalComponent={
                       <DeleteCommentModal props={{ /*id, storyId*/ }} />
                     }
                   /> }
-                </button>
+
               </>
             )}
           </div>

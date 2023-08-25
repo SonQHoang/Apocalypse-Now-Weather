@@ -1,32 +1,32 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
-import { postComment } from "../../store/comments";
+import { putComment } from "../../store/comments";
 import React, { useState } from "react";
-import "./PostCommentModal.css";
+import "./UpdateCommentModal.css";
 
 
-function PostCommentModal(props) {
+function EditCommentModal(props) {
 
-  // const storyId  = props.props.storyId;
-  // const userId  = props.props.currentUserId
+//   const storyId  = props.props.storyId;
+//   const userId  = props.props.currentUserId
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState({});
 
-  let isDisabled = true; // change when done
-  // if (comment.length < 5) {
-  //   isDisabled = true;
-  // }
+  let isDisabled = true;
+//   if (comment.length < 5) {
+//     isDisabled = true;
+//   }
 
   const submitComment = async (e) => {
     e.preventDefault();
 
     const newComment = {
-      // userId,
-      // storyId,
-      // comment,
+    //   userId,
+    //   storyId,
+    //   comment,
     };
 
     // await dispatch(postComment(storyId, newComment)).catch(async (res) => {
@@ -46,11 +46,11 @@ function PostCommentModal(props) {
 
   return (
     <div className="comment-form-modal">
-      <h1>Leave a Comment</h1>
+      <h1>Edit your Comment</h1>
       <>{errors.message}</>
       <textarea
         className="post-comment-form-modal"
-        placeholder="Leave your comment here.."
+        placeholder="Change to populate with comment data"
         onChange={(e) => setComment(e.target.value)}
       ></textarea>
       <button className='submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
@@ -60,4 +60,4 @@ function PostCommentModal(props) {
   );
 }
 
-export default PostCommentModal;
+export default EditCommentModal;
