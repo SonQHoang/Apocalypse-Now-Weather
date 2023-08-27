@@ -1,4 +1,4 @@
-from app.models import db, User, Tips, environment, SCHEMA
+from app.models import db, User, Tips, TipComments, StoryComments, environment, SCHEMA
 from sqlalchemy.sql import text
 from datetime import datetime
 
@@ -1100,13 +1100,1679 @@ username = "TestUser21"
         date_created = datetime(2023, 8, 8) 
         )
     
-    # db.session.add(demo)
-    # db.session.add(marnie)
-    # db.session.add(bobbie)
+    tip_comment_1 = TipComments(
+        tip_id = 1,
+        user_id = 1,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_2 = TipComments(
+        tip_id = 2,
+        user_id = 2,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_3 = TipComments(
+        tip_id = 2,
+        user_id = 3,
+        body = "I'm intrigued... Are these survival tips from personal experience",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_4 = TipComments(
+        tip_id = 2,
+        user_id = 4,
+        body = "I'm intrigued... Are these survival tips from personal experience",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_5 = TipComments(
+        tip_id = 3,
+        user_id = 5,
+        body = "I'm intrigued... Are these survival tips from personal experience",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_6 = TipComments(
+        tip_id = 4,
+        user_id = 6,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_7 = TipComments(
+        tip_id = 5,
+        user_id = 7,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_8 = TipComments(
+    
+        tip_id = 5,
+        user_id = 8,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_9 = TipComments(
+    
+        tip_id = 6,
+        user_id = 9,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_10 = TipComments(
+        tip_id = 6,
+        user_id = 10,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_11 = TipComments(
+        tip_id = 7,
+        user_id = 11,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_12 = TipComments(
+        tip_id = 8,
+        user_id = 12,
+        body = "Really thankful there are people like you out there making tips like this for us to follow!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_13 = TipComments(
+        tip_id = 8,
+        user_id = 13,
+        body = "Really thankful there are people like you out there making tips like this for us to follow!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_14 = TipComments(
+        tip_id = 8,
+        user_id = 14,
+        body = "Really thankful there are people like you out there making tips like this for us to follow!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_15 = TipComments(
+        tip_id = 9,
+        user_id = 15,
+        body = "Really thankful there are people like you out there making tips like this for us to follow!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_16 = TipComments(
+        tip_id = 10,
+        user_id = 16,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_17 = TipComments(
+        tip_id = 10,
+        user_id = 17,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_18 = TipComments(
+        tip_id = 10,
+        user_id = 18,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_19 = TipComments(
+        tip_id = 11,
+        user_id = 19,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_20 = TipComments(
+        tip_id = 12,
+        user_id = 20,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_21 = TipComments(
+        tip_id = 12,
+        user_id = 21,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_22 = TipComments(
+        tip_id = 13,
+        user_id = 22,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_23 = TipComments(
+        tip_id = 14,
+        user_id = 23,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_24 = TipComments(
+        tip_id = 15,
+        user_id = 24,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_25 = TipComments(
+        tip_id = 15,
+        user_id = 25,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_26 = TipComments(
+        tip_id = 16,
+        user_id = 26,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_27 = TipComments(
+        tip_id = 17,
+        user_id = 27,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_28 = TipComments(
+        tip_id = 18,
+        user_id = 28,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_29 = TipComments(
+        tip_id = 19,
+        user_id = 29,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_30 = TipComments(
+        tip_id = 20,
+        user_id = 30,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_31 = TipComments(
+        tip_id = 21,
+        user_id = 31,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_32 = TipComments(
+        tip_id = 22,
+        user_id = 32,
+        body = "Thanks for sharing these survival gems. I'm taking notes!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_33 = TipComments(
+        tip_id = 23,
+        user_id = 33,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_34 = TipComments(
+        tip_id = 24,
+        user_id = 34,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_35 = TipComments(
+        tip_id = 25,
+        user_id = 35,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_36 = TipComments(
+        tip_id = 26,
+        user_id = 36,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_37 = TipComments(
+        tip_id = 27,
+        user_id = 37,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_38 = TipComments(
+        tip_id = 28,
+        user_id = 38,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_39 = TipComments(
+        tip_id = 29,
+        user_id = 39,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_40 = TipComments(
+        tip_id = 29,
+        user_id = 40,
+        body = "Survival is all about knowledge. Thanks for boosting mine!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_41 = TipComments(
+        tip_id = 30,
+        user_id = 41,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_42 = TipComments(
+        tip_id = 30,
+        user_id = 42,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_43 = TipComments(
+        tip_id = 31,
+        user_id = 43,
+        body = "Because nothing says 'hopeless' like survival tactics.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_44 = TipComments(
+        tip_id = 31,
+        user_id = 44,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_45 = TipComments(
+        tip_id = 32,
+        user_id = 45,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_46 = TipComments(
+        tip_id = 33,
+        user_id = 46,
+        body = "Survival tips that make me question what I know about emergencies.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_47 = TipComments(
+        tip_id = 34,
+        user_id = 47,
+        body = "Because nothing says 'hopeless' like survival tactics.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_48 = TipComments(
+        tip_id = 35,
+        user_id = 48,
+        body = "Because nothing says 'hopeless' like survival tactics.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_49 = TipComments(
+        tip_id = 36,
+        user_id = 49,
+        body = "These survival tips serve as a reminder of the dangers out there.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_50 = TipComments(
+        tip_id = 36,
+        user_id = 50,
+        body = "These survival tips serve as a reminder of the dangers out there.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_51 = TipComments(
+        tip_id = 37,
+        user_id = 2,
+        body = "These survival tips serve as a reminder of the dangers out there.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_52 = TipComments(
+        tip_id = 38,
+        user_id = 2,
+        body = "Because nothing says 'hopeless' like survival tactics.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_53 = TipComments(
+        tip_id = 39,
+        user_id = 4,
+        body = "Sad to consider a world where these survival tips are necessary.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_54 = TipComments(
+        tip_id = 40,
+        user_id = 3,
+        body = "Sad to consider a world where these survival tips are necessary.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_55 = TipComments(
+        tip_id = 41,
+        user_id = 17,
+        body = "Because nothing says 'hopeless' like survival tactics.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_56 = TipComments(
+        tip_id = 42,
+        user_id = 24,
+        body = "Sad to consider a world where these survival tips are necessary.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_57 = TipComments(
+        tip_id = 42,
+        user_id = 28,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_58 = TipComments(
+        tip_id = 43,
+        user_id = 33,
+        body = "I hope I never have to use these...",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_59 = TipComments(
+        tip_id = 43,
+        user_id = 32,
+        body = "You never know when it'll come in handy though!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_60 = TipComments(
+        tip_id = 44,
+        user_id = 35,
+        body = "I hope I never have to use these...",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_61 = TipComments(
+        tip_id = 45,
+        user_id = 39,
+        body = "Thanks for the tips, I'll still manage to mess it up.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_62 = TipComments(
+        tip_id = 46,
+        user_id = 36,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_63 = TipComments(
+        tip_id = 47,
+        user_id = 42,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_64 = TipComments(
+        tip_id = 48,
+        user_id = 44,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_65 = TipComments(
+        tip_id = 49,
+        user_id = 48,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_66 = TipComments(
+        tip_id = 50,
+        user_id = 50,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_67 = TipComments(
+        tip_id = 50,
+        user_id = 12,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_68 = TipComments(
+        tip_id = 51,
+        user_id = 14,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_69 = TipComments(
+        tip_id = 52,
+        user_id = 16,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_70 = TipComments(
+        tip_id = 53,
+        user_id = 19,
+        body = "As if I needed more reminders of how unprepared I am.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_71 = TipComments(
+        tip_id = 54,
+        user_id = 22,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_72 = TipComments(
+        tip_id = 55,
+        user_id = 24,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_73 = TipComments(
+        tip_id = 55,
+        user_id = 4,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_74 = TipComments(
+        tip_id = 56,
+        user_id = 2,
+        body = "How many people wanna go out there and trip applying these tips right now?",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_75 = TipComments(
+        tip_id = 57,
+        user_id = 18,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_76 = TipComments(
+        tip_id = 57,
+        user_id = 20,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_77 = TipComments(
+        tip_id = 57,
+        user_id = 25,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_78 = TipComments(
+        tip_id = 58,
+        user_id = 26,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_79 = TipComments(
+        tip_id = 59,
+        user_id = 26,
+        body = "Survival for dummies, perfect.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_80 = TipComments(
+        tip_id = 60,
+        user_id = 14,
+        body = "Survival for dummies, perfect.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_81 = TipComments(
+        tip_id = 60,
+        user_id = 10,
+        body = "Survival for dummies, perfect.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_82 = TipComments(
+        tip_id = 61,
+        user_id = 3,
+        body = "Survival for dummies, perfect.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_83 = TipComments(
+        tip_id = 62,
+        user_id = 10,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_84 = TipComments(
+        tip_id = 63,
+        user_id = 44,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_85 = TipComments(
+        tip_id = 64,
+        user_id = 48,
+        body = "In a pinch, these tips could be a lifesaver. Thanks!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_86 = TipComments(
+        tip_id = 65,
+        user_id = 50,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_87 = TipComments(
+        tip_id = 66,
+        user_id = 23,
+        body = "Survival for dummies, perfect.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_88 = TipComments(
+        tip_id = 47,
+        user_id = 24,
+        body = "Survival expert in the making these tips prove it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_89 = TipComments(
+        tip_id = 52,
+        user_id = 29,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_90 = TipComments(
+        tip_id = 55,
+        user_id = 35,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_91 = TipComments(
+        tip_id = 58,
+        user_id = 37,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_92 = TipComments(
+        tip_id = 49,
+        user_id = 34,
+        body = "Survival expert in the making these tips prove it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_93 = TipComments(
+        tip_id = 32,
+        user_id = 32,
+        body = "Survival expert in the making these tips prove it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_94 = TipComments(
+        tip_id = 53,
+        user_id = 15,
+        body = "Survival expert in the making these tips prove it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_95 = TipComments(
+        tip_id = 65,
+        user_id = 18,
+        body = "Survival expert in the making these tips prove it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_96 = TipComments(
+        tip_id = 66,
+        user_id = 23,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_97 = TipComments(
+        tip_id = 42,
+        user_id = 35,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_98 = TipComments(
+        tip_id = 13,
+        user_id = 28,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_99 = TipComments(
+        tip_id = 10,
+        user_id = 38,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_100 = TipComments(
+        tip_id = 9,
+        user_id = 21,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_101 = TipComments(
+        tip_id = 34,
+        user_id = 22,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_102 = TipComments(
+        tip_id = 34,
+        user_id = 34,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_103 = TipComments(
+        tip_id = 38,
+        user_id = 41,
+        body = "These survival tips are something I'll file away for later.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_104 = TipComments(
+        tip_id = 38,
+        user_id = 32,
+        body = "You're on fire! These tips showcase your survival prowess.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_105 = TipComments(
+        tip_id = 38,
+        user_id = 35,
+        body = "You're on fire! These tips showcase your survival prowess.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_106 = TipComments(
+        tip_id = 18,
+        user_id = 18,
+        body = "You're on fire! These tips showcase your survival prowess.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_107 = TipComments(
+        tip_id = 24,
+        user_id = 13,
+        body = "You're on fire! These tips showcase your survival prowess.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_108 = TipComments(
+        tip_id = 22,
+        user_id = 10,
+        body = "You're on fire! These tips showcase your survival prowess.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_109 = TipComments(
+        tip_id = 23,
+        user_id = 5,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_110 = TipComments(
+        tip_id = 23,
+        user_id = 4,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_111 = TipComments(
+        tip_id = 27,
+        user_id = 4,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_112 = TipComments(
+        tip_id = 9,
+        user_id = 2,
+        body = "I'm intrigued... Are these survival tips from personal experience",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_113 = TipComments(
+        tip_id = 34,
+        user_id = 18,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_114 = TipComments(
+        tip_id = 34,
+        user_id = 18,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_115 = TipComments(
+        tip_id = 38,
+        user_id = 17,
+        body = "Nailed it! These are the tricks of the survival trade!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_116 = TipComments(
+        tip_id = 38,
+        user_id = 36,
+        body = "Nailed it! These are the tricks of the survival trade!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_117 = TipComments(
+        tip_id = 38,
+        user_id = 38,
+        body = "Nailed it! These are the tricks of the survival trade!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_118 = TipComments(
+        tip_id = 18,
+        user_id = 41,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_119 = TipComments(
+        tip_id = 24,
+        user_id = 42,
+        body = "Survival tips to clutter my brain. Great.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_120 = TipComments(
+        tip_id = 22,
+        user_id = 32,
+        body = "Survival tips to clutter my brain. Great.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_121 = TipComments(
+        tip_id = 26,
+        user_id = 37,
+        body = "Survival tips to clutter my brain. Great.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_122 = TipComments(
+        tip_id = 22,
+        user_id = 32,
+        body = "Nailed it! These are the tricks of the survival trade!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_123 = TipComments(
+        tip_id = 24,
+        user_id = 30,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_124 = TipComments(
+        tip_id = 23,
+        user_id = 17,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_125 = TipComments(
+        tip_id = 21,
+        user_id = 32,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_126 = TipComments(
+        tip_id = 21,
+        user_id = 38,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_127 = TipComments(
+        tip_id = 23,
+        user_id = 28,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_128 = TipComments(
+        tip_id = 29,
+        user_id = 34,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_129 = TipComments(
+        tip_id = 22,
+        user_id = 12,
+        body = "Thanks for the tip!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_130 = TipComments(
+        tip_id = 34,
+        user_id = 45,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_131 = TipComments(
+        tip_id = 27,
+        user_id = 32,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_132 = TipComments(
+        tip_id = 23,
+        user_id = 7,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_133 = TipComments(
+        tip_id = 22,
+        user_id = 7,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_134 = TipComments(
+        tip_id = 26,
+        user_id = 3,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_135 = TipComments(
+        tip_id = 22,
+        user_id = 15,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_136 = TipComments(
+        tip_id = 24,
+        user_id = 20,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_138 = TipComments(
+        tip_id = 23,
+        user_id = 32,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_139 = TipComments(
+        tip_id = 21,
+        user_id = 14,
+        body = "Not sure how practical these are for me, but thanks.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_140 = TipComments(
+        tip_id = 21,
+        user_id = 15,
+        body = "Survival tips to clutter my brain. Great.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_141 = TipComments(
+        tip_id = 66,
+        user_id = 13,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_142 = TipComments(
+        tip_id = 64,
+        user_id = 10,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_143 = TipComments(
+        tip_id = 64,
+        user_id = 32,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_144 = TipComments(
+        tip_id = 63,
+        user_id = 42,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_145 = TipComments(
+        tip_id = 66,
+        user_id = 42,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_146 = TipComments(
+        tip_id = 23,
+        user_id = 1,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_147 = TipComments(
+        tip_id = 61,
+        user_id = 12,
+        body = "Nice tip! Appreciate it!",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_148 = TipComments(
+        tip_id = 61,
+        user_id = 32,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_149 = TipComments(
+        tip_id = 63,
+        user_id = 42,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_150 = TipComments(
+        tip_id = 66,
+        user_id = 42,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_137 = TipComments(
+        tip_id = 20,
+        user_id = 1,
+        body = "Interesting advice. Hope I never have to use it.",
+        date_created = datetime(2023, 8, 8),
+    )
+    tip_comment_151 = TipComments(
+        tip_id = 20,
+        user_id = 12,
+        body = "Really thankful there are people like you out there making tips like this for us to follow!",
+        date_created = datetime(2023, 8, 8),
+    )
 
-    # db.session.add(tip1)
-    # db.session.add(tip2)
-    # db.session.add(tip3)
+    story_comment_1 = StoryComments (
+        story_id = 1,
+        user_id = 1,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_2 = StoryComments (
+        story_id = 1,
+        user_id = 1,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_3 = StoryComments (
+        story_id = 2,
+        user_id = 2,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_4 = StoryComments (
+        story_id = 3,
+        user_id = 3,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_5 = StoryComments (
+        story_id = 4,
+        user_id = 3,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    ) 
+    story_comment_6 = StoryComments (
+        story_id = 5,
+        user_id = 3,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_7 = StoryComments (
+        story_id = 6,
+        user_id = 3,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_8 = StoryComments (
+        story_id = 7,
+        user_id = 4,
+        date_created = datetime(2023, 8, 8),
+        body = "Surviving that took guts and quick thinking. I don't know if I could've handled myself like you in that situation."
+    )
+    story_comment_9 = StoryComments (
+        story_id = 8,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Dang"
+    )
+    story_comment_10 = StoryComments (
+        story_id = 9,
+        user_id = 6,
+        date_created = datetime(2023, 8, 8),
+        body = "Surviving that took guts and quick thinking. I don't know if I could've handled myself like you in that situation."
+    )
+    story_comment_11 = StoryComments (
+        story_id = 10,
+        user_id = 7,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_12 = StoryComments (
+        story_id = 11,
+        user_id = 8,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_13 = StoryComments (
+        story_id = 12,
+        user_id = 8,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_14 = StoryComments (
+        story_id = 13,
+        user_id = 8,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_15 = StoryComments (
+        story_id = 14,
+        user_id = 9,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_16 = StoryComments (
+        story_id = 15,
+        user_id = 10,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_17 = StoryComments (
+        story_id = 16,
+        user_id = 11,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_18 = StoryComments (
+        story_id = 17,
+        user_id = 12,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_19 = StoryComments (
+        story_id = 18,
+        user_id = 13,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_20 = StoryComments (
+        story_id = 19,
+        user_id = 14,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    story_comment_21 = StoryComments (
+        story_id = 20,
+        user_id = 14,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_22 = StoryComments (
+        story_id = 21,
+        user_id = 15,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_23 = StoryComments (
+        story_id = 22,
+        user_id = 16,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_24 = StoryComments (
+        story_id = 23,
+        user_id = 16,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing your story so we can all be more informed!"
+    )
+    story_comment_25 = StoryComments (
+        story_id = 24,
+        user_id = 16,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_26 = StoryComments (
+        story_id = 25,
+        user_id = 16,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_27 = StoryComments (
+        story_id = 26,
+        user_id = 17,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_28 = StoryComments (
+        story_id = 27,
+        user_id = 18,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_29 = StoryComments (
+        story_id = 28,
+        user_id = 19,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_30 = StoryComments (
+        story_id = 29,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_31 = StoryComments (
+        story_id = 30,
+        user_id = 21,
+        date_created = datetime(2023, 8, 8),
+        body = "Nature wanted to take you out, but you said 'Nope!'. Glad you're okay"
+    )
+    story_comment_32 = StoryComments(
+        story_id = 31,
+        user_id = 22,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_33 = StoryComments (
+        story_id = 32,
+        user_id = 23,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    ) 
+    story_comment_34 = StoryComments (
+        story_id = 33,
+        user_id = 24,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_35 = StoryComments (
+        story_id = 34,
+        user_id = 25,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_36 = StoryComments (
+        story_id = 35,
+        user_id = 26,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_37 = StoryComments (
+        story_id = 36,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_38 = StoryComments (
+        story_id = 37,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_39 = StoryComments (
+        story_id = 38,
+        user_id = 28,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_40 = StoryComments (
+        story_id = 39,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_41 = StoryComments (
+        story_id = 40,
+        user_id = 30,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_42 = StoryComments (
+        story_id = 41,
+        user_id = 31,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_43 = StoryComments (
+        story_id = 42,
+        user_id = 32,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_44 = StoryComments (
+        story_id = 43,
+        user_id = 33,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_45 = StoryComments (
+        story_id = 44,
+        user_id = 34,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    ) 
+    story_comment_46 = StoryComments (
+        story_id = 45,
+        user_id = 35,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_47 = StoryComments (
+        story_id = 46,
+        user_id = 36,
+        date_created = datetime(2023, 8, 8),
+        body = "Just another normal day of bad weather..."
+    )
+    story_comment_48 = StoryComments (
+        story_id = 47,
+        user_id = 36,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_49 = StoryComments (
+        story_id = 48,
+        user_id = 37,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_50 = StoryComments (
+        story_id = 49,
+        user_id = 38,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, Mother Nature isn't happy with us..."
+    )
+    story_comment_51 = StoryComments (
+        story_id = 50,
+        user_id = 38,
+        date_created = datetime(2023, 8, 8),
+        body = "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
+    )
+    story_comment_52 = StoryComments (
+        story_id = 51,
+        user_id = 38,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_53 = StoryComments (
+        story_id = 52,
+        user_id = 39,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_54 = StoryComments (
+        story_id = 53,
+        user_id = 40,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_55 = StoryComments (
+        story_id = 54,
+        user_id = 41,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_56 = StoryComments (
+        story_id = 55,
+        user_id = 42,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_57 = StoryComments (
+        story_id = 56,
+        user_id = 43,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_58 = StoryComments (
+        story_id = 57,
+        user_id = 44,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    ) 
+    story_comment_59 = StoryComments (
+        story_id = 58,
+        user_id = 45,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, that's insane. I never knew this was a thing..."
+    )
+    story_comment_60 = StoryComments (
+        story_id = 59,
+        user_id = 45,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_61 = StoryComments (
+        story_id = 60,
+        user_id = 46,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_62 = StoryComments (
+        story_id = 61,
+        user_id = 47,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_63 = StoryComments (
+        story_id = 62,
+        user_id = 48,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_64 = StoryComments (
+        story_id = 63,
+        user_id = 49,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_65 = StoryComments (
+        story_id = 64,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Reading this reminded me of the importance of being prepared for anything. Your survival instincts are inspiring!"
+    )
+    story_comment_66 = StoryComments (
+        story_id = 33,
+        user_id = 24,
+        date_created = datetime(2023, 8, 8),
+        body = "This is a story that everyone should read."
+    )
+    story_comment_67 = StoryComments (
+        story_id = 33,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, you learn something new everyday."
+    )
+    story_comment_68 = StoryComments (
+        story_id = 4,
+        user_id = 23,
+        date_created = datetime(2023, 8, 8),
+        body = "And this is why I don't wanna go outside everyone."
+    )
+    story_comment_69 = StoryComments (
+        story_id = 7,
+        user_id = 25,
+        date_created = datetime(2023, 8, 8),
+        body = "Does anyone remember when the weather started being so terrible? Anyone remember the good 'ol days when we would all just complain about it being too hot or there being too much rain?"
+    )
+    story_comment_70 = StoryComments (
+        story_id = 23,
+        user_id = 3,
+        date_created = datetime(2023, 8, 8),
+        body = "I love how descriptive you were in your story. Keep on writing!"
+    )
+    story_comment_71 = StoryComments (
+        story_id = 22,
+        user_id = 40,
+        date_created = datetime(2023, 8, 8),
+        body = "Gosh nature is something else these days.."
+    )
+    story_comment_72 = StoryComments (
+        story_id = 41,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Sending prayers and love your way. Stay safe"
+    )
+    story_comment_73 = StoryComments (
+        story_id = 25,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah our world is going downhill fast..."
+    )
+    story_comment_74 = StoryComments (
+        story_id = 29,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "I'm soo thankful you shared this story. More people need to know about this."
+    )
+    story_comment_75 = StoryComments (
+        story_id = 30,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "What the person above me said! Yeah so many peopl would be better off if they knew the story you were sharing!"
+    )
+    story_comment_76 = StoryComments (
+        story_id = 32,
+        user_id = 49,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing but did you really have to share this one? I feel like a lot of people would have been happier being ignorant and not getting mroe and more scared"
+    )
+    story_comment_77 = StoryComments (
+        story_id = 32,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Bro, do you really think feeling safe but being ignorant is going to help? These people are going to be in a lot of trouble if they were to suddenly encounter these situations. At least letting them know gives them a heads up"
+    )
+    story_comment_78 = StoryComments (
+        story_id = 32,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah I agree, better to know more than less."
+    )
+    story_comment_79 = StoryComments (
+        story_id = 32,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_80 = StoryComments (
+        story_id = 65,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_81 = StoryComments (
+        story_id = 12,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "It was an okay story.."
+    )
+    story_comment_82 = StoryComments (
+        story_id = 14,
+        user_id = 4,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow, who would have thought..."
+    )
+    story_comment_83 = StoryComments (
+        story_id = 16,
+        user_id = 40,
+        date_created = datetime(2023, 8, 8),
+        body = "First time on this site and wow these stories are insane. Keep writing ya'll!"
+    )
+    story_comment_84 = StoryComments (
+        story_id = 14,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Sending prayers and love your way. Stay safe"
+    )
+    story_comment_85 = StoryComments (
+        story_id = 18,
+        user_id = 2,
+        date_created = datetime(2023, 8, 8),
+        body = "The world is a little less dark because of all of you..."
+    )
+    story_comment_86 = StoryComments (
+        story_id = 16,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "I'm soo thankful you shared this story. More people need to know about this."
+    )
+    story_comment_87 = StoryComments (
+        story_id = 54,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "What the person above me said! Yeah so many people would be better off if they knew the story you were sharing!"
+    )
+    story_comment_88 = StoryComments (
+        story_id = 62,
+        user_id = 49,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing but did you really have to share this one? I feel like a lot of people would have been happier being ignorant and not getting mroe and more scared"
+    )
+    story_comment_89 = StoryComments (
+        story_id = 62,
+        user_id = 30,
+        date_created = datetime(2023, 8, 8),
+        body = "This is going to be crazy..."
+    )
+    story_comment_90 = StoryComments (
+        story_id = 4,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow who wouldn've thought that would've been there."
+    )
+    story_comment_91 = StoryComments (
+        story_id = 13,
+        user_id = 7,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_92 = StoryComments (
+        story_id = 8,
+        user_id = 8,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_93 = StoryComments (
+        story_id = 8,
+        user_id = 25,
+        date_created = datetime(2023, 8, 8),
+        body = "I'm soo thankful you shared this story. More people need to know about this."
+    )
+    story_comment_94 = StoryComments (
+        story_id = 8,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "What the person above me said! Yeah so many people would be better off if they knew the story you were sharing!"
+    )
+    story_comment_95 = StoryComments (
+        story_id = 62,
+        user_id = 9,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing but did you really have to share this one? I feel like a lot of people would have been happier being ignorant and not getting mroe and more scared"
+    )
+    story_comment_96 = StoryComments (
+        story_id = 10,
+        user_id = 15,
+        date_created = datetime(2023, 8, 8),
+        body = "Sheesh good luck to whoever decides to live there..."
+    )
+    story_comment_97 = StoryComments (
+        story_id = 34,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah I agree, better to know more than less."
+    )
+    story_comment_98 = StoryComments (
+        story_id = 34,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_99 = StoryComments (
+        story_id = 37,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_100 = StoryComments (
+        story_id = 37,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_101 = StoryComments (
+        story_id = 39,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_102 = StoryComments (
+        story_id = 41,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah I agree, better to know more than less."
+    )
+    story_comment_103 = StoryComments (
+        story_id = 36,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_104 = StoryComments (
+        story_id = 43,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_105 = StoryComments (
+        story_id = 43,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "I'm soo thankful you shared this story. More people need to know about this."
+    )
+    story_comment_106 = StoryComments (
+        story_id = 41,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "What the person above me said! Yeah so many people would be better off if they knew the story you were sharing!"
+    )
+    story_comment_107 = StoryComments (
+        story_id = 44,
+        user_id = 49,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing but did you really have to share this one? I feel like a lot of people would have been happier being ignorant and not getting mroe and more scared"
+    )
+    story_comment_108 = StoryComments (
+        story_id = 46,
+        user_id = 30,
+        date_created = datetime(2023, 8, 8),
+        body = "This is going to be crazy..."
+    )
+    story_comment_109 = StoryComments (
+        story_id = 42,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah I agree, better to know more than less."
+    )
+    story_comment_110 = StoryComments (
+        story_id = 45,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_111 = StoryComments (
+        story_id = 41,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_112 = StoryComments (
+        story_id = 44,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_113 = StoryComments (
+        story_id = 39,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_114 = StoryComments (
+        story_id = 41,
+        user_id = 5,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah I agree, better to know more than less."
+    )
+    story_comment_115 = StoryComments (
+        story_id = 36,
+        user_id = 27,
+        date_created = datetime(2023, 8, 8),
+        body = "Some people just wanna be ignorant. Just let em be that way if they want it. You don't have to go around trying to save everyone"
+    )
+    story_comment_116 = StoryComments (
+        story_id = 43,
+        user_id = 29,
+        date_created = datetime(2023, 8, 8),
+        body = "Good read"
+    )
+    story_comment_117 = StoryComments (
+        story_id = 43,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "I'm soo thankful you shared this story. More people need to know about this."
+    )
+    story_comment_118 = StoryComments (
+        story_id = 41,
+        user_id = 20,
+        date_created = datetime(2023, 8, 8),
+        body = "What the person above me said! Yeah so many people would be better off if they knew the story you were sharing!"
+    )
+    story_comment_119 = StoryComments (
+        story_id = 44,
+        user_id = 49,
+        date_created = datetime(2023, 8, 8),
+        body = "Thanks for sharing but did you really have to share this one? I feel like a lot of people would have been happier being ignorant and not getting mroe and more scared"
+    )
+    story_comment_120 = StoryComments (
+        story_id = 58,
+        user_id = 24,
+        date_created = datetime(2023, 8, 8),
+        body = "Wow that was eye opening..."
+    )
+    story_comment_121 = StoryComments (
+        story_id = 42,
+        user_id = 55,
+        date_created = datetime(2023, 8, 8),
+        body = "Sometimes I wish I didn't go on this site. I get more scared each time."
+    )
+    story_comment_122 = StoryComments (
+        story_id = 51,
+        user_id = 37,
+        date_created = datetime(2023, 8, 8),
+        body = "Well I've got my daily dose of the news for today"
+    )
+    story_comment_123 = StoryComments (
+        story_id = 50,
+        user_id = 17,
+        date_created = datetime(2023, 8, 8),
+        body = "Whoa, looking forward to whate you're going to write next"
+    )
+    story_comment_124= StoryComments (
+        story_id = 44,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Interesting story"
+    )
+    story_comment_1 = StoryComments (
+        story_id = 9,
+        user_id = 50,
+        date_created = datetime(2023, 8, 8),
+        body = "Who would've thought that my home would become like this..."
+    )
+    story_comment_125 = StoryComments (
+        story_id = 9,
+        user_id = 11,
+        date_created = datetime(2023, 8, 8),
+        body = "Yeah, my family is out there as well..."
+    )
+    story_comment_126 = StoryComments (
+        story_id = 65,
+        user_id = 1,
+        date_created = datetime(2023, 8, 8),
+        body = "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather."
+    )
+    
+    
     db.session.add_all([demo, marnie,bobbie,user4,user5,user6,user7,user8,user9,user10,
     user11,user12,user13,user14,user15,user16,user17,user18,user19,user20,
     user21,user22,user23,user24,user25,user26,user27,user28,user29,user30,
@@ -1120,6 +2786,10 @@ username = "TestUser21"
     tip41,tip42,tip43,tip44,tip45,tip46,tip47,tip48,tip49,tip50,
     tip51,tip52,tip53,tip54,tip55,tip56,tip57,tip58,tip59,tip60,
     tip61,tip62,tip63,tip64,tip65,tip66])
+
+    db.session.add_all([tip_comment_1, tip_comment_2, tip_comment_3, tip_comment_4, tip_comment_5, tip_comment_6, tip_comment_7, tip_comment_8, tip_comment_9, tip_comment_10, tip_comment_11, tip_comment_12, tip_comment_13, tip_comment_14, tip_comment_15, tip_comment_16, tip_comment_17, tip_comment_18, tip_comment_19, tip_comment_20, tip_comment_21, tip_comment_22, tip_comment_23, tip_comment_24, tip_comment_25, tip_comment_26, tip_comment_27, tip_comment_28, tip_comment_29, tip_comment_30, tip_comment_31, tip_comment_32, tip_comment_33, tip_comment_34, tip_comment_35, tip_comment_36, tip_comment_37, tip_comment_38, tip_comment_39, tip_comment_40, tip_comment_41, tip_comment_42, tip_comment_43, tip_comment_44, tip_comment_45, tip_comment_46, tip_comment_47, tip_comment_48, tip_comment_49, tip_comment_50, tip_comment_51, tip_comment_52, tip_comment_53, tip_comment_54, tip_comment_55, tip_comment_56, tip_comment_57, tip_comment_58, tip_comment_59, tip_comment_60, tip_comment_61, tip_comment_62, tip_comment_63, tip_comment_64, tip_comment_65, tip_comment_66, tip_comment_67, tip_comment_68, tip_comment_69, tip_comment_70, tip_comment_71, tip_comment_72, tip_comment_73, tip_comment_74, tip_comment_75, tip_comment_76, tip_comment_77, tip_comment_78, tip_comment_79, tip_comment_80, tip_comment_81, tip_comment_82, tip_comment_83, tip_comment_84, tip_comment_85, tip_comment_86, tip_comment_87, tip_comment_88, tip_comment_89, tip_comment_90, tip_comment_91, tip_comment_92, tip_comment_93, tip_comment_94, tip_comment_95, tip_comment_96, tip_comment_97, tip_comment_98, tip_comment_99, tip_comment_100, tip_comment_101, tip_comment_102, tip_comment_103, tip_comment_104, tip_comment_105, tip_comment_106, tip_comment_107, tip_comment_108, tip_comment_109, tip_comment_110, tip_comment_111, tip_comment_112, tip_comment_113, tip_comment_114, tip_comment_115, tip_comment_116, tip_comment_117, tip_comment_118, tip_comment_119, tip_comment_120, tip_comment_121, tip_comment_122, tip_comment_123, tip_comment_124, tip_comment_125, tip_comment_126, tip_comment_127, tip_comment_128, tip_comment_129, tip_comment_130, tip_comment_131, tip_comment_132, tip_comment_133, tip_comment_134, tip_comment_135, tip_comment_136, tip_comment_137, tip_comment_138, tip_comment_139, tip_comment_140, tip_comment_141, tip_comment_142, tip_comment_143, tip_comment_144, tip_comment_145, tip_comment_146, tip_comment_147, tip_comment_148, tip_comment_149, tip_comment_150, tip_comment_151])
+
+    db.session.add_all([story_comment_1, story_comment_2, story_comment_3, story_comment_4, story_comment_5, story_comment_6, story_comment_7, story_comment_8, story_comment_9, story_comment_10, story_comment_11, story_comment_12, story_comment_13, story_comment_14, story_comment_15, story_comment_16, story_comment_17, story_comment_18, story_comment_19, story_comment_20, story_comment_21, story_comment_22, story_comment_23, story_comment_24, story_comment_25, story_comment_26, story_comment_27, story_comment_28, story_comment_29, story_comment_30, story_comment_31, story_comment_32, story_comment_33, story_comment_34, story_comment_35, story_comment_36, story_comment_37, story_comment_38, story_comment_39, story_comment_40, story_comment_41, story_comment_42, story_comment_43, story_comment_44, story_comment_45, story_comment_46, story_comment_47, story_comment_48, story_comment_49, story_comment_50, story_comment_51, story_comment_52, story_comment_53, story_comment_54, story_comment_55, story_comment_56, story_comment_57, story_comment_58, story_comment_59, story_comment_60, story_comment_61, story_comment_62, story_comment_63, story_comment_64, story_comment_65, story_comment_66, story_comment_67, story_comment_68, story_comment_69, story_comment_70, story_comment_71, story_comment_72, story_comment_73, story_comment_74, story_comment_75, story_comment_76, story_comment_77, story_comment_78, story_comment_79, story_comment_80, story_comment_81, story_comment_82, story_comment_83, story_comment_84, story_comment_85, story_comment_86, story_comment_87, story_comment_88, story_comment_89, story_comment_90, story_comment_91, story_comment_92, story_comment_93, story_comment_94, story_comment_95, story_comment_96, story_comment_97, story_comment_98, story_comment_99, story_comment_100, story_comment_101, story_comment_102, story_comment_103, story_comment_104, story_comment_105, story_comment_106, story_comment_107, story_comment_108, story_comment_109, story_comment_110, story_comment_111, story_comment_112, story_comment_113, story_comment_114, story_comment_115, story_comment_116, story_comment_117, story_comment_118, story_comment_119, story_comment_120, story_comment_121, story_comment_122, story_comment_123, story_comment_124, story_comment_125, story_comment_126])
 
     db.session.commit()
 
@@ -1138,6 +2808,5 @@ def undo_users():
     else:
         db.session.execute(text("DELETE FROM tips"))
         db.session.execute(text("DELETE FROM users"))
-
-        
+    
     db.session.commit()
