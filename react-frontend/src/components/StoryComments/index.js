@@ -27,7 +27,7 @@ export default function StoryComments() {
   // const props = { storyId, currentUserId };
 
   useEffect(() => {
-    dispatch(getStoryComments(storyId));
+    // dispatch(getStoryComments(storyId));
   }, [dispatch, storyId]);
 
   // const commentsList = Object.values(/*storyComments*/);

@@ -1,48 +1,38 @@
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
 import * as storyActions from '../../store/stories'
+import { useDispatch } from 'react-redux'
+import { useModal } from '../../context/Modal.js'
 import { useHistory } from 'react-router-dom'
-import './CreateNewStory.css'
+import './UpdateStoryModal.css'
 
-const CreateNewStory = () => {
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
+const UpdateStoryModal = (story) => {
     const dispatch = useDispatch()
     const history = useHistory()
-
-    const sessionUser = useSelector(state => state.session.user)
-
-
-    const reset = () => {
-        setTitle('')
-        setBody('')
-    }
+    const { closeModal } = useModal()
+    const [title, setTitle] = useState(story.story.title)
+    const [body, setBody] = useState(story.story.body)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let storyId
 
-        const new_story = {
-            user_id: sessionUser.id,
+        const updatedStory = {
             title: title,
-            body: body,
+            body: body
         }
 
-        // console.log(new_story)
-        dispatch(storyActions.addNewStory(new_story)).then(async res => {
-            storyId = res.id
-            reset()
-            return history.push(`/stories/${storyId}`)
-        })
+        dispatch(storyActions.updateUserStory(story.story.id, updatedStory)).then(closeModal)
+        return history.push(`/stories/manage`)
     }
 
     return (
-        <>
-            <h1>Create a New Story</h1>
+        <div>
+            <div>
+                <h1>Update Story</h1>
+            </div>
             <form id='create-story-form' onSubmit={handleSubmit}>
                 <div>
                     <div>
-                        <label id='story-title-label' htmlFor='title'>Title</label>
+                        <label id='update-story-title-label' htmlFor='title'>Title</label>
                     </div>
                     <div>
                         <input
@@ -55,7 +45,7 @@ const CreateNewStory = () => {
                 </div>
                 <div>
                     <div>
-                        <label id='story-body-label' htmlFor='body'>Body</label>
+                        <label id='update-story-body-label' htmlFor='body'>Body</label>
                     </div>
                     <div>
                         <input
@@ -70,8 +60,11 @@ const CreateNewStory = () => {
                     <button type='submit' id='submit-new-story-button'>Submit</button>
                 </div>
             </form>
-        </>
+            <div>
+                <button onClick={closeModal}>Cancel</button>
+            </div>
+        </div>
     )
 }
 
-export default CreateNewStory;
+export default UpdateStoryModal;

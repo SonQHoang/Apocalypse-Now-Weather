@@ -9,6 +9,7 @@ import StoryComments from "./components/StoryComments";
 import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
+import ManageStories from "./components/ManageStories";
 
 import Tips from "./components/Tips"
 
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/forecast">
             {/* Need to add Forecast Component */}
+          </Route>
+          <Route exact path='/stories/manage'>
+            <ManageStories />
           </Route>
           <Route path='/stories/new'>
             <CreateNewStory />
