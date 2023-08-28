@@ -10,6 +10,7 @@ import DeleteCommentModal from "../DeleteCommentModal";
 import EditCommentModal from "../UpdateCommentModal";
 
 
+
 export default function StoryComments() {
   const storyId = useParams().storyId;
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function StoryComments() {
   // const props = { storyId, currentUserId };
 
   useEffect(() => {
-    dispatch(getComments(storyId));
+    dispatch(getStoryComments(storyId));
   }, [dispatch, storyId]);
 
   // const commentsList = Object.values(/*storyComments*/);
