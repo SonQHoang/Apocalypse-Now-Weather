@@ -1,4 +1,5 @@
 from collections import defaultdict
+from app.models import db, StoryComment
 
 story_comments = [
     {
@@ -35,7 +36,7 @@ story_comments = [
         "user_id": 3,
         "date_created": "2023-08-23T09:34:00-07:00",
         "body": "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
-    }, 
+    },
     {
         "id": 6,
         "story_id": 5,
@@ -230,7 +231,7 @@ story_comments = [
         "user_id": 23,
         "date_created": "2023-08-23T09:34:00-07:00",
         "body": "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!"
-    }, 
+    },
     {
         "id": 34,
         "story_id": 33,
@@ -314,7 +315,7 @@ story_comments = [
         "user_id": 34,
         "date_created": "2023-08-23T09:34:00-07:00",
         "body": "Just another normal day of bad weather..."
-    }, 
+    },
     {
         "id": 46,
         "story_id": 45,
@@ -405,7 +406,7 @@ story_comments = [
         "user_id": 44,
         "date_created": "2023-08-23T09:34:00-07:00",
         "body": "Wow, that's insane. I never knew this was a thing..."
-    }, 
+    },
     {
         "id": 59,
         "story_id": 58,
@@ -901,3 +902,9 @@ for comment in story_comments:
 # Print the comment counts for each story_id
 for story_id, count in comment_counts.items():
     print(f"Story ID {story_id} has {count} comments.")
+
+def seed_comments():
+    for comment in story_comments:
+        comments = StoryComment(comment)
+        db.session.add(comments)
+        db.session.commit()

@@ -24,17 +24,18 @@ def post_comment():
         db.session.commit()
         return jsonify(new_comment.to_dict()), 201
 
-@bp.route("/api/stories/<storyId>/comments", methods=['PUT'])
+@bp.route("/api/stories/<storyId>/comments/<commentId>", methods=['PUT'])
 def post_comment():
-    form = PutComment()
+    form = PostComment()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        new_comment = StoryComment(**data)
+        edited_comment = StoryComment(**data)
+        comment = StoryComment.query.get(id)
         db.session.add(new_comment)
         db.session.commit()
         return jsonify(new_comment.to_dict()), 201
-
+    # ask how we should probably incorporate this
 
 
 @bp.route('/api/stories/<storyId>/comments/<commentId>', methods=['DELETE'])
