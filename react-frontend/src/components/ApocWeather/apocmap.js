@@ -6,7 +6,7 @@ import './apocmap.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
 import apocWeatherConverter from './apocweatherfunc';
-
+import placeholderWeatherData from './weatherdataplaceholder';
 
 
 
@@ -40,7 +40,7 @@ function CustomMarker({ map }) {
 }
 
 function ApocMap() {
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState(placeholderWeatherData);
   const [map, setMap] = useState(null);
   const [iconSize, setIconSize] = useState(25);
 
@@ -138,8 +138,8 @@ return (
     </section>
     <section className='detailed_weather'>
       <h1>Detailed Information</h1>
-      <p> {weatherData ? `Temperature: ${weatherData.current_weather.temperature}` : 'Loading...'}</p>
-      <p>Current Situation: {apocWeatherConverter(weatherData.current_weather.weathercode).name} </p>
+      <p>Temperature: {weatherData.current_weather.temperature}</p>
+      <p>Current Situation: {apocWeatherConverter(weatherData.current_weather.weathercode).name}</p>
       <p>Description of situation: {apocWeatherConverter(weatherData.current_weather.weathercode).description}</p>
     </section>
   </>
