@@ -9,6 +9,10 @@ import StoryComments from "./components/StoryComments";
 import ApocMap from "./components/ApocWeather/apocmap";
 import { Provider } from 'react-redux';
 import {store} from './index'
+import StoriesComponent from "./components/Stories";
+import SingleStoryComponent from "./components/SingleStory";
+import CreateNewStory from "./components/CreateNewStory";
+
 import Tips from "./components/Tips"
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -35,8 +39,14 @@ function App() {
           <Route path="/forecast">
            <ApocMap/>
           </Route>
+          <Route path='/stories/new'>
+            <CreateNewStory />
+          </Route>
+          <Route path='/stories/:id'>
+            <SingleStoryComponent />
+          </Route>
           <Route path="/stories">
-            {/* Need to add Stories Component */}
+            <StoriesComponent />
           </Route>
           <Route path="/tips">
             <Tips/>
