@@ -19,6 +19,7 @@ export const addComment = (comment) => {
 };
 
 export const getComments = (storyId) => async (dispatch) => {
+  console.log('we hit this')
   const response = await fetch(`/api/stories/${storyId}/comments`, {
     method: "GET",
   });

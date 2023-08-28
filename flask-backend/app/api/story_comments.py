@@ -8,12 +8,13 @@ from app.models.comment import StoryComment
 bp = Blueprint("story_comments", __name__)
 
 
-@bp.route("/api/stories/<storyId>/comments", methods=['GET'])
+@bp.route("api/stories/<int:storyId>/comments", methods=['GET'])
 def story_comments():
+    print('were hitting this')
     comments = StoryComment.query.all()
     return jsonify([comments.to_dict() for comment in comments])
 
-@bp.route("/api/stories/<storyId>/comments", methods=['POST'])
+@bp.route("/api/stories/<int:storyId>/comments", methods=['POST'])
 def post_comment():
     form = PostComment()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -24,7 +25,7 @@ def post_comment():
         db.session.commit()
         return jsonify(new_comment.to_dict()), 201
 
-@bp.route("/api/stories/<storyId>/comments/<commentId>", methods=['PUT'])
+@bp.route("/api/stories/<int:storyId>/comments/<int:commentId>", methods=['PUT'])
 def post_comment():
     form = PostComment()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -32,13 +33,13 @@ def post_comment():
         data = form.data
         edited_comment = StoryComment(**data)
         comment = StoryComment.query.get(id)
-        db.session.add(new_comment)
+        db.session.add(edited_comment)
         db.session.commit()
-        return jsonify(new_comment.to_dict()), 201
+        return jsonify(edited_comment.to_dict()), 201
     # ask how we should probably incorporate this
 
 
-@bp.route('/api/stories/<storyId>/comments/<commentId>', methods=['DELETE'])
+@bp.route('/api/stories/<int:storyId>/comments/<int:commentId>', methods=['DELETE'])
 def delete_comment(id):
     comment = StoryComment.query.get(id)
     if comment:
