@@ -5,7 +5,6 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import StoryComments from "./components/StoryComments";
 import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";

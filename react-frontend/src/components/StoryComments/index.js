@@ -12,23 +12,23 @@ import EditCommentModal from "../UpdateCommentModal";
 
 
 export default function StoryComments() {
-  const storyId = useParams().storyId;
+  const storyId = useParams().id;
   const dispatch = useDispatch();
-  // const storyComments = useSelector((state) => state.stories.comments);
-  // const ownerId = useSelector((state) => state.spots.story.ownerId);
-  // const currentUser = useSelector((state) => state.session.user);
+  const storyComments = useSelector((state) => state.stories.comments);
+  const ownerId = useSelector((state) => state.stories.user_id);
+  const currentUser = useSelector((state) => state.session.user);
 
 
 
-  // let currentUserId;
-  // if (currentUser && currentUser.id) {
-  //   currentUserId = currentUser.id;
-  // }
-  // const props = { storyId, currentUserId };
+  let currentUserId;
+  if (currentUser && currentUser.id) {
+    currentUserId = currentUser.id;
+  }
+  const props = { storyId, currentUserId };
 
-  // useEffect(() => {
-  //   dispatch(getStoryComments(storyId));
-  // }, [dispatch, storyId]);
+  useEffect(() => {
+    dispatch(getComments(storyId));
+  }, [dispatch, storyId]);
 
   // const commentsList = Object.values(/*storyComments*/);
 
