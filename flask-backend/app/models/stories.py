@@ -21,5 +21,5 @@ class Stories(db.Model):
             "title": self.title,
             "body": self.body,
             "date_created": self.date_created,
-            "author": self.author.to_dict()
+            # "author": self.author.to_dict()
         }

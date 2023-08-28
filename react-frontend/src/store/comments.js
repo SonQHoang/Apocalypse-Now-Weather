@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from "./csrf"
 import { getStory } from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
@@ -31,7 +31,7 @@ export const getComments = (storyId) => async (dispatch) => {
   }
 };
 
-export const postComment = (spotId, payload) => async (dispatch) => {
+export const postComment = (storyId, payload) => async (dispatch) => {
   const response = await csrfFetch(`/api/stories/${storyId}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ export const postComment = (spotId, payload) => async (dispatch) => {
   if (response.ok) {
     const comment = await response.json();
     dispatch(getComments(storyId));
-    dispatch(getStories(storyId))
+    // dispatch(getStories(storyId))
     return comment;
   }
 };
@@ -52,8 +52,8 @@ export const deleteComment = (id, storyId) => async (dispatch) => {
   });
   if (response.ok) {
     const comment = await response.json();
-    const waiting = await dispatch(getComments(storyId))
-    const stillWaiting = await dispatch(getStory(storyId))
+    // const waiting = await dispatch(getComments(storyId))
+    // const stillWaiting = await dispatch(getStory(storyId))
     return comment;
   }
 }
