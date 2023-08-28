@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String, nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     location = db.Column(db.String, nullable=False)
+    latitude = db.Column(db.Float, nullable=True)
+    longitude = db.Column(db.Float, nullable=True)
     # location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
     email = db.Column(db.String(255), nullable=False, unique=True)
     prepper_type = db.Column(db.String)
@@ -56,4 +58,3 @@ class User(db.Model, UserMixin):
             "bio": self.bio,
             "password": self.password
         }
-

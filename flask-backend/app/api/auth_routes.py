@@ -54,6 +54,27 @@ def logout():
     return {'message': 'User logged out'}
 
 
+
+
+prepper_descriptions = {
+    'Nuclear Prepper': 'These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.',
+    'EMP/Solar Flare Prepper': 'They focus on the possibility of an EMP, either from a solar flare or as a weaponized attack. Their main concern is the loss of electrical devices and grid collapse. They often have Faraday cages to protect essential electronics, solar panels, and manual tools.',
+    'Economic Collapse Prepper': 'These preppers believe that economic systems might collapse, leading to hyperinflation, loss of savings, and widespread societal chaos. They invest in precious metals, barter items, and self-sufficiency tools.',
+    'Pandemic Prepper': 'Especially relevant after events like the COVID-19 pandemic, these individuals prepare for widespread disease outbreaks. They stock up on medical supplies, masks, sanitation items, and often have quarantine protocols.',
+    'Natural Disaster Prepper': 'Depending on their location, they may prepare for hurricanes, earthquakes, tsunamis, tornadoes, floods, etc. This includes securing homes, having emergency rations, water purification methods, and evacuation plans.',
+    'Biological/Chemical Attack Prepper': 'These preppers focus on potential terrorist attacks using biological or chemical agents. They might have hazmat suits, gas masks, and specific antidotes or treatments for certain toxins.',
+    'Cyber-Attack Prepper': 'With the increasing dependence on technology, some preppers anticipate significant cyber-attacks that could cripple infrastructures. They prioritize cybersecurity, offline backups, and methods to function without internet.',
+    'Civil Unrest or Martial Law Prepper': 'They prepare for scenarios where societal structures break down due to political instability, civil war, or other factors. These preppers focus on security, off-grid living, and community-building.',
+    'Ecological/Environmental Prepper': 'Concerned about scenarios such as drastic climate change, loss of biodiversity, or massive pollution events, these individuals might focus on sustainable living, permaculture, and relocating to less vulnerable areas.',
+    'Peak Oil/Resource Depletion Prepper': 'They prepare for a world where key resources (like oil) become scarce, driving societal change. Their preparation often includes renewable energy sources and skills that don\'t rely on fossil fuels.',
+    'Alien Invasion Prepper': 'While much less common, some believe in the possibility of extraterrestrial threats. Their preparations might seem eclectic, ranging from creating community alliances to researching perceived alien technologies.',
+    'Zombie Apocalypse Prepper': 'Inspired more by pop culture than a perceived real threat, these preppers plan for a world overrun by the undead or some form of societal collapse where humans turn on each other en masse.',
+    'Generalist Prepper': 'Not focusing on one specific threat, these preppers believe in being ready for a wide range of scenarios. Their preps are often more broad-based, encompassing elements from several of the above categories.'
+}
+
+
+
+
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
     """
@@ -65,7 +86,12 @@ def sign_up():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            latitude=form.data['latitude'],
+            longitude=form.data['longitude'],
+            prepper_type=form.data['prepper_type'],
+            prepper_description=prepper_descriptions.get(form.data['prepper_type'], ''),
+            bio=form.data['bio']
         )
         db.session.add(user)
         db.session.commit()
