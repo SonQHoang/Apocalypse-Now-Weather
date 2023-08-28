@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf"
-import { getStory } from "./stories";
+import { getOneStory} from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
@@ -58,7 +58,7 @@ export const deleteComment = (id, storyId) => async (dispatch) => {
   if (response.ok) {
     const comment = await response.json();
     const waiting = await dispatch(getComments(storyId))
-    const stillWaiting = await dispatch(getStory(storyId))
+    const stillWaiting = await dispatch(getOneStory(storyId))
     return comment;
   }
 }
