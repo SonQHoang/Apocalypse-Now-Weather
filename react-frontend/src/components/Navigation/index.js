@@ -9,6 +9,7 @@ function Navigation({ isLoaded }) {
 
 	return (
 		<nav className="navbar">
+
 			<div className="nav-container">
 				<ul className="nav-left">
 					<li>
