@@ -9,7 +9,7 @@ const TipsAddModal = ({onClose, onAddTip }) => {
     const titleInputRef = useRef()
     const [title , setTitle] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [tip, setTip] = useState("")
+    const [body, setBody] = useState("")
 
     const handleClickOutside = (e) => {
         if (modalOverlayRef.current === e.target) {
@@ -25,20 +25,20 @@ const TipsAddModal = ({onClose, onAddTip }) => {
     }
 
     const handleTipChange = (e) => {
-        setTip(e.target.value)
+        setBody(e.target.value)
     }
 
     const handleSubmit = (e) => {
         const newTip = {
             title: title,
             weather_category: selectedCategory,
-            tip: tip,
+            body: body,
         }
         // console.log('am I getting data here====>', newTip)
         dispatch(createTip(newTip))
 
         setSelectedCategory("");
-        setTip("");
+        setBody("");
         setTitle("")
         onAddTip(newTip)
         onClose();
@@ -61,14 +61,15 @@ const TipsAddModal = ({onClose, onAddTip }) => {
                     {/* <label>Weather Category</label> */}
                     <select id="weatherCategory" value={selectedCategory} onChange={handleCategoryChange}>
                         <option value="">Select the Weather Category</option>
-                        <option value="Sunny">Sunny</option>
-                        <option value="Rainy">Rainy</option>
-                        <option value="Cloudy">Cloudy</option>
+                        <option value="Natural_Disasters">Natural Diasters </option>
+                        <option value="Supernatural_Phenomena">Supernatural Phenomena</option>
+                        <option value="Mystical_Elements">Mystical Elements</option>
+                        <option value="Paranormal_Chaos">Paranormal Chaos</option>
                     </select>
                 </div>
                 <div>
                     {/* <label htmlFor="tip">Leave your tip here</label> */}
-                    <textarea id="tip" value={tip} onChange={handleTipChange}/>
+                    <textarea id="tip" value={body} onChange={handleTipChange}/>
                 </div>
                 {/* <div>Date Created</div> */}
                 <button onClick={handleSubmit}>Submit Your Tip</button>

@@ -6,6 +6,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Tips from "./components/Tips"
+import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
+
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
 
 function App() {
@@ -36,9 +38,10 @@ function App() {
           <Route path="/stories">
             {/* Need to add Stories Component */}
           </Route>
-          <Route path="/tips">
+          <Route exact path="/tips">
             <Tips/>
           </Route>
+          <Route exact path="/tips/:tipId" component={TipDetailsPage} />
         </Switch>
       )}
     </>

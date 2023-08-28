@@ -7,7 +7,7 @@ const GET_USER_TIPS = "tips/userTips"
 const GET_TIP_BY_ID = "tips/tipById"
 
 const acCreateTip = (tips) => {
-    console.log('Is my tip data coming here yet?======>', tips)
+    // console.log('Is my tip data coming here yet?======>', tips)
     return {
         type: CREATE_TIP,
         tips,
@@ -22,12 +22,6 @@ const acGetAllTips = (tips) => {
     }
 }
 
-const acDeleteTips = (tips) => {
-    return {
-        type: DELETE_TIP,
-        tips
-    }
-}
 const acGetUserTips = (tips) => {
     return {
         type: GET_USER_TIPS,
@@ -35,6 +29,7 @@ const acGetUserTips = (tips) => {
     }
 }
 const acGetTipById = (tipId) => {
+    console.log('Does tipId contain the expected payload====> Yes', tipId)
     return {
         type: GET_TIP_BY_ID,
         tipId
@@ -88,7 +83,36 @@ export const getAllTips = () => async (dispatch) => {
 export const getUserTips = () => async (dispatch) => {
 }
 
+// export const getTipById = (tipId) => async (dispatch) => {
+//     console.log('this is my tipId====>', tipId)
+//     try {
+//         const response = await fetch(`/spots/${tipId}`);
+//         if (response.ok) {
+//             const tip = await response.json();
+
+//             dispatch(acGetTipById(tip))
+//         } else {
+//             throw new Error('Failed to fetch spot by ID')
+//         }
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+
 export const getTipById = (tipId) => async (dispatch) => {
+    console.log('Does tipId give me a number?====> Yes', tipId)
+    try {
+        const response = await fetch(`/tips/${tipId}`)
+        console.log('Am I getting a 200 response?====> Yes', response)
+        if (response.ok) {
+            const tip = await response.json()
+            console.log('Does the tip have all the data I need?====> Yes', tip)
+            
+            dispatch(acGetTipById(tip))
+        }
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 export const deleteTips = (tipId) => async (dispatch) => {
@@ -134,15 +158,22 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case DELETE_TIP: {
-            const stateObject = {}
-            state.allTips.forEach((tip) => {
-                stateObject[tip.id] = tip
-            })
-            delete stateObject[action.tipId]
-            const stateArray = Object.values(stateObject)
+            // const stateObject = {}
+            // state.allTips.forEach((tip) => {
+            //     stateObject[tip.id] = tip
+            // })
+            // delete stateObject[action.tipId]
+            // const stateArray = Object.values(stateObject)
+            // return {
+            //     ...state,
+            //     allTips: stateArray
+            // }
+            const updatedTips = { ...state.allTips };
+            delete updatedTips[action.tipId];
+
             return {
                 ...state,
-                allTips: stateArray
+                allTips: updatedTips
             }
         }
 
