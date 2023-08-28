@@ -8,6 +8,8 @@ function Tips() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [submittedTips, setSubmittedTips] = useState([])
 
+    console.log('These are the new tips that users are creating====>', submittedTips)
+
     const handleCloseModal = () => {
         setIsModalOpen(false);
     }
@@ -28,24 +30,20 @@ function Tips() {
                 {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />}
             </div>
 
-            <div className="submitted-tips">
+        {/* <div className="submitted-tips">
                 <h2>Submitted Tips:</h2>
-                <ul>
-                    {submittedTips.map((tip, index) => (
-                        <li key={index}>
-                            <div className="tip-content">
-                                {tip.title}<br />
-                                {tip.weather_category}<br />
-                                {tip.tip}
+                    {submittedTips.map((tip) => (
+                            <div className="tip-content" key={tip.id}>
+                                <p>Title: {tip.title}</p>
+                                <p>Weather Category: {tip.weather_category}</p>
+                                <p>Body: {tip.body}</p>
                             </div>
-                        </li>
                     ))}
-            </ul>
-        </div >
+        </div > */}
 
         <div className="all-tips">
                 <ul>
-                    <GetAllTips />
+                    <GetAllTips onAddTip={handleAddTip}/>
                 </ul>
             </div>
             </div>

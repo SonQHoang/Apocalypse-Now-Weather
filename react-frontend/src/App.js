@@ -14,6 +14,8 @@ import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 
 import Tips from "./components/Tips"
+import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
+
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
 
@@ -48,9 +50,10 @@ function App() {
           <Route path="/stories">
             <StoriesComponent />
           </Route>
-          <Route path="/tips">
+          <Route exact path="/tips">
             <Tips/>
           </Route>
+          <Route exact path="/tips/:tipId" component={TipDetailsPage} />
         </Switch>
       )}
     </>
