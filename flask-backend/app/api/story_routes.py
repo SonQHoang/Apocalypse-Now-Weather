@@ -53,10 +53,10 @@ def update_story(id):
     curr_story = Stories.query.get(id)
     title = request.json["title"]
     body = request.json["body"]
-    print("CURRENT STORY TITLE: ", curr_story.title)
-    print("CURRENT STORY BODY: ", curr_story.body)
-    print("UPDATED STORY TITLE: ", title)
-    print("UPDATED STORY BODY: ", body)
+    # print("CURRENT STORY TITLE: ", curr_story.title)
+    # print("CURRENT STORY BODY: ", curr_story.body)
+    # print("UPDATED STORY TITLE: ", title)
+    # print("UPDATED STORY BODY: ", body)
     curr_story.title = title
     curr_story.body = body
     updated_story = curr_story
