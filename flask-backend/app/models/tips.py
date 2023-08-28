@@ -6,7 +6,7 @@ class Tips(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    weather_category = db.Column(db.Integer, nullable=False)
+    weather_category = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
     body = db.Column(db.String, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
