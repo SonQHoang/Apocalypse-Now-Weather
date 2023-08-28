@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 from collections import defaultdict
 from app.models import db, StoryComment
-=======
-# from collections import defaultdict
->>>>>>> main
 
 story_comments = [
     {
@@ -903,18 +899,6 @@ story_comments = [
 #     story_id = comment['story_id']
 #     comment_counts[story_id] += 1
 
-<<<<<<< HEAD
-# Print the comment counts for each story_id
-for story_id, count in comment_counts.items():
-    print(f"Story ID {story_id} has {count} comments.")
-
-def seed_comments():
-    for comment in story_comments:
-        comments = StoryComment(comment)
-        db.session.add(comments)
-        db.session.commit()
-=======
 # # Print the comment counts for each story_id
 # for story_id, count in comment_counts.items():
 #     print(f"Story ID {story_id} has {count} comments.")
->>>>>>> main
