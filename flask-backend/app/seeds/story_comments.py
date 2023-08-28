@@ -1,4 +1,4 @@
-from collections import defaultdict
+# from collections import defaultdict
 
 story_comments = [
     {
@@ -891,13 +891,13 @@ story_comments = [
     },
 ]
 
-comment_counts = defaultdict(int)
+# comment_counts = defaultdict(int)
 
-# Count the comments for each story_id
-for comment in story_comments:
-    story_id = comment['story_id']
-    comment_counts[story_id] += 1
+# # Count the comments for each story_id
+# for comment in story_comments:
+#     story_id = comment['story_id']
+#     comment_counts[story_id] += 1
 
-# Print the comment counts for each story_id
-for story_id, count in comment_counts.items():
-    print(f"Story ID {story_id} has {count} comments.")
+# # Print the comment counts for each story_id
+# for story_id, count in comment_counts.items():
+#     print(f"Story ID {story_id} has {count} comments.")
