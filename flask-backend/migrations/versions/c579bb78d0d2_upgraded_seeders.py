@@ -1,8 +1,8 @@
-"""Migration
+"""Upgraded seeders
 
-Revision ID: 1c54d8e7ef59
+Revision ID: c579bb78d0d2
 Revises: 
-Create Date: 2023-08-27 16:38:55.274919
+Create Date: 2023-08-28 08:30:25.299953
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1c54d8e7ef59'
+revision = 'c579bb78d0d2'
 down_revision = None
 branch_labels = None
 depends_on = None
