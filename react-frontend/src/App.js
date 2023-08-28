@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import StoryComments from "./components/StoryComments";
+import StoriesComponent from "./components/Stories";
+import SingleStoryComponent from "./components/SingleStory";
+import CreateNewStory from "./components/CreateNewStory";
 
 import Tips from "./components/Tips"
 
@@ -36,8 +39,14 @@ function App() {
           <Route path="/forecast">
             {/* Need to add Forecast Component */}
           </Route>
+          <Route path='/stories/new'>
+            <CreateNewStory />
+          </Route>
+          <Route path='/stories/:id'>
+            <SingleStoryComponent />
+          </Route>
           <Route path="/stories">
-            {/* Need to add Stories Component */}
+            <StoriesComponent />
           </Route>
           <Route path="/tips">
             <Tips/>

@@ -1,4 +1,5 @@
-// import { getStory } from "./stories";
+import { csrfFetch } from "./csrf"
+import { getStory } from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
@@ -42,7 +43,7 @@ export const postComment = (storyId, payload) => async (dispatch) => {
   if (response.ok) {
     const comment = await response.json();
     dispatch(getComments(storyId));
-    // dispatch(getStory(storyId))
+    // dispatch(getStories(storyId))
     return comment;
   }
 };
