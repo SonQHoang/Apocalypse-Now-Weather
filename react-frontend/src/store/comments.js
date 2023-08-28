@@ -1,22 +1,22 @@
-// import { getStory } from "./stories";
+import { getStory } from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
 const PUT_COMMENTS = "comments/update";
 
-// export const getStoryComments = (storyId) => {
-//   return {
-//     type: GET_COMMENTS,
-//     comments: storyId.comments,
-//   };
-// };
+export const getStoryComments = (storyId) => {
+  return {
+    type: GET_COMMENTS,
+    comments: storyId.comments,
+  };
+};
 
-// export const addComment = (comment) => {
-//   return {
-//     type: POST_COMMENTS,
-//     comment,
-//   };
-// };
+export const addComment = (comment) => {
+  return {
+    type: POST_COMMENTS,
+    comment,
+  };
+};
 
 export const getComments = (storyId) => async (dispatch) => {
   const response = await fetch(`/api/stories/${storyId}/comments`, {
@@ -57,34 +57,34 @@ export const deleteComment = (id, storyId) => async (dispatch) => {
   if (response.ok) {
     const comment = await response.json();
     const waiting = await dispatch(getComments(storyId))
-    // const stillWaiting = await dispatch(getStory(storyId))
+    const stillWaiting = await dispatch(getStory(storyId))
     return comment;
   }
 }
 
-// const initalState = {
-//   story: {},
-//   user: {},
-// };
+const initalState = {
+  story: {},
+  user: {},
+};
 
-// const commentsReducer = (state = initalState, action) => {
-//   let newState;
-//   switch (action.type) {
-//     case GET_COMMENTS:
-//       newState = Object.assign({}, state);
-//       let newObject = {}
-//       action.comments.forEach(comment => {
-//         newObject[comment.id] = comment
-//       })
-//       newState.spot = newObject;
-//       return newState;
-//     case POST_COMMENTS:
-//       newState = Object.assign({}, state);
-//       newState.story = action.comment;
-//       return newState;
-//     default:
-//       return state;
-//   }
-// };
+const commentsReducer = (state = initalState, action) => {
+  let newState;
+  switch (action.type) {
+    case GET_COMMENTS:
+      newState = Object.assign({}, state);
+      let newObject = {}
+      action.comments.forEach(comment => {
+        newObject[comment.id] = comment
+      })
+      newState.spot = newObject;
+      return newState;
+    case POST_COMMENTS:
+      newState = Object.assign({}, state);
+      newState.story = action.comment;
+      return newState;
+    default:
+      return state;
+  }
+};
 
-// export default commentsReducer;
+export default commentsReducer;
