@@ -13,12 +13,12 @@ function PostCommentModal(props) {
   const dispatch = useDispatch();
 
   const [comment, setComment] = useState("");
-  // const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
-  let isDisabled = false;
-  // if (comment.length > 0) {
-  //   isDisabled = false;
-  // }
+  let isDisabled = true;
+  if (comment.length > 0) {
+    isDisabled = false;
+  }
 
   const submitComment = async (e) => {
     e.preventDefault();

@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
-from app.models import Stories
 
-class PostComment(FlaskForm):
-    body = StringField("body", validators=[DataRequired()])
 
+class CommentForm(FlaskForm):
+    commentBody = StringField("Caption", validators=[DataRequired()])
+    userId = IntegerField("user_id",validators=[DataRequired()])
+    storyId = IntegerField("story_id", validators=[DataRequired()])
