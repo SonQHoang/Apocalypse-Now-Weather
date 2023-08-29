@@ -1,0 +1,43 @@
+#update-story-modal-container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    border: 3px solid #ff7518;
+    background-color: #2f2f2f;
+    border-radius: 20px;
+    color: #ff7518;
+}
+
+#update-story-button-container {
+    margin-left: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#update-story-title-input {
+    width: 300px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#update-story-body-input {
+    width: 300px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+#update-story-title-label {
+    text-align: center;
+}
+
+#update-story-body-label {
+    text-align: center;
+}
+
+#submit-updated-story-button, #cancel-story-update-button {
+    font-family: 'Montserrat', sans-serif;
+}
