@@ -1,8 +1,8 @@
-"""Corrected a typo
+"""Updated table
 
-Revision ID: 02d07ff4662d
+Revision ID: 91ee0fd57f47
 Revises: 
-Create Date: 2023-08-28 08:35:00.253622
+Create Date: 2023-08-28 16:43:34.822273
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '02d07ff4662d'
+revision = '91ee0fd57f47'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -53,7 +53,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('tips',
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('weather_category', sa.String(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
