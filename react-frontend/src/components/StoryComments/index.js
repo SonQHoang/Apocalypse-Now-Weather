@@ -11,33 +11,19 @@ import EditCommentModal from "../UpdateCommentModal";
 
 
 
-export default function StoryComments() {
-    const storyId = useParams().storyId;
-    const dispatch = useDispatch();
-    // const storyComments = useSelector((state) => state.stories.comments);
-    // const ownerId = useSelector((state) => state.spots.story.ownerId);
-    // const currentUser = useSelector((state) => state.session.user);
-    // let currentUserId;
-    // if (currentUser && currentUser.id) {
-    //   currentUserId = currentUser.id;
-    // }
-    // const props = { storyId, currentUserId };
-    useEffect(() => {
-      dispatch(getComments(storyId));
-    }, [dispatch, storyId]);
-    // const commentsList = Object.values(/*storyComments*/);
-  //   let createdAtSplit;
-  //   let year;
-  //   let month;
-  //   if(Object.keys(commentsList)){
-  //   let createdAtDate = commentsList.map((comment) => (
-  //     createdAtSplit = comment.createdAt.split('-'),
-  //     year = createdAtSplit[0],
-  //     month = createdAtSplit[1],
-  //     comment.createdAt = `${month} ${year}`
-  //     ))
-  // }
-  // const props = { storyId, currentUserId };
+export default function StoryComments(prop) {
+  const dispatch = useDispatch();
+  const storyComments = useSelector((state) => state.comments);
+  const currentUser = useSelector((state) => state.session.user);
+  const storyId = prop.props
+
+
+
+  let currentUserId;
+  if (currentUser && currentUser.id) {
+    currentUserId = currentUser.id;
+  }
+  const props = { storyId, currentUserId };
 
   useEffect(() => {
     dispatch(getComments(storyId));
