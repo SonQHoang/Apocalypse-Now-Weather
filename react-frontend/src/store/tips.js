@@ -50,7 +50,7 @@ export const createTip = (data, userId) => async (dispatch) => {
     try {
         const response = await fetch(`/${userId}/tips`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content`-Type": "application/json" },
             body: JSON.stringify(data)
         });
         if (response.ok) {
