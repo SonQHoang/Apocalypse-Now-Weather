@@ -9,6 +9,7 @@ const SingleStoryComponent = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
 
+
     const currentStory = useSelector((state) => state.stories.singleStory)
 
     // console.log(id, typeof id)
@@ -26,7 +27,7 @@ const SingleStoryComponent = () => {
                 <p>{isLoaded && currentStory && currentStory?.body}</p>
             </div>
             <div className="comments-container">
-                <StoryComments />
+                <StoryComments props={id}/>
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
-import { postComment } from "../../store/comments";
+// import { postComment } from "../../store/comments";
 import React, { useState } from "react";
 import "./PostCommentModal.css";
 
@@ -10,7 +10,7 @@ function PostCommentModal(props) {
   // const storyId  = props.props.storyId;
   // const userId  = props.props.currentUserId
   const { closeModal } = useModal();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,11 +23,11 @@ function PostCommentModal(props) {
   const submitComment = async (e) => {
     e.preventDefault();
 
-    const newComment = {
+    // const newComment = {
       // userId,
       // storyId,
       // comment,
-    };
+    // };
 
     // await dispatch(postComment(storyId, newComment)).catch(async (res) => {
     //   const data = await res.json();

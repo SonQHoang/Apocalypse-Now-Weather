@@ -11,12 +11,11 @@ import EditCommentModal from "../UpdateCommentModal";
 
 
 
-export default function StoryComments() {
-  const storyId = useParams().id;
+export default function StoryComments(prop) {
   const dispatch = useDispatch();
-  const storyComments = useSelector((state) => state.stories.comments);
-  const ownerId = useSelector((state) => state.stories.user_id);
+  const storyComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
+  const storyId = prop.props
 
 
 
@@ -30,7 +29,8 @@ export default function StoryComments() {
     dispatch(getComments(storyId));
   }, [dispatch, storyId]);
 
-  // const commentsList = Object.values(/*storyComments*/);
+  const commentsList = Object.values(storyComments);
+  console.log('this is it', commentsList)
 
 
 //   let createdAtSplit;
@@ -58,32 +58,32 @@ export default function StoryComments() {
          }
       </div>
       <div className="comments-div-holder">
-        {/* {commentsList.map(({ id, comment, User, createdAt, storyId }) => ( */}
-          <div /*key={id}*/ className="spot-single-comment-div">
+        {commentsList.map(({ id, body, user_id, date_created, storyId }) => (
+          <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
-            <div className="comment-created-date">createdAt</div>
-            <div className="comment-comment">comment</div>
-            {/*User.id === currentUserId &&*/  (
+            <div className="comment-created-date">{date_created}</div>
+            <div className="comment-comment">{body}</div>
+            {user_id === currentUserId &&  (
               <>
                 {" "}
                   { <OpenModal
                     buttonText="Update"
                     modalComponent={
-                      <EditCommentModal props={{/* id, storyId */ }} />
+                      <EditCommentModal props={{ id, storyId }} />
                     }
                   /> }
 
                   { <OpenModal
                     buttonText="Delete"
                     modalComponent={
-                      <DeleteCommentModal props={{ /*id, storyId*/ }} />
+                      <DeleteCommentModal props={{ id, storyId }} />
                     }
                   /> }
 
               </>
             )}
           </div>
-        {/* ))} */}
+        ))}
       </div>
     </div>
   );

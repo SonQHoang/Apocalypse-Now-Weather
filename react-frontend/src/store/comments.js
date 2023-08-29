@@ -4,10 +4,10 @@ const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
 const PUT_COMMENTS = "comments/update";
 
-export const getStoryComments = (storyId) => {
+export const getStoryComments = (data) => {
   return {
     type: GET_COMMENTS,
-    comments: storyId.comments,
+    comments: data
   };
 };
 
@@ -20,7 +20,8 @@ export const addComment = (comment) => {
 
 //get comments thunk creator
 export const getComments = (storyId) => async (dispatch) => {
-  const response = await fetch(`${storyId}/comments`, {
+
+  const response = await fetch(`/api/story-comments/${storyId}`, {
     method: "GET",
   });
   const data = await response.json();
@@ -74,10 +75,11 @@ const commentsReducer = (state = initalState, action) => {
       newState = Object.assign({}, state);
       // console.log(' this is what im logging ', newState)
       let newObject = {}
+
       action.comments.forEach(comment => {
         newObject[comment.id] = comment
       })
-      newState.spot = newObject;
+      newState = newObject;
       return newState;
     case POST_COMMENTS:
       newState = Object.assign({}, state);

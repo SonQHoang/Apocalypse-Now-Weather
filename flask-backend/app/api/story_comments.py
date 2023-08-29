@@ -1,21 +1,19 @@
 from flask import Blueprint, request, jsonify
 from app.models.db import db
-from app.models.comment import StoryComment
+from app.models.story_comments import StoryComments
 # from app.forms import PostComment
 
-bp = Blueprint("story_comments", __name__)
+story_comments = Blueprint("story_comments", __name__)
 
 
-@bp.route("stories/<int:id>/comments", methods=['GET'])
-def story_comments(id):
-    print('we hitting this')
-    comments = StoryComment.query.filter(StoryComment.story_id == id).all()
-    print(comments)
+@story_comments.route("/<int:id>", methods=['GET'])
+def get_story_comments(id):
+
+    comments = StoryComments.query.filter(StoryComments.story_id == id).all()
     result = [comment.to_dict() for comment in comments]
-    print(result)
     return jsonify(result)
 
-@bp.route("stories/comments", methods=['POST'])
+@story_comments.route("/stories/comments", methods=['POST'])
 def post_comment():
     form = PostComment()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -26,7 +24,7 @@ def post_comment():
         db.session.commit()
         return jsonify(new_comment.to_dict()), 201
 
-# @bp.route("stories/comments/<int:commentId>", methods=['PUT'])
+# @story_comments.route("stories/comments/<int:commentId>", methods=['PUT'])
 # def put_comment():
 #     form = PostComment()
 #     form['csrf_token'].data = request.cookies['csrf_token']
@@ -40,9 +38,9 @@ def post_comment():
     # ask how we should probably incorporate this
 
 
-@bp.route('stories/comments/<int:commentId>', methods=['DELETE'])
+@story_comments.route('stories/comments/<int:commentId>', methods=['DELETE'])
 def delete_comment(id):
-    comment = StoryComment.query.get(id)
+    comment = StoryComments.query.get(id)
     if comment:
         db.session.delete(comment)
         db.session.commit()
