@@ -8,20 +8,24 @@ import { useEffect, useState } from 'react';
 import './tips.css'
 
 function GetAllTips() {
-    const history = useHistory()
     const dispatch = useDispatch()
+    const history = useHistory()
     const [showModal, setShowModal] = useState(false)
     const [selectedTip, setSelectedTip] = useState(null)
     // const [ allTips, setAllTips] = useState([])
 
-    const tips = useSelector(state => Object.values(state.tips.allTips))
+    // const tips = useSelector(state => Object.values(state.tips.allTips))
+    // console.log('Does my tips change=========>', tips)
+
+    const tips = Object.values(useSelector(state => state.tips.allTips))
+    console.log('I currently have 80 tips====>', tips)
 
     useEffect(() => {
         dispatch(getAllTips());
     }, [dispatch]);
 
     const handleDeleteClick = (tip) => {
-        console.log("Delete button clicked for tip:", tip);
+        console.log("Does the delete button trigger with data?======> Yes", tip);
         setSelectedTip(tip)
         setShowModal(true)
     }

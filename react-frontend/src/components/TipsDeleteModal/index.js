@@ -22,7 +22,7 @@ const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
     }, [])
 
     const handleConfirmDelete = () => {
-        console.log("handleConfirmDelete is called");
+        console.log("Does pressing confirm delete send the data=====> Yes", tipId);
         dispatch(deleteTips(tipId))
         onSubmit();
     };
