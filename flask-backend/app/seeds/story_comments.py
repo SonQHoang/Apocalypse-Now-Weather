@@ -1,5 +1,5 @@
 from collections import defaultdict
-from app.models import db, StoryComment
+from app.models import db, story_comments
 
 story_comments = [
     {

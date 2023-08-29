@@ -5,10 +5,10 @@ const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
 const PUT_COMMENTS = "comments/update";
 
-export const getStoryComments = (storyId) => {
+export const getStoryComments = (data) => {
   return {
     type: GET_COMMENTS,
-    comments: storyId.comments,
+    comments: data
   };
 };
 
@@ -19,8 +19,10 @@ export const addComment = (comment) => {
   };
 };
 
+//get comments thunk creator
 export const getComments = (storyId) => async (dispatch) => {
-  const response = await fetch(`/api/stories/${storyId}/comments`, {
+
+  const response = await fetch(`/api/story-comments/${storyId}`, {
     method: "GET",
   });
   const data = await response.json();
@@ -28,13 +30,13 @@ export const getComments = (storyId) => async (dispatch) => {
     dispatch(getStoryComments(data));
     return response;
   } else if(!response.ok && data.message) {
-    dispatch(getStoryComments({Comments: []}))
+    dispatch(getStoryComments(storyId.comments = {}))
   }
 };
 
-//create comment thunk action creator
+// create comment thunk action creator
 export const postComment = (storyId, payload) => async (dispatch) => {
-  const response = await fetch(`/api/stories/${storyId}/comments`, {
+  const response = await fetch(`${storyId}/comments/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -52,7 +54,7 @@ export const postComment = (storyId, payload) => async (dispatch) => {
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`/api/stories/${storyId}/comments/${id}`, {
+  const response = await fetch(`${storyId}/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
@@ -64,8 +66,7 @@ export const deleteComment = (id, storyId) => async (dispatch) => {
 }
 
 const initalState = {
-  story: {},
-  user: {},
+  comments: {}
 };
 
 const commentsReducer = (state = initalState, action) => {
@@ -73,11 +74,13 @@ const commentsReducer = (state = initalState, action) => {
   switch (action.type) {
     case GET_COMMENTS:
       newState = Object.assign({}, state);
+      // console.log(' this is what im logging ', newState)
       let newObject = {}
+
       action.comments.forEach(comment => {
         newObject[comment.id] = comment
       })
-      newState.spot = newObject;
+      newState = newObject;
       return newState;
     case POST_COMMENTS:
       newState = Object.assign({}, state);

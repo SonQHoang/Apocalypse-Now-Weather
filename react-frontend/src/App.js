@@ -5,10 +5,13 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+<<<<<<< HEAD
 import StoryComments from "./components/StoryComments";
 import ApocMap from "./components/ApocWeather/apocmap";
 import { Provider } from 'react-redux';
 import {store} from './index'
+=======
+>>>>>>> flaskcomments
 import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";

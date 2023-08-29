@@ -5,9 +5,9 @@ import * as storyActions from '../../store/stories'
 const StoriesComponent = () => {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)
-    const allStories = useSelector(state => state.storyReducer.allStories)
-    // const stories = useSelector(state => state)
-    // console.log(allStories)
+    const allStories = useSelector(state => state.stories.allStories)
+    const stories = useSelector(state => state)
+
 
     useEffect(() => {
         dispatch(storyActions.getAllStories()).then(() => {
