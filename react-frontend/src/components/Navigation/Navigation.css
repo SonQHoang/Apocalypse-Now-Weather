@@ -1,6 +1,8 @@
 .profile-dropdown {
   position: absolute;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
+  color: black;
+  background-color: gainsboro;
 }
 
 .profile-button-container {
@@ -23,7 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-left,

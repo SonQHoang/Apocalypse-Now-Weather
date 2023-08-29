@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getStoryComments } from "../../store/comments";
+import { getComments } from "../../store/comments";
 import "./StoryComments.css";
-// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-// import PostCommentModal from "../PostCommentModal";
-// import DeleteCommentModal from "../DeleteReviewModal";
+import OpenModal from "../OpenModalButton";
+import PostCommentModal from "../PostCommentModal";
+import DeleteCommentModal from "../DeleteCommentModal";
+import EditCommentModal from "../UpdateCommentModal";
 
-review
-export default function StoryComments() {
-  const storyId = useParams().storyId;
+
+
+export default function StoryComments(prop) {
   const dispatch = useDispatch();
-  const storyComments = useSelector((state) => state.stories.comments);
-  const ownerId = useSelector((state) => state.spots.story.ownerId);
+  const storyComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
+  const storyId = prop.props
 
 
 
@@ -31,54 +32,50 @@ export default function StoryComments() {
   const commentsList = Object.values(storyComments);
 
 
-  let createdAtSplit;
-  let year;
-  let month;
-  if(Object.keys(commentsList)){
-  let createdAtDate = commentsList.map((comment) => (
-    createdAtSplit = comment.createdAt.split('-'),
-    year = createdAtSplit[0],
-    month = createdAtSplit[1],
-    comment.createdAt = `${month} ${year}`
-    ))
-}
 
-  return (
+//   let createdAtSplit;
+//   let year;
+//   let month;
+//   if(Object.keys(commentsList)){
+//   let createdAtDate = commentsList.map((comment) => (
+//     createdAtSplit = comment.createdAt.split('-'),
+//     year = createdAtSplit[0],
+//     month = createdAtSplit[1],
+//     comment.createdAt = `${month} ${year}`
+//     ))
+// }
+
+return (
     <div>
       <div className="div-post-your-comment-button">
-        {/* <button className="post-your-comment-button">
-              <OpenModalMenuItem
-                itemText="Post A Comment"
+        {
+              <OpenModal
+                buttonText="Post A Comment"
                 modalComponent={<PostCommentModal props={props} />}
               />
-        </button> */}
+         }
       </div>
       <div className="comments-div-holder">
-        {commentsList.map(({ id, comment, User, createdAt, storyId }) => (
+        {commentsList.map(({ id, body, user_id, date_created, storyId }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">{User.firstName}</div>
-            <div className="comment-created-date">{createdAt}</div>
-            <div className="comment-comment">{comment}</div>
-            {User.id === currentUserId && (
+            <div className="comment-firstname">User.firstName</div>
+            <div className="comment-created-date">{date_created}</div>
+            <div className="comment-comment">{body}</div>
+            {user_id === currentUserId &&  (
               <>
-                {/* <button className="comment-update-button">
                 {" "}
-                  <OpenModalMenuItem
-                    itemText="Update"
+                  { <OpenModal
+                    buttonText="Update"
                     modalComponent={
-                      <UpdateCommentModal props={{ id, storyId }} />
+                      <EditCommentModal props={{ id, storyId }} />
                     }
-                  />
-                </button>
-                <button className="comment-delete-button">
-                  {" "}
-                  <OpenModalMenuItem
-                    itemText="Delete"
+                  /> }
+                  { <OpenModal
+                    buttonText="Delete"
                     modalComponent={
                       <DeleteCommentModal props={{ id, storyId }} />
                     }
-                  />
-                </button> */}
+                  /> }
               </>
             )}
           </div>
