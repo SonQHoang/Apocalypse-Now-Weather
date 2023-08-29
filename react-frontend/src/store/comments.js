@@ -39,7 +39,7 @@ export const postComment = (storyId, userId, payload) => async (dispatch) => {
   const response = await csrfFetch(`/api/story-comments/${storyId}/comments/${userId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(userId, payload),
   });
   console.log('response', response)
   if (response.ok) {

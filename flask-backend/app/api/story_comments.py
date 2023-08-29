@@ -1,7 +1,9 @@
 from flask import Blueprint, request, jsonify, request
 from app.models.db import db
 from app.models.story_comments import StoryComments
+from app.forms.comments import PostComment
 from app.models.user import User
+from datetime import date
 
 
 
@@ -19,18 +21,26 @@ def get_story_comments(id):
 
 @story_comments.route("/<int:storyId>/comments/<int:userId>", methods=['POST'])
 def post_comment(storyId, userId):
-    print(request.json)
+    print('this is working')
+    form = PostComment()
+    print('this is not')
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    if form.validate_on_submit():
 
-    storyId
-    userId
-    comment = request.json
+        new_comment = StoryComments(
+            story_id = storyId,
+            user_id = userId,
+            body = form.data['body'],
+            date_created = date.today()
+        )
 
-
-    new_comment = StoryComments(storyId, userId, comment)
-    db.session.add(new_comment)
-    db.session.commit()
-    return jsonify(new_comment.to_dict()), 201
+        new_comment = StoryComments(jsonify(new_comment))
+        db.session.add(new_comment)
+        db.session.commit()
+        return jsonify(new_comment.to_dict()), 201
+    if form.errors:
+        print(form.errors)
 
 
 # @story_comments.route("stories/comments/<int:commentId>", methods=['PUT'])
