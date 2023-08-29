@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getComments } from "../../store/comments";
+import { getComments } from "../../store/storycomments";
 import "./StoryComments.css";
 import OpenModal from "../OpenModalButton";
-import PostCommentModal from "../PostCommentModal";
-import DeleteCommentModal from "../DeleteCommentModal";
-import EditCommentModal from "../UpdateCommentModal";
+import PostCommentModal from "../StoryPostCommentModal";
+import DeleteCommentModal from "../StoryDeleteCommentModal";
+import EditCommentModal from "../StoryUpdateCommentModal";
 
 
 
