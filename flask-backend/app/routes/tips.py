@@ -1,5 +1,7 @@
 from flask import Blueprint, request, jsonify
 from ..models import Tips, db
+from app.forms.create_tip_form import CreateTip
+from datetime import datetime
 
 bp = Blueprint("tip", __name__, url_prefix="")
 
@@ -15,10 +17,22 @@ def get_all_tips():
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
 
-@bp.route('/tips', methods=["POST"])
-def create_new_tip():
-    data = request.json
-    return jsonify(data)
+@bp.route('/<int:userId>/tips', methods=["POST"])
+def create_new_tip(userId):
+    form = CreateTip()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_tip = Tips(
+            user_id = userId,
+            title = form.data["title"],
+            weather_category = form.data["weather_category"],
+            body = form.data["body"],
+            date_created = datetime.utcnow()
+        )
+        db.session.add(new_tip)
+        db.session.commit()
+        return new_tip.to_dict()
+    return {'errors': 'error'}, 401
 
 @bp.route('/tips/<int:tip_id>')
 def get_tip_by_id(tip_id):
@@ -34,12 +48,9 @@ def get_tip_by_id(tip_id):
 }
     return jsonify(tip_data)
 
-@bp.route('/tips/<int:tip_id>', methods=["DELETE"])
-def delete_tip(tip_id):
-    tip = Tips.query.get(tip_id)
-    if tip:
-        db.session.delete(tip)
-        db.session.commit()
-        return jsonify(message='Tip deleted successfully'), 200
-    else:
-        return jsonify(message='Tip not found'), 404
+@bp.route('/tips/<int:tipId>', methods=["DELETE"])
+def delete_tip(tipId):
+    tip_to_delete = Tips.query.get(tipId)
+    db.session.delete(tip_to_delete)
+    db.session.commit()
+    return {'message':'deleted'}

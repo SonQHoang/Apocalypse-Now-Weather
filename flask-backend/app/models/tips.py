@@ -4,7 +4,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 class Tips(db.Model):
     __tablename__ = "tips"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     weather_category = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
