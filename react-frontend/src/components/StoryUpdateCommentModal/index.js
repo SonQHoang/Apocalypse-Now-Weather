@@ -1,6 +1,6 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { editComment } from "../../store/comments";
+import { editComment } from "../../store/storycomments";
 import React, { useState } from "react";
 import "./UpdateCommentModal.css";
 
