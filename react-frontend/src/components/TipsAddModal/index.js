@@ -1,11 +1,15 @@
 import React, { useEffect, useState, useRef} from "react";
+import { useDispatch } from "react-redux";
+import {createTip} from "../../store/tips"
 import "./TipsAddModal.css"
 
-const TipsAddModal = ({onClose}) => {
+const TipsAddModal = ({onClose, onAddTip }) => {
+    const dispatch = useDispatch()
     const modalOverlayRef = useRef()
     const titleInputRef = useRef()
+    const [title , setTitle] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [tip, setTip] = useState("")
+    const [body, setBody] = useState("")
 
     const handleClickOutside = (e) => {
         if (modalOverlayRef.current === e.target) {
@@ -13,12 +17,31 @@ const TipsAddModal = ({onClose}) => {
         }
     }
 
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    }
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
     }
 
     const handleTipChange = (e) => {
-        setTip(e.target.value)
+        setBody(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        const newTip = {
+            title: title,
+            weather_category: selectedCategory,
+            body: body,
+        }
+        // console.log('am I getting data here====>', newTip)
+        dispatch(createTip(newTip))
+
+        setSelectedCategory("");
+        setBody("");
+        setTitle("")
+        onAddTip(newTip)
+        onClose();
     }
     
     useEffect(() => {
@@ -26,29 +49,30 @@ const TipsAddModal = ({onClose}) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    })
 
     return (
         <div className="add-tip-modal-overlay" ref={modalOverlayRef}>
             <div className="add-tip-modal-content">
                 <h2>What tip would you like to add?</h2>
-                <input placeholder="Title of your tip" type="text" ref={titleInputRef}/>
+                <input placeholder="Title of your tip" type="text" ref={titleInputRef} value={title} onChange={handleTitleChange}/>
 
                 <div>
                     {/* <label>Weather Category</label> */}
                     <select id="weatherCategory" value={selectedCategory} onChange={handleCategoryChange}>
                         <option value="">Select the Weather Category</option>
-                        <option value="Sunny">Sunny</option>
-                        <option value="Rainy">Rainy</option>
-                        <option value="Cloudy">Cloudy</option>
+                        <option value="Natural_Disasters">Natural Diasters </option>
+                        <option value="Supernatural_Phenomena">Supernatural Phenomena</option>
+                        <option value="Mystical_Elements">Mystical Elements</option>
+                        <option value="Paranormal_Chaos">Paranormal Chaos</option>
                     </select>
                 </div>
                 <div>
                     {/* <label htmlFor="tip">Leave your tip here</label> */}
-                    <textarea id="tip" value={tip} onChange={handleTipChange}/>
+                    <textarea id="tip" value={body} onChange={handleTipChange}/>
                 </div>
                 {/* <div>Date Created</div> */}
-                <button>Submit Your Tip</button>
+                <button onClick={handleSubmit}>Submit Your Tip</button>
             </div>
         </div>
     )

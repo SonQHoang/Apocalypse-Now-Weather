@@ -7,39 +7,39 @@ from datetime import datetime
 def seed_users():
 
     demo= User(
-            first_name= "Demo", 
-            last_name= "AA", 
-            username='Demo', 
-            location="pending", 
-            email='demo@aa.io', 
-            prepper_type="Nuclear", 
-            prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.", 
+            first_name= "Demo",
+            last_name= "AA",
+            username='Demo',
+            location="pending",
+            email='demo@aa.io',
+            prepper_type="Nuclear",
+            prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.",
             bio= "Generic User",
             password='password'
         )
-        
+
     marnie= User(
-            first_name= "Marnie", 
-            last_name= "AA", 
-            username='Marnie', 
-            location="pending", 
-            email='marnie@aa.io', 
-            prepper_type="Nuclear", 
-            prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.",
-            bio= "Generic User", 
-            password='password')
-        
-    bobbie= User(
-            first_name= "Bobbie", 
-            last_name= "AA", 
-            username='Bobbie', 
+            first_name= "Marnie",
+            last_name= "AA",
+            username='Marnie',
             location="pending",
-            email='bobbie@aa.io', 
-            prepper_type="Nuclear", 
+            email='marnie@aa.io',
+            prepper_type="Nuclear",
             prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.",
             bio= "Generic User",
             password='password')
-    
+
+    bobbie= User(
+            first_name= "Bobbie",
+            last_name= "AA",
+            username='Bobbie',
+            location="pending",
+            email='bobbie@aa.io',
+            prepper_type="Nuclear",
+            prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.",
+            bio= "Generic User",
+            password='password')
+
     user4= User(
             first_name= "John",
             last_name= "Smith",
@@ -74,7 +74,7 @@ def seed_users():
             password= "password"
         )
     user7= User(
-            
+
             first_name= "Jessica",
             last_name= "Brown",
             username= "TestUser4",
@@ -86,7 +86,7 @@ def seed_users():
             password= "password"
         )
     user8= User(
-            
+
             first_name= "Daniel",
             last_name= "Jones",
             username= "TestUser5",
@@ -108,7 +108,7 @@ def seed_users():
             bio= "As an environmental activist, Sarah is dedicated to raising awareness about sustainable living and promoting eco-friendly practices.",
             password= "password"
         )
-    user10= User( 
+    user10= User(
             first_name= "David",
             last_name= "Martinez",
             username= "TestUser7",
@@ -120,7 +120,7 @@ def seed_users():
             password= "password"
         )
     user11= User(
-            
+
             first_name= "Maria",
             last_name= "Rodriguez",
             username= "TestUser8",
@@ -196,7 +196,7 @@ def seed_users():
             prepper_description= "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.",
             bio= "As a social worker, Karen is committed to supporting vulnerable populations and providing resources to improve their well-being.",
             password= "password"
-        ) 
+        )
     user18= User(
         first_name= "Matthew",
         last_name= "Jackson",
@@ -340,7 +340,7 @@ def seed_users():
             bio= "A sports journalist, Jason covers major sporting events, sharing athletes' stories and capturing the excitement of the games.",
             password= "password"
     )
-    user31= User( 
+    user31= User(
             first_name= "Karen",
             last_name= "Adams",
             username= "TestUser27",
@@ -362,7 +362,7 @@ def seed_users():
             bio= "Daniel is a sustainable farmer who cultivates organic produce and educates communities about the benefits of locally sourced food.",
             password= "password"
         )
-    user33= User( 
+    user33= User(
             first_name= "Jennifer",
             last_name= "Mitchell",
             username= "TestUser29",
@@ -385,7 +385,7 @@ def seed_users():
             password= "password"
         )
     user35= User(
-            
+
             first_name= "Laura",
             last_name= "Phillips",
             username= "TestUser3252",
@@ -397,7 +397,7 @@ def seed_users():
             password= "password"
         )
     user36= User(
-            
+
             first_name= "Charles",
             last_name= "Wood",
             username= "TestUser31",
@@ -409,7 +409,7 @@ def seed_users():
             password= "password"
         )
     user37= User(
-            
+
             first_name= "Jessica",
             last_name= "Green",
             username= "TestUser32",
@@ -421,7 +421,7 @@ def seed_users():
             password= "password"
         )
     user38= User(
-            
+
             first_name= "Donald",
             last_name= "Nelson",
             username= "TestUser33",
@@ -432,7 +432,7 @@ def seed_users():
             bio= "Donald is a sustainable architect who designs eco-friendly structures that merge seamlessly with the environment and reduce carbon footprint.",
             password= "password"
         )
-    user39= User( 
+    user39= User(
             first_name= "Michelle",
             last_name= "Hall",
             username= "TestUser34",
@@ -444,7 +444,7 @@ def seed_users():
             password= "password"
         )
     user40= User(
-            
+
             first_name= "Brian",
             last_name= "Rivera",
             username= "TestUser35",
@@ -456,7 +456,7 @@ def seed_users():
             password= "password"
         )
     user41= User(
-            
+
             first_name= "Angela",
             last_name= "Torres",
             username= "TestUser36",
@@ -468,7 +468,7 @@ def seed_users():
             password= "password"
         )
     user42= User(
-            
+
             first_name= "Ronald",
             last_name= "Collins",
             username= "TestUser37",
@@ -480,7 +480,7 @@ def seed_users():
             password= "password"
         )
     user43= User(
-            
+
             first_name= "Kimberly",
             last_name= "Howard",
             username= "TestUser38",
@@ -492,7 +492,7 @@ def seed_users():
             password= "password"
         )
     user44= User(
-            
+
             first_name= "Amanda",
             last_name= "Clark",
             username= "TestUser39",
@@ -504,7 +504,7 @@ def seed_users():
             password= "password"
         )
     user45= User(
-            
+
             first_name= "Thomas",
             last_name= "Perez",
             username= "TestUser40",
@@ -516,7 +516,7 @@ def seed_users():
             password= "password"
         )
     user46= User(
-            
+
             first_name= "Peter",
             last_name= "Parker",
             username= "TestUser41",
@@ -528,7 +528,7 @@ def seed_users():
             password= "password"
         )
     user47= User(
-            
+
             first_name= "Tony",
             last_name= "Stark",
             username= "TestUser42",
@@ -540,7 +540,7 @@ def seed_users():
             password= "password"
         )
     user48= User(
-            
+
             first_name= "Amy",
             last_name= "Rodriguez",
             username= "TestUser43",
@@ -552,7 +552,7 @@ def seed_users():
             password= "password"
         )
     user49= User(
-            
+
             first_name= "Samantha",
             last_name= "Young",
             username= "TestUser525",
@@ -564,7 +564,7 @@ def seed_users():
             password= "password"
         )
     user50= User(
-            
+
             first_name= "Jeffrey",
             last_name= "Adams",
             username= "TestUser44",
@@ -611,470 +611,470 @@ def seed_users():
 
     tip1= Tips(
         user_id= 1,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip2= Tips(
         user_id= 1,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip3= Tips(
         user_id= 1,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip4= Tips(
         user_id= 2,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
         )
     tip5= Tips(
         user_id= 3,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
         )
     tip6= Tips(
         user_id= 3,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
         )
     tip7= Tips(
         user_id= 4,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
         )
     tip8= Tips(
         user_id= 4,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
         )
     tip9= Tips(
         user_id= 5,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip10= Tips(
         user_id= 5,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip11= Tips(
         user_id= 5,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip12= Tips(
         user_id= 6,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip13= Tips(
         user_id= 7,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip14= Tips(
         user_id= 8,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip15= Tips(
         user_id= 9,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip16= Tips(
         user_id= 10,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip17= Tips(
-        
+
         user_id= 11,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip18= Tips(
         user_id= 12,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip19= Tips(
         user_id= 13,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip20= Tips(
         user_id= 14,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip21= Tips(
         user_id= 15,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip22= Tips( 
+    tip22= Tips(
         user_id= 16,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip23= Tips(
         user_id= 17,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip24= Tips(
         user_id= 17,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip25= Tips(
         user_id= 18,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip26= Tips(
         user_id= 18,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip27= Tips(
         user_id= 19,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip28= Tips(        
+    tip28= Tips(
         user_id= 19,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip29= Tips(    
+    tip29= Tips(
         user_id= 20,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip30= Tips(        
+    tip30= Tips(
         user_id= 20,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip31= Tips(
 
         user_id= 21,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip32= Tips(        
+    tip32= Tips(
         user_id= 22,
-        weather_category= 4,
+        weather_category= "Paranormal Chaos",
         title= "Yes, Rain Can be Cursed Now",
         body= "Sample Body",
-        date_created= datetime(2023, 8, 8) 
+        date_created= datetime(2023, 8, 8)
             )
-    tip33= Tips(    
+    tip33= Tips(
         user_id= 23,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip34= Tips(        
+    tip34= Tips(
         user_id= 24,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip35= Tips(
         user_id= 25,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip36= Tips(        
+    tip36= Tips(
         user_id= 26,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip37= Tips(    
+    tip37= Tips(
         user_id= 27,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip38= Tips(        
+    tip38= Tips(
         user_id= 28,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip39= Tips(
         user_id= 29,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip40= Tips(        
+    tip40= Tips(
         user_id= 30,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip41= Tips(    
+    tip41= Tips(
         user_id= 30,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip42= Tips(        
+    tip42= Tips(
         user_id= 31,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip43= Tips(
         user_id= 31,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip44= Tips(        
+    tip44= Tips(
         user_id= 32,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip45= Tips(    
+    tip45= Tips(
         user_id= 33,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip46= Tips(        
+    tip46= Tips(
         user_id= 34,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip47= Tips(
 
         user_id= 35,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip48= Tips(        
+    tip48= Tips(
         user_id= 36,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip49= Tips(    
+    tip49= Tips(
         user_id= 36,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip50= Tips(        
+    tip50= Tips(
         user_id= 37,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip51= Tips(
         user_id= 38,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip52= Tips(    
+    tip52= Tips(
         user_id= 39,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip53= Tips(    
+    tip53= Tips(
         user_id= 40,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip54= Tips(    
+    tip54= Tips(
         user_id= 41,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
     tip55= Tips(
         user_id= 41,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip56= Tips(    
+    tip56= Tips(
         user_id= 42,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip57= Tips(    
+    tip57= Tips(
         user_id= 42,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip58= Tips(        
+    tip58= Tips(
         user_id= 43,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip59= Tips(    
+    tip59= Tips(
         user_id= 44,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip60= Tips(    
+    tip60= Tips(
         user_id= 45,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip61= Tips(    
+    tip61= Tips(
         user_id= 46,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip62= Tips(    
+    tip62= Tips(
         user_id= 47,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip63= Tips(    
+    tip63= Tips(
         user_id= 48,
-            weather_category= 3,
+            weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip64= Tips(    
+    tip64= Tips(
         user_id= 49,
-            weather_category= 4,
+            weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip65= Tips(    
+    tip65= Tips(
         user_id= 50,
-            weather_category= 1,
+            weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-    tip66= Tips(    
+    tip66= Tips(
         user_id= 50,
-            weather_category= 2,
+            weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
             body= "Sample Body",
-            date_created= datetime(2023, 8, 8) 
+            date_created= datetime(2023, 8, 8)
             )
-        
+
     tip_comment_1= TipComments(
         tip_id= 1,
         user_id= 1,
@@ -1118,14 +1118,14 @@ def seed_users():
             date_created= datetime(2023, 8, 8),
         )
     tip_comment_8= TipComments(
-        
+
         tip_id= 5,
         user_id= 8,
         body= "In a pinch, these tips could be a lifesaver. Thanks!",
             date_created= datetime(2023, 8, 8),
         )
     tip_comment_9= TipComments(
-        
+
         tip_id= 6,
         user_id= 9,
         body= "Not sure how practical these are for me, but thanks.",
@@ -2752,7 +2752,7 @@ def seed_users():
 
     # Fifty Four - Sonic Storms
     story_54 =  Stories (
-    user_id = 54,
+    user_id = 1,
         title= "Rocking the Sonic Radiowaves",
         body= """
             So there I am, chillin' with my crew, when out of nowhere, these crazy Sonic Storms start tearing through
@@ -2766,7 +2766,7 @@ def seed_users():
 
     # Fifty Five - Reverse Rain
     story_55= Stories (
-        user_id = 55,
+        user_id = 2,
         title= "Uplifted",
         body= """
             Picture this: a world where raindrops defy gravity, rising from the ground to the sky. Yeah, you heard me right.
@@ -2782,7 +2782,7 @@ def seed_users():
 
     # Fifty Six - Mirror Mists
     story_56= Stories (
-        user_id = 56,
+        user_id = 3,
         title= "Misty Reflections",
         body= """
             The day it all started, I was walking through the woods, lost in my thoughts. Suddenly, I stepped into a misty patch,
@@ -2797,7 +2797,7 @@ def seed_users():
 
     # Fifty Seven - Echoing Dunes
     story_57= Stories (
-        user_id = 57,
+        user_id = 4,
         title= "Sand In All the Wrong Places",
         body= """
             I was out exploring the desert one day when I stumbled upon these echoing dunes. It's like every footstep sends
@@ -2812,7 +2812,7 @@ def seed_users():
 
     # Fifty Eight - Chameleon Clouds
     story_58= Stories (
-        user_id = 58,
+        user_id = 5,
         title= "Cloud Camouflage Chronicles",
         body= """
             These clouds can mimic buildings, animals, even other clouds. It's like a never-ending game of "Guess What I Am." You'll
@@ -2826,7 +2826,7 @@ def seed_users():
 
     # Fifty Nine - Petrifying Fog
     story_59= Stories (
-        user_id = 59,
+        user_id = 6,
         title= "Stones Embrace",
         body= """
             So there I was, navigating through the dense woods one morning, when this eerie fog started rolling in. Now, I'd heard the
@@ -2842,7 +2842,7 @@ def seed_users():
 
     # Sixty - Temporal Tides
     story_60= Stories (
-        user_id = 60,
+        user_id = 7,
         title= "A Timely Tidal Wave",
         body= """
             Imagine catching a wave at sunrise and finding yourself in a medieval village, surrounded by knights and castles. Or getting swept
@@ -2856,7 +2856,7 @@ def seed_users():
 
     # Sixty One - Chlorine Showers
     story_61= Stories (
-        user_id = 61,
+        user_id = 8,
         title= "Chemical Quirks",
         body= """
             Turns out, this chlorine downpours aren't refreshing like a dip in the pool. They burn, they bleach, and they leave you feeling like you'd
@@ -2871,7 +2871,7 @@ def seed_users():
 
     # Sixty Two - Dimensional Rifts
     story_62= Stories (
-        user_id = 62,
+        user_id = 9,
         title= "Portal in Real Life",
         body= """
             I was just going about my day doing chores around the house when all of a sudden I'm standing in the middle of a bustling marketplace. People
@@ -2886,7 +2886,7 @@ def seed_users():
 
     # Sixty Three - Quantum Swirls
     story_63= Stories (
-        user_id = 63,
+        user_id = 10,
         title= "Quantum Odyssey",
         body= """
             Caught in the wake of Quantum Swirls that have fractured reality, I'm entangled in a series of time loops. With
@@ -2900,7 +2900,7 @@ def seed_users():
 
     # Sixty Four - Fractal Rain
     story_64= Stories (
-        user_id = 64,
+        user_id = 11,
         title= "Decoding the Kaleidoscope",
         body= """
             Ever seen raindrops that form intricate patterns mid-air? Welcome to the world of Fractal Rain, where nature's
@@ -2915,7 +2915,7 @@ def seed_users():
 
     # Sixty Five - Reality Hiccups
     story_65= Stories (
-        user_id = 65,
+        user_id = 12,
         title= "When the World Sneezes",
         body= """
             Ever had those moments where things just... glitch? Like you're walking down the street and suddenly, everything
@@ -2957,7 +2957,7 @@ def seed_users():
         user_id= 3,
             body= "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!",
             date_created= datetime(2023, 8, 8),
-        ) 
+        )
     story_comment_6= StoryComments (
             story_id= 5,
         user_id= 3,
@@ -3125,7 +3125,7 @@ def seed_users():
         user_id= 23,
             body= "Your ability to stay focused and navigate those adverse conditions is incredible. Thanks for sharing your story!",
             date_created= datetime(2023, 8, 8),
-        ) 
+        )
     story_comment_34= StoryComments (
             story_id= 33,
         user_id= 24,
@@ -3197,7 +3197,7 @@ def seed_users():
         user_id= 34,
             body= "Just another normal day of bad weather...",
             date_created= datetime(2023, 8, 8),
-        ) 
+        )
     story_comment_46= StoryComments (
             story_id= 45,
         user_id= 35,
@@ -3275,7 +3275,7 @@ def seed_users():
         user_id= 44,
             body= "Wow, that's insane. I never knew this was a thing...",
             date_created= datetime(2023, 8, 8),
-        ) 
+        )
     story_comment_59= StoryComments (
             story_id= 58,
         user_id= 45,
@@ -3691,7 +3691,7 @@ def seed_users():
         body= "I couldn't stop reading! Thanks for showing us the importance of staying prepared and level-headed when confronted with extreme weather.",
         date_created= datetime(2023, 8, 8),
         )
-    
+
 
     db.session.add_all([demo, marnie,bobbie,user4,user5,user6,user7,user8,user9,user10,
         user11,user12,user13,user14,user15,user16,user17,user18,user19,user20,
@@ -3730,5 +3730,5 @@ def undo_users():
     else:
         db.session.execute(text("DELETE FROM tips"))
         db.session.execute(text("DELETE FROM users"))
-    
+
     db.session.commit()

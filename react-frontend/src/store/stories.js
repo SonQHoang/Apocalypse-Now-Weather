@@ -87,7 +87,7 @@ export const getOneStory = (id) => async (dispatch) => {
 
 export const addNewStory = (story) => async (dispatch) => {
     try {
-        const request = await csrfFetch('/api/stories/new', {
+        const request = await fetch('/api/stories/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ export const getAllUserStories = (id) => async (dispatch) => {
 
 export const updateUserStory = (storyId, updatedStory) => async (dispatch) => {
     try {
-        const request = await csrfFetch(`/api/stories/${storyId}/update`, {
+        const request = await fetch(`/api/stories/${storyId}/update`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ export const updateUserStory = (storyId, updatedStory) => async (dispatch) => {
 }
 
 export const deleteUserStory = (storyId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/stories/${storyId}/delete`, {
+    const response = await fetch(`/api/stories/${storyId}/delete`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

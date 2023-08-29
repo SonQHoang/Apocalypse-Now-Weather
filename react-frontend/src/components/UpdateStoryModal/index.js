@@ -11,6 +11,7 @@ const UpdateStoryModal = (story) => {
     const { closeModal } = useModal()
     const [title, setTitle] = useState(story.story.title)
     const [body, setBody] = useState(story.story.body)
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -20,13 +21,21 @@ const UpdateStoryModal = (story) => {
             body: body
         }
 
-        dispatch(storyActions.updateUserStory(story.story.id, updatedStory)).then(closeModal)
+        dispatch(storyActions.updateUserStory(story.story.id, updatedStory)).then(async res => {
+            console.log("RESPONSE: ", res)
+            console.log(res.errors)
+            if(res.errors) {
+                setErrors(res.errors)
+            } else {
+                closeModal()
+            }
+        })
         return history.push(`/stories/manage`)
     }
 
     return (
-        <div>
-            <div>
+        <div id='update-story-modal-container'>
+            <div id='update-story-modal-header'>
                 <h1>Update Story</h1>
             </div>
             <form id='create-story-form' onSubmit={handleSubmit}>
@@ -40,29 +49,36 @@ const UpdateStoryModal = (story) => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Story title'
+                        id='update-story-title-input'
                         />
                     </div>
+                    <div>{errors?.errors?.title}</div>
                 </div>
                 <div>
                     <div>
                         <label id='update-story-body-label' htmlFor='body'>Body</label>
                     </div>
                     <div>
-                        <input
+                        <textarea
                         name='body'
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                         placeholder='Story body'
+                        id='update-story-body-input'
                         />
                     </div>
+                    <div>{errors?.errors?.body}</div>
                 </div>
-                <div>
-                    <button type='submit' id='submit-new-story-button'>Submit</button>
+                {errors && errors.map(err => (
+                    <div>{err}</div>
+                ))}
+                <div id='update-story-button-container'>
+                    <button type='submit' id='submit-updated-story-button'>Submit</button> <button id='cancel-story-update-button' onClick={closeModal}>Cancel</button>
                 </div>
             </form>
-            <div>
+            {/* <div>
                 <button onClick={closeModal}>Cancel</button>
-            </div>
+            </div> */}
         </div>
     )
 }

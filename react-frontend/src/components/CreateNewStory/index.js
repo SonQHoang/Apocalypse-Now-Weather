@@ -7,6 +7,7 @@ import './CreateNewStory.css'
 const CreateNewStory = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
+    const [errors, setErrors] = useState([])
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -30,9 +31,13 @@ const CreateNewStory = () => {
 
         // console.log(new_story)
         dispatch(storyActions.addNewStory(new_story)).then(async res => {
-            storyId = res.id
-            reset()
-            return history.push(`/stories/${storyId}`)
+            if(res.errors) {
+                setErrors(res.errors)
+            } else {
+                storyId = res.id
+                reset()
+                return history.push(`/stories/${storyId}`)
+            }
         })
     }
 
@@ -65,6 +70,9 @@ const CreateNewStory = () => {
                         placeholder='Story body'
                         />
                     </div>
+                    {errors && errors.map(err => (
+                        <div>{err}</div>
+                    ))}
                 </div>
                 <div>
                     <button type='submit' id='submit-new-story-button'>Submit</button>

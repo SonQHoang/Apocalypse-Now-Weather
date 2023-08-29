@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf"
-import { getStory } from "./stories";
+import { getOneStory} from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
 const POST_COMMENTS = "comments/new";
@@ -52,13 +52,13 @@ export const postComment = (storyId, payload) => async (dispatch) => {
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`/api/comment/${id}`, {
+  const response = await fetch(`/api/stories/${storyId}/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
     const comment = await response.json();
     const waiting = await dispatch(getComments(storyId))
-    // const stillWaiting = await dispatch(getStory(storyId))
+    const stillWaiting = await dispatch(getOneStory(storyId))
     return comment;
   }
 }

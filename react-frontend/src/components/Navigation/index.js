@@ -9,19 +9,20 @@ function Navigation({ isLoaded }) {
 
 	return (
 		<nav className="navbar">
+
 			<div className="nav-container">
 				<ul className="nav-left">
 					<li>
-						<NavLink exact to="/">Home</NavLink>
+						<NavLink id='nav-bar-home' exact to="/">Home</NavLink>
 					</li>
 					<li>
-						<NavLink to="/forecast">Forecast</NavLink>
+						<NavLink id='nav-bar-forecast' to="/forecast">Forecast</NavLink>
 					</li>
 					<li>
-						<NavLink to="/stories">Stories</NavLink>
+						<NavLink id='nav-bar-stories' to="/stories">Stories</NavLink>
 					</li>
 					<li>
-						<NavLink to="/tips">Tips</NavLink>
+						<NavLink id='nav-bar-tips' to="/tips">Tips</NavLink>
 					</li>
 				</ul>
 				<ul className="nav-right">

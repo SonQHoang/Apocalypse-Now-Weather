@@ -12,7 +12,7 @@ const SingleStoryComponent = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
 
-    const currentStory = useSelector((state) => state.storyReducer.singleStory)
+    const currentStory = useSelector((state) => state.stories.singleStory)
     const sessionUser = useSelector((state) => state.session.user)
 
     let manageStoryButtons
@@ -25,7 +25,7 @@ const SingleStoryComponent = () => {
 
     if(sessionUser.id === currentStory.id) {
         manageStoryButtons = (
-            <div>
+            <div className='manage-story-buttons-div'>
                 <OpenModalButton buttonText='Update' modalComponent={<UpdateStoryModal story={currentStory} />} />
                 <OpenModalButton buttonText='Delete' modalComponent={<DeleteStoryModal story={currentStory} />} />
             </div>
@@ -36,10 +36,15 @@ const SingleStoryComponent = () => {
 
     return (
         <>
-            <div>
-                <h1>{isLoaded && currentStory && currentStory?.title}</h1>
-                <p>{isLoaded && currentStory && currentStory?.body}</p>
-                {manageStoryButtons}
+            <div id='single-story-container'>
+                <div id='single-story-header'>
+                    <h1 id='single-story-h1-tag'>{isLoaded && currentStory && currentStory?.title}</h1>
+                    <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</p>
+                </div>
+                <div id='single-story-body'>
+                    <p>{isLoaded && currentStory && currentStory?.body}</p>
+                    {manageStoryButtons}
+                </div>
             </div>
         </>
     )
