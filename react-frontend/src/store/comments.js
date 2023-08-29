@@ -34,15 +34,26 @@ export const getComments = (storyId) => async (dispatch) => {
 };
 
 // create comment thunk action creator
-export const postComment = (storyId, userId, body) => async (dispatch) => {
-  const response = await fetch(`/api/story-comments/${storyId}/comments/${userId}`, {
+export const postComment = (storyId, userId, commentBody) => async (dispatch) => {
+
+  const responseBody = {
+    commentBody,
+    userId,
+    storyId
+  }
+
+  const response = await fetch(`/api/story-comments/comments/new`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+    headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(responseBody),
   });
   console.log('response', response)
   if (response.ok) {
     const comment = await response.json();
+    console.log(comment)
     dispatch(getComments(storyId));
     dispatch(getOneStory(storyId))
     return comment;
@@ -50,7 +61,31 @@ export const postComment = (storyId, userId, body) => async (dispatch) => {
 };
 
 //need an edit comment thunk action creator
+export const editComment = (storyId, userId, commentBody, commentId) => async (dispatch) => {
 
+  const responseBody = {
+    commentBody,
+    userId,
+    storyId
+  }
+  console.log(responseBody)
+  const response = await fetch(`/api/story-comments/comments/${commentId}`, {
+    method: "PUT",
+    headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(responseBody),
+  });
+  console.log('response', response)
+  if (response.ok) {
+    const comment = await response.json();
+    console.log(comment)
+    dispatch(getComments(storyId));
+    dispatch(getOneStory(storyId))
+    return comment;
+  }
+};
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {

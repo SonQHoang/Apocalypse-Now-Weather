@@ -1,46 +1,38 @@
 import { useModal } from "../../context/Modal";
-import { useDispatch } from "react-redux";
-import { putComment } from "../../store/comments";
+import { useDispatch, useSelector } from "react-redux";
+import { editComment } from "../../store/comments";
 import React, { useState } from "react";
 import "./UpdateCommentModal.css";
 
 
-function EditCommentModal(props) {
 
-//   const storyId  = props.props.storyId;
-//   const userId  = props.props.currentUserId
+function EditCommentModal(props) {
+  const storyComments = useSelector((state) => state.comments);
+  const currentUser = useSelector((state) => state.session.user);
+  const storyId  = props.props.storyId;
+  const userId  = currentUser.id
+  const commentId = props.props.id
   const { closeModal } = useModal();
+  const commentToEdit = (storyComments[commentId])
   const dispatch = useDispatch();
 
-  const [comment, setComment] = useState("");
+
+  const [commentBody, setComment] = useState('');
   const [errors, setErrors] = useState({});
 
   let isDisabled = true;
-//   if (comment.length < 5) {
-//     isDisabled = true;
-//   }
+  if (commentBody.length > 0) {
+    isDisabled = false;
+  }
 
   const submitComment = async (e) => {
     e.preventDefault();
-
-    const newComment = {
-    //   userId,
-    //   storyId,
-    //   comment,
-    };
-
-    // await dispatch(postComment(storyId, newComment)).catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) {
-    //     setErrors(data.errors);
-    //   }
-    // });
-    reset();
-    closeModal();
-  };
-
-  const reset = () => {
-    setComment("");
+    const data = await dispatch(editComment(storyId, userId, commentBody, commentId));
+    if (data.errors) {
+      setErrors(data.errors);
+    } else {
+      closeModal();
+    }
   };
 
 
@@ -50,9 +42,8 @@ function EditCommentModal(props) {
       <>{errors.message}</>
       <textarea
         className="post-comment-form-modal"
-        placeholder="Change to populate with comment data"
         onChange={(e) => setComment(e.target.value)}
-      ></textarea>
+      >{commentToEdit.body}</textarea>
       <button className='submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
         Submit Your Comment
       </button>
