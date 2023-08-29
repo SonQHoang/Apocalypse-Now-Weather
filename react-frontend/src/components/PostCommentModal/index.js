@@ -23,7 +23,7 @@ function PostCommentModal(props) {
   const submitComment = async (e) => {
     e.preventDefault();
     const data = await dispatch(postComment(storyId, userId, comment));
-    if (data) {
+    if (data.errors) {
       // setErrors(data);
     } else {
       closeModal();

@@ -22,25 +22,27 @@ def get_story_comments(id):
 @story_comments.route("/<int:storyId>/comments/<int:userId>", methods=['POST'])
 def post_comment(storyId, userId):
     print('this is working')
-    form = PostComment()
-    print('this is not')
-    form['csrf_token'].data = request.cookies['csrf_token']
+    print(storyId, userId)
+    print(request)
 
-    if form.validate_on_submit():
+    # form = CommentForm()
+    # form["csrf_token"].data = request.cookies["csrf_token"]
 
-        new_comment = StoryComments(
-            story_id = storyId,
-            user_id = userId,
-            body = form.data['body'],
-            date_created = date.today()
-        )
+    # print('this is not')
+    # if form.validate_on_submit():
+    data = request.json
 
-        new_comment = StoryComments(jsonify(new_comment))
-        db.session.add(new_comment)
-        db.session.commit()
-        return jsonify(new_comment.to_dict()), 201
-    if form.errors:
-        print(form.errors)
+    new_comment = StoryComments(
+        story_id = storyId,
+        user_id = userId,
+        # body = form.data['body'],
+        body=data,
+        date_created = date.today()
+    )
+    print(new_comment)
+    db.session.add(new_comment)
+    db.session.commit()
+    return new_comment.to_dict(), 201
 
 
 # @story_comments.route("stories/comments/<int:commentId>", methods=['PUT'])
@@ -57,9 +59,9 @@ def post_comment(storyId, userId):
     # ask how we should probably incorporate this
 
 
-@story_comments.route('stories/comments/<int:commentId>', methods=['DELETE'])
-def delete_comment(id):
-    comment = StoryComments.query.get(id)
+@story_comments.route('/comments/<int:commentId>', methods=['DELETE'])
+def delete_comment(commentId):
+    comment = StoryComments.query.get(commentId)
     if comment:
         db.session.delete(comment)
         db.session.commit()

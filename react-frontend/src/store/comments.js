@@ -1,4 +1,3 @@
-import { csrfFetch } from "./csrf"
 import { getOneStory} from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
@@ -35,11 +34,11 @@ export const getComments = (storyId) => async (dispatch) => {
 };
 
 // create comment thunk action creator
-export const postComment = (storyId, userId, payload) => async (dispatch) => {
-  const response = await csrfFetch(`/api/story-comments/${storyId}/comments/${userId}`, {
+export const postComment = (storyId, userId, body) => async (dispatch) => {
+  const response = await fetch(`/api/story-comments/${storyId}/comments/${userId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userId, payload),
+    body: JSON.stringify(body),
   });
   console.log('response', response)
   if (response.ok) {
@@ -55,7 +54,7 @@ export const postComment = (storyId, userId, payload) => async (dispatch) => {
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`${storyId}/comments/${id}`, {
+  const response = await fetch(`/api/story-comments/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
@@ -75,9 +74,7 @@ const commentsReducer = (state = initalState, action) => {
   switch (action.type) {
     case GET_COMMENTS:
       newState = Object.assign({}, state);
-      // console.log(' this is what im logging ', newState)
       let newObject = {}
-
       action.comments.forEach(comment => {
         newObject[comment.id] = comment
       })
@@ -85,7 +82,7 @@ const commentsReducer = (state = initalState, action) => {
       return newState;
     case POST_COMMENTS:
       newState = Object.assign({}, state);
-      newState.story = action.comment;
+      newState.comments = action.comment;
       return newState;
     default:
       return state;

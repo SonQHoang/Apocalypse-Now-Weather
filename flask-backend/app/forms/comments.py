@@ -5,4 +5,4 @@ from app.models import Stories
 
 class PostComment(FlaskForm):
     body = StringField("body", validators=[DataRequired()])
-    submit = SubmitField("submit")
+
