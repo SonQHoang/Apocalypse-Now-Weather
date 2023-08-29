@@ -103,14 +103,15 @@ def upgrade():
     )
     # ### end Alembic commands ###
 
-    op.execute(f'ALTER TABLE SET SCHEMA users {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA locations {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA stories {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tips {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA story_comments {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA story_likes {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tip_comments {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tip_likes {SCHEMA};')
+    if environment == "production":
+        op.execute(f'ALTER TABLE SET SCHEMA users {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA locations {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA stories {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA tips {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA story_comments {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA story_likes {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA tip_comments {SCHEMA};')
+        op.execute(f'ALTER TABLE SET SCHEMA tip_likes {SCHEMA};')
 
 
 
