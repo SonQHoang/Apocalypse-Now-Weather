@@ -14,17 +14,15 @@ const DeleteStoryModal = (story) => {
     }
 
     return (
-        <div>
-            <div>
+        <div id='delete-story-modal-container'>
+            <div id='delete-story-modal-header'>
                 <h1>Confirm Delete</h1>
                 <p>Are you sure you want to permanently delete this story?</p>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <button type='submit'>Yes</button>
-                </div>
-                <div>
-                    <button onClick={closeModal}>No</button>
+            <form onSubmit={handleSubmit} id='delete-story-modal-form'>
+                <div id='delete-story-modal-buttons'>
+                    <button id='delete-story-yes-button' type='submit'>Yes (Delete Story)</button>
+                    <button id='delete-story-no-button' onClick={closeModal}>No (Keep Story)</button>
                 </div>
             </form>
         </div>
