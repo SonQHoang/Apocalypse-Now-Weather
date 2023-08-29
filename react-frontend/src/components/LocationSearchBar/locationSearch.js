@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 
 export const useLocationSearch = (inputId, setLatitude, setLongitude) => {
+
+  const [htmlString, setHtmlString] = useState('');
+
   useEffect(() => {
         console.log("useLocationSearch useEffect triggered");  // Debugging line
         console.log("inputId:", inputId);  // Debugging line
@@ -17,35 +20,40 @@ export const useLocationSearch = (inputId, setLatitude, setLongitude) => {
           return fetch(api)
           .then((response) => response.json())
           .then((data) => {
-            console.log("Received data:", data);  // Debugging line
-            return data;
+            console.log("***Received data:***", data.features);  // Debugging line
+            return data.features;
           });
       },
-        onResults: ({ currentValue, matches, template }) => {
+        onResults: ({ currentValue, matches }) => {
             console.log("Received matches:", matches);
-            const regex = new RegExp(currentValue, "gi");
-          return matches === 0
-            ? template
-            : matches
-                .map((element) => {
-                  return `
-          <li class="loupe">
-            <p>
-              ${element.properties.display_name.replace(regex, (str) => `<b>${str}</b>`)}
-            </p>
-          </li>`;
-                })
-                .join("");
-        },
-        onSubmit: ({ object }) => {
-          const [lng, lat] = object.geometry.coordinates;
-          console.log(`Latitude: ${lat}, Longitude: ${lng}`);
-          setLatitude(lat);
-          setLongitude(lng);
-        },
-      });
-    } else {
-      console.error("Autocomplete is not loaded");
-    }
-  }, [inputId, setLatitude, setLongitude]);
-};
+            if (matches && matches.length > 0) {
+              const regex = new RegExp(currentValue, "gi");
+              const htmlString = matches.map((feature) => {
+                const [lng, lat] = feature.geometry.coordinates;
+                return `
+                  <li class="loupe">
+                    <p>
+                      ${feature.properties.display_name.replace(regex, (str) => `<b>${str}</b>`)} - Lat: ${lat}, Lng: ${lng}
+                    </p>
+                  </li>`;
+              }).join("");
+
+              console.log("Generated HTML:", htmlString); // Debugging line
+              setHtmlString(newHtmlString);
+            } else {
+              return template;
+            }
+          },
+          onSubmit: ({ object }) => {
+            const [lng, lat] = object.geometry.coordinates;
+            console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+            setLatitude(lat);
+            setLongitude(lng);
+          },
+        });
+      } else {
+        console.error("Autocomplete is not loaded");
+      }
+    }, [inputId, setLatitude, setLongitude]);
+    return htmlString
+  };

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { signUp } from '../../store/session';
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useLocationSearch } from "../LocationSearchBar/locationSearch";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { signUp } from "../../store/session";
 import L from 'leaflet';
-import './SignupForm.css';
+import "./SignupForm.css";
+
 
 const ICON_SIZE = [25, 25]; // Width, Height
 
@@ -18,51 +20,25 @@ const getNuclearIcon = () => {
 
 function SignupFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [latitude, setLatitude] = useState(51.505); // Default lat-lng
+  const [longitude, setLongitude] = useState(-0.09); // Default lat-lng
   const [bio, setBio] = useState("");
   const [prepperType, setPrepperType] = useState("")
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [latitude, setLatitude] = useState(51.505);
-  const [longitude, setLongitude] = useState(-0.09);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const [map, setMap] = useState(null);
 
+  const [mapCenter, setMapCenter] = useState([latitude, longitude]);
+  const [mapZoom, setMapZoom] = useState(13);
+  useLocationSearch("locationSearch", setLatitude, setLongitude);
   useEffect(() => {
-    if (!map) return;
 
-    if (window.Autocomplete) {
-      new window.Autocomplete('locationSearch', {
-        selectFirst: true,
-        howManyCharacters: 2,
-        onSearch: ({ currentValue }) => {
-			console.log("onSearch triggered", currentValue);
-          const api = `https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${encodeURI(currentValue)}`;
-          return new Promise((resolve) => {
-            fetch(api)
-              .then((response) => response.json())
-              .then((data) => {
-                resolve(data.features);
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          });
-        },
-        onSubmit: ({ object }) => {
-          const [lng, lat] = object.geometry.coordinates;
-		  console.log("onSubmit triggered", object);
-          setLatitude(lat);
-          setLongitude(lng);
-          map.setView([lat, lng], 13);
-        }
-      });
-    } else {
-      console.error('Autocomplete is not loaded');
-    }
-  }, [map]);
+    setMapCenter([latitude, longitude]);
+  }, [latitude, longitude]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,27 +48,33 @@ function SignupFormModal() {
         setErrors(data);
       }
     } else {
-      setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors(["Confirm Password field must be the same as the Password field"]);
     }
   };
-  useEffect(() => {
-	if(!window.Autocomplete) {
-	  console.error('Autocomplete library is not loaded');
-	}
-  }, []);
+
+
 
   return (
     <>
       <section className="signupcontainer">
         <h1 id="signuptitle">Survivor Sign Up</h1>
-        <form onSubmit={handleSubmit}>
+
+
+		<form onSubmit={handleSubmit}>
+          {/* Error messages */}
           <div className="error-messages">
             {errors.map((error, idx) => (
               <p key={idx}>{error}</p>
             ))}
           </div>
-          <input type="hidden" name="latitude" value={latitude} />
-          <input type="hidden" name="longitude" value={longitude} />
+
+
+				{/* Hidden input fields for latitude and longitude */}
+				<input type="hidden" name="latitude" value={latitude} />
+        		<input type="hidden" name="longitude" value={longitude} />
+
+
+          {/* Email Input */}
           <label id="emaillabel">
             Email
             <input
@@ -102,6 +84,8 @@ function SignupFormModal() {
               required
             />
           </label>
+
+          {/* Username Input */}
           <label id="usernamelabel">
             Username
             <input
@@ -111,10 +95,10 @@ function SignupFormModal() {
               required
             />
           </label>
-		  <div className="form-group">
- 				<label id="preppertypelabel">
- 					Prepper Type
- 					<select id="preppertype"
+			<div className="form-group">
+				<label id="preppertypelabel">
+					Prepper Type
+					<select id="preppertype"
 					value={prepperType}
 					onChange={(e) => setPrepperType(e.target.value)}
 					required
@@ -140,6 +124,7 @@ function SignupFormModal() {
 					required
 					/>
 				</div>
+          {/* Password Input */}
           <label id="passwordlabel">
             Password
             <input
@@ -149,6 +134,8 @@ function SignupFormModal() {
               required
             />
           </label>
+
+          {/* Confirm Password Input */}
           <label id="confirmpasswordlabel">
             Confirm Password
             <input
@@ -158,22 +145,25 @@ function SignupFormModal() {
               required
             />
           </label>
-          <button id="signupsubmit" type="submit">
-            Sign Up
-          </button>
-        </form>
 
+          {/* Submit Button */}
+          <button id="signupsubmit" type="submit">Sign Up</button>
+        </form>
+		 {/* Location Search and Map */}
           <div id="miniature-map">
-            <MapContainer whenCreated={setMap} center={[latitude, longitude]} zoom={13} style={{ height: '200px', width: '100%' }}>
-              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              <Marker position={[latitude, longitude]} icon={getNuclearIcon()}>
+            <MapContainer center={mapCenter} zoom={mapZoom} style={{ height: "200px", width: "100%" }}>
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={mapCenter}>
                 <Popup>
                   You are here.
                 </Popup>
               </Marker>
             </MapContainer>
           </div>
-		  <div className="location-section">
+          <div className="location-section">
+          {/* Location Search Input */}
           <label id="locationsearchlabel">
             Location Search
             <input
@@ -183,6 +173,7 @@ function SignupFormModal() {
             />
           </label>
         </div>
+
       </section>
     </>
   );
@@ -193,14 +184,12 @@ export default SignupFormModal;
 
 
 
-
-// import React, { useState, useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { useLocationSearch } from "../LocationSearchBar/locationSearch";
+// import React, { useState, useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { signUp } from '../../store/session';
 // import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import { signUp } from "../../store/session";
-// import "./SignupForm.css";
-
+// import L from 'leaflet';
+// import './SignupForm.css';
 
 // const ICON_SIZE = [25, 25]; // Width, Height
 
@@ -215,27 +204,51 @@ export default SignupFormModal;
 
 // function SignupFormModal() {
 //   const dispatch = useDispatch();
-
-//   const [email, setEmail] = useState("");
-//   const [username, setUsername] = useState("");
-//   const [latitude, setLatitude] = useState(51.505); // Default lat-lng
-//   const [longitude, setLongitude] = useState(-0.09); // Default lat-lng
+//   const [email, setEmail] = useState('');
+//   const [username, setUsername] = useState('');
 //   const [bio, setBio] = useState("");
 //   const [prepperType, setPrepperType] = useState("")
-//   const [password, setPassword] = useState("");
-//   const [confirmPassword, setConfirmPassword] = useState("");
+//   const [password, setPassword] = useState('');
+//   const [confirmPassword, setConfirmPassword] = useState('');
+//   const [latitude, setLatitude] = useState(51.505);
+//   const [longitude, setLongitude] = useState(-0.09);
 //   const [errors, setErrors] = useState([]);
 
-//   // Miniature map state
-//   const [mapCenter, setMapCenter] = useState([latitude, longitude]);
-//   const [mapZoom, setMapZoom] = useState(13);
-//   useLocationSearch("locationSearch", setLatitude, setLongitude);
+//   const [map, setMap] = useState(null);
+
 //   useEffect(() => {
-//     // Initialize your map logic here if needed
-//     // Similar to what you have in apocmap.js
-//     // This is just an example; you might want to adapt your actual apocmap logic here
-//     setMapCenter([latitude, longitude]);
-//   }, [latitude, longitude]);
+//     if (!map) return;
+
+//     if (window.Autocomplete) {
+//       new window.Autocomplete('locationSearch', {
+//         selectFirst: true,
+//         howManyCharacters: 2,
+//         onSearch: ({ currentValue }) => {
+// 			console.log("onSearch triggered", currentValue);
+//           const api = `https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${encodeURI(currentValue)}`;
+//           return new Promise((resolve) => {
+//             fetch(api)
+//               .then((response) => response.json())
+//               .then((data) => {
+//                 resolve(data.features);
+//               })
+//               .catch((error) => {
+//                 console.error(error);
+//               });
+//           });
+//         },
+//         onSubmit: ({ object }) => {
+//           const [lng, lat] = object.geometry.coordinates;
+// 		  console.log("onSubmit triggered", object);
+//           setLatitude(lat);
+//           setLongitude(lng);
+//           map.setView([lat, lng], 13);
+//         }
+//       });
+//     } else {
+//       console.error('Autocomplete is not loaded');
+//     }
+//   }, [map]);
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
@@ -245,33 +258,27 @@ export default SignupFormModal;
 //         setErrors(data);
 //       }
 //     } else {
-//       setErrors(["Confirm Password field must be the same as the Password field"]);
+//       setErrors(['Confirm Password field must be the same as the Password field']);
 //     }
 //   };
-
-
+//   useEffect(() => {
+// 	if(!window.Autocomplete) {
+// 	  console.error('Autocomplete library is not loaded');
+// 	}
+//   }, []);
 
 //   return (
 //     <>
 //       <section className="signupcontainer">
 //         <h1 id="signuptitle">Survivor Sign Up</h1>
-
-
-// 		<form onSubmit={handleSubmit}>
-//           {/* Error messages */}
+//         <form onSubmit={handleSubmit}>
 //           <div className="error-messages">
 //             {errors.map((error, idx) => (
 //               <p key={idx}>{error}</p>
 //             ))}
 //           </div>
-
-
-// 				{/* Hidden input fields for latitude and longitude */}
-// 				<input type="hidden" name="latitude" value={latitude} />
-//         		<input type="hidden" name="longitude" value={longitude} />
-
-
-//           {/* Email Input */}
+//           <input type="hidden" name="latitude" value={latitude} />
+//           <input type="hidden" name="longitude" value={longitude} />
 //           <label id="emaillabel">
 //             Email
 //             <input
@@ -281,8 +288,6 @@ export default SignupFormModal;
 //               required
 //             />
 //           </label>
-
-//           {/* Username Input */}
 //           <label id="usernamelabel">
 //             Username
 //             <input
@@ -292,10 +297,10 @@ export default SignupFormModal;
 //               required
 //             />
 //           </label>
-// 			<div className="form-group">
-// 				<label id="preppertypelabel">
-// 					Prepper Type
-// 					<select id="preppertype"
+// 		  <div className="form-group">
+//  				<label id="preppertypelabel">
+//  					Prepper Type
+//  					<select id="preppertype"
 // 					value={prepperType}
 // 					onChange={(e) => setPrepperType(e.target.value)}
 // 					required
@@ -321,7 +326,6 @@ export default SignupFormModal;
 // 					required
 // 					/>
 // 				</div>
-//           {/* Password Input */}
 //           <label id="passwordlabel">
 //             Password
 //             <input
@@ -331,8 +335,6 @@ export default SignupFormModal;
 //               required
 //             />
 //           </label>
-
-//           {/* Confirm Password Input */}
 //           <label id="confirmpasswordlabel">
 //             Confirm Password
 //             <input
@@ -342,13 +344,22 @@ export default SignupFormModal;
 //               required
 //             />
 //           </label>
-
-//           {/* Submit Button */}
-//           <button id="signupsubmit" type="submit">Sign Up</button>
+//           <button id="signupsubmit" type="submit">
+//             Sign Up
+//           </button>
 //         </form>
-// 		 {/* Location Search and Map */}
-// 		 <div className="location-section">
-//           {/* Location Search Input */}
+
+//           <div id="miniature-map">
+//             <MapContainer whenCreated={setMap} center={[latitude, longitude]} zoom={13} style={{ height: '200px', width: '100%' }}>
+//               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+//               <Marker position={[latitude, longitude]} icon={getNuclearIcon()}>
+//                 <Popup>
+//                   You are here.
+//                 </Popup>
+//               </Marker>
+//             </MapContainer>
+//           </div>
+// 		  <div className="location-section">
 //           <label id="locationsearchlabel">
 //             Location Search
 //             <input
@@ -357,28 +368,17 @@ export default SignupFormModal;
 //               placeholder="Search for your location"
 //             />
 //           </label>
-
-//           {/* Miniature Map */}
-//           <div id="miniature-map">
-//             <MapContainer center={mapCenter} zoom={mapZoom} style={{ height: "200px", width: "100%" }}>
-//               <TileLayer
-//                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-//               />
-//               <Marker position={mapCenter}>
-//                 <Popup>
-//                   You are here.
-//                 </Popup>
-//               </Marker>
-//             </MapContainer>
-//           </div>
 //         </div>
-
 //       </section>
 //     </>
 //   );
 // }
 
 // export default SignupFormModal;
+
+
+
+
 
 
 
