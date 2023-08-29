@@ -57,7 +57,7 @@ return (
          }
       </div>
       <div className="comments-div-holder">
-        {commentsList.map(({ id, body, user_id, date_created, storyId }) => (
+        {commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
             <div className="comment-created-date">{date_created}</div>

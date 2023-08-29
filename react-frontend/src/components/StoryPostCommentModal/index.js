@@ -10,6 +10,7 @@ function PostCommentModal(props) {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
+
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -21,8 +22,8 @@ function PostCommentModal(props) {
   const submitComment = async (e) => {
     e.preventDefault();
     const data = await dispatch(postComment(storyId, userId, comment));
-    if (data) {
-      // setErrors(data);
+    if (data.errors) {
+      setErrors(data.errors);
     } else {
       closeModal();
     }

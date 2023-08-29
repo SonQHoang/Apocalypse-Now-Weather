@@ -9,15 +9,11 @@ function DeleteCommentModal(props) {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
-  // const [errors, setErrors] = useState({});
+
 
   const handleDelete = async (e) => {
     const data = await dispatch(deleteComment(id, storyId));
-    if (data) {
-      // setErrors(data);
-    } else {
-      closeModal();
-    }
+
     closeModal();
   };
 

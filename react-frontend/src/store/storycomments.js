@@ -90,7 +90,7 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`${storyId}/comments/${id}`, {
+  const response = await fetch(`/api/story-comments/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
