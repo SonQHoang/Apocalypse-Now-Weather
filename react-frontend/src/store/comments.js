@@ -35,16 +35,17 @@ export const getComments = (storyId) => async (dispatch) => {
 };
 
 // create comment thunk action creator
-export const postComment = (storyId, payload) => async (dispatch) => {
-  const response = await fetch(`${storyId}/comments/`, {
+export const postComment = (storyId, userId, payload) => async (dispatch) => {
+  const response = await fetch(`/api/story-comments/${storyId}/comments/${userId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(userId, payload),
   });
+  console.log('response', response)
   if (response.ok) {
     const comment = await response.json();
     dispatch(getComments(storyId));
-    // dispatch(getStories(storyId))
+    dispatch(getOneStory(storyId))
     return comment;
   }
 };

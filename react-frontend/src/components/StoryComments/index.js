@@ -30,7 +30,7 @@ export default function StoryComments(prop) {
   }, [dispatch, storyId]);
 
   const commentsList = Object.values(storyComments);
-  console.log('this is it', commentsList)
+
 
 
 //   let createdAtSplit;
@@ -51,7 +51,7 @@ return (
         {
               <OpenModal
                 buttonText="Post A Comment"
-                modalComponent={<PostCommentModal /*props={props}*/ />}
+                modalComponent={<PostCommentModal props={props} />}
               />
          }
       </div>
