@@ -54,6 +54,7 @@ export const createTip = (data, userId) => async (dispatch) => {
             body: JSON.stringify(data)
         });
         if (response.ok) {
+            console.log('What does my response look like====>', response)
             const tips = await response.json()
             console.log('What does this tip data look like=========>', tips)
             dispatch(acCreateTip(tips))
@@ -106,7 +107,7 @@ export const getTipById = (tipId) => async (dispatch) => {
         // console.log('Am I getting a 200 response?====> Yes', response)
         if (response.ok) {
             const tip = await response.json()
-                    // console.log('Does the tip have all the data I need?====> Yes', tip)
+            // console.log('Does the tip have all the data I need?====> Yes', tip)
 
             dispatch(acGetTipById(tip))
         }
@@ -115,18 +116,19 @@ export const getTipById = (tipId) => async (dispatch) => {
     }
 }
 
-export const deleteTips = (data) => async (dispatch) => {
+export const deleteTips = (spotId) => async (dispatch) => {
     try {
-        const response = await fetch (`/tips/${data}`, {
-            method: "DELETE"
+        const response = await fetch(`/tips/${spotId}`, {
+            method: "DELETE",
+            headers: {"Content-Type": 'application/json'}
         });
-        console.log('Am I getting any response back====>', response)
+        console.log('Am I getting any response back====> Yes, 200', response)
         if (response.ok) {
-            const tips = await response.json()
-            dispatch(acDeleteTip(tips))
-            return tips
+            // const tips = await response.json()
+            dispatch(acDeleteTip(spotId))
+            // return tips
         }
-    }catch (error) {
+    } catch (error) {
         console.error(error)
     }
 }
@@ -141,9 +143,9 @@ const initialState = {
 const tipReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TIP: {
-            const newState = { ...state };
-            newState.allTips[action.tips.id] = action.tips;
-            return newState
+            // console.log('Before creation:', state);
+            return { ...state, allTips: { ...state.allTips, [action.tips.id]: action.tips } };
+            // return newState
         }
         case GET_ALL_TIPS: {
             return {
@@ -167,14 +169,21 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case DELETE_TIP: {
-            const updatedTips = { ...state.allTips };
-            delete updatedTips[action.tipId];
-            return {
-                ...state,
-                allTips: updatedTips
-            }
-        }
 
+            console.log('Deleting tip with ID:', action.tipId);
+            console.log('Before deletion:', state); 
+
+            const newAllTips = { ...state.allTips };
+            delete newAllTips[action.tipId];
+            const newState = { ...state, allTips: newAllTips };
+            
+            console.log('After deletion:', newState);
+        }
+// Something may be causing state to not re-render
+// Need to cause a new ref in memory
+
+// Check for a useSelector for resource changes
+// slice of state boolean, change that to force the change
         default:
             return state;
     }

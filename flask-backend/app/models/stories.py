@@ -11,8 +11,8 @@ class Stories(db.Model):
 
     # Stories has one => many relationships with Users, StoryComments, StoryLikes
     author = db.relationship('User', back_populates='stories')
-    comments = db.relationship('StoryComments', back_populates='story')
-    likes = db.relationship('StoryLikes', back_populates='story')
+    comments = db.relationship('StoryComments', back_populates='story', cascade='all, delete-orphan')
+    likes = db.relationship('StoryLikes', back_populates='story', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {

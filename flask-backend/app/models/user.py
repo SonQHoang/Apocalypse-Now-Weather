@@ -24,13 +24,13 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # Users has one => many relationships with Stories, Tips, StoryComments, StoryLikes
-    stories = db.relationship('Stories', back_populates='author')
-    tips = db.relationship('Tips', back_populates='author')
-    tip_comments = db.relationship('TipComments', back_populates='commenter')
-    story_comments = db.relationship('StoryComments', back_populates='commenter')
-    story_likes = db.relationship('StoryLikes', back_populates='liker')
-    tip_likes = db.relationship('TipLikes', back_populates='liker')
-    location2 = db.relationship("Location", back_populates="user")
+    stories = db.relationship('Stories', back_populates='author', cascade='all, delete-orphan')
+    tips = db.relationship('Tips', back_populates='author', cascade='all, delete-orphan')
+    tip_comments = db.relationship('TipComments', back_populates='commenter', cascade='all, delete-orphan')
+    story_comments = db.relationship('StoryComments', back_populates='commenter', cascade='all, delete-orphan')
+    story_likes = db.relationship('StoryLikes', back_populates='liker', cascade='all, delete-orphan')
+    tip_likes = db.relationship('TipLikes', back_populates='liker', cascade='all, delete-orphan')
+    location2 = db.relationship("Location", back_populates="user", cascade='all, delete-orphan')
 
     @property
     def password(self):

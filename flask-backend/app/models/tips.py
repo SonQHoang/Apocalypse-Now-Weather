@@ -13,8 +13,8 @@ class Tips(db.Model):
 
     # Tips has a one => many relationship with users, tipComments, TipLikes
     author = db.relationship('User', back_populates='tips')
-    comments = db.relationship('TipComments', back_populates='tip')
-    likes = db.relationship('TipLikes', back_populates='tip')
+    comments = db.relationship('TipComments', back_populates='tip', cascade='all, delete-orphan')
+    likes = db.relationship('TipLikes', back_populates='tip', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
