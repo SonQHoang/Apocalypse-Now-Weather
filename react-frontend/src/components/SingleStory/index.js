@@ -6,6 +6,7 @@ import OpenModalButton from '../OpenModalButton'
 import DeleteStoryModal from "../DeleteStoryModal";
 import UpdateStoryModal from '../UpdateStoryModal'
 import './SingleStory.css'
+import StoryComments from "../StoryComments";
 
 const SingleStoryComponent = () => {
     const dispatch = useDispatch()
@@ -45,6 +46,9 @@ const SingleStoryComponent = () => {
                     <p>{isLoaded && currentStory && currentStory?.body}</p>
                     {manageStoryButtons}
                 </div>
+            </div>
+            <div className="comments-container">
+                <StoryComments props={id}/>
             </div>
         </>
     )

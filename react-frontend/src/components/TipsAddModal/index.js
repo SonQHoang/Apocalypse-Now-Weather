@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {createTip} from "../../store/tips"
 import "./TipsAddModal.css"
 
@@ -10,6 +10,7 @@ const TipsAddModal = ({onClose, onAddTip }) => {
     const [title , setTitle] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("");
     const [body, setBody] = useState("")
+    const user = useSelector(state => state.session.user)
 
     const handleClickOutside = (e) => {
         if (modalOverlayRef.current === e.target) {
@@ -28,14 +29,15 @@ const TipsAddModal = ({onClose, onAddTip }) => {
         setBody(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         const newTip = {
             title: title,
             weather_category: selectedCategory,
             body: body,
         }
-        // console.log('am I getting data here====>', newTip)
-        dispatch(createTip(newTip))
+        // console.log('Start of the data chain, is my new tip here====> Yes', newTip)
+        dispatch(createTip(newTip, user.id));
+
 
         setSelectedCategory("");
         setBody("");

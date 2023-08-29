@@ -7,50 +7,37 @@ import "./PostCommentModal.css";
 
 function PostCommentModal(props) {
 
-  // const storyId  = props.props.storyId;
-  // const userId  = props.props.currentUserId
+  const storyId  = props.props.storyId;
+  const userId  = props.props.currentUserId
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState({});
 
-  let isDisabled = true; // change when done
-  // if (comment.length < 5) {
-  //   isDisabled = true;
-  // }
+  let isDisabled = true;
+  if (comment.length > 0) {
+    isDisabled = false;
+  }
 
   const submitComment = async (e) => {
     e.preventDefault();
-
-    const newComment = {
-      // userId,
-      // storyId,
-      // comment,
-    };
-
-    // await dispatch(postComment(storyId, newComment)).catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) {
-    //     setErrors(data.errors);
-    //   }
-    // });
-    reset();
-    closeModal();
+    const data = await dispatch(postComment(storyId, userId, comment));
+    if (data) {
+      // setErrors(data);
+    } else {
+      closeModal();
+    }
   };
-
-  const reset = () => {
-    setComment("");
-  };
-
 
   return (
     <div className="comment-form-modal">
       <h1>Leave a Comment</h1>
-      <>{errors.message}</>
+      {/* <>{errors.message}</> */}
       <textarea
         className="post-comment-form-modal"
         placeholder="Leave your comment here.."
+        value={comment}
         onChange={(e) => setComment(e.target.value)}
       ></textarea>
       <button className='submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
