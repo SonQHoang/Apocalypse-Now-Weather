@@ -5,13 +5,15 @@ import storyReducer from './stories';
 import tipReducer from './tips'
 import commentsReducer from "./storycomments";
 import tipcommentsReducer from './tipcomments';
+import storyLikesReducer from './storyLikes';
 
 const rootReducer = combineReducers({
   comments: commentsReducer,
   tipcomments: tipcommentsReducer,
   session,
   tips: tipReducer,
-  stories: storyReducer
+  stories: storyReducer,
+  storyLikes: storyLikesReducer,
 });
 
 

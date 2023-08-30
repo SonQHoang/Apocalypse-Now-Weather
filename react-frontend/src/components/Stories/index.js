@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react'
 import * as storyActions from '../../store/stories'
 import { NavLink } from 'react-router-dom'
 import './Stories.css'
-import OpenModalButton from '../OpenModalButton'
-import DeleteStoryModal from '../DeleteStoryModal'
-import UpdateStoryModal from '../UpdateStoryModal'
+import StoryLikesComponent from '../StoryLikes'
 
 const StoriesComponent = () => {
     const dispatch = useDispatch()
     const [isLoaded, setIsLoaded] = useState(false)
+
     const allStories = useSelector(state => state.stories.allStories)
     const sessionUser = useSelector(state => state.session.user)
 
@@ -33,17 +32,23 @@ const StoriesComponent = () => {
             </div>
             {isLoaded && storiesToMap && storiesToMap?.map((story) => (
                 <>
-                    <div className='individual-story-container'>
-                        <NavLink exact to={`/stories/${story.id}`} className='story-title-link'><h2 className='individual-story-title'>{story.title}</h2></NavLink>
-                        <p className='story-author-name-all'>By: {story.author.first_name} {story.author.last_name}</p>
-                        <p className='individual-story-body'>{story.body}</p>
-                        <div>
-                        {(sessionUser && sessionUser.id === story.author.id) ? (
-                            <div className='manage-story-buttons-div'>
-                                <OpenModalButton buttonText='Update' modalComponent={<UpdateStoryModal story={story} />} />
-                                <OpenModalButton buttonText='Delete' modalComponent={<DeleteStoryModal story={story} />} />
+                    <div id='single-story-container'>
+                        <div id='single-story-header'>
+                            <div id='title-and-manage-dots-div-allStories'>
+                                <NavLink exact to={`/stories/${story.id}`} className='story-title-link'><h2 className='individual-story-title'>{story.title}</h2></NavLink>
+                                <p className='story-author-name-all'>By: {story.author.first_name} {story.author.last_name}</p>
+                                {(sessionUser && sessionUser.id === story?.author?.id) ? (
+                                    <div id='allStories-manage-button'>
+                                        <NavLink exact to={`/stories/${story.id}`} className='individual-story-manage-link'><button className='individual-story-manage-link-button'>Manage Story</button></NavLink>
+                                    </div>
+                                    ) : ''}
                             </div>
-                        ): ''}
+                        </div>
+                        <div id='single-story-body'>
+                            <p className='individual-story-body'>{story.body}</p>
+                        </div>
+                        <div id='story-likes-container'>
+                            <StoryLikesComponent story={story} />
                         </div>
                     </div>
                 </>
