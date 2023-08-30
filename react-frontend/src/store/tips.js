@@ -83,13 +83,13 @@ export const getAllTips = () => async (dispatch) => {
     }
 }
 
-export const getUserTips = (userId) => async (dispatch) => {
+export const getUserTips = () => async (dispatch) => {
     try {
-        const response = await fetch(`/${userId}/tips`)
+        const response = await fetch(`/user_tips`)
         // console.log('what does my response look like?====>', response)
         if (response.ok) {
             const tips = await response.json()
-            // console.log('This is my data======>', data)
+            console.log('This is my data======>', tips)
             dispatch(acGetUserTips(tips))
         }
     } catch (error) {
@@ -152,9 +152,10 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case GET_USER_TIPS: {
-            newState = Object.assign({ ...state })
-            newState.allStories = action.payload
-            return newState
+            return {
+                ...state,
+                allTips: action.tips
+            }
         }
 
         case GET_TIP_BY_ID: {
@@ -165,15 +166,14 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case DELETE_TIP: {
+            // console.log('Deleting tip with ID:', action.tipId);
+            // console.log('Before deletion:', state); 
 
-            console.log('Deleting tip with ID:', action.tipId);
-            console.log('Before deletion:', state); 
-
-            const newAllTips = { ...state.allTips };
-            delete newAllTips[action.tipId];
-            const newState = { ...state, allTips: newAllTips };
+            const newState = { ...state, allTips: { ...state.allTips } }
+            delete newState.allTips[action.tipId]
+            // console.log('After deletion:', newState);
+            return newState
             
-            console.log('After deletion:', newState);
         }
 // Something may be causing state to not re-render
 // Need to cause a new ref in memory

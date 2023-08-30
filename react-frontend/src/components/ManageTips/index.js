@@ -11,29 +11,32 @@ const ManageTips = () => {
 
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
-    const user_tips = useSelector(state => state.tips.allTips)
-    console.log('======================== Currently Empty user_tips', user_tips)
+    const user_tips = Object.values(useSelector(state => state.tips.allTips))
+    console.log('========================user-tips===>', user_tips)
 
-    const tipsToMap = Object.values(user_tips)
-    console.log('What does tipsToMap look like====>', tipsToMap)
+    // const tipsToMap = Object.values(user_tips)
+    // console.log('What does tipsToMap look like====>', tipsToMap)
     
     useEffect(() => {
-        dispatch(getUserTips(userId))
-        // console.log('What is the userId====>', userId)
-    },[dispatch, userId])
+        dispatch(getUserTips())
+        console.log('What is the userId====>', userId)
+    },[dispatch])
 
-    const handleDeleteClick = (tip) => {
-        setSelectedTip(tip);
-        setShowModal(true);
+    const handleDeleteClick = async (tip) => {
+        setSelectedTip(tip)
+        setShowModal(true)
+        await dispatch(getUserTips())
     }
 
     return (
         <>
             <h1>Manage Your Tips</h1>
-        
-            {tipsToMap?.map(tip => (
+
+            {user_tips?.map(tip => (
                 <div key={tip.id}>
-                    <button onClick={() => handleDeleteClick(tip)}>Delete Tip</button>
+                    <p>{tip.body}</p>
+                    <button onClick={() => {
+                        return handleDeleteClick(tip)}}>Delete Tip</button>
                     <DeleteTip tipId={tip.id} />
                 </div>
             ))}

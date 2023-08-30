@@ -13,7 +13,8 @@ def get_all_tips():
         "id": tip.id,
         "title": tip.title,
         "weather_category": tip.weather_category,
-        "body": tip.body
+        "body": tip.body,
+        "user_id": tip.user_id
     } for tip in tips]
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
@@ -38,13 +39,11 @@ def create_new_tip(userId):
 
 
 @login_required
-@bp.route('/<int:userId>/tips', methods=["GET"])
+@bp.route('/user_tips', methods=["GET"])
 def get_user_tips():
-    user_id = current_user.id
-    print(user_id)
-    tips = Tips.query.filter_by(user_id=user_id).all()
-
-    return jsonify(tips)
+    # print(user_id)
+    tips = Tips.query.filter_by(user_id = current_user.id).all()
+    return [tip.to_dict() for tip in tips]
 
 
 
