@@ -231,7 +231,7 @@ body, html {
     overflow: visible;
 }
 
-#search{
+.signupcontainer #search{
     color: rgb(40, 40, 40);
 }
 
