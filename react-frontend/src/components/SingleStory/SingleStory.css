@@ -28,3 +28,78 @@
 #single-story-body {
     padding: 20px;
 }
+
+.story-manage-menu-dot {
+    font-size: 40px;
+    color: white;
+
+}
+
+#title-and-manage-dots-div {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#story-manage-dots-container {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    position: absolute;
+    right: 95px;
+    top: 65px;
+    height: 20px;
+}
+
+#story-manage-dots-container:hover {
+    cursor: pointer;
+}
+
+.manage-story-buttons-div-hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.manage-story-buttons-div-visible {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px 0 5px;
+    width: 100px;
+    height: 80px;
+    justify-content: center;
+    position: absolute;
+    right: 50px;
+    top: 110px;
+    z-index: 200;
+    background-color: white;
+}
+
+#modal-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    border: 1px solid black;
+    height: 30px;
+    margin-bottom: 2px;
+}
+
+#modal-button:hover {
+    cursor: pointer;
+}
+
+#story-likes-container-inner {
+    display: flex;
+    /* border: 1px solid lightgreen; */
+    width: 100px;
+    justify-content: space-between;
+}
+
+#story-likes-container {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-solid, .fa-regular {
+    margin-top: 15px;
+}
