@@ -1,19 +1,16 @@
-"""Updated migration
+"""gooo
 
-Revision ID: 56d6fc752bdd
+Revision ID: 4f9d5b2775e9
 Revises: 
-Create Date: 2023-08-29 11:23:09.867477
+Create Date: 2023-08-30 09:57:08.033986
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '56d6fc752bdd'
+revision = '4f9d5b2775e9'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,6 +24,8 @@ def upgrade():
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('location', sa.String(), nullable=False),
+    sa.Column('latitude', sa.Float(), nullable=True),
+    sa.Column('longitude', sa.Float(), nullable=True),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('prepper_type', sa.String(), nullable=True),
     sa.Column('prepper_description', sa.String(), nullable=True),
@@ -102,16 +101,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
-
-    op.execute(f'ALTER TABLE SET SCHEMA users {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA locations {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA stories {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tips {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA story_comments {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA story_likes {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tip_comments {SCHEMA};')
-    op.execute(f'ALTER TABLE SET SCHEMA tip_likes {SCHEMA};')
-
 
 
 def downgrade():

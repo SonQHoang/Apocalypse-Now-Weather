@@ -1,4 +1,3 @@
-import { csrfFetch } from "./csrf"
 import { getOneStory} from "./stories";
 
 const GET_COMMENTS = "comments/getComments";
@@ -51,7 +50,7 @@ export const postComment = (storyId, userId, commentBody) => async (dispatch) =>
     },
     body: JSON.stringify(responseBody),
   });
-  console.log('response', response)
+
   if (response.ok) {
     const comment = await response.json();
     console.log(comment)
@@ -90,7 +89,7 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
 
 //delete comment thunk action creator
 export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`${storyId}/comments/${id}`, {
+  const response = await fetch(`/api/story-comments/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
@@ -120,7 +119,7 @@ const commentsReducer = (state = initalState, action) => {
       return newState;
     case POST_COMMENTS:
       newState = Object.assign({}, state);
-      newState.story = action.comment;
+      newState.comments = action.comment;
       return newState;
     default:
       return state;

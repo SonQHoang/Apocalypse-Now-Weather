@@ -6,7 +6,7 @@ import OpenModalButton from '../OpenModalButton'
 import DeleteStoryModal from "../DeleteStoryModal";
 import UpdateStoryModal from '../UpdateStoryModal'
 import './SingleStory.css'
-import StoryComments from "../StoryComments";
+import StoryComments from "../StoryComment/StoryComments";
 import StoryLikesComponent from "../StoryLikes";
 
 const SingleStoryComponent = () => {
