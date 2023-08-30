@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useLocationSearch = (inputId, setLatitude, setLongitude) => {
 
@@ -28,7 +28,7 @@ export const useLocationSearch = (inputId, setLatitude, setLongitude) => {
             console.log("Received matches:", matches);
             if (matches && matches.length > 0) {
               const regex = new RegExp(currentValue, "gi");
-              const htmlString = matches.map((feature) => {
+              const generatedHtmlString  = matches.features.map((feature) => {
                 const [lng, lat] = feature.geometry.coordinates;
                 return `
                   <li class="loupe">
@@ -39,9 +39,7 @@ export const useLocationSearch = (inputId, setLatitude, setLongitude) => {
               }).join("");
 
               console.log("Generated HTML:", htmlString); // Debugging line
-              setHtmlString(newHtmlString);
-            } else {
-              return template;
+              setHtmlString(generatedHtmlString);
             }
           },
           onSubmit: ({ object }) => {

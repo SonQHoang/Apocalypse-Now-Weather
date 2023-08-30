@@ -1,8 +1,8 @@
-"""yay
+"""text
 
-Revision ID: 2d4055ccae28
+Revision ID: fe6dc794c39d
 Revises: 
-Create Date: 2023-08-28 10:34:16.284775
+Create Date: 2023-08-29 19:21:55.043005
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2d4055ccae28'
+revision = 'fe6dc794c39d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,6 +24,8 @@ def upgrade():
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('location', sa.String(), nullable=False),
+    sa.Column('latitude', sa.Float(), nullable=True),
+    sa.Column('longitude', sa.Float(), nullable=True),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('prepper_type', sa.String(), nullable=True),
     sa.Column('prepper_description', sa.String(), nullable=True),
