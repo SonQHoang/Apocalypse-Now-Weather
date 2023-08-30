@@ -22,7 +22,9 @@ def get_all_tips():
 @login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
+    print('===============+>', userId)
     form = CreateTip()
+    print('form==========>', form)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_tip = Tips(
@@ -34,6 +36,7 @@ def create_new_tip(userId):
         )
         db.session.add(new_tip)
         db.session.commit()
+        print('=============================>', new_tip.to_dict())
         return new_tip.to_dict()
     return {'errors': 'error'}, 401
 

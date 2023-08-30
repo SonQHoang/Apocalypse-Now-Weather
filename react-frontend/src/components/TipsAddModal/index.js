@@ -35,7 +35,7 @@ const TipsAddModal = ({onClose, onAddTip }) => {
             weather_category: selectedCategory,
             body: body,
         }
-        // console.log('Start of the data chain, is my new tip here====> Yes', newTip)
+        console.log('Start of the data chain, is my new tip here====> Yes', newTip)
         dispatch(createTip(newTip, user.id));
 
 

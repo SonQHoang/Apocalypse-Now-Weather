@@ -47,15 +47,15 @@ const acDeleteTip = (tipId) => {
 
 // Thunk
 export const createTip = (data, userId) => async (dispatch) => {
-    // console.log('Stop two. Do I have data and a tipId?====>', data)
+    console.log('Stop two. Do I have data?====>', data, "how about userId========>", userId)
     try {
         const response = await fetch(`/${userId}/tips`, {
             method: "POST",
-            headers: { "Content`-Type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
         if (response.ok) {
-            // console.log('What does my response look like====>', response)
+            console.log('What does my response look like====>', response)
             const tips = await response.json()
             // console.log('What does this tip data look like=========>', tips)
             dispatch(acCreateTip(tips))
