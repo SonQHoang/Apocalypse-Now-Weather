@@ -27,11 +27,14 @@ Prepper_Types = ['Nuclear Prepper', 'EMP/Solar Flare Prepper', 'Economic Collaps
 
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('First Name', validators=[DataRequired()])
+    username = StringField('username', validators=[DataRequired(), username_exists])
     email = StringField('Email', validators=[DataRequired(), user_exists])
     password = StringField('Password', validators=[DataRequired()])
+    location = StringField('Location', validators=[DataRequired()])
     latitude = FloatField('Latitude', validators=[DataRequired()])
     longitude = FloatField('Longitude', validators=[DataRequired()])
     prepper_type = SelectField('Prepper Type', choices=Prepper_Types, validators=[DataRequired()])
+    prepper_description = StringField('Prepper Description', validators=[DataRequired()])
     bio = StringField('Short Personal Bio', validators=[DataRequired()])

@@ -64,6 +64,8 @@ function LocationSetter({ setLatitude, setLongitude }) {
 
 function SignUpForm() {
   const dispatch = useDispatch();
+  const [first_name, setFirst_Name] = useState("");
+  const [last_name, setLast_Name] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [location, setlocation] = useState("");
@@ -177,6 +179,25 @@ return (
               <p key={idx}>{error}</p>
             ))}
           </div>
+
+          <label id="firstnamelabel">
+            First Name
+            <input
+              type="text"
+              value={first_name}
+              onChange={(e) => setFirst_Name(e.target.value)}
+              required
+            />
+          </label>
+          <label id="lastnamelabel">
+            Last Name
+            <input
+              type="text"
+              value={last_name}
+              onChange={(e) => setLast_Name(e.target.value)}
+              required
+            />
+          </label>
 
 
 				{/* Hidden input fields for latitude and longitude */}

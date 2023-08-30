@@ -1,3 +1,4 @@
+import { csrfFetch } from "./csrf";
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -67,13 +68,15 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp =(username, email, password, location, latitude, longitude, prepperType, bio) => async (dispatch) => {
+export const signUp =(first_name, last_name, username, email, password, location, latitude, longitude, prepperType, prepper_description, bio) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
+			first_name,
+			last_name,
 			username,
 			email,
 			password,
@@ -81,6 +84,7 @@ export const signUp =(username, email, password, location, latitude, longitude, 
 			latitude,
 			longitude,
 			prepperType,
+			prepper_description,
 			bio
 		}),
 	});
