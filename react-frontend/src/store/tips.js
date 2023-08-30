@@ -47,7 +47,7 @@ const acDeleteTip = (tipId) => {
 
 // Thunk
 export const createTip = (data, userId) => async (dispatch) => {
-    console.log('Stop two. Do I have data?====>', data, "how about userId========>", userId)
+    // console.log('Stop two. Do I have data?====>', data, "how about username========>", userName)
     try {
         const response = await fetch(`/${userId}/tips`, {
             method: "POST",
