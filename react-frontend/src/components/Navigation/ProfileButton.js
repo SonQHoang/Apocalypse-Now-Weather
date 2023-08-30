@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
+import { Link } from 'react-router-dom';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import SignUpFormModal from "../SignupFormModal";
+// import SignupFormPage from "../SignupFormPage";
 import { NavLink } from "react-router-dom"
 import ManageStories from "../ManageStories";
 
@@ -63,12 +65,14 @@ function ProfileButton({ user }) {
               modalComponent={<LoginFormModal />}
             />
 
-            <OpenModalButton
+            {/* <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-
+              modalComponent={<SignUpFormModal/>}
+            /> */}
+            <li>
+              <Link to="/signup" onClick={closeMenu}>Sign Up</Link>
+            </li>
           </>
         )}
       </ul>
