@@ -11,11 +11,9 @@ import "./TipComments.css";
 
 export default function TipComments(prop) {
   const dispatch = useDispatch();
-  const tipComments = useSelector((state) => state.comments);
+  const tipComments = useSelector((state) => state.tipcomments);
   const currentUser = useSelector((state) => state.session.user);
   const tipId = prop.props
-
-
 
   let currentUserId;
   if (currentUser && currentUser.id) {

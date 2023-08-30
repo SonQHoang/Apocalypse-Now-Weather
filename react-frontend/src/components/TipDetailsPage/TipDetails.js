@@ -29,7 +29,7 @@ function TipDetailsPage() {
             <button>Comment on this Tip!</button>
         </div>
         <div className='tip-comments'>
-            <TipComments />
+            <TipComments props={tipId}/>
         </div>
         </>
     )

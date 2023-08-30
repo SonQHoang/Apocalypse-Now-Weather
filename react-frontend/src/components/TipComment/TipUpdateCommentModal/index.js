@@ -7,7 +7,7 @@ import "./TipUpdateCommentModal.css";
 
 
 function EditCommentModal(props) {
-  const tipComments = useSelector((state) => state.comments);
+  const tipComments = useSelector((state) => state.tipcomments);
   const currentUser = useSelector((state) => state.session.user);
   const tipId  = props.props.tipId;
   const userId  = currentUser.id
@@ -16,18 +16,18 @@ function EditCommentModal(props) {
   const commentToEdit = (tipComments[commentId])
   const dispatch = useDispatch();
 
-
-  const [commentBody, setComment] = useState('');
+  console.log(commentToEdit)
+  const [body, setComment] = useState('');
   const [errors, setErrors] = useState({});
 
   let isDisabled = true;
-  if (commentBody.length > 0) {
+  if (body.length > 0) {
     isDisabled = false;
   }
 
   const submitComment = async (e) => {
     e.preventDefault();
-    const data = await dispatch(editComment(tipId, userId, commentBody, commentId));
+    const data = await dispatch(editComment(tipId, userId, body, commentId));
     if (data.errors) {
       setErrors(data.errors);
     } else {

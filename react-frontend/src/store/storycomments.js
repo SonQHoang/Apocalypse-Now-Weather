@@ -50,7 +50,7 @@ export const postComment = (storyId, userId, commentBody) => async (dispatch) =>
     },
     body: JSON.stringify(responseBody),
   });
-  console.log('response', response)
+
   if (response.ok) {
     const comment = await response.json();
     console.log(comment)

@@ -4,9 +4,11 @@ import session from './session'
 import storyReducer from './stories';
 import tipReducer from './tips'
 import commentsReducer from "./storycomments";
+import tipcommentsReducer from './tipcomments';
 
 const rootReducer = combineReducers({
   comments: commentsReducer,
+  tipcomments: tipcommentsReducer,
   session,
   tips: tipReducer,
   stories: storyReducer
