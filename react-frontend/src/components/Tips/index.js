@@ -23,16 +23,19 @@ function Tips() {
     return (
         <>
             <div className="tips-container">
-            <div className="tip-button">
-                <button onClick={handleOpenModal}>Add a Tip!</button>
-                {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />}
-            </div>
+                <div className="manage-tips-title">
+                    <h1>Manage Your Tips!</h1>
+                </div>
+                <div className="tip-button">
+                    <button className="submit-tip-button" onClick={handleOpenModal}>Add a Tip!</button>
+                    {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />}
+                </div>
 
-        <div className="all-tips">
-                <ul>
-                    <GetAllTips onAddTip={handleAddTip}/>
-                </ul>
-            </div>
+                <div className="all-tips">
+                    <ul>
+                        <GetAllTips onAddTip={handleAddTip} />
+                    </ul>
+                </div>
             </div>
         </>
     )

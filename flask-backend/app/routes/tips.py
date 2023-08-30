@@ -10,11 +10,11 @@ bp = Blueprint("tip", __name__, url_prefix="")
 def get_all_tips():
     tips = Tips.query.all()
     tips_data = [{
-        "id": tip.id,
         "title": tip.title,
         "weather_category": tip.weather_category,
         "body": tip.body,
-        "user_id": tip.user_id
+        "user_id": tip.user_id,
+        "date_created": tip.date_created
     } for tip in tips]
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
@@ -22,11 +22,14 @@ def get_all_tips():
 @login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
+    # print('===============+>', userId)
     form = CreateTip()
+    # print('form==========>', form)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_tip = Tips(
             user_id = userId,
+            id = form.data['Id'],
             title = form.data["title"],
             weather_category = form.data["weather_category"],
             body = form.data["body"],
@@ -34,6 +37,7 @@ def create_new_tip(userId):
         )
         db.session.add(new_tip)
         db.session.commit()
+        # print('=============================>', new_tip.to_dict())
         return new_tip.to_dict()
     return {'errors': 'error'}, 401
 

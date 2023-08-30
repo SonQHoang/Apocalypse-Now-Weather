@@ -10,7 +10,7 @@ function TipDetailsPage() {
 
     const dispatch = useDispatch()
     const tip = useSelector((state) => state.tips.singleTip)
-    // console.log('Do I see any tips?====> Yes', tip)
+    console.log('Do I see any tips?====> Yes', tip)
 
     useEffect(() => {
         dispatch(getTipById(tipId))
