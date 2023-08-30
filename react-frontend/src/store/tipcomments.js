@@ -1,48 +1,49 @@
-import { getOneStory} from "./stories";
 
-const GET_COMMENTS = "comments/getComments";
-const POST_COMMENTS = "comments/new";
-const PUT_COMMENTS = "comments/update";
+import { getTipById } from "./tips";
 
-export const getStoryComments = (data) => {
+const GET_TIPS_COMMENT = "tips/getComments";
+const POST_TIPS_COMMENT = "tips/new";
+const PUT_TIPS_COMMENT = "tips/update";
+
+export const getTipComments = (data) => {
   return {
-    type: GET_COMMENTS,
-    comments: data
+    type: GET_TIPS_COMMENT,
+    tips: data
   };
 };
 
 export const addComment = (comment) => {
   return {
-    type: POST_COMMENTS,
+    type: POST_TIPS_COMMENT,
     comment,
   };
 };
 
 //get comments thunk creator
-export const getComments = (storyId) => async (dispatch) => {
+export const getComments = (tipId) => async (dispatch) => {
 
-  const response = await fetch(`/api/story-comments/${storyId}`, {
+  const response = await fetch(`/api/tip-comments/${tipId}`, {
     method: "GET",
   });
   const data = await response.json();
   if(response.ok) {
-    dispatch(getStoryComments(data));
+    dispatch(getTipComments(data));
     return response;
   } else if(!response.ok && data.message) {
-    dispatch(getStoryComments(storyId.comments = {}))
+    dispatch(getTipComments(tipId.comments = {}))
   }
 };
 
 // create comment thunk action creator
-export const postComment = (storyId, userId, commentBody) => async (dispatch) => {
+export const postComment = (tipId, userId, commentBody) => async (dispatch) => {
 
   const responseBody = {
     commentBody,
     userId,
-    storyId
+    tipId
   }
 
-  const response = await fetch(`/api/story-comments/comments/new`, {
+  const response = await fetch(`/api/tip-comments/comments/new`, {
     method: "POST",
     headers: {
         'Accept': 'application/json',
@@ -54,22 +55,22 @@ export const postComment = (storyId, userId, commentBody) => async (dispatch) =>
   if (response.ok) {
     const comment = await response.json();
     console.log(comment)
-    dispatch(getComments(storyId));
-    dispatch(getOneStory(storyId))
+    dispatch(getComments(tipId));
+    dispatch(getTipById(tipId))
     return comment;
   }
 };
 
 //need an edit comment thunk action creator
-export const editComment = (storyId, userId, commentBody, commentId) => async (dispatch) => {
+export const editComment = (tipId, userId, commentBody, commentId) => async (dispatch) => {
 
   const responseBody = {
     commentBody,
     userId,
-    storyId
+    tipId
   }
   console.log(responseBody)
-  const response = await fetch(`/api/story-comments/comments/${commentId}`, {
+  const response = await fetch(`/api/tip-comments/comments/${commentId}`, {
     method: "PUT",
     headers: {
         'Accept': 'application/json',
@@ -81,21 +82,21 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
   if (response.ok) {
     const comment = await response.json();
     console.log(comment)
-    dispatch(getComments(storyId));
-    dispatch(getOneStory(storyId))
+    dispatch(getComments(tipId));
+    dispatch(getTipById(tipId))
     return comment;
   }
 };
 
 //delete comment thunk action creator
-export const deleteComment = (id, storyId) => async (dispatch) => {
-  const response = await fetch(`/api/story-comments/comments/${id}`, {
+export const deleteComment = (id, tipId) => async (dispatch) => {
+  const response = await fetch(`/api/tip-comments/comments/${id}`, {
     method: 'DELETE'
   });
   if (response.ok) {
     const comment = await response.json();
-    const waiting = await dispatch(getComments(storyId))
-    const stillWaiting = await dispatch(getOneStory(storyId))
+    const waiting = await dispatch(getComments(tipId))
+    const stillWaiting = await dispatch(getTipById(tipId))
     return comment;
   }
 }
@@ -107,7 +108,7 @@ const initalState = {
 const commentsReducer = (state = initalState, action) => {
   let newState;
   switch (action.type) {
-    case GET_COMMENTS:
+    case GET_TIPS_COMMENT:
       newState = Object.assign({}, state);
       // console.log(' this is what im logging ', newState)
       let newObject = {}
@@ -117,7 +118,7 @@ const commentsReducer = (state = initalState, action) => {
       })
       newState = newObject;
       return newState;
-    case POST_COMMENTS:
+    case POST_TIPS_COMMENT:
       newState = Object.assign({}, state);
       newState.comments = action.comment;
       return newState;

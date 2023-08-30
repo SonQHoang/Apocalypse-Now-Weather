@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getComments } from "../../store/storycomments";
-import "./StoryComments.css";
-import OpenModal from "../OpenModalButton";
-import PostCommentModal from "../StoryPostCommentModal";
-import DeleteCommentModal from "../StoryDeleteCommentModal";
-import EditCommentModal from "../StoryUpdateCommentModal";
+import { getComments } from "../../../store/tipcomments";
+import OpenModal from "../../OpenModalButton";
+import PostCommentModal from "../TipPostCommentModal";
+import DeleteCommentModal from "../TipDeleteCommentModal";
+import EditCommentModal from "../TipUpdateCommentModal";
+import "./TipComments.css";
 
 
 
-export default function StoryComments(prop) {
+export default function TipComments(prop) {
   const dispatch = useDispatch();
-  const storyComments = useSelector((state) => state.comments);
+  const tipComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
-  const storyId = prop.props
+  const tipId = prop.props
 
 
 
@@ -23,14 +21,14 @@ export default function StoryComments(prop) {
   if (currentUser && currentUser.id) {
     currentUserId = currentUser.id;
   }
-  const props = { storyId, currentUserId };
+  const props = { tipId, currentUserId };
 
 
   useEffect(() => {
-    dispatch(getComments(storyId));
-  }, [dispatch, storyId]);
+    dispatch(getComments(tipId));
+  }, [dispatch, tipId]);
 
-  const commentsList = Object.values(storyComments);
+  const commentsList = Object.values(tipComments);
 
 
 
@@ -68,13 +66,13 @@ return (
                   { <OpenModal
                     buttonText="Update"
                     modalComponent={
-                      <EditCommentModal props={{ id, storyId }} />
+                      <EditCommentModal props={{ id, tipId }} />
                     }
                   /> }
                   { <OpenModal
                     buttonText="Delete"
                     modalComponent={
-                      <DeleteCommentModal props={{ id, storyId }} />
+                      <DeleteCommentModal props={{ id, tipId }} />
                     }
                   /> }
               </>

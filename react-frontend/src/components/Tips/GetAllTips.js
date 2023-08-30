@@ -39,7 +39,7 @@ function GetAllTips() {
                     <p>{`Title: ${tip.title}`}</p>
                     <p>{`Weather Category: ${tip.weather_category}`}</p>
                     <p>{`Body: ${tip.body}`}</p>
-            
+
                 </div>
                     <button onClick={() => handleDeleteClick(tip)}>Delete Tip</button>
                     <DeleteTip tipId={tip.id} />
