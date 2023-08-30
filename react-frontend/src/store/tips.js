@@ -82,24 +82,24 @@ export const getAllTips = () => async (dispatch) => {
     }
 }
 
-export const getUserTips = () => async (dispatch) => {
+export const getUserTips = (id) => async (dispatch) => {
+    console.log('Am I sending the id======> Yes', id)
+    try {
+        const response = await fetch(`/tips/user/${id}`)
+        console.log('What does the response look like====>', response)
+        if(response.ok) {
+            const data = await response.json()
+            dispatch(getUserTips)
+            return data
+        } else {
+            const errors = await response.json()
+            return errors;
+        }
+    } catch (error) {
+        const errors = (error && error.json) ? await error.json() : { message: error.toString()}
+        return errors
+    }
 }
-
-// export const getTipById = (tipId) => async (dispatch) => {
-//     console.log('this is my tipId====>', tipId)
-//     try {
-//         const response = await fetch(`/spots/${tipId}`);
-//         if (response.ok) {
-//             const tip = await response.json();
-
-//             dispatch(acGetTipById(tip))
-//         } else {
-//             throw new Error('Failed to fetch spot by ID')
-//         }
-//     } catch (error) {
-//         console.error(error)
-//     }
-// }
 
 export const getTipById = (tipId) => async (dispatch) => {
     try {
@@ -140,6 +140,7 @@ const initialState = {
     singleTip: {}
 }
 
+let newState
 const tipReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TIP: {
@@ -155,10 +156,9 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case GET_USER_TIPS: {
-            return {
-                ...state,
-                allTips: action.tips
-            }
+            newState = Object.assign({ ...state })
+            newState.allStories = action.payload
+            return newState
         }
 
         case GET_TIP_BY_ID: {

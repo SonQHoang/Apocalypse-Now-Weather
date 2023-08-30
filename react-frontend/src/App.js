@@ -15,6 +15,7 @@ import CreateNewStory from "./components/CreateNewStory";
 
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
+import ManageTips from "./components/ManageTips";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -39,7 +40,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/forecast">
-           <ApocMap/>
+          <ApocMap/>
           </Route>
           <Route path='/stories/new'>
             <CreateNewStory />
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route exact path="/tips">
             <Tips/>
+          </Route>
+          <Route exact path="/tips/manage">
+            <ManageTips/>
           </Route>
           <Route exact path="/tips/:tipId" component={TipDetailsPage} />
         </Switch>
