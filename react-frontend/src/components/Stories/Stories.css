@@ -17,17 +17,9 @@
 }
 
 .story-author-name-all {
-    color: black;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-}
-
-.individual-story-container {
-    width: 80%;
-    margin: 50px auto;
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: 20px;
 }
 
 .individual-story-title {
@@ -35,6 +27,8 @@
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    color: #ff7518;
+    margin-bottom: 10px;
 }
 
 .story-title-link {
@@ -51,4 +45,15 @@
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     padding: 10px;
+}
+
+.individual-story-manage-link {
+    text-decoration: none;
+}
+
+.individual-story-manage-link-button {
+    font-family: 'Montserrat', sans-serif;
+    height: 30px;
+    margin-top: 0;
+    margin-bottom: 10px;
 }

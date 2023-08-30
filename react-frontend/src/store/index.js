@@ -4,12 +4,14 @@ import session from './session'
 import storyReducer from './stories';
 import tipReducer from './tips'
 import commentsReducer from './comments';
+import storyLikesReducer from './storyLikes';
 
 const rootReducer = combineReducers({
   comments: commentsReducer,
   session,
   tips: tipReducer,
-  stories: storyReducer
+  stories: storyReducer,
+  storyLikes: storyLikesReducer,
 });
 
 

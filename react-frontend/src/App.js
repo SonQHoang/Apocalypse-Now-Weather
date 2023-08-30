@@ -12,6 +12,7 @@ import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 import ManageStories from "./components/ManageStories";
+import StoryHighlights from './components/StoryHighlights';
 
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
@@ -57,6 +58,9 @@ function App() {
             <Tips/>
           </Route>
           <Route exact path="/tips/:tipId" component={TipDetailsPage} />
+          <Route exact path='/'>
+            <StoryHighlights />
+          </Route>
         </Switch>
       )}
     </>
