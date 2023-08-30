@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, StringField, FieldList, FloatField
-from wtforms.validators import DataRequired, NumberRange, URL
+from wtforms import StringField, IntegerField
+from wtforms.validators import DataRequired
+
 
 class CommentForm(FlaskForm):
-    # story_id
-    # user_id
-    # date_created
-    comment = StringField("Name", validators=[DataRequired()])
+    commentBody = StringField("Caption", validators=[DataRequired()])
+    userId = IntegerField("user_id",validators=[DataRequired()])
+    storyId = IntegerField("story_id", validators=[DataRequired()])

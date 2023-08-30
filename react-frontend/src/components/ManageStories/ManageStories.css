@@ -1,0 +1,9 @@
+.manage-story-buttons-div {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.story-author-name {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}

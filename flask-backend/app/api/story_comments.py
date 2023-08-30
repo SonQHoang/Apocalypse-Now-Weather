@@ -1,46 +1,66 @@
-from flask import Blueprint, request, jsonify
-from app.models import db
-from app.models.comment import StoryComment
-# from app.forms import PostComment
+from flask import Blueprint, request, jsonify, request
+from app.models.db import db
+from app.models.story_comments import StoryComments
+from app.forms.comments import CommentForm
+from app.models.user import User
+from datetime import date
 
 
 
-bp = Blueprint("story_comments", __name__)
 
 
-@bp.route("/api/stories/<storyId>/comments", methods=['GET'])
-def story_comments():
-    comments = StoryComment.query.all()
-    return jsonify([comments.to_dict() for comment in comments])
+story_comments = Blueprint("story_comments", __name__)
 
-@bp.route("/api/stories/<storyId>/comments", methods=['POST'])
+
+@story_comments.route("/<int:id>", methods=['GET'])
+def get_story_comments(id):
+
+    comments = StoryComments.query.filter(StoryComments.story_id == id).all()
+    users = User.query.all()
+    result = [comment.to_dict() for comment in comments]
+    return jsonify(result)
+
+@story_comments.route("/comments/new", methods=['POST'])
 def post_comment():
-    form = PostComment()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
     if form.validate_on_submit():
-        data = form.data
-        new_comment = StoryComment(**data)
+        new_comment = StoryComments(
+            story_id = form.data['storyId'],
+            user_id = form.data['userId'],
+            body=form.data['commentBody'],
+            date_created = date.today(),
+        )
+        print(new_comment)
         db.session.add(new_comment)
         db.session.commit()
-        return jsonify(new_comment.to_dict()), 201
+        return new_comment.to_dict()
 
-@bp.route("/api/stories/<storyId>/comments/<commentId>", methods=['PUT'])
-def post_comment():
-    form = PostComment()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.errors:
+        print(form.errors)
+        return {"errors": "we got some errors"}
+
+
+@story_comments.route("/comments/<int:commentId>", methods=['PUT'])
+def put_comment(commentId):
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
-        data = form.data
-        edited_comment = StoryComment(**data)
-        comment = StoryComment.query.get(id)
-        db.session.add(new_comment)
+        comment_to_update = StoryComments.query.get(commentId)
+        comment_to_update.body = form.data['commentBody']
         db.session.commit()
-        return jsonify(new_comment.to_dict()), 201
-    # ask how we should probably incorporate this
+        return comment_to_update.to_dict()
+
+    if form.errors:
+        print(form.errors)
+        return {"errors": "we got some errors"}
 
 
-@bp.route('/api/stories/<storyId>/comments/<commentId>', methods=['DELETE'])
-def delete_comment(id):
-    comment = StoryComment.query.get(id)
+
+@story_comments.route('/comments/<int:commentId>', methods=['DELETE'])
+def delete_comment(commentId):
+    comment = StoryComments.query.get(commentId)
     if comment:
         db.session.delete(comment)
         db.session.commit()
