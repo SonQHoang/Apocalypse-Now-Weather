@@ -149,7 +149,10 @@ function SignUpForm() {
 const handleSubmit = async (e) => {
       e.preventDefault();
       if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password, latitude, longitude));
+        const formBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
+        console.log("***FORM BODY******",formBody)
+        const data = dispatch(signUp(formBody))
+        // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
         if (data) {
           setErrors(data);
         }
@@ -174,11 +177,14 @@ return (
       <section className='signupform'>
       <form onSubmit={handleSubmit}>
            {/* Error messages */}
-            <div className="error-messages">
+            {/* <div className="error-messages">
+        {console.log("errors******(*",errors)}
+
             {errors.map((error, idx) => (
-              <p key={idx}>{error}</p>
-            ))}
-          </div>
+
+              <p key={idx}>{error}</p> */}
+            {/* ))} */}
+          {/* </div> */}
 
           <label id="firstnamelabel">
             First Name

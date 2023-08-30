@@ -68,39 +68,38 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp =(first_name, last_name, username, email, password, location, latitude, longitude, prepperType, prepper_description, bio) => async (dispatch) => {
-	const response = await fetch("/api/auth/signup", {
+export const signUp =(formBody) => async (dispatch) => {
+	// const responseBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
+	// console.log("responsebody", responseBody)
+	console.log("form body in thunk", formBody)
+	try{const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({
-			first_name,
-			last_name,
-			username,
-			email,
-			password,
-			location,
-			latitude,
-			longitude,
-			prepperType,
-			prepper_description,
-			bio
-		}),
+		body: JSON.stringify(
+			formBody
+		),
 	});
 
-	if (response.ok) {
+	// if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
-		return null;
-	} else if (response.status < 500) {
-		const data = await response.json();
-		if (data.errors) {
-			return data.errors;
-		}
-	} else {
-		return ["An error occurred. Please try again."];
+		return data
+	// } else if (response.status < 500) {
+	// 	const data = await response.json();
+	// 	if (data.errors) {
+	// 		return data.errors;
+	// 	}
+	// } else {
+	// 	return ["An error occurred. Please try again."];
+	// }
+
+	} catch (error) {
+		const errors = (error && error.json) ? await error.json() : { message: error.toString() }
+        return errors
 	}
+
 };
 
 export default function reducer(state = initialState, action) {
