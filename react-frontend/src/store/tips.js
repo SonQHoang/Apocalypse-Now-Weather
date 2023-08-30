@@ -23,7 +23,7 @@ const acGetAllTips = (tips) => {
 }
 
 const acGetUserTips = (tips) => {
-    console.log('What is the data in acGetUserTips=====>', tips)
+    // console.log('What is the data in acGetUserTips=====>', tips)
     return {
         type: GET_USER_TIPS,
         tips
@@ -89,7 +89,7 @@ export const getUserTips = () => async (dispatch) => {
         // console.log('what does my response look like?====>', response)
         if (response.ok) {
             const tips = await response.json()
-            console.log('This is my data======>', tips)
+            // console.log('This is my data======>', tips)
             dispatch(acGetUserTips(tips))
         }
     } catch (error) {
