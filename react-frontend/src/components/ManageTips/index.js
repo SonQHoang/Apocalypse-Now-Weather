@@ -12,14 +12,15 @@ const ManageTips = () => {
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
     const user_tips = useSelector(state => state.tips.allTips)
+    console.log('======================== Currently Empty user_tips', user_tips)
 
     const tipsToMap = Object.values(user_tips)
     console.log('What does tipsToMap look like====>', tipsToMap)
     
     useEffect(() => {
         dispatch(getUserTips(userId))
-        console.log('What is the userId====>', userId)
-    })
+        // console.log('What is the userId====>', userId)
+    },[dispatch, userId])
 
     const handleDeleteClick = (tip) => {
         setSelectedTip(tip);

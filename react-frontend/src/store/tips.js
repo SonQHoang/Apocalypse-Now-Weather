@@ -23,6 +23,7 @@ const acGetAllTips = (tips) => {
 }
 
 const acGetUserTips = (tips) => {
+    console.log('What is the data in acGetUserTips=====>', tips)
     return {
         type: GET_USER_TIPS,
         tips
@@ -54,9 +55,9 @@ export const createTip = (data, userId) => async (dispatch) => {
             body: JSON.stringify(data)
         });
         if (response.ok) {
-            console.log('What does my response look like====>', response)
+            // console.log('What does my response look like====>', response)
             const tips = await response.json()
-            console.log('What does this tip data look like=========>', tips)
+            // console.log('What does this tip data look like=========>', tips)
             dispatch(acCreateTip(tips))
             return tips
         } else {
@@ -82,22 +83,17 @@ export const getAllTips = () => async (dispatch) => {
     }
 }
 
-export const getUserTips = (id) => async (dispatch) => {
-    console.log('Am I sending the id======> Yes', id)
+export const getUserTips = (userId) => async (dispatch) => {
     try {
-        const response = await fetch(`/tips/user/${id}`)
-        console.log('What does the response look like====>', response)
-        if(response.ok) {
-            const data = await response.json()
-            dispatch(getUserTips)
-            return data
-        } else {
-            const errors = await response.json()
-            return errors;
+        const response = await fetch(`/${userId}/tips`)
+        // console.log('what does my response look like?====>', response)
+        if (response.ok) {
+            const tips = await response.json()
+            // console.log('This is my data======>', data)
+            dispatch(acGetUserTips(tips))
         }
     } catch (error) {
-        const errors = (error && error.json) ? await error.json() : { message: error.toString()}
-        return errors
+        console.error(error)
     }
 }
 

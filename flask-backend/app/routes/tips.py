@@ -37,16 +37,16 @@ def create_new_tip(userId):
     return {'errors': 'error'}, 401
 
 
-@bp.route('/user/<id>', methods=["GET"])
+@login_required
+@bp.route('/<int:userId>/tips', methods=["GET"])
 def get_user_tips():
-    user_tips = Tips.query.filter(Tips.user_id == current_user.id).all()
-    print('user_tips=======>', user_tips)
-    result = {}
-    for tip in user_tips:
-        curr_tip = tip
-        dict_curr_tip= curr_tip.to_dict()
-        result[dict_curr_tip['id']] = dict_curr_tip
-    return result
+    user_id = current_user.id
+    print(user_id)
+    tips = Tips.query.filter_by(user_id=user_id).all()
+
+    return jsonify(tips)
+
+
 
 @bp.route('/tips/<int:tip_id>')
 def get_tip_by_id(tip_id):
