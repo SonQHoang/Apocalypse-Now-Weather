@@ -1,11 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
 import { signUp } from "../../store/session";
+import { useModal } from '../../context/Modal';
+import './SignupForm.css'
+
+
+
 
 const prepper_descriptions = {
   'Nuclear Prepper': 'These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout.',
@@ -62,8 +68,10 @@ function LocationSetter({ setLatitude, setLongitude }) {
 }
 
 
-function SignUpForm() {
+function SignUpFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory()
+  const { closeModal } = useModal();
   const [first_name, setFirst_Name] = useState("");
   const [last_name, setLast_Name] = useState("");
   const [email, setEmail] = useState("");
@@ -77,7 +85,7 @@ function SignUpForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
+  const [placeholder, setPlaceholder] = useState("enter your desired default location");
   const [map, setMap] = useState(null);
   const [iconSize, setIconSize] = useState(25);
 
@@ -146,12 +154,23 @@ function SignUpForm() {
   }
 }, [map, iconSize]);
 
+
+const onFocusHandler = () => {
+  setPlaceholder("");
+};
+
+const onBlurHandler = () => {
+  setPlaceholder("enter your desired default location");
+};
+
+
 const handleSubmit = async (e) => {
       e.preventDefault();
       if (password === confirmPassword) {
         const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
         console.log("***FORM BODY******",formBody)
-        const data = dispatch(signUp(formBody))
+        const data = dispatch(signUp(formBody, history))
+        closeModal()
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
         if (data) {
           setErrors(data);
@@ -170,69 +189,75 @@ const handleSubmit = async (e) => {
 
 return (
   <>
-    <section className='signuptitleinfo'>
-      <h1 id="signuptitle">Survivor Sign Up</h1>
-      </section>
     <section className='signupcontainer'>
+    {/* <section className='signuptitleinfo'> */}
+      <h1 id="signuptitle">Survivor Sign Up</h1>
+      {/* </section> */}
       <section className='signupform'>
-      <form onSubmit={handleSubmit}>
+      <form id='survivorform' onSubmit={handleSubmit}>
            {/* Error messages */}
-            {/* <div className="error-messages">
-        {console.log("errors******(*",errors)}
+            <div className="error-messages">
+        {/* {console.log("errors******(*",errors)} */}
 
-            {errors.map((error, idx) => (
+            {/* {errors.map((error, idx) => (
 
-              <p key={idx}>{error}</p> */}
-            {/* ))} */}
-          {/* </div> */}
-
+              <p key={idx}>{error}</p>
+            ))} */}
+          </div>
+          <div className="label-input-group">
+          <section className='label-input-container'>
           <label id="firstnamelabel">
             First Name
-            <input
+            <input id='lastnameinput'
               type="text"
               value={first_name}
               onChange={(e) => setFirst_Name(e.target.value)}
               required
             />
           </label>
+          </section>
+          <section className='label-input-container'>
           <label id="lastnamelabel">
             Last Name
-            <input
+            <input id='lastnameinput'
               type="text"
               value={last_name}
               onChange={(e) => setLast_Name(e.target.value)}
               required
             />
           </label>
-
-
+            </section>
 				{/* Hidden input fields for latitude and longitude */}
 				    <input type="hidden" name="latitude" value={latitude} />
         		<input type="hidden" name="longitude" value={longitude} />
             <input type="hidden" name="prepper_description" value={prepper_description} />
 
           {/* Email Input */}
+          <section className='label-input-container'>
           <label id="emaillabel">
             Email
-            <input
+            <input id='emailinput'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </label>
-
+            </section>
           {/* Username Input */}
+          <section className='label-input-container'>
           <label id="usernamelabel">
             Username
-            <input
+            <input id='usernameinput'
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </label>
-			<div className="form-group">
+          </section>
+
+          <section className='label-input-container'>
 				<label id="preppertypelabel">
 					Prepper Type
 					<select id="preppertype"
@@ -248,8 +273,8 @@ return (
 					))}
 					</select>
 				</label>
-				</div>
-				<div className="form-group">
+				</section>
+				<section className='label-input-container'>
 				<label id="biolabel">
 					Short Personal Bio:
 				</label>
@@ -260,19 +285,23 @@ return (
 					onChange={(e) => setBio(e.target.value)}
 					required
 					/>
-				</div>
+				</section>
+        </div>
+        <div className="label-input-group">
           {/* Password Input */}
+          <section className='label-input-container'>
           <label id="passwordlabel">
             Password
-            <input
+            <input id='passwordinput'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </label>
-
+          </section>
           {/* Confirm Password Input */}
+          <section className='label-input-container'>
           <label id="confirmpasswordlabel">
             Confirm Password
             <input
@@ -282,17 +311,18 @@ return (
               required
             />
           </label>
+          </section>
+          </div>
 
-          {/* Submit Button */}
-          <button id="signupsubmit" type="submit">Sign Up</button>
         </form>
       </section>
+      <section className='locationfield'>
       <label id="locationLabel">
-          Current Location
-          <input
+          Selected Location
+          <input id='locationinput'
             type="text"
             value={location}
-            placeholder='This field is set automatically'
+            placeholder='automatically set by map'
             readOnly
           />
         </label>
@@ -303,8 +333,24 @@ return (
           <LocationSetter setLatitude={setLatitude} setLongitude={setLongitude} />
         </MapContainer>
         <section className="auto-search-wrapper">
-          <input type="text" autoComplete="off" id="search" className="full-width" placeholder="enter the city name" />
+          <input type="text" autoComplete="off" id="search" className="full-width" placeholder={placeholder} onFocus={onFocusHandler} onBlur={onBlurHandler} />
         </section>
+      </section>
+       {/* Submit Button */}
+       <section id='signupbuttonsection'>
+       <button id="signupsubmit" type="submit" form='survivorform'>JOIN THE SURVIVORS</button>
+       </section>
+      </section>
+      <section className='prepperdescription'>
+                <h2>What's your prepper type?</h2>
+                  {Object.entries(prepper_descriptions).map(([key, value], index) => {
+                    return (
+                      <p key={index}>
+                        <span className='prepper-key'><strong>{key}:</strong></span>
+                        <span className="prepper-value">{value}</span>
+                      </p>
+                    )
+                  })}
       </section>
     </section>
 
@@ -313,4 +359,4 @@ return (
 }
 
 
-export default SignUpForm;
+export default SignUpFormModal;

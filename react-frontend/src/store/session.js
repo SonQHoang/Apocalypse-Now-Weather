@@ -1,4 +1,5 @@
-import { csrfFetch } from "./csrf";
+
+import { useHistory } from "react-router-dom";
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -68,7 +69,7 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp =(formBody) => async (dispatch) => {
+export const signUp =(formBody, history) => async (dispatch) => {
 	// const responseBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
 	// console.log("responsebody", responseBody)
 	console.log("form body in thunk", formBody)
@@ -83,9 +84,13 @@ export const signUp =(formBody) => async (dispatch) => {
 	});
 
 	// if (response.ok) {
+		// const data = await response.json();
+		// dispatch(setUser(data));
+		// return data
 		const data = await response.json();
 		dispatch(setUser(data));
-		return data
+		history.push('/')
+		return Promise.resolve(data);
 	// } else if (response.status < 500) {
 	// 	const data = await response.json();
 	// 	if (data.errors) {
@@ -97,7 +102,7 @@ export const signUp =(formBody) => async (dispatch) => {
 
 	} catch (error) {
 		const errors = (error && error.json) ? await error.json() : { message: error.toString() }
-        return errors
+        return Promise.reject(errors);
 	}
 
 };

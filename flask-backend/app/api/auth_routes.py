@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, jsonify, session, request, redirect
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
@@ -80,11 +80,11 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
-    print("INSIDE SIGNUP FUNCTION")
+    # print("INSIDE SIGNUP FUNCTION")
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("******form email type*******",type(form.email.data))
-    print("******email data*****", form.email.data)
+    # print("******form email type*******",type(form.email.data))
+    # print("******email data*****", form.email.data)
     if form.validate_on_submit():
         user = User(
             first_name=form.data['first_name'],
@@ -102,9 +102,9 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-
+        # redirect('/')
         return user.to_dict()
-    print("form errors**********",form.errors)
+    # print("form errors**********",form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

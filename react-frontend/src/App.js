@@ -12,10 +12,11 @@ import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 import ManageStories from "./components/ManageStories";
-
+import LoginFormModal from "./components/LoginFormModal";
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
 import ManageTips from "./components/ManageTips";
+import SignUpFormModal from "./components/SignupFormModal";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -33,12 +34,12 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
+          {/* <Route path="/login" >
             <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
-          </Route>
+          </Route> */}
           <Route path="/forecast">
           <ApocMap/>
           </Route>
@@ -58,9 +59,9 @@ function App() {
             <Tips/>
           </Route>
 
-          {/* <Route path="/signup">
-            <SignupFormPage></SignupFormPage>
-          </Route> */}
+          <Route path="/signup">
+            <SignUpFormModal/>
+          </Route>
 
           <Route exact path="/tips/manage">
             <ManageTips/>
