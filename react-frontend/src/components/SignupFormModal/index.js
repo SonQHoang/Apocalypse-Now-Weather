@@ -72,8 +72,8 @@ function SignUpForm() {
   const [latitude, setLatitude] = useState(51.505); // Default lat-lng
   const [longitude, setLongitude] = useState(-0.09); // Default lat-lng
   const [bio, setBio] = useState("");
-  const [prepper_type, setPrepperType] = useState("")
-  const [prepper_description, setPrepper_Description] = useState("")
+  const [prepper_type, setPrepperType] = useState("");
+  const [prepper_description, setPrepper_Description] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -149,7 +149,7 @@ function SignUpForm() {
 const handleSubmit = async (e) => {
       e.preventDefault();
       if (password === confirmPassword) {
-        const formBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
+        const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
         console.log("***FORM BODY******",formBody)
         const data = dispatch(signUp(formBody))
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
