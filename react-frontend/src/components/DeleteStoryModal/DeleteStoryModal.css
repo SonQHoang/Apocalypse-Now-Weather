@@ -1,0 +1,31 @@
+#delete-story-modal-container {
+    background-color: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: 3px solid #ff7518;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    border-radius: 20px;
+}
+
+#delete-story-modal-header {
+    text-align: center;
+}
+
+#delete-story-modal-buttons {
+    height: 40px;
+    margin-top: 10px;
+}
+
+#delete-story-yes-button, #delete-story-no-button {
+    height: 40px;
+    width: 125px;
+}
+
+#delete-story-yes-button {
+    margin-right: 8px;
+}

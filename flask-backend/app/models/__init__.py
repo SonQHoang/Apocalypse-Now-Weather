@@ -1,6 +1,5 @@
 from .db import db, environment, SCHEMA
 from .user import User
-from .comment import StoryComment
 from .tips import Tips
 from .tip_comments import TipComments
 from .location import Location
