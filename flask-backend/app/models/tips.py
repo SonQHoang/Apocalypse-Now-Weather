@@ -4,7 +4,11 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 class Tips(db.Model):
     __tablename__ = "tips"
 
-    id = db.Column(db.Integer, primary_key=True)
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     weather_category = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
@@ -13,8 +17,8 @@ class Tips(db.Model):
 
     # Tips has a one => many relationship with users, tipComments, TipLikes
     author = db.relationship('User', back_populates='tips')
-    comments = db.relationship('TipComments', back_populates='tip')
-    likes = db.relationship('TipLikes', back_populates='tip')
+    comments = db.relationship('TipComments', back_populates='tip', cascade='all, delete-orphan')
+    likes = db.relationship('TipLikes', back_populates='tip', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {

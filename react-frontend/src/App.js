@@ -5,15 +5,18 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import StoryComments from "./components/StoryComments";
 import ApocMap from "./components/ApocWeather/apocmap";
 import { Provider } from 'react-redux';
 import {store} from './index'
 import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
+import ManageStories from "./components/ManageStories";
 
 import Tips from "./components/Tips"
+import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
+import ManageTips from "./components/ManageTips";
+
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
 
@@ -37,7 +40,10 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/forecast">
-           <ApocMap/>
+          <ApocMap/>
+          </Route>
+          <Route exact path='/stories/manage'>
+            <ManageStories />
           </Route>
           <Route path='/stories/new'>
             <CreateNewStory />
@@ -48,7 +54,7 @@ function App() {
           <Route path="/stories">
             <StoriesComponent />
           </Route>
-          <Route path="/tips">
+          <Route exact path="/tips">
             <Tips/>
           </Route>
 
@@ -56,6 +62,10 @@ function App() {
             <SignupFormPage></SignupFormPage>
           </Route> */}
 
+          <Route exact path="/tips/manage">
+            <ManageTips/>
+          </Route>
+          <Route exact path="/tips/:tipId" component={TipDetailsPage} />
         </Switch>
       )}
     </>
