@@ -4,8 +4,8 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom"
 import ManageStories from "../ManageStories";
-import { NavLink } from 'react-router-dom'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -51,6 +51,7 @@ function ProfileButton({ user }) {
             <li>{user.email}</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
+              <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
               <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
             </li>
           </>

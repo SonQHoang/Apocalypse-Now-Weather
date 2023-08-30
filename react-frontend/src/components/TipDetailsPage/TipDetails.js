@@ -10,7 +10,7 @@ function TipDetailsPage() {
 
     const dispatch = useDispatch()
     const tip = useSelector((state) => state.tips.singleTip)
-    console.log('Do I see any tips?====> Yes', tip)
+    // console.log('Do I see any tips?====> Yes', tip)
 
     useEffect(() => {
         dispatch(getTipById(tipId))
@@ -26,6 +26,7 @@ function TipDetailsPage() {
             <h2>{tip.title}</h2>
             <p>Weather Category: {tip.weather_category}</p>
             <p>Body: {tip.body}</p>
+            <button>Comment on this Tip!</button>
         </div>
         <div className='tip-comments'>
             <TipComments />

@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from ..models import Tips, db
 from app.forms.create_tip_form import CreateTip
 from datetime import datetime
+from flask_login import current_user, login_required
 
 bp = Blueprint("tip", __name__, url_prefix="")
 
@@ -12,11 +13,13 @@ def get_all_tips():
         "id": tip.id,
         "title": tip.title,
         "weather_category": tip.weather_category,
-        "body": tip.body
+        "body": tip.body,
+        "user_id": tip.user_id
     } for tip in tips]
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
 
+@login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
     form = CreateTip()
@@ -34,6 +37,16 @@ def create_new_tip(userId):
         return new_tip.to_dict()
     return {'errors': 'error'}, 401
 
+
+@login_required
+@bp.route('/user_tips', methods=["GET"])
+def get_user_tips():
+    # print(user_id)
+    tips = Tips.query.filter_by(user_id = current_user.id).all()
+    return [tip.to_dict() for tip in tips]
+
+
+
 @bp.route('/tips/<int:tip_id>')
 def get_tip_by_id(tip_id):
     tip = Tips.query.get(tip_id)
@@ -48,6 +61,7 @@ def get_tip_by_id(tip_id):
 }
     return jsonify(tip_data)
 
+@login_required
 @bp.route('/tips/<int:tipId>', methods=["DELETE"])
 def delete_tip(tipId):
     tip_to_delete = Tips.query.get(tipId)

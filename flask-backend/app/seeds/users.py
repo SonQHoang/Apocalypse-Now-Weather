@@ -3651,7 +3651,7 @@ def seed_users():
         )
     story_comment_121= StoryComments (
             story_id= 42,
-        user_id= 55,
+        user_id= 52,
             body= "Sometimes I wish I didn't go on this site. I get more scared each time.",
             date_created= datetime(2023, 8, 8),
         )
