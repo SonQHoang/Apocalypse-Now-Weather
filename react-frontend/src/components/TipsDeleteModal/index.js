@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { deleteTips } from '../../store/tips';
+import { getUserTips } from '../../store/tips';
 import './TipsDeleteModal.css'
 
 const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
-    console.log('is tipId giving me the number I want====> Yes', tipId)
+    // console.log('is tipId giving me the number I want====> Yes', tipId)
     const modalOverlayRef = useRef();
     const dispatch = useDispatch()
 
@@ -21,9 +22,12 @@ const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
         }
     }, [])
 
-    const handleConfirmDelete = () => {
-        console.log("Does pressing confirm delete send the data=====> Yes", tipId);
+    const handleConfirmDelete = async () => {
+        // console.log("Does pressing confirm delete send the data=====> Yes", tipId);
         dispatch(deleteTips(tipId))
+        // getUserTips is triggering the re-render
+        // .then waits til the the delete is done. Then fires to get all of the User's tips
+        .then(() => dispatch(getUserTips()))
         onSubmit();
     };
 

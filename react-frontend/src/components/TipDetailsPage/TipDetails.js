@@ -24,6 +24,7 @@ function TipDetailsPage() {
             <h2>{tip.title}</h2>
             <p>Weather Category: {tip.weather_category}</p>
             <p>Body: {tip.body}</p>
+            <button>Comment on this Tip!</button>
         </div>
     )
 }
