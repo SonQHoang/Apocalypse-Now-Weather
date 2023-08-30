@@ -38,7 +38,7 @@ def create_new_tip(userId):
 
 
 @bp.route('/user/<id>', methods=["GET"])
-def get_user_tips(id):
+def get_user_tips():
     user_tips = Tips.query.filter(Tips.user_id == current_user.id).all()
     print('user_tips=======>', user_tips)
     result = {}
