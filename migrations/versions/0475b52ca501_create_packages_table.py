@@ -1,19 +1,16 @@
 """create packages table
 
-Revision ID: 1163a342d9b1
+Revision ID: 0475b52ca501
 Revises: 
-Create Date: 2023-08-31 10:22:07.827933
+Create Date: 2023-08-31 12:46:21.106251
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '1163a342d9b1'
+revision = '0475b52ca501'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -104,17 +101,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE  users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  locations SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  stories SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  tips SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  story_comments SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  story_likes SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  tip_comments SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE  tip_likes SET SCHEMA {SCHEMA};")
-
 
 
 def downgrade():
