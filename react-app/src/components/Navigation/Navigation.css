@@ -3,14 +3,20 @@
   transform: translateX(-50%);
   color: black;
   background-color: gainsboro;
+  border: 2px solid black;
+  width: 75px;
+  height: 100px;
+
 }
 
 .profile-button-container {
   margin-left: 10px;
+
 }
 
 .dropdown-button {
-  width: 150px
+  width: 150px;
+  background-color: none;
 }
 
 .hidden {
@@ -20,14 +26,18 @@
 .navbar {
   color: white
 }
-
+.nav-container button{
+  background-color:#ff7518;
+  border-radius: 10px;
+}
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 10px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #615B52;
+  background-color: #2f2f2f;
+  border-bottom: #ff7518 1px solid;
 }
 
 .nav-left,
@@ -59,7 +69,7 @@ nav {
 }
 
 #nav-bar-home, #nav-bar-forecast, #nav-bar-stories, #nav-bar-tips {
-  color: black;
+  color:#ff7518;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +112,7 @@ nav {
 
 #second-span-visible {
   height: 6px;
-  background-color: #ff7518;
+  background-color: whitesmoke;
   width: 100px;
 }
 
@@ -114,7 +124,7 @@ nav {
 
 #third-span-visible {
   height: 6px;
-  background-color: #03cea4;
+  background-color: whitesmoke;
   width: 100px;
 }
 
@@ -126,7 +136,7 @@ nav {
 
 #fourth-span-visible {
   height: 6px;
-  background-color: #222dfc;
+  background-color: whitesmoke;
   width: 100px;
 }
 
