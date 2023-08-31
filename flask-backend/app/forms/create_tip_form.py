@@ -3,8 +3,7 @@ from wtforms import StringField, IntegerField, DateField
 from wtforms.validators import DataRequired
 
 class CreateTip(FlaskForm):
-    user_id = IntegerField('User_Id'),
-    user_name = StringField('UserName')
+    user_id = IntegerField('User_Id')
     title = StringField("Title", validators=[DataRequired()])
     weather_category = StringField("Weather Category", validators=[DataRequired()])
     body = StringField("Body", validators=[DataRequired()])

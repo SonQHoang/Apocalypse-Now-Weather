@@ -1,32 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getComments } from "../../../store/tipcomments";
-import OpenModal from "../../OpenModalButton";
-import PostCommentModal from "../TipPostCommentModal";
-import DeleteCommentModal from "../TipDeleteCommentModal";
-import EditCommentModal from "../TipUpdateCommentModal";
-import "./TipComments.css";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getComments } from "../../store/comments";
+import "./StoryComments.css";
+import OpenModal from "../OpenModalButton";
+import PostCommentModal from "../PostCommentModal";
+import DeleteCommentModal from "../DeleteCommentModal";
+import EditCommentModal from "../UpdateCommentModal";
 
 
 
-export default function TipComments(prop) {
+export default function StoryComments(prop) {
   const dispatch = useDispatch();
-  const tipComments = useSelector((state) => state.tipcomments);
+  const storyComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
-  const tipId = prop.props
+  const storyId = prop.props
+
+
 
   let currentUserId;
   if (currentUser && currentUser.id) {
     currentUserId = currentUser.id;
   }
-  const props = { tipId, currentUserId };
+  const props = { storyId, currentUserId };
 
 
   useEffect(() => {
-    dispatch(getComments(tipId));
-  }, [dispatch, tipId]);
+    dispatch(getComments(storyId));
+  }, [dispatch, storyId]);
 
-  const commentsList = Object.values(tipComments);
+  const commentsList = Object.values(storyComments);
 
 
 
@@ -53,7 +57,7 @@ return (
          }
       </div>
       <div className="comments-div-holder">
-        {commentsList.map(({ id, body, user_id, date_created }) => (
+        {commentsList.map(({ id, body, user_id, date_created, storyId }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
             <div className="comment-created-date">{date_created}</div>
@@ -64,13 +68,13 @@ return (
                   { <OpenModal
                     buttonText="Update"
                     modalComponent={
-                      <EditCommentModal props={{ id, tipId }} />
+                      <EditCommentModal props={{ id, storyId }} />
                     }
                   /> }
                   { <OpenModal
                     buttonText="Delete"
                     modalComponent={
-                      <DeleteCommentModal props={{ id, tipId }} />
+                      <DeleteCommentModal props={{ id, storyId }} />
                     }
                   /> }
               </>

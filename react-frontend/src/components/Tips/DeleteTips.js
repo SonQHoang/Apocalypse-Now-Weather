@@ -19,9 +19,9 @@ function DeleteTip({tipId}) {
         setTipToDelete(null)
     }
 
-    // useEffect(() => {
-    //     dispatch(getTipById(tipId))
-    // }, [dispatch, tipId])
+    useEffect(() => {
+        dispatch(getTipById(tipId))
+    }, [dispatch, tipId])
 
     // const handleDeleteTip = () => {
     //     console.log('handleDeleteTip is called');
