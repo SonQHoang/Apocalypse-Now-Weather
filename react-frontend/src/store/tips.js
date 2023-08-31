@@ -23,7 +23,6 @@ const acGetAllTips = (tips) => {
 }
 
 const acGetUserTips = (tips) => {
-    // console.log('What is the data in acGetUserTips=====>', tips)
     return {
         type: GET_USER_TIPS,
         tips
@@ -47,17 +46,17 @@ const acDeleteTip = (tipId) => {
 
 // Thunk
 export const createTip = (data, userId) => async (dispatch) => {
-    // console.log('Stop two. Do I have data?====>', data, "how about username========>", userName)
+    // console.log('Stop two. Do I have data and a tipId?====>', data)
     try {
         const response = await fetch(`/${userId}/tips`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content`-Type": "application/json" },
             body: JSON.stringify(data)
         });
         if (response.ok) {
             console.log('What does my response look like====>', response)
             const tips = await response.json()
-            // console.log('What does this tip data look like=========>', tips)
+            console.log('What does this tip data look like=========>', tips)
             dispatch(acCreateTip(tips))
             return tips
         } else {
@@ -84,18 +83,23 @@ export const getAllTips = () => async (dispatch) => {
 }
 
 export const getUserTips = () => async (dispatch) => {
-    try {
-        const response = await fetch(`/user_tips`)
-        // console.log('what does my response look like?====>', response)
-        if (response.ok) {
-            const tips = await response.json()
-            // console.log('This is my data======>', tips)
-            dispatch(acGetUserTips(tips))
-        }
-    } catch (error) {
-        console.error(error)
-    }
 }
+
+// export const getTipById = (tipId) => async (dispatch) => {
+//     console.log('this is my tipId====>', tipId)
+//     try {
+//         const response = await fetch(`/spots/${tipId}`);
+//         if (response.ok) {
+//             const tip = await response.json();
+
+//             dispatch(acGetTipById(tip))
+//         } else {
+//             throw new Error('Failed to fetch spot by ID')
+//         }
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
 
 export const getTipById = (tipId) => async (dispatch) => {
     try {
@@ -136,7 +140,6 @@ const initialState = {
     singleTip: {}
 }
 
-let newState
 const tipReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TIP: {
@@ -166,14 +169,15 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case DELETE_TIP: {
-            // console.log('Deleting tip with ID:', action.tipId);
-            // console.log('Before deletion:', state); 
 
-            const newState = { ...state, allTips: { ...state.allTips } }
-            delete newState.allTips[action.tipId]
-            // console.log('After deletion:', newState);
-            return newState
+            console.log('Deleting tip with ID:', action.tipId);
+            console.log('Before deletion:', state); 
+
+            const newAllTips = { ...state.allTips };
+            delete newAllTips[action.tipId];
+            const newState = { ...state, allTips: newAllTips };
             
+            console.log('After deletion:', newState);
         }
 // Something may be causing state to not re-render
 // Need to cause a new ref in memory

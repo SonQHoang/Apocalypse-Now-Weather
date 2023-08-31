@@ -3,22 +3,21 @@ body, html {
   padding: 0;
   height: 100%;
 }
-
 .bodycontainer{
-  display: flex;
+    display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
- .mappagebodycontainer{
+.mappagebodycontainer{
   background-color: #2f2f2f;
   height: 60vh;
   width: 100%;
-  /* overflow: visible; */
+  overflow: auto;
 }
 
-.mappagebodycontainer .titleinfo{
+.titleinfo{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,14 +28,14 @@ body, html {
   }
 
 
-  .mappagebodycontainer .mapcontainer{
+.mapcontainer{
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.mappagebodycontainer .mapmap{
+.mapmap{
   width: 60%;
   height: 350px;
   border-radius: 20px;
@@ -51,7 +50,7 @@ body, html {
 
 
 
-.mappagebodycontainer .auto-search-wrapper{
+.auto-search-wrapper{
   width: 50%;
   margin-top: 20px;
   box-shadow: 4px 4px 8px black;
@@ -59,35 +58,33 @@ body, html {
   border: 2px solid black;
 }
 
-.mappagebodycontainer .auto-search-wrapper > input{
+.auto-search-wrapper > input{
   background-color: #2f2f2f;
   color: #ff7518;
   width: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
-.mappagebodycontainer .auto-search-wrapper > li {
+.auto-search-wrapper > li {
   background-color: #3a3939;
   font-family: 'Montserrat', sans-serif;
 
 }
 
-.mappagebodycontainer .auto-search-wrapper ul li{
+.auto-search-wrapper ul li{
   background-color: #3a3939;
   font-family: 'Montserrat', sans-serif;
   color:#ff7518;
   border: .5px solid black;
 }
 
-.mappagebodycontainer .auto-results-wrapper{
+.auto-results-wrapper{
   background-color: #3a3939;
   font-family: 'Montserrat', sans-serif;
   color:#ff7518;
   border: 1px solid rgb(218, 218, 218);
-  /* z-index: 1000; */
-
 }
-.mappagebodycontainer .leaflet-popup {
+.leaflet-popup {
   margin-bottom: 0px !important;
 }
 
@@ -97,12 +94,4 @@ body, html {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
-}
-
-.auto-results-wrapper.auto-is-active {
-  /* overflow: visible; */
-}
-
-.mappagebodycontainer .leaflet-touch{
-  z-index: 300;
 }

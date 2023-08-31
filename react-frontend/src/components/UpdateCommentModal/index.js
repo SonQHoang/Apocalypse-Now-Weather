@@ -1,33 +1,33 @@
+import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../../context/Modal";
-import { editComment } from "../../../store/tipcomments";
+import { editComment } from "../../store/comments";
 import React, { useState } from "react";
-import "./TipUpdateCommentModal.css";
+import "./UpdateCommentModal.css";
 
 
 
 function EditCommentModal(props) {
-  const tipComments = useSelector((state) => state.tipcomments);
+  const storyComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
-  const tipId  = props.props.tipId;
+  const storyId  = props.props.storyId;
   const userId  = currentUser.id
   const commentId = props.props.id
   const { closeModal } = useModal();
-  const commentToEdit = (tipComments[commentId])
+  const commentToEdit = (storyComments[commentId])
   const dispatch = useDispatch();
 
-  console.log(commentToEdit)
-  const [body, setComment] = useState('');
+
+  const [commentBody, setComment] = useState('');
   const [errors, setErrors] = useState({});
 
   let isDisabled = true;
-  if (body.length > 0) {
+  if (commentBody.length > 0) {
     isDisabled = false;
   }
 
   const submitComment = async (e) => {
     e.preventDefault();
-    const data = await dispatch(editComment(tipId, userId, body, commentId));
+    const data = await dispatch(editComment(storyId, userId, commentBody, commentId));
     if (data.errors) {
       setErrors(data.errors);
     } else {

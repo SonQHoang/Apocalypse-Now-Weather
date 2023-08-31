@@ -1,16 +1,31 @@
+<<<<<<<< HEAD:flask-backend/migrations/versions/7edcd05c9e67_create_tables.py
 """create tables
 
 Revision ID: 7edcd05c9e67
-Revises:
+Revises: 
 Create Date: 2023-08-30 19:33:44.173647
+========
+"""Updated migration
+
+Revision ID: 56d6fc752bdd
+Revises: 
+Create Date: 2023-08-29 11:23:09.867477
+>>>>>>>> 48419dae36574d9f77988ae6e1c938c1e3f461e9:flask-backend/migrations/versions/56d6fc752bdd_updated_migration.py
 
 """
 from alembic import op
 import sqlalchemy as sa
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
+<<<<<<<< HEAD:flask-backend/migrations/versions/7edcd05c9e67_create_tables.py
 revision = '7edcd05c9e67'
+========
+revision = '56d6fc752bdd'
+>>>>>>>> 48419dae36574d9f77988ae6e1c938c1e3f461e9:flask-backend/migrations/versions/56d6fc752bdd_updated_migration.py
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,8 +39,6 @@ def upgrade():
     sa.Column('last_name', sa.String(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('location', sa.String(), nullable=False),
-    sa.Column('latitude', sa.Float(), nullable=True),
-    sa.Column('longitude', sa.Float(), nullable=True),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('prepper_type', sa.String(), nullable=True),
     sa.Column('prepper_description', sa.String(), nullable=True),
@@ -101,6 +114,16 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
+
+    op.execute(f'ALTER TABLE SET SCHEMA users {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA locations {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA stories {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA tips {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA story_comments {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA story_likes {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA tip_comments {SCHEMA};')
+    op.execute(f'ALTER TABLE SET SCHEMA tip_likes {SCHEMA};')
+
 
 
 def downgrade():

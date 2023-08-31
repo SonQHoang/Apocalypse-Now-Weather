@@ -16,7 +16,7 @@ const locations = [
   { lat: 52.3, lng: 4.9, name: 'Amsterdam' }
 ];
 
-const ICON_SIZE = [25, 25];
+const ICON_SIZE = [25, 25]; // Width, Height
 
 const getNuclearIcon = () => {
   return L.icon({
@@ -138,7 +138,7 @@ return (
     </section>
     <section className='detailed_weather'>
       <h1>Detailed Information</h1>
-      <p>Temperature: {weatherData.current_weather.temperature}°F</p>
+      <p>Temperature: {weatherData.current_weather.temperature}</p>
       <p>Current Situation: {apocWeatherConverter(weatherData.current_weather.weathercode).name}</p>
       <p>Description of situation: {apocWeatherConverter(weatherData.current_weather.weathercode).description}</p>
     </section>

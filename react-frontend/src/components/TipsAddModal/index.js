@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom'
 import {createTip} from "../../store/tips"
 import "./TipsAddModal.css"
 
 const TipsAddModal = ({onClose, onAddTip }) => {
-    // const history = useHistory()
     const dispatch = useDispatch()
     const modalOverlayRef = useRef()
     const titleInputRef = useRef()
@@ -37,7 +35,9 @@ const TipsAddModal = ({onClose, onAddTip }) => {
             weather_category: selectedCategory,
             body: body,
         }
+        // console.log('Start of the data chain, is my new tip here====> Yes', newTip)
         dispatch(createTip(newTip, user.id));
+
 
         setSelectedCategory("");
         setBody("");
@@ -75,7 +75,6 @@ const TipsAddModal = ({onClose, onAddTip }) => {
                 </div>
                 {/* <div>Date Created</div> */}
                 <button onClick={handleSubmit}>Submit Your Tip</button>
-
             </div>
         </div>
     )
