@@ -26,14 +26,14 @@ function Tips() {
                 <div className="manage-tips-title">
                 </div>
                 <div className="tip-button">
-                    <button className="submit-tip-button" onClick={handleOpenModal}>Add a Tip!</button>
+                    {/* <button className="submit-tip-button" onClick={handleOpenModal}>Add a Tip!</button> */}
                     {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />}
                 </div>
 
                 <div className="all-tips">
-                    <ul>
+                    <div>
                         <GetAllTips onAddTip={handleAddTip} />
-                    </ul>
+                    </div>
                 </div>
             </div>
         </>
