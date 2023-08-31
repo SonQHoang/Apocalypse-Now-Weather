@@ -1,0 +1,31 @@
+.tip-details-container {
+    /* border: red 2px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background: radial-gradient(circle, #c2ad8b, #a8956d);
+}
+
+.tip-details-header {
+    /* border: 2px red solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    position: relative;
+    width: 95%;
+}
+
+.tip-details-weather-category {
+    margin-top: 0;
+}
+
+.tip-details-body {
+    border: black 2px solid;
+    height: 100px;
+    word-wrap: break-word;
+    width: 80rem;
+    padding: 10px;
+}

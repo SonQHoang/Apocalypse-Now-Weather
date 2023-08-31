@@ -19,7 +19,7 @@ def get_all_tips():
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
 
-@login_required
+# @login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
     # print('===============+>', userId)

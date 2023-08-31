@@ -1,0 +1,16 @@
+.tip-comments-container {
+    border: 2px red solid;
+    background: radial-gradient(circle, #c2ad8b, #a8956d);
+}
+
+.spot-single-comment-div {
+    border: 2px solid blue;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tip-comment-modal-button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
