@@ -6,8 +6,8 @@ import TipComments from '../TipComment/TipComments'
 import "./TipDetails.css"
 
 function TipDetailsPage() {
-    // console.log('what does tips look like===>', tips)
     const { tipId } = useParams()
+    // console.log('==============>', tipId)
 
     const dispatch = useDispatch()
     const tip = useSelector((state) => state.tips.singleTip)
