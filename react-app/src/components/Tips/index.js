@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TipsAddModal from '../TipsAddModal';
+// import TipsAddModal from '../TipsAddModal';
 import GetAllTips from './GetAllTips';
 import "./tips.css"
 
@@ -27,7 +27,7 @@ function Tips() {
                 </div>
                 <div className="tip-button">
                     {/* <button className="submit-tip-button" onClick={handleOpenModal}>Add a Tip!</button> */}
-                    {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />}
+                    {/* {isModalOpen && <TipsAddModal onClose={handleCloseModal} onAddTip={handleAddTip} />} */}
                 </div>
 
                 <div className="all-tips">

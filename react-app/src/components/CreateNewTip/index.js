@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createTip } from "../../store/tips";
+import { useHistory } from 'react-router-dom';
 import "./CreateNewTip.css"
 
 const TipsAddForm = () => {
+    const history = useHistory()
     const dispatch = useDispatch();
     const [title, setTitle] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [body, setBody] = useState("");
     const user = useSelector((state) => state.session.user);
+    // console.log('Am I getting my user data back and does it have an id========> Yes', user)
 
+    
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
     };
@@ -31,18 +35,22 @@ const TipsAddForm = () => {
             body: body,
         };
 
+        // console.log('We are getting new tip data=====> Yes', newTip)
+
         dispatch(createTip(newTip, user.id));
 
         // Reset form fields after submission
         setTitle("");
         setSelectedCategory("");
         setBody("");
+        // console.log('Do I get new tip back in this scope=======>', newTip)
+
     };
 
     return (
         <div className="create-new-tip-form-container">
             <form className="create-tip-form" onSubmit={handleSubmit}>
-                <h2 className="create-new-tip-form-header">Create a New Tip</h2>
+                <h1 className="create-new-tip-form-header">Create a New Tip</h1>
 
                 <div className="tip-title-label-container">
                     <label className="tip-title-label">Title</label>

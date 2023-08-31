@@ -16,9 +16,6 @@ const ManageTips = () => {
     const user_tips = Object.values(useSelector(state => state.tips.allTips))
     // console.log('========================user-tips===>', user_tips)
 
-    // const tipsToMap = Object.values(user_tips)
-    // console.log('What does tipsToMap look like====>', tipsToMap)
-
     useEffect(() => {
         dispatch(getUserTips())
         // console.log('What is the userId====>', userId)

@@ -30,7 +30,7 @@ def create_new_tip(userId):
     if form.validate_on_submit():
         new_tip = Tips(
             user_id = userId,
-            id = form.data['Id'],
+            # id = form.data['id'],
             title = form.data["title"],
             weather_category = form.data["weather_category"],
             body = form.data["body"],

@@ -56,6 +56,7 @@ function ProfileButton({ user }) {
             <li>
               <button onClick={handleLogout}>Log Out</button>
               <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
+              <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
             </li>
           </>
         ) : (
