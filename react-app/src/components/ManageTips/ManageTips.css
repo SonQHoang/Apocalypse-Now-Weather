@@ -1,28 +1,53 @@
-/* .manage-tips-container {
-    border: 2px solid red;
+.manage-tips-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #2f2f2f;
+    font-family: 'Montserrat', sans-serif;
+    color: #ff7518;
+    font-size: 25px;
+    text-shadow: 1px 1px 2px rgba(255, 250, 250, 0.887);
+    margin-bottom: 0;
 }
 
 .manage-tips-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #2f2f2f;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
 }
-
 
 .user-tips-individual {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid black;
-    margin: 5px 20px 30px 20px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
 }
 
-.manage-tip-title {
-    font-size: 20px;
+.single-tip-title {
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #ff7518; 
+    margin-bottom: 10px;
 }
-*/
+
+.tip-delete-button {
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+
+.tip-delete-button:hover {
+    cursor: pointer
+}

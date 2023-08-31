@@ -27,7 +27,7 @@ function GetAllTips() {
 
     // const formatDate = (dateString) => {
     //     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    //     return new Date(dateString).toLocaleDateString(undefined, options)
+    //     return new Date(dateString).toLocaleDateString(undefined, options) 
     // }
 
     return (
@@ -39,7 +39,7 @@ function GetAllTips() {
                     <button className="create-new-tip-button">Create a New Tip</button>
                 </NavLink>
             ) : null}
-        </div>
+            </div>
 
             {tips.map(tip => (
                 <div
