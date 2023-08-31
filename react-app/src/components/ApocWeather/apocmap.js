@@ -23,7 +23,7 @@ const getNuclearIcon = () => {
     iconUrl: '/icons/radiation.png',
     iconSize: ICON_SIZE,
     iconAnchor: [ICON_SIZE[0] / 2, ICON_SIZE[1] - 1],
-    popupAnchor: [-3, -76]
+    popupAnchor: [0, -50]
   });
 };
 
@@ -130,7 +130,7 @@ return (
       <section className='mapcontainer'>
         <MapContainer whenCreated={setMap} className='mapmap' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <CustomMarker map={map} />
+          <CustomMarker map={map} className='leaflet-marker-icon'/>
         </MapContainer>
         <section className="auto-search-wrapper">
           <input type="text" autoComplete="off" id="search" className="full-width" placeholder="enter the city name" />
