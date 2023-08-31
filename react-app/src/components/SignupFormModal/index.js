@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
 import { signUp } from "../../store/session";
-import { useModal } from '../../context/Modal';
+
 import './SignupForm.css'
 
 
@@ -39,7 +39,7 @@ const getNuclearIcon = () => {
     iconUrl: '/icons/radiation.png',
     iconSize: ICON_SIZE,
     iconAnchor: [ICON_SIZE[0] / 2, ICON_SIZE[1] - 1],
-    popupAnchor: [-3, -76]
+    popupAnchor: [0, -50]
   });
 };
 
@@ -71,7 +71,6 @@ function LocationSetter({ setLatitude, setLongitude }) {
 function SignUpFormModal() {
   const dispatch = useDispatch();
   const history = useHistory()
-  const { closeModal } = useModal();
   const [first_name, setFirst_Name] = useState("");
   const [last_name, setLast_Name] = useState("");
   const [email, setEmail] = useState("");
@@ -84,7 +83,7 @@ function SignUpFormModal() {
   const [prepper_description, setPrepper_Description] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [placeholder, setPlaceholder] = useState("enter your desired default location");
   const [map, setMap] = useState(null);
   const [iconSize, setIconSize] = useState(25);
@@ -168,17 +167,45 @@ const handleSubmit = async (e) => {
       e.preventDefault();
       if (password === confirmPassword) {
         const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
-        console.log("***FORM BODY******",formBody)
-        const data = dispatch(signUp(formBody, history))
-        closeModal()
+        setErrors({})
+        const data = await dispatch(signUp(formBody, history))
+        console.log("****data****", data)
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
-        if (data) {
-          setErrors(data);
+        if (data && data.errors) {
+          const obj = Object.assign({}, data);
+
+          setErrors(obj);
+
+          console.log("errors state", errors)
+
         }
       } else {
         setErrors(["Confirm Password field must be the same as the Password field"]);
       }
     };
+ console.log("errors state", errors)
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   if (password === confirmPassword) {
+    //     const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
+    //     setErrors({});
+    //     return dispatch(signUp(formBody, history))
+
+    //       .catch(async (res) => {
+    //         const data = await res.json();
+    //         if (data && data.errors) {
+    //           setErrors(data.errors);
+    //         }
+    //       });
+    //   }
+    //   return setErrors({
+    //     confirmPassword: "Confirm Password field must be the same as the Password field"
+    //   });
+    // };
+
+
+
+
 
     useEffect(() => {
       if (prepper_type) {
@@ -190,31 +217,31 @@ const handleSubmit = async (e) => {
 return (
   <>
     <section className='signupcontainer'>
-    {/* <section className='signuptitleinfo'> */}
       <h1 id="signuptitle">Survivor Sign Up</h1>
-      {/* </section> */}
       <section className='signupform'>
       <form id='survivorform' onSubmit={handleSubmit}>
            {/* Error messages */}
-            <div className="error-messages">
-        {/* {console.log("errors******(*",errors)} */}
-
-            {/* {errors.map((error, idx) => (
-
-              <p key={idx}>{error}</p>
-            ))} */}
-          </div>
+           {/* <div className="error-messages">
+            {errors.length > 0 ? (
+              errors.map((error, idx) => (
+                <p key={idx}>{error}</p>
+              ))
+            ) : null}
+          </div> */}
           <div className="label-input-group">
           <section className='label-input-container'>
           <label id="firstnamelabel">
             First Name
-            <input id='lastnameinput'
+            <input id='firstnameinput'
               type="text"
               value={first_name}
               onChange={(e) => setFirst_Name(e.target.value)}
               required
             />
           </label>
+
+          {errors.first_name && <p>{errors.first_name}</p>}
+
           </section>
           <section className='label-input-container'>
           <label id="lastnamelabel">
@@ -243,6 +270,9 @@ return (
               required
             />
           </label>
+
+          {errors.email && <p>{errors.email}</p>}
+
             </section>
           {/* Username Input */}
           <section className='label-input-container'>

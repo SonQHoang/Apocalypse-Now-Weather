@@ -23,7 +23,7 @@ const getNuclearIcon = () => {
     iconUrl: '/icons/radiation.png',
     iconSize: ICON_SIZE,
     iconAnchor: [ICON_SIZE[0] / 2, ICON_SIZE[1] - 1],
-    popupAnchor: [-3, -76]
+    popupAnchor: [0, -50]
   });
 };
 
