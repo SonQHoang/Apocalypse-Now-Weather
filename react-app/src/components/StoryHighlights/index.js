@@ -11,7 +11,7 @@ const StoryHighlights = () => {
 
     useEffect(() => {
         dispatch(storyActions.getAllStories()).then(() => setIsLoaded(true))
-    })
+    }, [dispatch])
 
     const storiesToMap = Object.values(stories)
 
