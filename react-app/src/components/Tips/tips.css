@@ -60,6 +60,7 @@
 
 .single-tip-body {
     font-family: 'Montserrat', sans-serif;
+    padding: 20px;
 }
 
 
@@ -73,7 +74,6 @@
     width: 80%;
     margin: 0 auto;
     border-radius: 20px;
-    margin-top: 30px;
 }
 
 /* .user-info-container {
@@ -82,7 +82,9 @@
     text-align: center;
 } */
 
-
+.single-tip-weather-category {
+    color: white;
+}
 .tip-info {
     line-height: 150%;
     min-height: 122px;
@@ -91,16 +93,22 @@
     text-align: center;
 }
 
-.tip-body-container {
-    
-}
 .tip-body {
     font-family: 'Montserrat', sans-serif;
+    padding: 20px;
 }
 .submit-tip-button {
     background-color: lightgray;
 }
 
-.submit-tip-button:hover {
+.create-new-tip-button {
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+
+.create-new-tip-button:hover {
     cursor: pointer;
 }
