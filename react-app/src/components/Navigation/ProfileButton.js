@@ -7,6 +7,7 @@ import SignupFormModal from "../SignupFormModal";
 import ManageStories from "../ManageStories";
 import { NavLink, Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
+import './profilebutton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+       <img id="usericon" src="/icons/user.png" alt="User Profile"/>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

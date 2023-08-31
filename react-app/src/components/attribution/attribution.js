@@ -108,7 +108,10 @@ const iconAttributions = {
         title: "Open Street Map",
         url: "https://www.openstreetmap.org/copyright",
     },
-
+    Hazmat: {
+        title: "user icons",
+        url: "https://www.flaticon.com/free-icons/user",
+    },
 
 };
 
