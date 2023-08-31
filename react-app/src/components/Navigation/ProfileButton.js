@@ -5,7 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import ManageStories from "../ManageStories";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
 
 function ProfileButton({ user }) {
@@ -71,6 +71,14 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             />
 
+            {/* <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignUpFormModal/>}
+            /> */}
+            <li>
+              <Link to="/signup" onClick={closeMenu}>Sign Up</Link>
+            </li>
           </>
         )}
       </ul>
