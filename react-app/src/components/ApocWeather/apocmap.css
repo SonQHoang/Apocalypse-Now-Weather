@@ -13,8 +13,9 @@ body, html {
 
  .mappagebodycontainer{
   background-color: #2f2f2f;
-  height: 60vh;
+  height: 60%;
   width: 100%;
+
   /* overflow: visible; */
 }
 
@@ -57,6 +58,7 @@ body, html {
   box-shadow: 4px 4px 8px black;
   background-color: #2f2f2f;
   border: 2px solid black;
+  margin-bottom: 20px;
 }
 
 .mappagebodycontainer .auto-search-wrapper > input{
@@ -97,6 +99,7 @@ body, html {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
+
 }
 
 .auto-results-wrapper.auto-is-active {
