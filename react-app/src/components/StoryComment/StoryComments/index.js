@@ -30,12 +30,10 @@ export default function StoryComments(prop) {
 
   const commentsList = Object.values(storyComments);
 
-
-
   // rewrites the date to month, year
   let createdAtSplit;
   let createdAtSlice;
-  if(Object.keys(commentsList)){
+  if(commentsList[0].body){
     let createdAtDate = commentsList.map((comment) => (
 
       createdAtSplit = comment.date_created.split(''),

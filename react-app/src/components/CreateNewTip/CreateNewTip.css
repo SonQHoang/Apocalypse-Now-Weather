@@ -1,0 +1,83 @@
+.create-new-tip-form-container{
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+}
+
+.create-new-tip-form-header {
+    color: white;
+}
+
+.create-tip-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid #ff7518;
+    width: 500px;
+    border-radius: 20px;
+    background-color: #2f2f2f;
+    height: 600px;
+}
+
+.tip-title-label-container {
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.tip-title-input-container {
+    margin-bottom: 20px;
+}
+
+.tip-title-label {
+    color: white;
+}
+
+.tip-title-input {
+    width: 300px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tip-weather-category-container {
+    margin-bottom: 20px;
+}
+
+.tip-weather-cat-selector {
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.tip-weather-category-label {
+    color: white;
+}
+
+.tip-input-label-container {
+    margin-bottom: 20px;
+}
+.tip-input-label {
+    color: white
+}
+
+.tip-body-input-container {
+    margin-bottom: 20px;
+}
+.tip-body-input {
+    width: 300px;
+    height: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.submit-new-tip-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ff7518;
+    border: 2px solid #ff7518;
+    height: 40px;
+    width: 90px;
+    border-radius: 20px;
+    color: white;
+    text-shadow:1px 1px 5px black;
+    font-size: 18px;
+    font-weight: 800;
+}
