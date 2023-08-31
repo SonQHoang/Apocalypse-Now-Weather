@@ -25,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -49,4 +49,85 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 16px
+}
+
+nav {
+  /* border-bottom: 1px solid black; */
+  /* background-color: #2f2f2f; */
+  padding-bottom: 0;
+}
+
+#nav-bar-home, #nav-bar-forecast, #nav-bar-stories, #nav-bar-tips {
+  color: black;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-left-top-bar {
+  border: 1px solid white;
+  width: 400px;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.nav-left-item {
+  /* border-bottom: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  text-align: center;
+  width: 200px;
+}
+
+#first-span-visible {
+  height: 6px;
+  background-color: red;
+  width: 100px;
+  margin-bottom: 0;
+}
+
+#first-span-hidden {
+  height: 6px;
+  background-color: transparent;
+  width: 100px;
+  margin-bottom: 0;
+}
+
+#second-span-visible {
+  height: 6px;
+  background-color: #ff7518;
+  width: 100px;
+}
+
+#second-span-hidden {
+  height: 6px;
+  background-color: transparent;
+  width: 100px;
+}
+
+#third-span-visible {
+  height: 6px;
+  background-color: #03cea4;
+  width: 100px;
+}
+
+#third-span-hidden {
+  height: 6px;
+  background-color: transparent;
+  width: 100px;
+}
+
+#fourth-span-visible {
+  height: 6px;
+  background-color: #222dfc;
+  width: 100px;
+}
+
+#fourth-span-hidden {
+  height: 6px;
+  background-color: transparent;
+  width: 100px;
 }

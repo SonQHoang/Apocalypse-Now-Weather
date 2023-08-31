@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf"
-
 const GET_STORIES = '/stories/getStories'
 const GET_SINGLE_STORY = '/stories/getSingleStory'
 const GET_USER_STORIES = '/stories/getUserStories'

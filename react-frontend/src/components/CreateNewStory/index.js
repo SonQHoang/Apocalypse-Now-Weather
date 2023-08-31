@@ -42,43 +42,47 @@ const CreateNewStory = () => {
     }
 
     return (
-        <>
-            <h1>Create a New Story</h1>
+        <div id='create-new-story-form-container'>
             <form id='create-story-form' onSubmit={handleSubmit}>
+                <h1 id='create-new-story-form-header-h1'>Create a New Story</h1>
                 <div>
-                    <div>
+                    <div id='story-title-label-container'>
                         <label id='story-title-label' htmlFor='title'>Title</label>
                     </div>
-                    <div>
+                    <div id='story-title-input-container'>
                         <input
                         name='title'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Story title'
+                        id='story-title-input'
                         />
                     </div>
                 </div>
-                <div>
+                <div id='story-body-label-container'>
                     <div>
                         <label id='story-body-label' htmlFor='body'>Body</label>
                     </div>
-                    <div>
-                        <input
+                    <div id='story-body-input-container'>
+                        <textarea
                         name='body'
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                         placeholder='Story body'
+                        id='story-body-input'
                         />
                     </div>
-                    {errors && errors.map(err => (
-                        <div>{err}</div>
-                    ))}
+                    <div id='story-form-errors-div'>
+                        {errors && errors.map(err => (
+                            <p className='story-form-error'>{err}</p>
+                        ))}
+                    </div>
                 </div>
-                <div>
+                <div id='story-form-submit-container'>
                     <button type='submit' id='submit-new-story-button'>Submit</button>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

@@ -17,7 +17,7 @@ from .api.tip_comments import tip_comments
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
 # Setup login manager
-login = LoginManager(app)
+login = LoginManager(app) 
 login.login_view = 'auth.unauthorized'
 
 
