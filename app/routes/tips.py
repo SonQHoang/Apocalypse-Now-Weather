@@ -19,7 +19,7 @@ def get_all_tips():
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
 
-@login_required
+# @login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
     # print('===============+>', userId)
@@ -42,7 +42,7 @@ def create_new_tip(userId):
     return {'errors': 'error'}, 401
 
 
-@login_required
+# @login_required
 @bp.route('/user_tips', methods=["GET"])
 def get_user_tips():
     # print(user_id)
@@ -65,7 +65,7 @@ def get_tip_by_id(tip_id):
 }
     return jsonify(tip_data)
 
-@login_required
+# @login_required
 @bp.route('/tips/<int:tipId>', methods=["DELETE"])
 def delete_tip(tipId):
     tip_to_delete = Tips.query.get(tipId)
