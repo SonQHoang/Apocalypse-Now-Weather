@@ -19,7 +19,7 @@ function Navigation({ isLoaded }) {
 					<div className='nav-left-top-bar'>
 						<div className='nav-left-item' id='nav-left-home-item' onMouseEnter={() => setOnHoverOne('visible')} onMouseLeave={() => setOnHoverOne('hidden')}>
 							<NavLink id='nav-bar-home' exact to="/">
-							<img className="awn-logo" src="https://res.cloudinary.com/dgxpqnbwn/image/upload/v1693500847/Apocalyptic_Weather_News_1_qmkrzr.png" alt="Logo"/>
+							<img className="awn-logo" src="https://res.cloudinary.com/dgxpqnbwn/image/upload/v1693504421/Apocalyptic_Weather_News-PhotoRoom.png-PhotoRoom_iuyzqm.png" alt="Logo"/>
 							</NavLink>
 							<span id={`first-span-${onHoverOne}`}></span>
 						</div>
