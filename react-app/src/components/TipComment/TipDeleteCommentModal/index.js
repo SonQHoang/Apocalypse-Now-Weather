@@ -18,7 +18,7 @@ function DeleteCommentModal(props) {
   };
 
   return (
-    <div className="confirm-delete-modal">
+    <div className="delete-tip-confirm-delete-modal">
       <h1 className="confirm-delete-modal-heading">Confirm Delete</h1>
       <h2 className="confirm-delete-modal-text">
         Are you sure you want to delete this Comment?

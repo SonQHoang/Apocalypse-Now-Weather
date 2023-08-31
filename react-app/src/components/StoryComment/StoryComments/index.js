@@ -46,6 +46,7 @@ export default function StoryComments(prop) {
 
 return (
     <div>
+      {currentUserId &&  (
       <div className="div-post-your-comment-button">
         {
               <OpenModal
@@ -54,6 +55,7 @@ return (
               />
          }
       </div>
+      )}
       <div className="comments-div-holder">
         {commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">

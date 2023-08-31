@@ -37,7 +37,7 @@ function EditCommentModal(props) {
 
 
   return (
-    <div className="comment-form-modal">
+    <div className="update-story-confirm-delete-modal">
       <h1>Edit your Comment</h1>
       <>{errors.message}</>
       <textarea
