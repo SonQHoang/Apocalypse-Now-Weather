@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteTipsModal from '../TipsDeleteModal';
-import DeleteTip from '../../components/Tips/DeleteTips';
+import DeleteTip from '../Tips/DeleteTips';
 import { getUserTips } from "../../store/tips";
 import "./ManageTips.css"
 
