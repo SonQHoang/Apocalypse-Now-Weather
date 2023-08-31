@@ -29,18 +29,16 @@ export default function TipComments(prop) {
   const commentsList = Object.values(tipComments);
 
 
+  // rewrites the date to month, year
+  let createdAtSplit;
+  let createdAtSlice;
+  if(Object.keys(commentsList)){
+    let createdAtDate = commentsList.map((comment) => (
 
-//   let createdAtSplit;
-//   let year;
-//   let month;
-//   if(Object.keys(commentsList)){
-//   let createdAtDate = commentsList.map((comment) => (
-//     createdAtSplit = comment.createdAt.split('-'),
-//     year = createdAtSplit[0],
-//     month = createdAtSplit[1],
-//     comment.createdAt = `${month} ${year}`
-//     ))
-// }
+      createdAtSplit = comment.date_created.split(''),
+      createdAtSlice = createdAtSplit.slice(8, 16).join('')
+    ))
+  }
 
 return (
     <div>
@@ -56,7 +54,7 @@ return (
         {commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
-            <div className="comment-created-date">{date_created}</div>
+            <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
             {user_id === currentUserId &&  (
               <>
