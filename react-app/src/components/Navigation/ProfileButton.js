@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
-import { Link } from 'react-router-dom';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
-import SignUpFormModal from "../SignupFormModal";
-// import SignupFormPage from "../SignupFormPage";
-import { NavLink } from "react-router-dom"
+import SignupFormModal from "../SignupFormModal";
 import ManageStories from "../ManageStories";
+import { NavLink, Link } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -36,6 +36,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    return history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -53,7 +54,6 @@ function ProfileButton({ user }) {
             <li>{user.email}</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
-              <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
               <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
             </li>
           </>

@@ -48,7 +48,8 @@ const StoriesComponent = () => {
                             <p className='individual-story-body'>{story.body}</p>
                         </div>
                         <div id='story-likes-container'>
-                            <StoryLikesComponent story={story} />
+                            {sessionUser ? (<StoryLikesComponent story={story} />) : ''}
+
                         </div>
                     </div>
                 </>

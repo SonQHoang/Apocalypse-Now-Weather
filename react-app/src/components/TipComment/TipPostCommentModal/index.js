@@ -30,7 +30,7 @@ function PostCommentModal(props) {
   };
 
   return (
-    <div className="comment-form-modal">
+    <div className="post-tip-confirm-delete-modal">
       <h1>Leave a Comment</h1>
       {/* <>{errors.message}</> */}
       <textarea
