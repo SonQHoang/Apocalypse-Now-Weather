@@ -30,27 +30,27 @@ export default function TipComments(prop) {
 
 
 
-//   let createdAtSplit;
-//   let year;
-//   let month;
-//   if(Object.keys(commentsList)){
-//   let createdAtDate = commentsList.map((comment) => (
-//     createdAtSplit = comment.createdAt.split('-'),
-//     year = createdAtSplit[0],
-//     month = createdAtSplit[1],
-//     comment.createdAt = `${month} ${year}`
-//     ))
-// }
+  //   let createdAtSplit;
+  //   let year;
+  //   let month;
+  //   if(Object.keys(commentsList)){
+  //   let createdAtDate = commentsList.map((comment) => (
+  //     createdAtSplit = comment.createdAt.split('-'),
+  //     year = createdAtSplit[0],
+  //     month = createdAtSplit[1],
+  //     comment.createdAt = `${month} ${year}`
+  //     ))
+  // }
 
-return (
-    <div>
+  return (
+    <div className="tip-comments-container">
       <div className="div-post-your-comment-button">
         {
-              <OpenModal
-                buttonText="Post A Comment"
-                modalComponent={<PostCommentModal props={props} />}
-              />
-         }
+          <OpenModal
+            buttonText="Post A Comment"
+            modalComponent={<PostCommentModal props={props} />}
+          />
+        }
       </div>
       <div className="comments-div-holder">
         {commentsList.map(({ id, body, user_id, date_created }) => (
@@ -58,23 +58,25 @@ return (
             <div className="comment-firstname">User.firstName</div>
             <div className="comment-created-date">{date_created}</div>
             <div className="comment-comment">{body}</div>
-            {user_id === currentUserId &&  (
+            <div className="tip-comment-modal-button-container">
+            {user_id === currentUserId && (
               <>
                 {" "}
-                  { <OpenModal
-                    buttonText="Update"
-                    modalComponent={
-                      <EditCommentModal props={{ id, tipId }} />
-                    }
-                  /> }
-                  { <OpenModal
-                    buttonText="Delete"
-                    modalComponent={
-                      <DeleteCommentModal props={{ id, tipId }} />
-                    }
-                  /> }
+                {<OpenModal
+                  buttonText="Update"
+                  modalComponent={
+                    <EditCommentModal props={{ id, tipId }} />
+                  }
+                />}
+                {<OpenModal
+                  buttonText="Delete"
+                  modalComponent={
+                    <DeleteCommentModal props={{ id, tipId }} />
+                  }
+                />}
               </>
             )}
+            </div>
           </div>
         ))}
       </div>

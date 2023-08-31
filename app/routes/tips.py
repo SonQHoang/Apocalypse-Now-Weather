@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from ..models import Tips, db
 from app.forms.create_tip_form import CreateTip
 from datetime import datetime
-from flask_login import current_user #login_required
+from flask_login import current_user, login_required
 
 bp = Blueprint("tip", __name__, url_prefix="")
 
@@ -42,7 +42,7 @@ def create_new_tip(userId):
     return {'errors': 'error'}, 401
 
 
-# @login_required
+@login_required
 @bp.route('/user_tips', methods=["GET"])
 def get_user_tips():
     # print(user_id)
@@ -65,7 +65,7 @@ def get_tip_by_id(tip_id):
 }
     return jsonify(tip_data)
 
-# @login_required
+@login_required
 @bp.route('/tips/<int:tipId>', methods=["DELETE"])
 def delete_tip(tipId):
     tip_to_delete = Tips.query.get(tipId)
