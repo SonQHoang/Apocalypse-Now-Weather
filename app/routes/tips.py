@@ -14,7 +14,8 @@ def get_all_tips():
         "weather_category": tip.weather_category,
         "body": tip.body,
         "user_id": tip.user_id,
-        "date_created": tip.date_created
+        "date_created": tip.date_created,
+        "id": tip.id
     } for tip in tips]
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
