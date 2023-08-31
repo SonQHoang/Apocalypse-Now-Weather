@@ -25,6 +25,10 @@ function GetAllTips() {
         setShowModal(true)
     }
 
+    const handleTipClick = (tip) => {
+        history.push(`/tips/${tip.id}`)
+    }
+
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric'};
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -33,19 +37,19 @@ function GetAllTips() {
     return (
         <div className="tips-list-container">
             {tips.map(tip => (
-                <div onClick={() => history.push(`/tips/${tip.id}`)}
+                <div
                     key={tip.id}
                     className="single-tip">
 
                     <div className="user-info-container">
                         <div className="user-info-section">
-                            <p>{user.username}</p>
+                        {user ? <p>{user.username}</p> : null}
                         </div>
                         <div className="user-info-section">
                             <p>{formatDate(tip.date_created)}</p>
                         </div>
                     </div>
-                    <div className="tip-info-container">
+                    <div className="tip-info-container" onClick={() => handleTipClick(tip)}> 
                         <div className="tip-info">
                             {/* <p>{`ID: ${tip.user_id}`}</p> */}
                             <p className="tip-title">{`${tip.title}`}</p>

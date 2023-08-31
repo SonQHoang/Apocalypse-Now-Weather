@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getTipById } from '../../store/tips'
 import TipComments from '../TipComment/TipComments'
+import "./TipDetails.css"
 
 function TipDetailsPage() {
     // console.log('what does tips look like===>', tips)
@@ -10,7 +11,7 @@ function TipDetailsPage() {
 
     const dispatch = useDispatch()
     const tip = useSelector((state) => state.tips.singleTip)
-    console.log('Do I see any tips?====> Yes', tip)
+    // console.log('Do I see any tips?====> Yes', tip)
 
     useEffect(() => {
         dispatch(getTipById(tipId))
@@ -21,16 +22,24 @@ function TipDetailsPage() {
     }
     return (
         <>
-        <div>
-            <h1>The Tip Details Page</h1>
-            <h2>{tip.title}</h2>
-            <p>Weather Category: {tip.weather_category}</p>
-            <p>Body: {tip.body}</p>
-            <button>Comment on this Tip!</button>
-        </div>
-        <div className='tip-comments'>
-            <TipComments props={tipId}/>
-        </div>
+            <div className="tip-details-container">
+                <div className="tip-details-header">
+                    <h1>The Tip Details Page</h1>
+                    <div className="horizontal-line"/>
+                </div>
+                <div>
+                    <h2 className="tip-details-title">{tip.title}</h2>
+                </div>
+                <div>
+                    <h3 className="tip-details-weather-category">{tip.weather_category}</h3>
+                </div>
+                <div>
+                    <p className="tip-details-body">{tip.body}</p>
+                </div>
+            </div>
+            <div className='tip-comments'>
+                <TipComments props={tipId} />
+            </div>
         </>
     )
 }
