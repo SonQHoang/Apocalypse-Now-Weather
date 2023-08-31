@@ -13,6 +13,8 @@ import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 import ManageStories from "./components/ManageStories";
 import LoginFormModal from "./components/LoginFormModal";import StoryHighlights from './components/StoryHighlights';
+import AboutUs from "./components/AboutUs";
+import Footer from "./components/Footer";
 
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
@@ -71,8 +73,12 @@ function App() {
           <Route exact path='/'>
             <StoryHighlights />
           </Route>
+          <Route exact path='/about-us'>
+            <AboutUs />
+          </Route>
         </Switch>
       )}
+      <Footer isLoaded={isLoaded} />
     </>
     </Provider>
   );
