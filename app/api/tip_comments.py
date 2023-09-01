@@ -18,13 +18,13 @@ def get_tip_comments(id):
     comments = TipComments.query.filter(TipComments.tip_id == id).all()
     users = User.query.all()
     result = [comment.to_dict() for comment in comments]
-    print('RESULTS',result)
+    # print('RESULTS',result)
     return jsonify(result)
 
 @tip_comments.route("/comments/new", methods=['POST'])
 def post_tip_comment():
     form = TipCommentForm()
-    print(form)
+    # print(form)
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
@@ -34,13 +34,13 @@ def post_tip_comment():
             body=form.data['body'],
             date_created = date.today(),
         )
-        print(new_comment)
+        # print(new_comment)
         db.session.add(new_comment)
         db.session.commit()
         return new_comment.to_dict()
 
     if form.errors:
-        print(form.errors)
+        # print(form.errors)
         return {"errors": "we got some errors"}
 
 
@@ -48,7 +48,7 @@ def post_tip_comment():
 def put_tip_comment(commentId):
     form = TipCommentForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
-    print('WE HIT THIS')
+    # print('WE HIT THIS')
     if form.validate_on_submit():
         comment_to_update = TipComments.query.get(commentId)
         comment_to_update.body = form.data['body']
@@ -56,7 +56,7 @@ def put_tip_comment(commentId):
         return comment_to_update.to_dict()
 
     if form.errors:
-        print(form.errors)
+        # print(form.errors)
         return {"errors": "we got some errors"}
 
 

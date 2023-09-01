@@ -24,7 +24,8 @@ const StoryHighlights = () => {
             </div>
         </div>
         <div id='landing-page-description-container'>
-            <p>Welcome to Apocalypse Weather Now: Your portal to the world of cataclysmic climate. Explore the awe-inspiring and terrifying weather phenomena that could reshape our world. From solar flares and sentient clouds to time-skipping storms and fractal rain, delve into a world where Mother Nature's fury knows no bounds. Discover these fantastical weather events, their impacts, and the survival stories that emerge from the chaos. Step into a realm where the unpredictable reigns supreme, and prepare to be astonished.</p>
+            <p>Welcome to Apocalypse Weather Now: Your portal to the world of cataclysmic climate. Explore the awe-inspiring and terrifying weather phenomena that is reshaping our world. From solar flares and sentient clouds to time-skipping storms and fractal rain, delve into a world where Mother Nature's fury knows no bounds.</p>
+            <p>Discover these fantastical weather events, their impacts, and the survival stories that emerge from the chaos. Step into a realm where the unpredictable reigns supreme, and prepare to be astonished.</p>
         </div>
         <div id='landing-page-parent'>
             <div id='story-highlights-parent'>

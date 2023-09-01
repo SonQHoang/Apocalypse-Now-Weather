@@ -22,7 +22,7 @@ const StoryLikesComponent = (story) => {
     if(story.story.likes) {
         storyLikes = Object.values(story.story.likes)
         numLikes = storyLikes.length
-        console.log(story.story.likes)
+        // console.log(story.story.likes)
 
         // console.log(storyLikes.length())
 

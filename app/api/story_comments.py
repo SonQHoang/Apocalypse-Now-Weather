@@ -32,13 +32,13 @@ def post_comment():
             body=form.data['commentBody'],
             date_created = date.today(),
         )
-        print(new_comment)
+        # print(new_comment)
         db.session.add(new_comment)
         db.session.commit()
         return new_comment.to_dict()
 
     if form.errors:
-        print(form.errors)
+        # print(form.errors)
         return {"errors": "we got some errors"}
 
 
@@ -53,7 +53,7 @@ def put_comment(commentId):
         return comment_to_update.to_dict()
 
     if form.errors:
-        print(form.errors)
+        # print(form.errors)
         return {"errors": "we got some errors"}
 
 

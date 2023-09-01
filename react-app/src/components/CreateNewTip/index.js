@@ -20,7 +20,7 @@ const TipsAddForm = () => {
             isMountedRef.current = false
         }
     }, [])
-    
+
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
     };
@@ -49,9 +49,9 @@ const TipsAddForm = () => {
         const createdTip = await dispatch(createTip(newTip, user.id));
 
         if (createdTip) {
-            console.log("Is the tip created?====>", createdTip)
+            // console.log("Is the tip created?====>", createdTip)
             history.push(`/tips/${createdTip.id}`)
-            console.log("Push was fired======>")
+            // console.log("Push was fired======>")
         }
         // Reset form fields after submission
         setTitle("");
