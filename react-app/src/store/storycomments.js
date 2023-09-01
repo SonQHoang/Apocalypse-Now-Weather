@@ -68,7 +68,6 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
     userId,
     storyId
   }
-  console.log(responseBody)
   const response = await fetch(`/api/story-comments/comments/${commentId}`, {
     method: "PUT",
     headers: {

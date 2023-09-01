@@ -4,16 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getLocation } from '../../store/userLocation'
 
 
-
-
-
 const FiveDayForcast = () =>{
     const dispatch = useDispatch()
 
     const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
-        dispatch()
+        dispatch(getLocation())
     }, [dispatch, sessionUser])
 
 

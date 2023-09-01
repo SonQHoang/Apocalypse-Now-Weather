@@ -1,13 +1,13 @@
 const GET_LOCATION = "user/location";
 
-export const getUserLocation = (data) => {
+export const getUserLocation = (res) => {
   return {
     type: GET_LOCATION,
-    location: data,
+    userLocation: res,
   };
 };
 
-export const getLocation = async () => {
+export const getLocation = () => async (dispatch) => {
   const req = await fetch("https://freeipapi.com/api/json/", {
     method: "GET",
   });
@@ -15,12 +15,16 @@ export const getLocation = async () => {
   if (!req.ok) {
     throw new Error(`Request failed with status: ${req.status}`);
   }
-  const res = await req.json();
-  if (res.ok) {
-    getUserLocation(res);
+
+  if (req.ok) {
+    const res = await req.json();
+    dispatch(getUserLocation(res));
     return res;
+  } else {
+    return req.error
   }
 };
+
 
 const initalState = {
   userLocation: {},
@@ -30,16 +34,9 @@ const userLocationReducer = (state = initalState, action) => {
   let newState;
   switch (action.type) {
     case GET_LOCATION:
-      newState = Object.assign({}, state);
-      // console.log(' this is what im logging ', newState)
-      let newObject = {};
-
-      action.comments.forEach((comment) => {
-        newObject[comment.id] = comment;
-      });
-      newState = newObject;
-      return newState;
-
+        console.log('ACTION',action)
+      state.userLocation = action.userLocation
+      return state;
     default:
       return state;
   }
