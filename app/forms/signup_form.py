@@ -30,7 +30,7 @@ class SignUpForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('First Name', validators=[DataRequired()])
     username = StringField('username', validators=[DataRequired(), username_exists])
-    email = StringField('Email', validators=[DataRequired(), user_exists])
+    email = StringField('Email', validators=[DataRequired(), user_exists, Email()] )
     password = StringField('Password', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
     latitude = FloatField('Latitude', validators=[DataRequired()])
