@@ -7,12 +7,10 @@ Whether you are stopping by to bolster your knowledge or just want to see know a
 https://awn-render.onrender.com
 
 ## Index
-- Features List (Add Photos as the site comes together)
-- Database Schema
-- Frontend and Backend Routes
-- Future Implementation Goals
-- Links to contact you (LinkedIn)
-- Contact Us Further
+- Features List: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Features-LIst
+- Database Schema: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Schema
+- Frontend and Backend Routes: 
+- What We're Working on Next: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/What's-Coming-Up-Next
 
 -- SHOULD ADD SNIPPET OF WEBSITE ONCE ITS DONE --
 
@@ -37,3 +35,9 @@ flask db upgrade
 flask seed all
 flask run
 To run the React App in development, checkout the README inside the react-app directory.
+
+** Get in Touch with the Team:
+Aston Martinez: https://www.linkedin.com/in/aston-martinez-0716/
+John Wofford: https://www.linkedin.com/in/jonathanbwofford/
+Sam Boyle: https://www.linkedin.com/in/samboyle12/
+Sean Hoang: https://www.linkedin.com/in/sean-hoang/
