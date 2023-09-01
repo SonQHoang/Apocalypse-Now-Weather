@@ -199,10 +199,13 @@ const handleSubmit = async (e) => {
 
 
     useEffect(() => {
+      console.log("Current prepper_type:", prepper_type);
       if (prepper_type) {
-        setPrepper_Description(prepper_descriptions[prepper_type]);
+        const description = prepper_descriptions[prepper_type]
+        console.log("Setting description:", description);
+        setPrepper_Description(description);
       }
-    }, [prepper_type]);
+    }, [prepper_type, setPrepperType]);
 const loginDisabled = (password !== confirmPassword)
 
 return (
