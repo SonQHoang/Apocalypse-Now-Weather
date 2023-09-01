@@ -1,7 +1,7 @@
 import './FiveDayForcast.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getLocation } from '../../store/userLocation'
+
 import apocWeatherConverter from '../ApocWeather/apocweatherfunc'
 
 
@@ -10,7 +10,6 @@ const FiveDayForcast = () =>{
     const userLocation = useSelector(state => state.userLocation.userLocation)
     const sessionUser = useSelector(state => state.session.user)
     let dailyWeatherCode;
-
 
     useEffect(() => {
         dispatch(getLocation())
