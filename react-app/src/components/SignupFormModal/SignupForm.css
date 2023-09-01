@@ -63,13 +63,16 @@ body, html {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .label-input-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 1rem; /* Optional: Sets a gap between each label-input pair */
+    gap: 1rem;
 }
 
 .signupcontainer input{
@@ -150,13 +153,13 @@ body, html {
 }
 
 #biolabel{
-    display: block;
+    /* display: block; */
     margin-left: 30px;
-    width: 21%;
+    width: 25%;
 }
 
 #bioinput{
-    width: 90%;
+    width: 100%;
     background-color: grey;
 
 }
@@ -164,11 +167,11 @@ body, html {
 #passwordlabel{
     margin-left: 30px;
     margin-right: 5px;
-    margin-top: 20px;
+
 }
 #confirmpasswordlabel{
     margin-left: 5px;
-    margin-top: 20px;
+
 }
 
 #signupbuttonsection{
@@ -181,7 +184,6 @@ body, html {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
     font-family: 'Courier New', Courier, monospace;
     width: 25%;
     height: 35px;
@@ -254,4 +256,26 @@ body, html {
 .prepper-key{
     color:#ff7518;
     margin-right: 5px;
+}
+
+.signupErrors{
+    color: #e8110a;
+    margin-left: 30px;
+    font-size: 13px;
+    margin-top: -10px;
+
+}
+
+.field-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.field-error {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    color: red;
+    margin-left: 30px;
 }

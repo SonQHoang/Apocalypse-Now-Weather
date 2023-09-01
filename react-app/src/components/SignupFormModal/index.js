@@ -172,18 +172,23 @@ const handleSubmit = async (e) => {
         console.log("****data****", data)
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
         if (data && data.errors) {
-          const obj = Object.assign({}, data);
-
-          setErrors(obj);
-
-          console.log("errors state", errors)
-
-        }
-      } else {
-        setErrors(["Confirm Password field must be the same as the Password field"]);
+          if (Array.isArray(data.errors)) {
+              const newErrorObject = Object.fromEntries(
+                  data.errors.map(error => {
+                      const [key, value] = error.split(" : ").map(str => str.trim());
+                      return [key, value];
+                  })
+              );
+              setErrors(newErrorObject);
+          } else {
+              console.log("Unexpected data.errors format:", data.errors);
+          }
       }
+  } else {
+      setErrors(["Confirm Password field must be the same as the Password field"]);
+  }
     };
- console.log("errors state", errors)
+//  console.log("errors state outside", errors)
     // const handleSubmit = (e) => {
     //   e.preventDefault();
     //   if (password === confirmPassword) {
@@ -220,16 +225,10 @@ return (
       <h1 id="signuptitle">Survivor Sign Up</h1>
       <section className='signupform'>
       <form id='survivorform' onSubmit={handleSubmit}>
-           {/* Error messages */}
-           {/* <div className="error-messages">
-            {errors.length > 0 ? (
-              errors.map((error, idx) => (
-                <p key={idx}>{error}</p>
-              ))
-            ) : null}
-          </div> */}
+
           <div className="label-input-group">
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="firstnamelabel">
             First Name
             <input id='firstnameinput'
@@ -239,20 +238,24 @@ return (
               required
             />
           </label>
-
-          {errors.first_name && <p>{errors.first_name}</p>}
+          </div>
+          <span className="signupErrors">{errors.first_name}</span>
 
           </section>
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="lastnamelabel">
             Last Name
+            </label>
             <input id='lastnameinput'
               type="text"
               value={last_name}
               onChange={(e) => setLast_Name(e.target.value)}
               required
             />
-          </label>
+            </div>
+
+          <span className="signupErrors">{errors.last_name}</span>
             </section>
 				{/* Hidden input fields for latitude and longitude */}
 				    <input type="hidden" name="latitude" value={latitude} />
@@ -261,35 +264,38 @@ return (
 
           {/* Email Input */}
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="emaillabel">
-            Email
+            Email</label>
             <input id='emailinput'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-          </label>
+          </div>
+          <span className="signupErrors">{errors.email}</span>
+          </section>
 
-          {errors.email && <p>{errors.email}</p>}
-
-            </section>
           {/* Username Input */}
           <section className='label-input-container'>
-          <label id="usernamelabel">
-            Username
+          <div className='field-container'>
+          <label id="usernamelabel" className='field-container'>
+            Username </label>
             <input id='usernameinput'
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-          </label>
+          </div>
+          <span className="signupErrors">{errors.username}</span>
           </section>
 
           <section className='label-input-container'>
+          <div className='field-container'>
 				<label id="preppertypelabel">
-					Prepper Type
+					Prepper Type</label>
 					<select id="preppertype"
 					value={prepper_type}
 					onChange={(e) => setPrepperType(e.target.value)}
@@ -302,9 +308,12 @@ return (
 						<option key={idx} value={type}>{type}</option>
 					))}
 					</select>
-				</label>
+
+        </div>
+        <span className="signupErrors">{errors.prepper_type}</span>
 				</section>
 				<section className='label-input-container'>
+        <div className='field-container'>
 				<label id="biolabel">
 					Short Personal Bio:
 				</label>
@@ -315,47 +324,56 @@ return (
 					onChange={(e) => setBio(e.target.value)}
 					required
 					/>
+          </div>
+            <span className="signupErrors">{errors.bio}</span>
 				</section>
         </div>
         <div className="label-input-group">
           {/* Password Input */}
           <section className='label-input-container'>
+          <div className="field-container">
           <label id="passwordlabel">
-            Password
+            Password</label>
             <input id='passwordinput'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </label>
+
+          </div>
+          <span className="signupErrors">{errors.password}</span>
           </section>
           {/* Confirm Password Input */}
           <section className='label-input-container'>
+          <div className="field-container">
           <label id="confirmpasswordlabel">
-            Confirm Password
+            Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          </label>
+          </div>
+          <span className="signupErrors">{errors.confirmPassword}</span>
           </section>
           </div>
 
         </form>
       </section>
       <section className='locationfield'>
+      <div className="field-container">
       <label id="locationLabel">
-          Selected Location
+          Selected Location </label>
           <input id='locationinput'
             type="text"
             value={location}
             placeholder='automatically set by map'
             readOnly
           />
-        </label>
+        </div>
+        <span className="signupErrors">{errors.location}</span>
       <section className='signupmapcontainer'>
         <MapContainer whenCreated={setMap} className='mapmap' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

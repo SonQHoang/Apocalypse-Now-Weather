@@ -85,16 +85,19 @@ export const signUp = (formBody, history) => async (dispatch) => {
 		dispatch(setUser(data));
 		history.push('/');
 		// return Promise.resolve(data);
+
 		return data
 	  } else {
-		const errorObject = Object.fromEntries(
-			data.map(error => {
-				const [key, value] = error.split(" : ").map(str => str.trim());
-				return [key, value]
-			})
-		)
-		console.log("errorsOBJECT****", errorObject)
-		return errorObject;
+		return data
+		// const errorObject = Object.values(data)
+		// const newErrorObject = Object.fromEntries(
+		// 	errorObject.map(error => {
+		// 		const [key, value] = error.split(" : ").map(str => str.trim());
+		// 		return [key, value];
+
+		// 	})
+		// )
+		// return newErrorObject
 	  }
 	// } catch (error) {
 	// 	console.log("catch block error", error)
