@@ -1,0 +1,206 @@
+#quiz-parent-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #2f2f2f;
+    border: 5px solid #ff7518;
+    border-radius: 20px;
+}
+
+#quiz-wrapper {
+    background-color: #2f2f2f;
+}
+
+#quiz-h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+#quiz-form {
+    margin-left: 50px;
+    margin-bottom: 30px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+#question-one-answers-div,
+#question-two-answers-div,
+#question-three-answers-div,
+#question-four-answers-div,
+#question-five-answers-div,
+#question-six-answers-div,
+#question-seven-answers-div,
+#question-eight-answers-div,
+#question-nine-answers-div,
+#question-ten-answers-div,
+#question-eleven-answers-div,
+#question-twelve-answers-div,
+#question-thirteen-answers-div,
+#question-fourteen-answers-div,
+#question-fifteen-answers-div,
+#question-sixteen-answers-div,
+#question-seventeen-answers-div,
+#question-eighteen-answers-div,
+#question-nineteen-answers-div,
+#question-twenty-answers-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#q-1-a-1-div, #q-1-a-2-div,
+#q-2-a-1-div, #q-2-a-2-div, #q-2-a-3-div,
+#q-3-a-1-div, #q-3-a-2-div, #q-3-a-3-div, #q-3-a-4-div,
+#q-4-a-1-div, #q-4-a-2-div,
+#q-5-a-1-div, #q-5-a-2-div,
+#q-6-a-1-div, #q-6-a-2-div, #q-6-a-3-div, #q-6-a-4-div,
+#q-7-a-1-div, #q-7-a-2-div,
+#q-8-a-1-div, #q-8-a-2-div,
+#q-9-a-1-div, #q-9-a-2-div, #q-9-a-3-div, #q-9-a-4-div,
+#q-10-a-1-div, #q-10-a-2-div,
+#q-11-a-1-div, #q-11-a-2-div,
+#q-12-a-1-div, #q-12-a-2-div, #q-12-a-3-div, #q-12-a-4-div,
+#q-13-a-1-div, #q-13-a-2-div,
+#q-14-a-1-div, #q-14-a-2-div,
+#q-15-a-1-div, #q-15-a-2-div,
+#q-16-a-1-div, #q-16-a-2-div, #q-16-a-3-div, #q-16-a-4-div,
+#q-17-a-1-div, #q-17-a-2-div,
+#q-18-a-1-div, #q-18-a-2-div,
+#q-19-a-1-div, #q-19-a-2-div,
+#q-20-a-1-div, #q-20-a-2-div, #q-20-a-3-div, #q-20-a-4-div {
+    display: flex;
+    margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 15px;
+    color: white;
+}
+
+#q-1-a-2-div,
+#q-2-a-2-div, #q-2-a-3-div,
+#q-3-a-2-div, #q-3-a-3-div, #q-3-a-4-div,
+#q-4-a-2-div,
+#q-5-a-2-div,
+#q-6-a-2-div, #q-6-a-3-div, #q-6-a-4-div,
+#q-7-a-2-div,
+#q-8-a-2-div,
+#q-9-a-2-div, #q-9-a-3-div, #q-9-a-4-div,
+#q-10-a-2-div,
+#q-11-a-2-div,
+#q-12-a-2-div, #q-12-a-3-div, #q-12-a-4-div,
+#q-13-a-2-div,
+#q-14-a-2-div,
+#q-15-a-2-div,
+#q-16-a-2-div, #q-16-a-3-div, #q-16-a-4-div,
+#q-17-a-2-div,
+#q-18-a-2-div,
+#q-19-a-2-div,
+#q-20-a-2-div, #q-20-a-3-div, #q-20-a-4-div {
+    margin-top: -15px;
+}
+
+.question-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+#question-one-text-div,
+#question-two-text-div,
+#question-three-text-div,
+#question-four-text-div,
+#question-five-text-div,
+#question-six-text-div,
+#question-seven-text-div,
+#question-eight-text-div,
+#question-nine-text-div,
+#question-ten-text-div,
+#question-eleven-text-div,
+#question-twelve-text-div,
+#question-thirteen-text-div,
+#question-fourteen-text-div,
+#question-fifteen-text-div,
+#question-sixteen-text-div,
+#question-seventeen-text-div,
+#question-eighteen-text-div,
+#question-nineteen-text-div,
+#question-twenty-text-div {
+    margin-bottom: -10px;
+}
+
+.question-div {
+    margin-bottom: 25px;
+}
+
+#submit-button-container {
+    margin: 0 auto;
+    /* border: 1px solid white; */
+    width: 50%;
+}
+
+#quiz-submit-button {
+    background-color: orange;
+    margin-left: 80px;
+    height: 50px;
+    width: 130px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 25px;
+}
+
+#result-parent-div {
+    width: 50%;
+    border: 5px solid #ff7518;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 50px;
+    padding-top: 0;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#result-header-div {
+    color: black;
+    margin-top: 0;
+    height: 50px;
+}
+
+#result-body-div {
+    background-color: #2f2f2f;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 2px solid black;
+}
+
+#result-body-div > h2 {
+    color: #ff7518;
+}
+
+#result-body-div > p {
+    color: white;
+}
+
+#update-prepper-type-container {
+    background-color: #2f2f2f;
+    margin-top: -16px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+    border-radius: 0 0 17px 17px;
+}
+
+#update-prepper-type-container > p {
+    color: white;
+}
+
+#update-prepper-type-submit {
+    background-color: orange;
+    height: 40px;
+    width: 100px;
+    font-size: 18px;
+    border-radius: 20px;
+}

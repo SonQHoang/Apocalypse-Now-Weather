@@ -13,6 +13,9 @@ import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 import ManageStories from "./components/ManageStories";
 import LoginFormModal from "./components/LoginFormModal";import StoryHighlights from './components/StoryHighlights';
+import AboutUs from "./components/AboutUs";
+import PrepperTypeQuiz from "./components/PrepperTypeQuiz";
+import SurvivorProfile from "./components/SurvivorProfile";
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
 import ManageTips from "./components/ManageTips";
@@ -77,6 +80,15 @@ function App() {
           <Route exact path="/tips/:tipId" component={TipDetailsPage} />
           <Route exact path='/'>
             <StoryHighlights />
+          </Route>
+          <Route exact path='/about-us'>
+            <AboutUs />
+          </Route>
+          <Route exact path='/quiz'>
+            <PrepperTypeQuiz />
+          </Route>
+          <Route exact path='/survivors/current'>
+            <SurvivorProfile />
           </Route>
         </Switch>
       )}
