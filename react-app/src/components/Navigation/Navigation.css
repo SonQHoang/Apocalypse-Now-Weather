@@ -2,15 +2,19 @@
   height: auto;
   max-width: 150px;
 }
-
+.navbar button{
+  cursor: pointer;
+}
 
 ul.profile-dropdown {
   background-color: #2f2f2f;
-  border: 2px solid black
+  border: 2px solid black;
+  z-index: 55;
 }
 
 .profile-button-container {
   margin-left: 10px;
+  z-index: 55
 
 }
 
@@ -156,9 +160,4 @@ nav {
   height: 6px;
   background-color: transparent;
   width: 100px;
-}
-
-.awn-logo {
-  height: auto;
-  max-width: 150px;
 }
