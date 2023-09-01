@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import * as storyActions from '../../store/stories'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import './UpdateStoryModal.css'
+// import './UpdateStoryModal.css'
 
-const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
+const UpdateModal = ({ onSubmit, onClose, storyId, storyData }) => {
     const dispatch = useDispatch()
     const modalOverlayRef = useRef()
     const sessionUser = useSelector(state => state.session.user)
@@ -36,7 +36,8 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
             if(res.errors) {
                 setErrors(res.errors)
             } else {
-                dispatch(storyActions.getAllUserStories(sessionUser.id))
+                dispatch(storyActions.getOneStory(storyId))
+                return history.push(`/stories/${storyId}`)
             }
         })
         return onSubmit()
@@ -92,4 +93,4 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
     )
 }
 
-export default UpdateStoryModal;
+export default UpdateModal;

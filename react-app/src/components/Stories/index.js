@@ -24,7 +24,7 @@ const StoriesComponent = () => {
   storiesToMap.reverse()
 
   return (
-    <>
+    <div id='all-stories-wrapper'>
       <div id="all-stories-container">
         <h1 id="all-stories-h1">All Stories</h1>
         {sessionUser !== null ? (
@@ -80,7 +80,7 @@ const StoriesComponent = () => {
             </div>
           </>
         ))}
-    </>
+    </div>
   );
 };
 
