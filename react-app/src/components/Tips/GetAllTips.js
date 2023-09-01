@@ -32,7 +32,7 @@ function GetAllTips() {
 
     return (
         <>
-            <div className="all-tips-container">
+            <div className="all-tips-header-container">
                 <h1>All Tips</h1>
                 {user !== null ? (
                     <NavLink exact to='/tips/new'>
@@ -41,6 +41,8 @@ function GetAllTips() {
                 ) : null}
             </div>
 
+            <div className="all-single-tips-container">
+                
             {tips.map(tip => (
                 <div
                     key={tip.id}
@@ -66,6 +68,7 @@ function GetAllTips() {
                     </div>
                 </div>
             ))}
+                        </div>
         </>
     );
 }

@@ -1,11 +1,12 @@
 .delete-tip-confirm-delete-modal{
     z-index: 9000;
-    border: 5px solid #ff7518;
+    border: 4px solid #ff7518;
     border-radius: 45px;
-    height: 50vh;
-    width: 52%;
+    height: auto;
+    width: 80%;;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     background-color: #2f2f2f;
     position: fixed;
@@ -13,5 +14,45 @@
     left: 0;
     right: 0;
     margin: auto;
+}
 
+
+.delete-tip-comment-modal-container {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-delete-modal-text-container h2 {
+    color: white;
+    font-size: 14pt
+    
+}
+
+.delete-comment-modal-button-container {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.delete-modal-delete-Comment {
+    /* border: 2px solid red; */
+    background-color: #ff7518;
+    color: white;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.delete-modal-keep-Comment {
+    /* border: 2px solid red; */
+    color: black;
+    background-color: #f4f4f4;
+    height: 40px;
+    margin-top: 10px;
 }

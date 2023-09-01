@@ -9,7 +9,7 @@ function TipDetailsPage() {
     const { tipId } = useParams()
     // console.log('==============>', tipId)
     const sessionUser = useSelector(state => state.session.user)
-    console.log('sessionuser=========>', sessionUser.username)
+    // console.log('sessionuser=========>', sessionUser.username)
     const dispatch = useDispatch()
     const tip = useSelector((state) => state.tips.singleTip)
     // console.log('Do I see any tips?====> Yes', tip)

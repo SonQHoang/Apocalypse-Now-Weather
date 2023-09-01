@@ -52,7 +52,7 @@ function ApocMap() {
   useEffect(() => {
     dispatch(getLocation())
   }, [dispatch, sessionUser])
-
+console.log("sessionUSer****",sessionUser)
   useEffect(() => {
     if (!map) return;
 

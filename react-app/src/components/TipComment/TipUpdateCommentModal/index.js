@@ -9,8 +9,8 @@ import "./TipUpdateCommentModal.css";
 function EditCommentModal(props) {
   const tipComments = useSelector((state) => state.tipcomments);
   const currentUser = useSelector((state) => state.session.user);
-  const tipId  = props.props.tipId;
-  const userId  = currentUser.id
+  const tipId = props.props.tipId;
+  const userId = currentUser.id
   const commentId = props.props.id
   const { closeModal } = useModal();
   const commentToEdit = (tipComments[commentId])
@@ -38,13 +38,17 @@ function EditCommentModal(props) {
 
   return (
     <div className="update-tip-confirm-delete-modal">
-      <h1>Edit your Comment</h1>
+      <div className="tip-comment-edit-comment-container">
+        <h1 className="tip-comment-edit-comment">Edit your Comment</h1>
+      </div>
       <>{errors.message}</>
-      <textarea
-        className="post-comment-form-modal"
-        onChange={(e) => setComment(e.target.value)}
-      >{commentToEdit.body}</textarea>
-      <button className='submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
+      <div className="update-tip-comment-container">
+        <textarea
+          className="post-comment-form-modal"
+          onChange={(e) => setComment(e.target.value)}
+        >{commentToEdit.body}</textarea>
+      </div>
+      <button className='update-tip-submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
         Submit Your Comment
       </button>
     </div>

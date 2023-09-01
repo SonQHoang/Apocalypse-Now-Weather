@@ -41,7 +41,7 @@ const ManageStories = () => {
     }
 
     return (
-        <div id='all-stories-wrapper' className={`when-story-modal-${showModal}`}>
+        <div id='all-stories-wrapper'>
             <div id='all-stories-container'>
                 <h1 id='all-stories-h1'>Manage Your Stories</h1>
                 {sessionUser !== null ? (
