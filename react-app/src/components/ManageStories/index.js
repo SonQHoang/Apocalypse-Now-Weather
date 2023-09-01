@@ -21,7 +21,7 @@ const ManageStories = () => {
         dispatch(storyActions.getAllUserStories(userId)).then(() => {
             setIsLoaded(true)
         })
-    }, [dispatch, isLoaded, userStories])
+    }, [dispatch])
 
 
     return (

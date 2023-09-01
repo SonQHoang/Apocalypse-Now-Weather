@@ -22,8 +22,6 @@ const UpdateStoryModal = (story) => {
         }
 
         dispatch(storyActions.updateUserStory(story.story.id, updatedStory)).then(async res => {
-            console.log("RESPONSE: ", res)
-            console.log(res.errors)
             if(res.errors) {
                 setErrors(res.errors)
             } else {
@@ -41,7 +39,7 @@ const UpdateStoryModal = (story) => {
             <form id='create-story-form' onSubmit={handleSubmit}>
                 <div>
                     <div>
-                        <label id='update-story-title-label' htmlFor='title'>Title</label>
+                        <p id='update-story-title-label'>Title</p>
                     </div>
                     <div>
                         <input
@@ -56,7 +54,7 @@ const UpdateStoryModal = (story) => {
                 </div>
                 <div>
                     <div>
-                        <label id='update-story-body-label' htmlFor='body'>Body</label>
+                        <p id='update-story-body-label' htmlFor='body'>Body</p>
                     </div>
                     <div>
                         <textarea

@@ -10,6 +10,7 @@
     background-color: #2f2f2f;
     border-radius: 20px;
     color: #ff7518;
+    z-index: 5000;
 }
 
 #update-story-button-container {

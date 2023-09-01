@@ -21,6 +21,8 @@ const StoriesComponent = () => {
 
   const storiesToMap = Object.values(allStories);
 
+  storiesToMap.reverse()
+
   return (
     <>
       <div id="all-stories-container">
