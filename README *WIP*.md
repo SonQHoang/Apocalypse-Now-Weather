@@ -12,7 +12,18 @@ https://awn-render.onrender.com
 - Frontend and Backend Routes: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Routes
 - What We're Working on Next: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/What's-Coming-Up-Next
 
--- SHOULD ADD SNIPPET OF WEBSITE ONCE ITS DONE --
+![Screenshot 2023-09-01 at 9 57 36 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/5daad1f9-e1bf-4b9e-9551-af5e3e101886)
+
+![Screenshot 2023-09-01 at 9 57 49 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/7fdb8a2e-d2c5-47d6-b986-031efa3facb2)
+
+
+![Screenshot 2023-09-01 at 9 58 04 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/3f97d29a-6f93-452a-a103-fea34c5c22c5)
+
+![Screenshot 2023-09-01 at 9 58 14 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/4bd2c093-ffc2-4932-b902-1d343f6c658e)
+
+
+
+
 
 ## Getting Started
 
