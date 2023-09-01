@@ -192,7 +192,11 @@ body, html {
     /* border-radius: 4px 4px 8px; */
 
 }
+#signupsubmit:disabled {
+    background-color: grey;
+    color: black;
 
+  }
 .signupcontainer .auto-search-wrapper{
     margin-top: 20px;
     width: 55%;
