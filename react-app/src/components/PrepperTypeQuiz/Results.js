@@ -31,15 +31,19 @@ const QuizResults = ({results}) => {
     }
 
     return (
-        <div>
-            <h1>Your Result Is... </h1>
-            <h2>{results.result}</h2>
-            <p>{prepper_description}</p>
+        <div id='result-parent-div'>
+            <div id='result-header-div'>
+                <h1>Your Result Is... </h1>
+            </div>
+            <div id='result-body-div'>
+                <h2>{results.result}</h2>
+                <p>{prepper_description}</p>
+            </div>
             {sessionUser ? (
-                <>
+                <div id='update-prepper-type-container'>
                     <p>Set this as your prepper type?</p>
-                    <button onClick={handleSubmit}>Yes!</button>
-                </>
+                    <button id='update-prepper-type-submit' onClick={handleSubmit}>Yes!</button>
+                </div>
             ) : ''}
         </div>
     )

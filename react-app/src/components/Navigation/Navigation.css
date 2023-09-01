@@ -68,7 +68,7 @@ nav {
   padding-bottom: 0;
 }
 
-#nav-bar-home, #nav-bar-forecast, #nav-bar-stories, #nav-bar-tips {
+#nav-bar-home, #nav-bar-forecast, #nav-bar-stories, #nav-bar-tips, #nav-bar-quiz {
   color:#ff7518;
   display: flex;
   justify-content: center;
@@ -141,6 +141,18 @@ nav {
 }
 
 #fourth-span-hidden {
+  height: 6px;
+  background-color: transparent;
+  width: 100px;
+}
+
+#fifth-span-visible {
+  height: 6px;
+  background-color: whitesmoke;
+  width: 100px;
+}
+
+#fifth-span-hidden {
   height: 6px;
   background-color: transparent;
   width: 100px;

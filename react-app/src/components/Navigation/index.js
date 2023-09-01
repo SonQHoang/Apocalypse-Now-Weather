@@ -10,6 +10,7 @@ function Navigation({ isLoaded }) {
 	const [onHoverTwo, setOnHoverTwo] = useState('hidden')
 	const [onHoverThree, setOnHoverThree] = useState('hidden')
 	const [onHoverFour, setOnHoverFour] = useState('hidden')
+	const [onHoverFive, setOnHoverFive] = useState('hidden')
 
 	return (
 		<nav className="navbar">
@@ -34,6 +35,10 @@ function Navigation({ isLoaded }) {
 						<div className='nav-left-item' id='nav-left-tips-item' onMouseEnter={() => setOnHoverFour('visible')} onMouseLeave={() => setOnHoverFour('hidden')}>
 							<NavLink id='nav-bar-tips' to="/tips">Tips</NavLink>
 							<span id={`fourth-span-${onHoverFour}`}></span>
+						</div>
+						<div className='nav-left-item' id='nav-left-quiz-item' onMouseEnter={() => setOnHoverFive('visible')} onMouseLeave={() => setOnHoverFive('hidden')}>
+							<NavLink id='nav-bar-quiz' to="/quiz">Quiz</NavLink>
+							<span id={`fifth-span-${onHoverFive}`}></span>
 						</div>
 					</div>
 				</div>
