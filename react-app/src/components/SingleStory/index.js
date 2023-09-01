@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import * as storyActions from '../../store/stories'
 import OpenModalButton from '../OpenModalButton'
 import DeleteStoryModal from "../DeleteStoryModal";
@@ -35,7 +35,7 @@ const SingleStoryComponent = () => {
                         <p>By: </p>
                     </div> */}
                         {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
-                    <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</p>
+                    <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p>
                 </div>
                 <div id='single-story-body'>
                     <p>{isLoaded && currentStory && currentStory?.body}</p>

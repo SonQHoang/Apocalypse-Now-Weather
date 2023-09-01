@@ -49,7 +49,7 @@ const StoriesComponent = () => {
                     <h2 className="individual-story-title">{story.title}</h2>
                   </NavLink>
                   <p className="story-author-name-all">
-                    By: {story.author.first_name} {story.author.last_name}
+                    By: <NavLink exact to={`/survivors/${story.author.id}`} className='author-nav-link'>{story.author.first_name} {story.author.last_name}</NavLink>
                   </p>
                   {sessionUser && sessionUser.id === story?.author?.id ? (
                     <div id="allStories-manage-button">
