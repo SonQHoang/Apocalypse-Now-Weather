@@ -16,6 +16,12 @@ const StoryHighlights = () => {
     const storiesToMap = Object.values(stories)
 
     return (
+        <>
+        <div className="awn_logo_container">
+            <div className="awn_logo">
+                <img src="https://res.cloudinary.com/dgxpqnbwn/image/upload/v1693530420/AWN_Banner_1_-PhotoRoom.png-PhotoRoom_juuzmy.png" alt="AWN_banner"/>
+            </div>
+        </div>
         <div id='story-highlights-parent'>
             <h2 id='story-highlights-header'>Trending Stories</h2>
             <div id='story-highlights-container'>
@@ -35,6 +41,7 @@ const StoryHighlights = () => {
                 ))}
             </div>
         </div>
+        </>
     )
 }
 

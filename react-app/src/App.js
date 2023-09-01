@@ -18,6 +18,8 @@ import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
 import ManageTips from "./components/ManageTips";
 import SignUpFormModal from "./components/SignupFormModal";
 import CreateNewTip from "./components/CreateNewTip";
+import Footer from "./components/Footer/Footer";
+import Attribution from "./components/Attribution";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -41,6 +43,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route> */}
+          <Route path="/attributions">
+            <Attribution/>
+          </Route>
           <Route path="/forecast">
           <ApocMap/>
           </Route>
@@ -63,7 +68,6 @@ function App() {
           <Route path="/signup">
             <SignUpFormModal/>
           </Route>
-
           <Route exact path="/tips/manage">
             <ManageTips/>
           </Route>
@@ -76,6 +80,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer/>
     </>
     </Provider>
   );

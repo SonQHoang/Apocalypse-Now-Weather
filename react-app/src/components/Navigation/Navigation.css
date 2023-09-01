@@ -1,3 +1,8 @@
+.awn-logo {
+  height: auto;
+  max-width: 150px;
+}
+
 .profile-dropdown {
   position: absolute;
   transform: translateX(-50%);
@@ -144,9 +149,4 @@ nav {
   height: 6px;
   background-color: transparent;
   width: 100px;
-}
-
-.awn-logo {
-  height: auto;
-  max-width: 150px;
 }
