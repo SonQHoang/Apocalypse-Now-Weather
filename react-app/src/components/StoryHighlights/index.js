@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as storyActions from '../../store/stories'
 import { NavLink } from 'react-router-dom'
+import FiveDayForcast from "../FiveDayForcast/fiveDayForcast";
 
 const StoryHighlights = () => {
-    const dispatch = useDispatch()
-    const stories = useSelector(state => state.stories.allStories)
-    const [isLoaded, setIsLoaded] = useState(false)
+  const dispatch = useDispatch();
+  const stories = useSelector((state) => state.stories.allStories);
+  const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         dispatch(storyActions.getHighlights()).then(() => setIsLoaded(true))
     }, [dispatch])
 
-    const storiesToMap = Object.values(stories)
+  const storiesToMap = Object.values(stories);
 
     return (
         <div id='landing-page-wrapper'>

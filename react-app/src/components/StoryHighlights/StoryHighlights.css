@@ -4,16 +4,19 @@
     align-items: center;
     background-color: #2f2f2f;
     height: 200px;
+    z-index: 0;
     /* border: 2px solid red; */
 }
 
 .awn_logo {
     text-align: center;
+    z-index: 0;
 }
 
 .awn_logo img {
     max-width: 50%;
     max-height: 50%;
+    z-index: 0;
 }
 
 #story-highlights-parent {
@@ -26,7 +29,7 @@
     width: 700px;
     height: 350px;
     overflow-y: scroll;
-    margin-left: 50px;
+    margin-left: 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -61,7 +64,7 @@
 
 #story-highlights-header {
     font-family: 'Montserrat', sans-serif;
-    margin-left: 50px;
+    margin-left: 40px;
     color: #ff7518;
     font-size: 25px;
 }
@@ -103,8 +106,8 @@
     color: white;
     margin-top: -18px;
     margin-bottom: -20px;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 40px;
+    padding-left: 40px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;

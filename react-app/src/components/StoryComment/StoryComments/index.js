@@ -9,12 +9,12 @@ import EditCommentModal from "../StoryUpdateCommentModal";
 
 
 
+
 export default function StoryComments(prop) {
   const dispatch = useDispatch();
   const storyComments = useSelector((state) => state.comments);
   const currentUser = useSelector((state) => state.session.user);
   const storyId = prop.props
-
 
 
   let currentUserId;
