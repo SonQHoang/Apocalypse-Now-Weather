@@ -3,7 +3,7 @@ const GET_LOCATION = "user/location";
 export const getUserLocation = (res) => {
   return {
     type: GET_LOCATION,
-    userLocation: res,
+    res,
   };
 };
 
@@ -35,7 +35,7 @@ const userLocationReducer = (state = initalState, action) => {
   switch (action.type) {
     case GET_LOCATION:
         console.log('ACTION',action)
-      state.userLocation = action.userLocation
+      state.userLocation = action.res
       return state;
     default:
       return state;
