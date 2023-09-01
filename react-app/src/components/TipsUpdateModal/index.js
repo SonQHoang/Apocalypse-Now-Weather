@@ -29,7 +29,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    }, [useEffect])
 
     const updatedTip = {
         body: newTip,
