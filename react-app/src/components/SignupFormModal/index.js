@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
 import { signUp } from "../../store/session";
-import { useModal } from '../../context/Modal';
+
 import './SignupForm.css'
 
 
@@ -39,7 +39,7 @@ const getNuclearIcon = () => {
     iconUrl: '/icons/radiation.png',
     iconSize: ICON_SIZE,
     iconAnchor: [ICON_SIZE[0] / 2, ICON_SIZE[1] - 1],
-    popupAnchor: [-3, -76]
+    popupAnchor: [0, -50]
   });
 };
 
@@ -71,7 +71,6 @@ function LocationSetter({ setLatitude, setLongitude }) {
 function SignUpFormModal() {
   const dispatch = useDispatch();
   const history = useHistory()
-  const { closeModal } = useModal();
   const [first_name, setFirst_Name] = useState("");
   const [last_name, setLast_Name] = useState("");
   const [email, setEmail] = useState("");
@@ -84,7 +83,7 @@ function SignUpFormModal() {
   const [prepper_description, setPrepper_Description] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [placeholder, setPlaceholder] = useState("enter your desired default location");
   const [map, setMap] = useState(null);
   const [iconSize, setIconSize] = useState(25);
@@ -168,17 +167,50 @@ const handleSubmit = async (e) => {
       e.preventDefault();
       if (password === confirmPassword) {
         const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
-        console.log("***FORM BODY******",formBody)
-        const data = dispatch(signUp(formBody, history))
-        closeModal()
+        setErrors({})
+        const data = await dispatch(signUp(formBody, history))
+        console.log("****data****", data)
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
-        if (data) {
-          setErrors(data);
-        }
-      } else {
-        setErrors(["Confirm Password field must be the same as the Password field"]);
+        if (data && data.errors) {
+          if (Array.isArray(data.errors)) {
+              const newErrorObject = Object.fromEntries(
+                  data.errors.map(error => {
+                      const [key, value] = error.split(" : ").map(str => str.trim());
+                      return [key, value];
+                  })
+              );
+              setErrors(newErrorObject);
+          } else {
+              console.log("Unexpected data.errors format:", data.errors);
+          }
       }
+  } else {
+      setErrors(["Confirm Password field must be the same as the Password field"]);
+  }
     };
+//  console.log("errors state outside", errors)
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   if (password === confirmPassword) {
+    //     const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
+    //     setErrors({});
+    //     return dispatch(signUp(formBody, history))
+
+    //       .catch(async (res) => {
+    //         const data = await res.json();
+    //         if (data && data.errors) {
+    //           setErrors(data.errors);
+    //         }
+    //       });
+    //   }
+    //   return setErrors({
+    //     confirmPassword: "Confirm Password field must be the same as the Password field"
+    //   });
+    // };
+
+
+
+
 
     useEffect(() => {
       if (prepper_type) {
@@ -190,42 +222,40 @@ const handleSubmit = async (e) => {
 return (
   <>
     <section className='signupcontainer'>
-    {/* <section className='signuptitleinfo'> */}
       <h1 id="signuptitle">Survivor Sign Up</h1>
-      {/* </section> */}
       <section className='signupform'>
       <form id='survivorform' onSubmit={handleSubmit}>
-           {/* Error messages */}
-            <div className="error-messages">
-        {/* {console.log("errors******(*",errors)} */}
 
-            {/* {errors.map((error, idx) => (
-
-              <p key={idx}>{error}</p>
-            ))} */}
-          </div>
           <div className="label-input-group">
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="firstnamelabel">
             First Name
-            <input id='lastnameinput'
+            <input id='firstnameinput'
               type="text"
               value={first_name}
               onChange={(e) => setFirst_Name(e.target.value)}
               required
             />
           </label>
+          </div>
+          <span className="signupErrors">{errors.first_name}</span>
+
           </section>
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="lastnamelabel">
             Last Name
+            </label>
             <input id='lastnameinput'
               type="text"
               value={last_name}
               onChange={(e) => setLast_Name(e.target.value)}
               required
             />
-          </label>
+            </div>
+
+          <span className="signupErrors">{errors.last_name}</span>
             </section>
 				{/* Hidden input fields for latitude and longitude */}
 				    <input type="hidden" name="latitude" value={latitude} />
@@ -234,32 +264,38 @@ return (
 
           {/* Email Input */}
           <section className='label-input-container'>
+          <div className='field-container'>
           <label id="emaillabel">
-            Email
+            Email</label>
             <input id='emailinput'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-          </label>
-            </section>
+          </div>
+          <span className="signupErrors">{errors.email}</span>
+          </section>
+
           {/* Username Input */}
           <section className='label-input-container'>
-          <label id="usernamelabel">
-            Username
+          <div className='field-container'>
+          <label id="usernamelabel" className='field-container'>
+            Username </label>
             <input id='usernameinput'
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
-          </label>
+          </div>
+          <span className="signupErrors">{errors.username}</span>
           </section>
 
           <section className='label-input-container'>
+          <div className='field-container'>
 				<label id="preppertypelabel">
-					Prepper Type
+					Prepper Type</label>
 					<select id="preppertype"
 					value={prepper_type}
 					onChange={(e) => setPrepperType(e.target.value)}
@@ -272,9 +308,12 @@ return (
 						<option key={idx} value={type}>{type}</option>
 					))}
 					</select>
-				</label>
+
+        </div>
+        <span className="signupErrors">{errors.prepper_type}</span>
 				</section>
 				<section className='label-input-container'>
+        <div className='field-container'>
 				<label id="biolabel">
 					Short Personal Bio:
 				</label>
@@ -285,47 +324,56 @@ return (
 					onChange={(e) => setBio(e.target.value)}
 					required
 					/>
+          </div>
+            <span className="signupErrors">{errors.bio}</span>
 				</section>
         </div>
         <div className="label-input-group">
           {/* Password Input */}
           <section className='label-input-container'>
+          <div className="field-container">
           <label id="passwordlabel">
-            Password
+            Password</label>
             <input id='passwordinput'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </label>
+
+          </div>
+          <span className="signupErrors">{errors.password}</span>
           </section>
           {/* Confirm Password Input */}
           <section className='label-input-container'>
+          <div className="field-container">
           <label id="confirmpasswordlabel">
-            Confirm Password
+            Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          </label>
+          </div>
+          <span className="signupErrors">{errors.confirmPassword}</span>
           </section>
           </div>
 
         </form>
       </section>
       <section className='locationfield'>
+      <div className="field-container">
       <label id="locationLabel">
-          Selected Location
+          Selected Location </label>
           <input id='locationinput'
             type="text"
             value={location}
             placeholder='automatically set by map'
             readOnly
           />
-        </label>
+        </div>
+        <span className="signupErrors">{errors.location}</span>
       <section className='signupmapcontainer'>
         <MapContainer whenCreated={setMap} className='mapmap' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

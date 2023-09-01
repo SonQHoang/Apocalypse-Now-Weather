@@ -69,43 +69,66 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp =(formBody, history) => async (dispatch) => {
-	// const responseBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
-	// console.log("responsebody", responseBody)
-	console.log("form body in thunk", formBody)
-	try{const response = await fetch("/api/auth/signup", {
+export const signUp = (formBody, history) => async (dispatch) => {
+	// try {
+	  const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/json",
+		  "Content-Type": "application/json",
 		},
-		body: JSON.stringify(
-			formBody
-		),
-	});
+		body: JSON.stringify(formBody),
+	  });
 
-	// if (response.ok) {
-		// const data = await response.json();
-		// dispatch(setUser(data));
-		// return data
-		const data = await response.json();
+	  const data = await response.json();
+	  console.log("session data*********", data)
+	  if (response.ok) {
 		dispatch(setUser(data));
-		history.push('/')
-		return Promise.resolve(data);
-	// } else if (response.status < 500) {
-	// 	const data = await response.json();
-	// 	if (data.errors) {
-	// 		return data.errors;
-	// 	}
-	// } else {
-	// 	return ["An error occurred. Please try again."];
+		history.push('/');
+		// return Promise.resolve(data);
+
+		return data
+	  } else {
+		return data
+		// const errorObject = Object.values(data)
+		// const newErrorObject = Object.fromEntries(
+		// 	errorObject.map(error => {
+		// 		const [key, value] = error.split(" : ").map(str => str.trim());
+		// 		return [key, value];
+
+		// 	})
+		// )
+		// return newErrorObject
+	  }
+	// } catch (error) {
+	// 	console.log("catch block error", error)
+	//   return Promise.reject(error);
 	// }
+  };
 
-	} catch (error) {
-		const errors = (error && error.json) ? await error.json() : { message: error.toString() }
-        return Promise.reject(errors);
-	}
+// export const signUp =(formBody, history) => async (dispatch) => {
+// 	// const responseBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
+// 	// console.log("responsebody", responseBody)
+// 	console.log("form body in thunk", formBody)
+// 	try{const response = await fetch("/api/auth/signup", {
+// 		method: "POST",
+// 		headers: {
+// 			"Content-Type": "application/json",
+// 		},
+// 		body: JSON.stringify(
+// 			formBody
+// 		),
+// 	});
+// 		const data = await response.json();
+// 		dispatch(setUser(data));
+// 		history.push('/')
+// 		return Promise.resolve(data);
+// 	} catch (error) {
+// 		const errors = (error && error.json) ? await error.json() : { message: error.toString() }
+//         return Promise.reject(errors);
+// 	}
+// };
 
-};
+
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
