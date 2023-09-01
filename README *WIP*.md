@@ -36,7 +36,7 @@ flask seed all
 flask run
 To run the React App in development, checkout the README inside the react-app directory.
 
-** Get in Touch with the Team:
+## Get in Touch with the Team:
 Aston Martinez: https://www.linkedin.com/in/aston-martinez-0716/
 John Wofford: https://www.linkedin.com/in/jonathanbwofford/
 Sam Boyle: https://www.linkedin.com/in/samboyle12/
