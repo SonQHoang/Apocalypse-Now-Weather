@@ -5,8 +5,8 @@ import { getUserTips } from '../../store/tips';
 import './TipsUpdateModal.css'
 
 const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
-    console.log('is tipId giving me the number I want====> Yes', tipId)
-    console.log('Am I getting tipData =====>',  tipData)
+    // console.log('is tipId giving me the number I want====> Yes', tipId)
+    // console.log('Am I getting tipData =====>',  tipData)
     const modalOverlayRef = useRef();
     const dispatch = useDispatch()
     const [newTip, setNewTip] = useState(tipData.body)
@@ -51,6 +51,8 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
             <div className="update-modal-content">
                 <h2>Confirm Update</h2>
                 <p>Are you sure you want to update this tip?</p>
+            
+            <div className="update-tip-inputs-container">
 
                 <div className="tip-title-input-container">
                     <input
@@ -61,9 +63,9 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                         onChange = {(e) => setNewTitle(e.target.value)}
                         />
                 </div>
-
+                <div className="weather-category-container">
                 <select
-                    id="weatherCategory"
+                    className="weather-category"
                     value={selectedCategory}
                     onChange={handleCategoryChange}
                 >
@@ -74,7 +76,8 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                     <option value="Paranormal_Chaos">Paranormal Chaos</option>
                     <option value="Unpredictable Transformations">Unpredictable Transformations</option>
                 </select>
-                <textarea
+                </div>
+                <textarea className="text-area-input"
                 value={newTip}
                 onChange = {(e) => setNewTip(e.target.value)}
                 >
@@ -90,6 +93,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                         onClick={onClose}>
                         No (Keep Tip)
                     </button>
+                </div>
                 </div>
             </div>
         </div>
