@@ -198,3 +198,36 @@ def single_like(likeId):
     like = StoryLikes.query.get(likeId)
     result = like.to_dict()
     return result
+
+@story_routes.route('/story-highlights')
+def get_story_highlights():
+    all_stories = Stories.query.limit(5).all()
+    if not all_stories:
+        error = {}
+        error.message = "No stories found!"
+        return error.message
+    else:
+        result = {}
+        for story in all_stories:
+            likes_result = {}
+            likes_result['count'] = {}
+            curr_story = story
+            dict_curr_story = curr_story.to_dict()
+
+
+            # getting the author info
+            story_author_id = curr_story.user_id
+            story_author = User.query.get(story_author_id)
+            if story_author:
+                story_author_dict = story_author.to_dict()
+
+            dict_curr_story['likes'] = {}
+            # dict_curr_story['likes']['count'] = len(curr_story.likes)
+            if curr_story.likes:
+                for like in curr_story.likes:
+                    like_dict = like.to_dict()
+                    dict_curr_story['likes'][like_dict['id']] = like_dict
+            dict_curr_story['author'] = story_author_dict
+            result[dict_curr_story['id']] = dict_curr_story
+
+        return result

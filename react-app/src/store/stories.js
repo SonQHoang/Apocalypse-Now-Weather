@@ -4,6 +4,14 @@ const GET_USER_STORIES = '/stories/getUserStories'
 const DELETE_USER_STORY = '/stories/deleteStory'
 const UPDATE_USER_STORY = '/stories/updateStory'
 const CREATE_NEW_STORY = '/stories/createNewStory'
+const GET_STORY_HIGHLIGHTS = '/stories/highlights'
+
+const highlights = (data) => {
+    return {
+        type: GET_STORY_HIGHLIGHTS,
+        payload: data,
+    }
+}
 
 const getStories = (data) => {
     return {
@@ -155,6 +163,24 @@ export const deleteUserStory = (storyId) => async (dispatch) => {
     return response
 }
 
+export const getHighlights = () => async (dispatch) => {
+    try {
+        const response = await fetch('/api/stories/story-highlights');
+        if(response.ok) {
+            const data = await response.json();
+            // console.log('data from inside thunk: ', data);
+            dispatch(highlights(data));
+            return data;
+        } else {
+            const errors = await response.json();
+            return errors;
+        }
+    } catch (error) {
+        const errors = (error && error.json) ? await error.json() : { message: error.toString() };
+        return errors;
+    }
+}
+
 const initialState = { allStories: {}, singleStory: {}}
 const storyReducer = (state=initialState, action) => {
     let newState
@@ -182,6 +208,10 @@ const storyReducer = (state=initialState, action) => {
         case DELETE_USER_STORY:
             newState = Object.assign({ ...state })
             delete newState.allStories[action.payload]
+            return newState
+        case GET_STORY_HIGHLIGHTS:
+            newState = Object.assign({ ...state })
+            newState.allStories = action.payload
             return newState
         default:
             return state

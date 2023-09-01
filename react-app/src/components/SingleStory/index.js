@@ -31,9 +31,9 @@ const SingleStoryComponent = () => {
                     <div id='title-and-manage-dots-div'>
                         <h1 id='single-story-h1-tag'>{isLoaded && currentStory && currentStory?.title}</h1>
                     </div>
-                    <div>
+                    {/* <div>
                         <p>By: </p>
-                    </div>
+                    </div> */}
                         {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
                     <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</p>
                 </div>
