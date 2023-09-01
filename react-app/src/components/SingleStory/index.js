@@ -8,6 +8,7 @@ import UpdateStoryModal from '../UpdateStoryModal'
 import './SingleStory.css'
 import StoryComments from "../StoryComment/StoryComments";
 import StoryLikesComponent from "../StoryLikes";
+import SurvivorProfile from "../SurvivorProfile";
 
 const SingleStoryComponent = () => {
     const dispatch = useDispatch()
@@ -69,6 +70,10 @@ const SingleStoryComponent = () => {
                         </div>
                         ) : ''}
                     </div>
+                    <div>
+                        <p>By: </p>
+                    </div>
+                        {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
                     <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</p>
                 </div>
                 <div id='single-story-body'>

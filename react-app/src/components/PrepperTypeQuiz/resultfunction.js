@@ -428,8 +428,41 @@ const interpretResult = (quiz) => {
     const valuesArr = Object.values(answerCount)
     const max = findMax(valuesArr)
     const resultArr = findAnswer(answerCount, max)
+    const index = Math.random(resultArr.length)
+    const finalResult = matchToType(resultArr[index])
+    // console.log("NEW CONSOLE LOG: ", answerCount, max, resultArr[0])
+    return finalResult
+}
 
-    return matchToType(resultArr[0])
+export const getPrepperDescription = (result) => {
+    // console.log("FROM GET PREPPER DESCRIPTION: ", result)
+    if(result.toLowerCase() === one.toLowerCase()) {
+        return "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout."
+    } else if(result.toLowerCase() === two.toLowerCase()) {
+        return "They focus on the possibility of an EMP, either from a solar flare or as a weaponized attack. Their main concern is the loss of electrical devices and grid collapse. They often have Faraday cages to protect essential electronics, solar panels, and manual tools."
+    } else if(result.toLowerCase() === three.toLowerCase()) {
+        return "These preppers believe that economic systems might collapse, leading to hyperinflation, loss of savings, and widespread societal chaos. They invest in precious metals, barter items, and self-sufficiency tools."
+    } else if(result.toLowerCase() === four.toLowerCase()) {
+        return "Especially relevant after events like the COVID-19 pandemic, these individuals prepare for widespread disease outbreaks. They stock up on medical supplies, masks, sanitation items, and often have quarantine protocols."
+    } else if(result.toLowerCase() === five.toLowerCase()) {
+        return "Depending on their location, they may prepare for hurricanes, earthquakes, tsunamis, tornadoes, floods, etc. This includes securing homes, having emergency rations, water purification methods, and evacuation plans."
+    } else if(result.toLowerCase() === six.toLowerCase()) {
+        return "These preppers focus on potential terrorist attacks using biological or chemical agents. They might have hazmat suits, gas masks, and specific antidotes or treatments for certain toxins."
+    } else if(result.toLowerCase() === seven.toLowerCase()) {
+        return "With the increasing dependence on technology, some preppers anticipate significant cyber-attacks that could cripple infrastructures. They prioritize cybersecurity, offline backups, and methods to function without internet."
+    } else if(result.toLowerCase() === eight.toLowerCase()) {
+        return "They prepare for scenarios where societal structures break down due to political instability, civil war, or other factors. These preppers focus on security, off-grid living, and community-building."
+    } else if(result.toLowerCase() === nine.toLowerCase()) {
+        return "Concerned about scenarios such as drastic climate change, loss of biodiversity, or massive pollution events, these individuals might focus on sustainable living, permaculture, and relocating to less vulnerable areas."
+    } else if(result.toLowerCase() === ten.toLowerCase()) {
+        return "They prepare for a world where key resources (like oil) become scarce, driving societal change. Their preparation often includes renewable energy sources and skills that don't rely on fossil fuels."
+    } else if(result.toLowerCase() === eleven.toLowerCase()) {
+        return "While much less common, some believe in the possibility of extraterrestrial threats. Their preparations might seem eclectic, ranging from creating community alliances to researching perceived alien technologies."
+    } else if(result.toLowerCase() === twelve.toLowerCase()) {
+        return "Inspired more by pop culture than a perceived real threat, these preppers plan for a world overrun by the undead or some form of societal collapse where humans turn on each other en masse."
+    } else if(result.toLowerCase() === thirteen.toLowerCase()) {
+        return "Not focusing on one specific threat, these preppers believe in being ready for a wide range of scenarios. Their preps are often more broad-based, encompassing elements from several of the above categories."
+    }
 }
 
 export default interpretResult;

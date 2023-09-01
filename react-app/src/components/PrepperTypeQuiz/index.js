@@ -2,8 +2,6 @@ import './PrepperTypeQuiz.css'
 import { useState } from 'react'
 import interpretResult from './resultfunction'
 import QuizResults from './Results'
-import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 
 const PrepperTypeQuiz = () => {
     const [questionOneAnswer, setQuestionOneAnswer] = useState('')
@@ -30,7 +28,6 @@ const PrepperTypeQuiz = () => {
     const [finalResult, setFinalResult] = useState('')
 
     let submittedQuizResult
-    let quizResultDisplay
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -58,9 +55,11 @@ const PrepperTypeQuiz = () => {
         }
 
         const resultString = interpretResult(userAnswers)
+
         submittedQuizResult = {
             result: resultString.toString()
         }
+        // console.log("SUBMITTED: ", submittedQuizResult)
         setFinalResult(submittedQuizResult)
         setIsSubmitted(true)
         return
