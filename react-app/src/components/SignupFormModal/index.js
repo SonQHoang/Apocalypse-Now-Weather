@@ -188,27 +188,10 @@ const handleSubmit = async (e) => {
       setErrors(["Confirm Password field must be the same as the Password field"]);
   }
     };
-//  console.log("errors state outside", errors)
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   if (password === confirmPassword) {
-    //     const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
-    //     setErrors({});
-    //     return dispatch(signUp(formBody, history))
 
-    //       .catch(async (res) => {
-    //         const data = await res.json();
-    //         if (data && data.errors) {
-    //           setErrors(data.errors);
-    //         }
-    //       });
-    //   }
-    //   return setErrors({
-    //     confirmPassword: "Confirm Password field must be the same as the Password field"
-    //   });
-    // };
-
-
+    const goToQuizPage = () => {
+      history.push('/quiz');
+    };
 
 
 
@@ -395,6 +378,7 @@ return (
       </section>
       <section className='prepperdescription'>
                 <h2>What's your prepper type?</h2>
+                <button id='quizbutton' onClick={goToQuizPage}>Take the Prepper Type Quiz</button>
                   {Object.entries(prepper_descriptions).map(([key, value], index) => {
                     return (
                       <p key={index}>
