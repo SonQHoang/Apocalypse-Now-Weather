@@ -52,6 +52,8 @@ class User(db.Model, UserMixin):
             "last_name": self.last_name,
             "username": self.username,
             "location": self.location,
+            "location": self.latitude,
+            "longitude": self.longitude,
             "email": self.email,
             "prepper_type": self.prepper_type,
             "prepper_description": self.prepper_description,
