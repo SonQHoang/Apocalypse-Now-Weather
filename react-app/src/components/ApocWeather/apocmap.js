@@ -89,7 +89,7 @@ function ApocMap() {
               const { display_name } = object.properties;
               const [lng, lat] = object.geometry.coordinates;
 
-              fetch(`https://api.open-meteo.com/v1/forecast?latitude=46.0646&longitude=-118.343&hourly=temperature_2m,precipitation_probability,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles`)
+              fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m,precipitation_probability,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles`)
                   .then(response => response.json())
                   .then(data => {
                     setWeatherData(data);
