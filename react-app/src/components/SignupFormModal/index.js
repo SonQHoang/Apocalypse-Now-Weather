@@ -139,7 +139,10 @@ function SignUpFormModal() {
               const locationParts = display_name.split(",");
               const cityName = locationParts[0]
               const country = locationParts[locationParts.length - 1];
+              setLatitude(lat)
+              setLongitude(lng)
               setlocation(`${cityName}, ${country}`)
+
               map.setView([lat, lng], 8);
           },
           onSelectedItem: ({ index, element, object }) => {
