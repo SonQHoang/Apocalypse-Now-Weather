@@ -1,31 +1,40 @@
 .tip-details-container {
-    /* border: red 2px solid; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
-    background: radial-gradient(circle, #c2ad8b, #a8956d);
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid black;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
 }
 
 .tip-details-header {
-    /* border: 2px red solid; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 2px solid black;
-    position: relative;
-    width: 95%;
+    background-color: #2f2f2f;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
 }
 
 .tip-details-weather-category {
     margin-top: 0;
+    color: white
 }
 
 .tip-details-body {
-    border: black 2px solid;
-    height: 100px;
-    word-wrap: break-word;
-    width: 80rem;
-    padding: 10px;
+    padding: 20px;
+}
+
+.single-tip-h1-tag {
+    font-family: 'Montserrat', sans-serif;
+    color: #ff7518;
+    font-size: 15px;
+    text-shadow: 1px 1px 2px rgba(255, 250, 250, 0.887);
+}
+
+.single-tip-author {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }

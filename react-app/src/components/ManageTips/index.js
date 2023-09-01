@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom"
 import DeleteTipsModal from '../TipsDeleteModal';
 import DeleteTip from '../Tips/DeleteTips';
 import { getUserTips } from "../../store/tips";
@@ -9,15 +10,13 @@ const ManageTips = () => {
     const dispatch = useDispatch()
     const [showModal, setShowModal] = useState(false);
     const [selectedTip, setSelectedTip] = useState(null);
+    const user = useSelector(state => state.session.user)
 
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
     // const userName = sessionUser.username
     const user_tips = Object.values(useSelector(state => state.tips.allTips))
     // console.log('========================user-tips===>', user_tips)
-
-    // const tipsToMap = Object.values(user_tips)
-    // console.log('What does tipsToMap look like====>', tipsToMap)
 
     useEffect(() => {
         dispatch(getUserTips())
@@ -31,21 +30,31 @@ const ManageTips = () => {
     }
 
     return (
-        <div className="manage-tips-container">
-            <div className="manage-tips-header">
-                <h1>Manage Your Tips</h1>
+        <>
+            <div className="manage-tips-container">
+                <div className="manage-tips-header">
+                    <h1>Manage Your Tips</h1>
+                    {user !== null ? (
+                        <NavLink exact to='/tips/new'>
+                            <button className="create-new-tip-button">Create a New Tip</button>
+                        </NavLink>
+                    ) : null}
+                </div>
             </div>
+
 
             {user_tips?.map(tip => (
                 <div key={tip.id} className="user-tips-individual">
-                    <p className="manage-tip-title">{tip.title}</p>
-                    <p>{tip.weather_category}</p>
-                    <p>{tip.body}</p>
-                    <div className="tip-delete-button">
-                        <button onClick={() => {
+                    <div className="single-tip-header">
+                        <h2 className="single-tip-title">{tip.title}</h2>
+                        <h3 className="single-tip-weather-category">{tip.weather_category}</h3>
+                    </div>
+                    <div className="single-tip-body">
+                        <p>{tip.body}</p>
+                    </div>
+                        <button className="tip-delete-button" onClick={() => {
                             return handleDeleteClick(tip)
                         }}>Delete Tip</button>
-                    </div>
                     <DeleteTip tipId={tip.id} />
                 </div>
             ))}
@@ -62,7 +71,7 @@ const ManageTips = () => {
                     }}
                 />
             )}
-        </div>
+        </>
     );
 }
 

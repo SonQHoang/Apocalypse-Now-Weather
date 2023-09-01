@@ -613,112 +613,112 @@ def seed_users():
         user_id= 1,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip2= Tips(
         user_id= 1,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip3= Tips(
         user_id= 1,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip4= Tips(
         user_id= 2,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
         )
     tip5= Tips(
         user_id= 3,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
         )
     tip6= Tips(
         user_id= 3,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
         )
     tip7= Tips(
         user_id= 4,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
         )
     tip8= Tips(
         user_id= 4,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
         )
     tip9= Tips(
         user_id= 5,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip10= Tips(
         user_id= 5,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip11= Tips(
         user_id= 5,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip12= Tips(
         user_id= 6,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip13= Tips(
         user_id= 7,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip14= Tips(
         user_id= 8,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip15= Tips(
         user_id= 9,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip16= Tips(
         user_id= 10,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip17= Tips(
@@ -726,98 +726,98 @@ def seed_users():
         user_id= 11,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip18= Tips(
         user_id= 12,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip19= Tips(
         user_id= 13,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip20= Tips(
         user_id= 14,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip21= Tips(
         user_id= 15,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip22= Tips(
         user_id= 16,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip23= Tips(
         user_id= 17,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip24= Tips(
         user_id= 17,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip25= Tips(
         user_id= 18,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip26= Tips(
         user_id= 18,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip27= Tips(
         user_id= 19,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip28= Tips(
         user_id= 19,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip29= Tips(
         user_id= 20,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip30= Tips(
         user_id= 20,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip31= Tips(
@@ -825,112 +825,112 @@ def seed_users():
         user_id= 21,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip32= Tips(
         user_id= 22,
         weather_category= "Paranormal Chaos",
         title= "Yes, Rain Can be Cursed Now",
-        body= "Sample Body",
+        body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
         date_created= datetime(2023, 8, 8)
             )
     tip33= Tips(
         user_id= 23,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip34= Tips(
         user_id= 24,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip35= Tips(
         user_id= 25,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip36= Tips(
         user_id= 26,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip37= Tips(
         user_id= 27,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip38= Tips(
         user_id= 28,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip39= Tips(
         user_id= 29,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip40= Tips(
         user_id= 30,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip41= Tips(
         user_id= 30,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip42= Tips(
         user_id= 31,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip43= Tips(
         user_id= 31,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip44= Tips(
         user_id= 32,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip45= Tips(
         user_id= 33,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip46= Tips(
         user_id= 34,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip47= Tips(
@@ -938,140 +938,140 @@ def seed_users():
         user_id= 35,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip48= Tips(
         user_id= 36,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip49= Tips(
         user_id= 36,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip50= Tips(
         user_id= 37,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip51= Tips(
         user_id= 38,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip52= Tips(
         user_id= 39,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip53= Tips(
         user_id= 40,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip54= Tips(
         user_id= 41,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip55= Tips(
         user_id= 41,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip56= Tips(
         user_id= 42,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip57= Tips(
         user_id= 42,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip58= Tips(
         user_id= 43,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip59= Tips(
         user_id= 44,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip60= Tips(
         user_id= 45,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip61= Tips(
         user_id= 46,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip62= Tips(
         user_id= 47,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
     tip63= Tips(
         user_id= 48,
             weather_category= "Mystical Elements",
             title= "It may look pretty, but stay awy from Bioluminescent Rain",
-            body= "Sample Body",
+            body= "Navigating the surreal beauty of bioluminescent rain calls for careful preparation. Much like the otherworldly landscape described, approach with caution and take steps to safeguard yourself. While the spectacle is captivating, remember that the rain could contain unknown elements. When venturing outside, wear protective clothing, such as a raincoat and waterproof boots, to minimize skin contact. Use an umbrella or any form of cover to shield your face and body. If you encounter any body of water illuminated by the rain, avoid direct contact and opt for filtered or purified water sources. Prioritize keeping your essentials within reach and secured indoors, as bioluminescent conditions may disrupt technology. Most importantly, maintain situational awareness and heed your instincts—no matter the allure, personal safety should always take precedence.",
             date_created= datetime(2023, 8, 8)
             )
     tip64= Tips(
         user_id= 49,
             weather_category= "Paranormal Chaos",
             title= "Yes, Rain Can be Cursed Now",
-            body= "Sample Body",
+            body= "Facing the ominous influence of cursed rain necessitates a cautious approach. As each drop appears tainted, prioritize protection above all. Utilize a sturdy umbrella or raincoat to create a barrier between yourself and the rain's potential effects. Seek shelter indoors if possible, as minimizing exposure is crucial. Should you find yourself outside, avoid contact with any surface touched by the rain, including soil, plants, and bodies of water. Cultivate a sense of preparedness by carrying essential items like bottled water, non-perishable food, and a first aid kit. To counter the feeling of misfortune, maintain a positive mindset and focus on maintaining your well-being. Remember, while the rain may bring adversity, your resilience and careful planning can help you weather its malevolent influence.",
             date_created= datetime(2023, 8, 8)
             )
     tip65= Tips(
         user_id= 50,
             weather_category= "Natural Disasters",
             title= "Surviving a Solar Flare",
-            body= "Sample Body",
+            body= "In the event of a solar flare, it's crucial to stay informed about space weather forecasts through reliable sources like NOAA's Space Weather Prediction Center. Limiting the use of electronic devices can help mitigate potential disruptions caused by the intense radiation. Seek shelter indoors or in a hard-topped vehicle to reduce exposure. Having an emergency kit with essentials such as non-perishable food, water, flashlights, and a battery-powered radio is essential for self-sufficiency during disruptions. Additionally, remember to protect your eyes if observing related phenomena like the Northern Lights, and remain calm while following safety guidelines.",
             date_created= datetime(2023, 8, 8)
             )
     tip66= Tips(
         user_id= 50,
             weather_category= "Supernatural Phenomena",
             title= "Beware of the Aurora Plague",
-            body= "Sample Body",
+            body= "In the face of the enigmatic Aurora Plague, prioritizing safety and understanding is paramount. Like those who have survived before keep a vigilant eye on changes in behavior and cognition, which could be early signs of infection. Stay informed by observing the celestial phenomenon's patterns and consulting experts to discern safe windows for exploration. Create a well-equipped survival kit with essentials like medical supplies, non-perishable food, and communication devices to maintain contact with fellow survivors. Establish a communication network to share findings and developments, fostering a sense of unity and cooperation. Above all, balance the desire for understanding with the necessity for self-preservation. Approach the ethereal auroras with caution, for within their beauty may hide the answers to this celestial conundrum and the key to survival.",
             date_created= datetime(2023, 8, 8)
             )
 
