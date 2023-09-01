@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from ..models import Tips, db
 from app.forms.create_tip_form import CreateTip
+from app.forms.update_tip_form import UpdateTip
 from datetime import datetime
 from flask_login import current_user, login_required
 
@@ -20,7 +21,7 @@ def get_all_tips():
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
 
-# @login_required
+@login_required
 @bp.route('/<int:userId>/tips', methods=["POST"])
 def create_new_tip(userId):
     # print('===============+>', userId)
@@ -42,6 +43,19 @@ def create_new_tip(userId):
         return new_tip.to_dict()
     return {'errors': 'error'}, 401
 
+@login_required
+@bp.route('/tips/<int:tip_id>', methods=["POST", "PUT"])
+def update_tip(tip_id):
+    form = UpdateTip()
+    tip = Tips.query.get(tip_id)
+    # print('tip=============>', tip)
+    form['csrf_token'].data = request.cookies['csrf_token']
+    tip.title = form.data['title']
+    tip.category = form.data['weather_category']
+    tip.body = form.data['body']
+
+    db.session.commit()
+    return tip.to_dict()
 
 @login_required
 @bp.route('/user_tips', methods=["GET"])

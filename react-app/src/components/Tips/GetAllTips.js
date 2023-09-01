@@ -35,10 +35,10 @@ function GetAllTips() {
             <div className="all-tips-container">
                 <h1>All Tips</h1>
                 {user !== null ? (
-                <NavLink exact to='/tips/new'>
-                    <button className="create-new-tip-button">Create a New Tip</button>
-                </NavLink>
-            ) : null}
+                    <NavLink exact to='/tips/new'>
+                        <button className="create-new-tip-button">Create a New Tip</button>
+                    </NavLink>
+                ) : null}
             </div>
 
             {tips.map(tip => (
@@ -50,7 +50,11 @@ function GetAllTips() {
                             <p>{formatDate(tip.date_created)}</p>
                         </div>
                     </div> */}
-                    <div className="single-tip-container" onClick={() => history.push(`/tips/${tip.id}`)}>
+                    <div className="single-tip-container" onClick={() => {
+                        if (user !== null) {
+                            history.push(`/tips/${tip.id}`)
+                        }
+                    }} >
                         <div className="single-tip-header">
                             <h2 className="single-tip-title">{`${tip.title}`}</h2>
                             <h3 className="single-tip-weather-category">{`${tip.weather_category}`}</h3>

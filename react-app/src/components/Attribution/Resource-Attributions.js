@@ -107,10 +107,12 @@ const iconAttributions = {
     OpenStreetMap: {
         title: "Open Street Map",
         url: "https://www.openstreetmap.org/copyright",
+        creator: "OpenStreetMap"
     },
     Hazmat: {
         title: "user icons",
         url: "https://www.flaticon.com/free-icons/user",
+        creator: "Hazmat"
     },
 
 };
