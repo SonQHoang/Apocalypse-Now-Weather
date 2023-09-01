@@ -78,6 +78,7 @@ const TipsAddForm = () => {
                     <option value="Supernatural_Phenomena">Supernatural Phenomena</option>
                     <option value="Mystical_Elements">Mystical Elements</option>
                     <option value="Paranormal_Chaos">Paranormal Chaos</option>
+                    <option value="Unpredictable Transformations">Unpredictable Transformations</option>
                 </select>
                 </div>
                 <div className="tip-input-label-container">

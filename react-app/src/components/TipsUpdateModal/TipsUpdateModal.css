@@ -1,4 +1,4 @@
-.delete-modal-overlay {
+.update-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
 }
 
 
-.delete-modal-content {
+.update-modal-content {
     background-color: #2f2f2f;
     display: flex;
     flex-direction: column;
@@ -23,23 +23,23 @@
     width: 500px;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: auto;
 }
 
 
-.delete-modal-buttons {
+.update-modal-buttons {
     height: 40px;
     margin-top: 10px;
 }
 
-.delete-modal-buttons button {
+.update-modal-buttons button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.delete-button {
+.update-button {
     background-color: #ff7518;
     color: white;
 }

@@ -35,7 +35,7 @@ const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
         <div className="delete-modal-overlay" ref={modalOverlayRef}>
             <div className="delete-modal-content">
                 <h2>Confirm Delete</h2>
-                <p>Are you sure you want to remove this spot?</p>
+                <p>Are you sure you want to remove this tip?</p>
                 <div className="delete-modal-buttons">
                     <button
                         className="delete-button"

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom"
 import DeleteTipsModal from '../TipsDeleteModal';
 import DeleteTip from '../Tips/DeleteTips';
+import UpdateTipsModal from "../TipsUpdateModal";
+import UpdateTip from "../Tips/UpdateTips";
 import { getUserTips } from "../../store/tips";
 import "./ManageTips.css"
 
@@ -13,10 +15,9 @@ const ManageTips = () => {
     const user = useSelector(state => state.session.user)
 
     const sessionUser = useSelector(state => state.session.user)
+    // console.log('sessionuser=======>', sessionUser)
     const userId = sessionUser.id
-    // const userName = sessionUser.username
     const user_tips = Object.values(useSelector(state => state.tips.allTips))
-    // console.log('========================user-tips===>', user_tips)
 
     useEffect(() => {
         dispatch(getUserTips())
@@ -24,6 +25,12 @@ const ManageTips = () => {
     }, [dispatch, userId])
 
     const handleDeleteClick = async (tip) => {
+        setSelectedTip(tip)
+        setShowModal(true)
+        await dispatch(getUserTips())
+    }
+
+    const handleUpdateClick = async (tip) => {
         setSelectedTip(tip)
         setShowModal(true)
         await dispatch(getUserTips())
@@ -52,14 +59,35 @@ const ManageTips = () => {
                     <div className="single-tip-body">
                         <p>{tip.body}</p>
                     </div>
+                    <div>
+                        <button className="tip-update-button" onClick={() => {
+                            return handleUpdateClick(tip)
+                        }}>Update Tip</button>
+                        <UpdateTip tipId={tip.id} />
                         <button className="tip-delete-button" onClick={() => {
                             return handleDeleteClick(tip)
                         }}>Delete Tip</button>
-                    <DeleteTip tipId={tip.id} />
+                        <DeleteTip tipId={tip.id} />
+                    </div>
                 </div>
             ))}
             {showModal && (
                 <DeleteTipsModal
+                    tipId={selectedTip.id}
+                    onSubmit={() => {
+                        setShowModal(false);
+                        setSelectedTip(null);
+                    }}
+                    onClose={() => {
+                        setShowModal(false);
+                        setSelectedTip(null);
+                    }}
+                />
+            )}
+
+            {showModal && (
+                <UpdateTipsModal
+                    tipData={selectedTip}
                     tipId={selectedTip.id}
                     onSubmit={() => {
                         setShowModal(false);
