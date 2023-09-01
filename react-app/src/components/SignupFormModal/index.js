@@ -217,7 +217,7 @@ const handleSubmit = async (e) => {
         setPrepper_Description(prepper_descriptions[prepper_type]);
       }
     }, [prepper_type]);
-
+const loginDisabled = (password !== confirmPassword)
 
 return (
   <>
@@ -386,7 +386,11 @@ return (
       </section>
        {/* Submit Button */}
        <section id='signupbuttonsection'>
-       <button id="signupsubmit" type="submit" form='survivorform'>JOIN THE SURVIVORS</button>
+       <button id="signupsubmit"
+        type="submit"
+        disabled={loginDisabled}
+        form='survivorform'
+        > {loginDisabled ? "Please Complete Form" : "JOIN THE SURVIVORS"}</button>
        </section>
       </section>
       <section className='prepperdescription'>
