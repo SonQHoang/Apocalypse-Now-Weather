@@ -15,6 +15,8 @@ import ManageStories from "./components/ManageStories";
 import LoginFormModal from "./components/LoginFormModal";import StoryHighlights from './components/StoryHighlights';
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
+import PrepperTypeQuiz from "./components/PrepperTypeQuiz";
+import QuizResults from "./components/PrepperTypeQuiz/Results";
 
 import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
@@ -75,6 +77,12 @@ function App() {
           </Route>
           <Route exact path='/about-us'>
             <AboutUs />
+          </Route>
+          <Route exact path='/quiz/results'>
+            <QuizResults />
+          </Route>
+          <Route exact path='/quiz'>
+            <PrepperTypeQuiz />
           </Route>
         </Switch>
       )}

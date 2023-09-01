@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User
+from ..forms.prepper_type import PrepperTypeForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +24,11 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@login_required
+@user_routes.route('/<int:id>/update-prepper-type', methods=["PUT"])
+def update_prepper_type(id):
+    user = User.query.get(id)
+    form = PrepperTypeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    prepper_type = request.json["prepper_type"]

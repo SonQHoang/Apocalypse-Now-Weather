@@ -1,0 +1,118 @@
+#quiz-parent-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#quiz-h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#quiz-form {
+    margin-left: 50px;
+}
+
+#question-one-answers-div,
+#question-two-answers-div,
+#question-three-answers-div,
+#question-four-answers-div,
+#question-five-answers-div,
+#question-six-answers-div,
+#question-seven-answers-div,
+#question-eight-answers-div,
+#question-nine-answers-div,
+#question-ten-answers-div,
+#question-eleven-answers-div,
+#question-twelve-answers-div,
+#question-thirteen-answers-div,
+#question-fourteen-answers-div,
+#question-fifteen-answers-div,
+#question-sixteen-answers-div,
+#question-seventeen-answers-div,
+#question-eighteen-answers-div,
+#question-nineteen-answers-div,
+#question-twenty-answers-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#q-1-a-1-div, #q-1-a-2-div,
+#q-2-a-1-div, #q-2-a-2-div, #q-2-a-3-div,
+#q-3-a-1-div, #q-3-a-2-div, #q-3-a-3-div, #q-3-a-4-div,
+#q-4-a-1-div, #q-4-a-2-div,
+#q-5-a-1-div, #q-5-a-2-div,
+#q-6-a-1-div, #q-6-a-2-div, #q-6-a-3-div, #q-6-a-4-div,
+#q-7-a-1-div, #q-7-a-2-div,
+#q-8-a-1-div, #q-8-a-2-div,
+#q-9-a-1-div, #q-9-a-2-div, #q-9-a-3-div, #q-9-a-4-div,
+#q-10-a-1-div, #q-10-a-2-div,
+#q-11-a-1-div, #q-11-a-2-div,
+#q-12-a-1-div, #q-12-a-2-div, #q-12-a-3-div, #q-12-a-4-div,
+#q-13-a-1-div, #q-13-a-2-div,
+#q-14-a-1-div, #q-14-a-2-div,
+#q-15-a-1-div, #q-15-a-2-div,
+#q-16-a-1-div, #q-16-a-2-div, #q-16-a-3-div, #q-16-a-4-div,
+#q-17-a-1-div, #q-17-a-2-div,
+#q-18-a-1-div, #q-18-a-2-div,
+#q-19-a-1-div, #q-19-a-2-div,
+#q-20-a-1-div, #q-20-a-2-div, #q-20-a-3-div, #q-20-a-4-div {
+    display: flex;
+    margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 15px;
+}
+
+#q-1-a-2-div,
+#q-2-a-2-div, #q-2-a-3-div,
+#q-3-a-2-div, #q-3-a-3-div, #q-3-a-4-div,
+#q-4-a-2-div,
+#q-5-a-2-div,
+#q-6-a-2-div, #q-6-a-3-div, #q-6-a-4-div,
+#q-7-a-2-div,
+#q-8-a-2-div,
+#q-9-a-2-div, #q-9-a-3-div, #q-9-a-4-div,
+#q-10-a-2-div,
+#q-11-a-2-div,
+#q-12-a-2-div, #q-12-a-3-div, #q-12-a-4-div,
+#q-13-a-2-div,
+#q-14-a-2-div,
+#q-15-a-2-div,
+#q-16-a-2-div, #q-16-a-3-div, #q-16-a-4-div,
+#q-17-a-2-div,
+#q-18-a-2-div,
+#q-19-a-2-div,
+#q-20-a-2-div, #q-20-a-3-div, #q-20-a-4-div {
+    margin-top: -15px;
+}
+
+.question-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#question-one-text-div,
+#question-two-text-div,
+#question-three-text-div,
+#question-four-text-div,
+#question-five-text-div,
+#question-six-text-div,
+#question-seven-text-div,
+#question-eight-text-div,
+#question-nine-text-div,
+#question-ten-text-div,
+#question-eleven-text-div,
+#question-twelve-text-div,
+#question-thirteen-text-div,
+#question-fourteen-text-div,
+#question-fifteen-text-div,
+#question-sixteen-text-div,
+#question-seventeen-text-div,
+#question-eighteen-text-div,
+#question-nineteen-text-div,
+#question-twenty-text-div {
+    margin-bottom: -10px;
+}
+
+.question-div {
+    margin-bottom: 25px;
+}
