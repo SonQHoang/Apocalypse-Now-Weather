@@ -20,6 +20,7 @@ import Tips from "./components/Tips"
 import TipDetailsPage from "./components/TipDetailsPage/TipDetails";
 import ManageTips from "./components/ManageTips";
 import SignUpFormModal from "./components/SignupFormModal";
+import CreateNewTip from "./components/CreateNewTip";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -68,6 +69,9 @@ function App() {
 
           <Route exact path="/tips/manage">
             <ManageTips/>
+          </Route>
+          <Route path='/tips/new'>
+            <CreateNewTip />
           </Route>
           <Route exact path="/tips/:tipId" component={TipDetailsPage} />
           <Route exact path='/'>

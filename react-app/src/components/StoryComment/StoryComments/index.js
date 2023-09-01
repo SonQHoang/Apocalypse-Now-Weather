@@ -30,22 +30,20 @@ export default function StoryComments(prop) {
 
   const commentsList = Object.values(storyComments);
 
+  // rewrites the date to month, year
+  let createdAtSplit;
+  let createdAtSlice;
+  if(commentsList[0].body){
+    let createdAtDate = commentsList.map((comment) => (
 
-
-//   let createdAtSplit;
-//   let year;
-//   let month;
-//   if(Object.keys(commentsList)){
-//   let createdAtDate = commentsList.map((comment) => (
-//     createdAtSplit = comment.createdAt.split('-'),
-//     year = createdAtSplit[0],
-//     month = createdAtSplit[1],
-//     comment.createdAt = `${month} ${year}`
-//     ))
-// }
+      createdAtSplit = comment.date_created.split(''),
+      createdAtSlice = createdAtSplit.slice(8, 16).join('')
+    ))
+  }
 
 return (
     <div>
+      {currentUserId &&  (
       <div className="div-post-your-comment-button">
         {
               <OpenModal
@@ -54,11 +52,12 @@ return (
               />
          }
       </div>
+      )}
       <div className="comments-div-holder">
         {commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
-            <div className="comment-created-date">{date_created}</div>
+            <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
             {user_id === currentUserId &&  (
               <>

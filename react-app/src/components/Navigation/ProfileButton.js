@@ -5,8 +5,9 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import ManageStories from "../ManageStories";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
+import './profilebutton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+       <img id="usericon" src="/icons/user.png" alt="User Profile"/>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -55,6 +56,7 @@ function ProfileButton({ user }) {
             <li>
               <button onClick={handleLogout}>Log Out</button>
               <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
+              <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
             </li>
           </>
         ) : (
@@ -65,12 +67,14 @@ function ProfileButton({ user }) {
               modalComponent={<LoginFormModal />}
             />
 
-            <OpenModalButton
+            {/* <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-
+              modalComponent={<SignUpFormModal/>}
+            /> */}
+            <li>
+              <Link to="/signup" onClick={closeMenu}>Sign Up</Link>
+            </li>
           </>
         )}
       </ul>

@@ -30,7 +30,7 @@ function PostCommentModal(props) {
   };
 
   return (
-    <div className="comment-form-modal">
+    <div className="story-post-comment-form-modal">
       <h1>Leave a Comment</h1>
       {/* <>{errors.message}</> */}
       <textarea

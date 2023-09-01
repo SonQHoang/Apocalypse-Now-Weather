@@ -16,9 +16,6 @@ const SingleStoryComponent = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
-    const[isMenuOpen, setIsMenuOpen] = useState(false)
-
-    let menu
 
     useEffect(() => {
         dispatch(storyActions.getOneStory(id))
@@ -27,48 +24,12 @@ const SingleStoryComponent = () => {
         })
     }, [dispatch, isLoaded])
 
-    const handleOutsideClicks = () => {
-        if(isMenuOpen) {
-            setIsMenuOpen(false)
-            return
-        } else {
-            return
-        }
-    }
-
-    if(isMenuOpen) {
-        menu = (
-            <>
-                <div className='manage-story-buttons-div-visible'>
-                    <OpenModalButton buttonText='Update' modalComponent={<UpdateStoryModal story={currentStory} />} />
-                    <OpenModalButton buttonText='Delete' modalComponent={<DeleteStoryModal story={currentStory} />} />
-                </div>
-            </>
-        )
-    } else {
-        menu = (
-            <>
-                <div className='manage-story-buttons-div-hidden'>
-                    <OpenModalButton buttonText='Update' modalComponent={<UpdateStoryModal story={currentStory} />} />
-                    <OpenModalButton buttonText='Delete' modalComponent={<DeleteStoryModal story={currentStory} />} />
-                </div>
-            </>
-        )
-    }
-
     return (
-        <div onClick={handleOutsideClicks}>
+        <div>
             <div id='single-story-container'>
                 <div id='single-story-header'>
                     <div id='title-and-manage-dots-div'>
                         <h1 id='single-story-h1-tag'>{isLoaded && currentStory && currentStory?.title}</h1>
-                        {(sessionUser && sessionUser.id === currentStory?.author?.id) ? (
-                        <div id='story-manage-dots-container' onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
-                            <div className='story-manage-menu-dot'>.</div>
-                            <div className='story-manage-menu-dot'>.</div>
-                            <div className='story-manage-menu-dot'>.</div>
-                        </div>
-                        ) : ''}
                     </div>
                     <div>
                         <p>By: </p>
@@ -79,10 +40,11 @@ const SingleStoryComponent = () => {
                 <div id='single-story-body'>
                     <p>{isLoaded && currentStory && currentStory?.body}</p>
                     {(sessionUser && sessionUser.id === currentStory?.author?.id) ? (
-                        <>
-                            {menu}
-                        </>
-                    ) : ''}
+                            <div className='manage-story-buttons-div-visible'>
+                                <OpenModalButton buttonText='Update' modalComponent={<UpdateStoryModal story={currentStory} />} />
+                                <OpenModalButton buttonText='Delete' modalComponent={<DeleteStoryModal story={currentStory} />} />
+                            </div>
+                        ) : ''}
                 </div>
                 <div>
                     {sessionUser ? (
