@@ -9,7 +9,7 @@ https://awn-render.onrender.com
 ## Index
 - Features List: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Features-LIst
 - Database Schema: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Schema
-- Frontend and Backend Routes: 
+- Frontend and Backend Routes: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Routes
 - What We're Working on Next: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/What's-Coming-Up-Next
 
 -- SHOULD ADD SNIPPET OF WEBSITE ONCE ITS DONE --
