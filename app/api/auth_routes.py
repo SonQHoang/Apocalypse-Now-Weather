@@ -96,7 +96,7 @@ def sign_up():
             latitude=form.data['latitude'],
             longitude=form.data['longitude'],
             prepper_type=form.data['prepper_type'],
-            prepper_description=prepper_descriptions.get(form.data['prepper_description'], ''),
+            prepper_description=form.data['prepper_description'],
             bio=form.data['bio']
         )
         db.session.add(user)
