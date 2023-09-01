@@ -15,7 +15,7 @@ body, html {
   background-color: #2f2f2f;
   height: 60%;
   width: 100%;
-
+  border: 5px solid #ff7518;
   /* overflow: visible; */
 }
 
@@ -90,9 +90,20 @@ body, html {
 
 }
 .mappagebodycontainer .leaflet-popup {
-  margin-bottom: 0px !important;
-}
+  /* margin-bottom: 5px !important; */
+  /* display: flex; */
 
+
+
+  /* bottom: 20px; */
+
+}
+.mappagebodycontainer .leaflet-popup-tip{
+  margin-bottom: 10px;
+}
+.mappagebodycontainer .leaflet-popup-content-wrapper {
+  /* margin-bottom: 20px; */
+}
 
 .detailed_weather{
   font-family: 'Montserrat', sans-serif;
@@ -109,3 +120,13 @@ body, html {
 .mappagebodycontainer .leaflet-touch{
   z-index: 300;
 }
+/*
+.mappagebodycontainer .leaflet-marker-icon{
+  margin-left: -17px;
+  margin-top: -43px;
+  width: 30px;
+  height: 30px;
+  transform: translate3d(-192px, 127px, 0px);
+  z-index: 127;
+  outline-style: none;
+} */
