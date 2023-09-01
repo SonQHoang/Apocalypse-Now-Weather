@@ -1,7 +1,17 @@
+#about-us-wrapper {
+    background-color: #2f2f2f;
+}
+
 #about-us-parent-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #2f2f2f;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #team-member-cards-container {
@@ -13,6 +23,32 @@
 .member-card-div {
     width: 48%;
     height: 48%;
-    border: 1px solid black;
+    border: 1px solid #ff7518;
     text-align: center;
+}
+
+.member-photo {
+    width: 45%;
+    height: 45%;
+}
+
+.about-member-body-paragraph {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#final-aston-paragraph {
+    margin-bottom: 19px;
+}
+
+#john-last-paragraph {
+    margin-bottom: 294px;
+}
+
+#final-sam-paragraph {
+    margin-bottom: 35px;
+}
+
+.linkedin-link {
+    color: white;
 }

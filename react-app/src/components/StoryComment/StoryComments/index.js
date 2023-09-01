@@ -33,7 +33,7 @@ export default function StoryComments(prop) {
   // rewrites the date to month, year
   let createdAtSplit;
   let createdAtSlice;
-  if(commentsList[0].body){
+  if(commentsList.length > 0 && commentsList[0].body){
     let createdAtDate = commentsList.map((comment) => (
 
       createdAtSplit = comment.date_created.split(''),
@@ -54,7 +54,7 @@ return (
       </div>
       )}
       <div className="comments-div-holder">
-        {commentsList.map(({ id, body, user_id, date_created }) => (
+        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">User.firstName</div>
             <div className="comment-created-date">{createdAtSlice}</div>
