@@ -36,7 +36,7 @@ const UpdateStoryModal = (story) => {
             <div id='update-story-modal-header'>
                 <h1>Update Story</h1>
             </div>
-            <form id='create-story-form' onSubmit={handleSubmit}>
+            <form id='update-create-story-form' onSubmit={handleSubmit}>
                 <div>
                     <div>
                         <p id='update-story-title-label'>Title</p>

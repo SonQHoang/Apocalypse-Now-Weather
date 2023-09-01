@@ -44,7 +44,7 @@ def create_new_tip(userId):
     return {'errors': 'error'}, 401
 
 @login_required
-@bp.route('/tips/<int:tip_id>', methods=["POST", "PUT"])
+@bp.route('/tips/<int:tip_id>', methods=["PUT"])
 def update_tip(tip_id):
     form = UpdateTip()
     tip = Tips.query.get(tip_id)

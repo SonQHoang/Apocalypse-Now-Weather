@@ -31,10 +31,9 @@ const initalState = {
 };
 
 const userLocationReducer = (state = initalState, action) => {
-  let newState;
+
   switch (action.type) {
     case GET_LOCATION:
-        console.log('ACTION',action)
       state.userLocation = action.userLocation
       return state;
     default:

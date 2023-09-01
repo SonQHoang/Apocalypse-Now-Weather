@@ -18,11 +18,12 @@
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 50px;
+    height: fit-content;
 }
 
 .member-card-div {
     width: 48%;
-    height: 48%;
+    height: 50%;
     border: 1px solid #ff7518;
     text-align: center;
 }
@@ -37,17 +38,17 @@
     padding-left: 20px;
 }
 
-#final-aston-paragraph {
-    margin-bottom: 19px;
+/* #final-aston-paragraph {
+    margin-bottom: 38px;
 }
 
 #john-last-paragraph {
-    margin-bottom: 294px;
+    margin-bottom: 372px;
 }
 
 #final-sam-paragraph {
     margin-bottom: 35px;
-}
+} */
 
 .linkedin-link {
     color: white;

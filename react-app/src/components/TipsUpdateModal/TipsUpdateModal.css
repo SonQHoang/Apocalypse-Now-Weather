@@ -26,6 +26,14 @@
     height: auto;
 }
 
+.update-tip-inputs-container {
+    /* border: 2px blue solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .update-modal-buttons {
     height: 40px;
@@ -47,4 +55,14 @@
 .cancel-button {
     color: black;
     background-color: #f4f4f4;
+}
+
+.weather-category-container {
+    margin-bottom: 20px;
+}
+
+.text-area-input {
+    /* border: 2px red solid; */
+    width: 100%;
+    margin-bottom: 20px;
 }

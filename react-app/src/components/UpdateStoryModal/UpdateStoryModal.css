@@ -1,15 +1,23 @@
-#update-story-modal-container {
-    width: 500px;
+
+#update-story-modal-container{
+    z-index: 9000;
+    border: 5px solid #ff7518;
+    border-radius: 45px;
+    height: 65%;
+    width: 52%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     font-family: 'Montserrat', sans-serif;
-    border: 3px solid #ff7518;
     background-color: #2f2f2f;
-    border-radius: 20px;
-    color: #ff7518;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    color: whitesmoke;
+    margin: auto;
+
     z-index: 5000;
 }
 
@@ -20,15 +28,17 @@
 }
 
 #update-story-title-input {
-    width: 300px;
+    width: 100%;
     margin-bottom: 15px;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #update-story-body-input {
     width: 300px;
-    height: 200px;
+    height: 300px;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #update-story-title-label {

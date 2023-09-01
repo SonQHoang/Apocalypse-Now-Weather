@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import L from 'leaflet';
+import L, { LatLng } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './apocmap.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
+import { getLocation } from "../../store/userLocation"
 import apocWeatherConverter from './apocweatherfunc';
 import placeholderWeatherData from './weatherdataplaceholder';
 
@@ -43,6 +44,14 @@ function ApocMap() {
   const [weatherData, setWeatherData] = useState(placeholderWeatherData);
   const [map, setMap] = useState(null);
   const [iconSize, setIconSize] = useState(25);
+
+  const dispatch = useDispatch()
+  const userLocation = useSelector(state => state.userLocation.userLocation)
+  const sessionUser = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    dispatch(getLocation())
+  }, [dispatch, sessionUser])
 
   useEffect(() => {
     if (!map) return;

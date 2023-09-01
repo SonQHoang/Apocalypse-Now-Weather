@@ -59,3 +59,8 @@
 .tip-delete-button:hover {
     cursor: pointer
 }
+
+.individual-tips-container {
+    /* border: 2px solid blue; */
+    margin-bottom: 20px;
+}
