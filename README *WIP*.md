@@ -51,7 +51,7 @@ To run the React App in development, checkout the README inside the react-app di
 ```
 
 ## Get in Touch with the Team:
-Aston Martinez: https://www.linkedin.com/in/aston-martinez-0716/
-John Wofford: https://www.linkedin.com/in/jonathanbwofford/
-Sam Boyle: https://www.linkedin.com/in/samboyle12/
-Sean Hoang: https://www.linkedin.com/in/sean-hoang/
+- Aston Martinez: https://www.linkedin.com/in/aston-martinez-0716/
+- John Wofford: https://www.linkedin.com/in/jonathanbwofford/
+- Sam Boyle: https://www.linkedin.com/in/samboyle12/
+- Sean Hoang: https://www.linkedin.com/in/sean-hoang/
