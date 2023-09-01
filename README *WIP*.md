@@ -22,19 +22,22 @@ https://awn-render.onrender.com
 pipenv install -r requirements.txt
 ```
 
-Create a .env file based on the example with proper settings for your development environment
+2. Create a .env file based on the example with proper settings for your development environment
 
-Make sure the SQLite3 database connection URL is in the .env file
+3. Make sure the SQLite3 database connection URL is in the .env file
 
-Replace the value for SCHEMA with a unique name, making sure you use the snake_case convention.
+4. Replace the value for SCHEMA with a unique name, making sure you use the snake_case convention.
 
-Get into your pipenv, migrate your database, seed your database, and run your Flask app
+5. Get into your pipenv, migrate your database, seed your database, and run your Flask app
 
+```
 pipenv shell
 flask db upgrade
 flask seed all
 flask run
+
 To run the React App in development, checkout the README inside the react-app directory.
+```
 
 ## Get in Touch with the Team:
 Aston Martinez: https://www.linkedin.com/in/aston-martinez-0716/
