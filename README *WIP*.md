@@ -1,6 +1,6 @@
 # Apocalpyse Weather Now
 
-Welcome to Apocapylse Weather Now, affectionately referred to as AWN by its users. This is the one stop shop for all the latest apocalyptic weather live across the world! 
+Welcome to Apocapylse Weather Now, affectionately referred to as AWN by its users. This is the one stop shop for all the latest apocalyptic weather and situations live across the world! 
 
 Whether you are stopping by to bolster your knowledge or just want to see know and see that you aren't alone in experiencing the world as we know it today, come check it out live at:
 
