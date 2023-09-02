@@ -122,11 +122,11 @@ export const getTipById = (tipId) => async (dispatch) => {
 }
 
 export const updateTips = (tipId, updatedTip) => async (dispatch) => {
-    console.log('We are getting a valid tipid!======>', tipId)
-    console.log('We are getting a valid newTip!======>', updatedTip)
+    // console.log('We are getting a valid tipid!======>', tipId)
+    // console.log('We are getting a valid newTip!======>', updatedTip)
     try {
         const response = await fetch(`/tips/${tipId}`, {
-            method: "POST",
+            method: "PUT",
             headers: {"Content-Type": 'application/json'},
             body: JSON.stringify(updatedTip)
         })

@@ -4,6 +4,8 @@
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 20px;
+    height: 550px;
+    margin-bottom: 20px;
 }
 
 #create-new-story-form-header-h1 {
@@ -18,7 +20,7 @@
     width: 500px;
     border-radius: 20px;
     background-color: #2f2f2f;
-    height: 500px;
+    height: 600px;
 }
 
 #story-title-label-container {
@@ -63,7 +65,7 @@
 }
 
 .story-form-error {
-
+    color: white;
 }
 
 #story-form-submit-container {

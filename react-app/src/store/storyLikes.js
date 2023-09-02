@@ -86,7 +86,7 @@ export const getStoryLikes = (storyId) => async (dispatch) => {
         const response = await fetch(`/api/stories/${storyId}/likes/all`);
         if(response.ok) {
             const data = await response.json();
-            console.log('data from inside thunk: ', data);
+            // console.log('data from inside thunk: ', data);
             const result = {}
             result[storyId] = {storyId: {data}}
 
@@ -107,7 +107,7 @@ export const getAllExistingLikes = () => async (dispatch) => {
         const response = await fetch(`/api/stories/likes/all`);
         if(response.ok) {
             const data = await response.json();
-            console.log('data from inside thunk: ', data);
+            // console.log('data from inside thunk: ', data);
 
             dispatch(getAllLikes(data));
             return data;

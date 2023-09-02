@@ -55,6 +55,7 @@
     border: 1px solid black;
     height: 30px;
     margin-bottom: 2px;
+    /* border: blue solid 2px; */
 }
 
 #modal-button:hover {

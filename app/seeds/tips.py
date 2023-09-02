@@ -386,7 +386,7 @@ tips = [
         "title": "Beware of the Aurora Plague",
         "body": "Sample Body",
         "date_created": "2023-08-23T09:34:00-07:00"
-    },    
+    },
     {
         "id": 43,
         "user_id": 38,
@@ -418,7 +418,7 @@ tips = [
         "title": "Beware of the Aurora Plague",
         "body": "Sample Body",
         "date_created": "2023-08-23T09:34:00-07:00"
-    },    
+    },
     {
         "id": 47,
         "user_id": 41,
@@ -529,5 +529,5 @@ def count_tips_per_category(tips):
 
 category_counts = count_tips_per_category(tips)
 
-for category, count in category_counts.items():
-    print(f"Weather Category {category}: {count} tips")
+# for category, count in category_counts.items():
+#     print(f"Weather Category {category}: {count} tips")

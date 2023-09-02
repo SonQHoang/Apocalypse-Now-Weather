@@ -130,14 +130,14 @@ const apocWeatherData = {
       eSix: {
         name: "Temporal Rainbows",
         category: "Supernatural Phenomena",
-        description: "",
+        description: "Rainbows appear with shimmering colors that bend time and space.",
       },
 
       eSeven: {
         name: "Spectral Storms",
         category: "Supernatural Phenomena",
         description:
-          "Rainbows appear with shimmering colors that bend time and space.",
+          "Storms bring with them apparitions and ghostly phenomena, creating a surreal and eerie atmosphere.",
       },
 
       eEight: {

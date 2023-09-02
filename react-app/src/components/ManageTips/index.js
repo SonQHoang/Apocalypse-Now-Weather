@@ -12,6 +12,7 @@ const ManageTips = () => {
     const dispatch = useDispatch()
     const [showModal, setShowModal] = useState(false);
     const [selectedTip, setSelectedTip] = useState(null);
+    const [modalType, setModalType] = useState(null);
     const user = useSelector(state => state.session.user)
 
     const sessionUser = useSelector(state => state.session.user)
@@ -26,12 +27,15 @@ const ManageTips = () => {
 
     const handleDeleteClick = async (tip) => {
         setSelectedTip(tip)
+        setModalType("delete");
         setShowModal(true)
+        // console.log('Is deleteClick being triggered==========>', tip)
         await dispatch(getUserTips())
     }
 
     const handleUpdateClick = async (tip) => {
         setSelectedTip(tip)
+        setModalType("update");
         setShowModal(true)
         await dispatch(getUserTips())
     }
@@ -49,7 +53,7 @@ const ManageTips = () => {
                 </div>
             </div>
 
-
+            <div className="individual-tips-container">
             {user_tips?.map(tip => (
                 <div key={tip.id} className="user-tips-individual">
                     <div className="single-tip-header">
@@ -64,6 +68,7 @@ const ManageTips = () => {
                             return handleUpdateClick(tip)
                         }}>Update Tip</button>
                         <UpdateTip tipId={tip.id} />
+                        
                         <button className="tip-delete-button" onClick={() => {
                             return handleDeleteClick(tip)
                         }}>Delete Tip</button>
@@ -71,34 +76,39 @@ const ManageTips = () => {
                     </div>
                 </div>
             ))}
-            {showModal && (
+            {showModal && modalType === "delete" && (
                 <DeleteTipsModal
                     tipId={selectedTip.id}
                     onSubmit={() => {
                         setShowModal(false);
                         setSelectedTip(null);
+                        setModalType(null);
                     }}
                     onClose={() => {
                         setShowModal(false);
                         setSelectedTip(null);
+                        setModalType(null);
                     }}
                 />
             )}
 
-            {showModal && (
+            {showModal && modalType === "update" && (
                 <UpdateTipsModal
                     tipData={selectedTip}
                     tipId={selectedTip.id}
                     onSubmit={() => {
                         setShowModal(false);
                         setSelectedTip(null);
+                        setModalType(null);
                     }}
                     onClose={() => {
                         setShowModal(false);
                         setSelectedTip(null);
+                        setModalType(null);
                     }}
                 />
             )}
+        </div>
         </>
     );
 }

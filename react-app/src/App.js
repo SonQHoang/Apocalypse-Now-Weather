@@ -23,6 +23,7 @@ import SignUpFormModal from "./components/SignupFormModal";
 import CreateNewTip from "./components/CreateNewTip";
 import Footer from "./components/Footer/Footer";
 import Attribution from "./components/Attribution";
+import OtherSurvivorProfile from "./components/OtherSurvivorProfile";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -86,6 +87,9 @@ function App() {
           </Route>
           <Route exact path='/quiz'>
             <PrepperTypeQuiz />
+          </Route>
+          <Route exact path='/survivors/:id'>
+            <OtherSurvivorProfile />
           </Route>
           <Route exact path='/survivors/current'>
             <SurvivorProfile />

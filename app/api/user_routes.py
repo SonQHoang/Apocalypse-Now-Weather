@@ -55,3 +55,8 @@ def update_prepper_type(id):
             updated_user_dict = updated_user.to_dict()
             db.session.commit()
             return updated_user_dict
+
+@user_routes.route('/survivor/<int:id>')
+def get_single_survivor(id):
+    user = User.query.get(id)
+    return user.to_dict()

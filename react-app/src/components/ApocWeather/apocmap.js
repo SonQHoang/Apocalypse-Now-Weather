@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import L from 'leaflet';
+import L, { LatLng } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './apocmap.css';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
+import { getLocation } from "../../store/userLocation"
 import apocWeatherConverter from './apocweatherfunc';
 import placeholderWeatherData from './weatherdataplaceholder';
 
 
 
 
-const locations = [
-  { lat: 51.505, lng: -0.09, name: 'London' },
-  { lat: 52.3, lng: 4.9, name: 'Amsterdam' }
-];
+// const locations = [
+//   { lat: 51.505, lng: -0.09, name: 'London' },
+//   { lat: 52.3, lng: 4.9, name: 'Amsterdam' }
+// ];
 
 const ICON_SIZE = [25, 25];
 
@@ -28,21 +29,75 @@ const getNuclearIcon = () => {
 };
 
 
-function CustomMarker({ map }) {
+// function CustomMarker({ map }) {
 
-  return locations.map(location => (
-    <Marker key={location.name} position={[location.lat, location.lng]} icon={getNuclearIcon()}>
-      <Popup className='nuclearPopup'>
-        {`${location.name} is a dangerous place.`}
-      </Popup>
-    </Marker>
-  ));
+//   return locations.map(location => (
+//     <Marker key={location.name} position={[location.lat, location.lng]} icon={getNuclearIcon()}>
+//       <Popup className='nuclearPopup'>
+//         {`${location.name} is a dangerous place.`}
+//       </Popup>
+//     </Marker>
+//   ));
+// }
+
+function UpdateCenter({ center }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center);
+  }, [center, map]);
+  return null;
 }
+
 
 function ApocMap() {
   const [weatherData, setWeatherData] = useState(placeholderWeatherData);
   const [map, setMap] = useState(null);
+  const sessionUser = useSelector(state => state.session.user)
   const [iconSize, setIconSize] = useState(25);
+  const defaultCenter = [51.505, -0.09];
+  const [center, setCenter] = useState(
+    sessionUser && sessionUser.latitude && sessionUser.longitude
+      ? [sessionUser.latitude, sessionUser.longitude]
+      : defaultCenter
+  );
+
+  const dispatch = useDispatch()
+  const userLocation = useSelector(state => state.userLocation.userLocation)
+
+  useEffect(() => {
+
+    if (sessionUser && sessionUser.latitude && sessionUser.longitude) {
+      setCenter([sessionUser.latitude, sessionUser.longitude]);
+    }
+  }, [sessionUser]);
+
+
+  const [detailedInfo, setDetailedInfo] = useState(null);
+
+  useEffect(() => {
+    if (sessionUser) {
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${sessionUser.latitude}&longitude=${sessionUser.longitude}&hourly=temperature_2m,precipitation_probability,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles`)
+      .then(response => response.json())
+      .then(data => {
+        setWeatherData(data);
+      })
+      .catch(error => console.error('Error fetching detailed information:', error));
+    } else {
+      setWeatherData(placeholderWeatherData);
+    }
+  }, [sessionUser]);
+
+
+
+  // function displayUserLocation({map}){
+
+  //   return <Marker key={sessionUser.location} position={[sessionUser.latitude, sessionUser.longitude]} icon={getNuclearIcon()}>
+  //   <Popup className='nuclearPopup'>
+  //     {`${sessionUser.location} is a dangerous place.`}
+  //   </Popup>
+  // </Marker>
+  // }
+
 
   useEffect(() => {
     if (!map) return;
@@ -120,6 +175,14 @@ function ApocMap() {
   }
 }, [map, iconSize]);
 
+useEffect(() => {
+  // Check if user is logged in and has lat/lng
+  if (sessionUser && sessionUser.latitude && sessionUser.longitude) {
+    setCenter([sessionUser.latitude, sessionUser.longitude]);
+  }
+}, [sessionUser]);
+
+
 
 return (
   <>
@@ -128,9 +191,11 @@ return (
         <h1>Apocalypse Weather Now</h1>
       </section>
       <section className='mapcontainer'>
-        <MapContainer whenCreated={setMap} className='mapmap' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+
+        <MapContainer whenCreated={setMap} className='mapmap' center={center} zoom={11} scrollWheelZoom={true}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <CustomMarker map={map} className='leaflet-marker-icon'/>
+          {/* <CustomMarker map={map} className='leaflet-marker-icon'/> */}
+          <displayUserLocation map={map} className='leaflet-marker-icon'/>
         </MapContainer>
         <section className="auto-search-wrapper">
           <input type="text" autoComplete="off" id="search" className="full-width" placeholder="enter the city name" />
@@ -138,14 +203,13 @@ return (
       </section>
     </section>
     <section className='detailed_weather'>
-      <h1>Detailed Information</h1>
-      <p>Temperature: {weatherData.current_weather.temperature}
-    {weatherData.current_weather.temperature !== "Waiting to receive data" ? "°F" : ""}
-</p>
-      <p>Current Situation: {apocWeatherConverter(weatherData.current_weather.weathercode).name}</p>
-      <p>Description of situation: {apocWeatherConverter(weatherData.current_weather.weathercode).description}</p>
-
-    </section>
+        <h1>Detailed Information</h1>
+        <p>Temperature: {weatherData.current_weather.temperature}
+        {weatherData.current_weather.temperature !== "Waiting to receive data" ? "°F" : ""}
+        </p>
+        <p>Current Situation: {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).name : "Waiting to receive data"}</p>
+        <p>Description of situation: {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).description : "Waiting to receive data"}</p>
+      </section>
   </>
 );
 }

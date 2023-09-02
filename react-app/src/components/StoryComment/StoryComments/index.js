@@ -23,6 +23,11 @@ export default function StoryComments(prop) {
   }
   const props = { storyId, currentUserId };
 
+    // 
+    const sessionuser = useSelector(state => state.session.user)
+    // console.log('sessionuser==========>', sessionuser)
+    //
+
 
   useEffect(() => {
     dispatch(getComments(storyId));
@@ -50,30 +55,36 @@ return (
                 buttonText="Post A Comment"
                 modalComponent={<PostCommentModal props={props} />}
               />
-         }
+        }
       </div>
       )}
       <div className="comments-div-holder">
         {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">User.firstName</div>
+            <div className="comment-firstname">{sessionuser.first_name}</div>
             <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
             {user_id === currentUserId &&  (
               <>
+              <div>
+
                 {" "}
                   { <OpenModal
                     buttonText="Update"
                     modalComponent={
                       <EditCommentModal props={{ id, storyId }} />
                     }
+                    className="story-comments-button"
                   /> }
                   { <OpenModal
                     buttonText="Delete"
                     modalComponent={
                       <DeleteCommentModal props={{ id, storyId }} />
                     }
+                    className="story-comments-button"
                   /> }
+                                </div>
+
               </>
             )}
           </div>
