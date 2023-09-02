@@ -129,6 +129,26 @@ const iconAttributions = {
         url: "https://www.flaticon.com/free-icons/earthquake",
         creator: "Freepik - Flaticon"
     },
+    Plague: {
+        title: "plague icons",
+        url: "https://www.flaticon.com/free-icons/plague",
+        creator: "Freepik - Flaticon"
+    },
+    Rainbows: {
+        title: "rainbow icons",
+        url: "https://www.flaticon.com/free-icons/rainbow",
+        creator: "Freepik - Flaticon"
+    },
+    PhantomFog: {
+        title: "thoughts icons",
+        url: "https://www.flaticon.com/free-icons/thoughts",
+        creator: "Leremy - Flaticon"
+    },
+    Aurora: {
+        title: "thoughts icons",
+        url: "https://www.flaticon.com/free-icons/aurora",
+        creator: "Freepik - Flaticon"
+    },
 
 };
 
