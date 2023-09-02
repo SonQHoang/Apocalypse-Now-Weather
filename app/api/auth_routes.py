@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, redirect
 from app.models import User, db
-from app.forms import LoginForm
+from app.forms import LoginForm, SignUpForm
 from app.forms.update_form import UpdateProfileForm
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -132,7 +132,7 @@ def update_profile():
 
         db.session.commit()
         return user.to_dict()
-    
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 

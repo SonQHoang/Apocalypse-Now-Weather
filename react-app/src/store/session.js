@@ -78,7 +78,7 @@ export const signUp = (formBody, history) => async (dispatch) => {
 		},
 		body: JSON.stringify(formBody),
 	});
-
+	console.log("THUNK RESPONSE****", response)
 	const data = await response.json();
 	console.log("session data*********", data)
 	if (response.ok) {
