@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request, redirect
 from app.models import User, db
 from app.forms import LoginForm
-from app.forms import SignUpForm
+from app.forms.update_form import UpdateProfileForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -106,6 +106,35 @@ def sign_up():
         return user.to_dict()
     # print("form errors**********",form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@auth_routes.route('/update', methods=['PUT'])
+def update_profile():
+    """
+    Creates a new user and logs them in
+    """
+    # print("INSIDE SIGNUP FUNCTION")
+    form = UpdateProfileForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        user = current_user
+
+        user.first_name = form.data['first_name']
+        user.last_name = form.data['last_name']
+        user.username = form.data['username']
+        user.email = form.data['email']
+        user.location = form.data['location']
+        user.latitude = form.data['latitude']
+        user.longitude = form.data['longitude']
+        user.prepper_type = form.data['prepper_type']
+        user.prepper_description = form.data['prepper_description']
+        user.bio = form.data['bio']
+
+        db.session.commit()
+        return user.to_dict()
+    
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
 
 
 @auth_routes.route('/unauthorized')

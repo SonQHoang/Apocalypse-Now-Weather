@@ -24,6 +24,7 @@ import CreateNewTip from "./components/CreateNewTip";
 import Footer from "./components/Footer/Footer";
 import Attribution from "./components/Attribution";
 import OtherSurvivorProfile from "./components/OtherSurvivorProfile";
+import UpdateProfileModal from "./components/UpdateProfileModal";
 
 
 // import ProtectedRoute from "./components/auth/ProtectedRoute"
@@ -68,7 +69,6 @@ function App() {
           <Route exact path="/tips">
             <Tips/>
           </Route>
-
           <Route path="/signup">
             <SignUpFormModal/>
           </Route>
@@ -93,6 +93,9 @@ function App() {
           </Route>
           <Route exact path='/survivors/current'>
             <SurvivorProfile />
+          </Route>
+          <Route exact path='/update'>
+            <UpdateProfileModal/>
           </Route>
         </Switch>
       )}
