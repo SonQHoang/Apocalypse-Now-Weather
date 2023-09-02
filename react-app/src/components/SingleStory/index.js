@@ -11,8 +11,6 @@ import StoryLikesComponent from "../StoryLikes";
 import SurvivorProfile from "../SurvivorProfile";
 import UpdateStory from "../ManageStories/UpdateStory";
 import DeleteStory from "../ManageStories/DeleteStory";
-import UpdateModal from "./UpdateModal";
-import DeleteModal from "./DeleteModal";
 
 const SingleStoryComponent = () => {
     const dispatch = useDispatch()
@@ -23,10 +21,12 @@ const SingleStoryComponent = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
-    const userId = sessionUser.id
+    // const userId = sessionUser.id
+
+    console.log(currentStory.author)
 
     useEffect(() => {
-        dispatch(storyActions.getOneStory(id))
+        dispatch(storyActions.getOneStory(Number(id)))
         .then(() => {
             setIsLoaded(true)
         })
@@ -36,14 +36,14 @@ const SingleStoryComponent = () => {
         setSelectedStory(story)
         setModalType("delete")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     const handleUpdateClick = async (story) => {
         setSelectedStory(story)
         setModalType("update")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     return (
@@ -57,7 +57,9 @@ const SingleStoryComponent = () => {
                         <p>By: </p>
                     </div> */}
                         {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
-                    <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p>
+                    {/* <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p> */}
+                    <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name} </p>
+
                 </div>
                 <div id='single-story-body'>
                     <p>{isLoaded && currentStory && currentStory?.body}</p>
@@ -72,42 +74,10 @@ const SingleStoryComponent = () => {
                                 return handleDeleteClick(currentStory)
                             }}>Delete</button>
                             <DeleteStory storyId={currentStory.id} />
-
-
                         </div>
+
                         ) : ''}
                 </div>
-                {showModal && modalType === "delete" && (
-                    <DeleteModal storyId={selectedStory.id}
-                    onSubmit={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    onClose={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    />
-                )}
-
-                    {showModal && modalType === "update" && (
-                    <UpdateModal
-                    storyId={selectedStory.id}
-                    storyData={selectedStory}
-                    onSubmit={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    onClose={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    />
-                )}
                 <div>
                     {sessionUser ? (
                         <StoryLikesComponent story={currentStory} />
