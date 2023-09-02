@@ -259,6 +259,32 @@ const iconAttributions = {
         url: "https://www.flaticon.com/free-icons/atom",
         creator: "Freepik - Flaticon"
     },
+    Frozen:{
+        title: "frozen icons",
+        url: "https://www.flaticon.com/free-icons/frozen",
+        creator: "Freepik - Flaticon"
+    },
+    FireTornado:{
+        title: "fire icons",
+        url: "https://www.flaticon.com/free-icons/fire",
+        creator: "Freepik - Flaticon"
+    },
+    Wind:{
+        title: "wind icons",
+        url: "https://www.flaticon.com/free-icons/wind",
+        creator: "Freepik - Flaticon"
+    },
+    Wind:{
+        title: "compass icons",
+        url: "https://www.flaticon.com/free-icons/compass",
+        creator: "Freepik - Flaticon"
+    },
+    Cloud:{
+        title: "rage icons",
+        url: "https://www.flaticon.com/free-icons/rage",
+        creator: "Smashicons - Flaticon"
+    },
+
 };
 
 export default iconAttributions;

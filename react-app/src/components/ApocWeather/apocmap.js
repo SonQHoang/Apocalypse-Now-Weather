@@ -8,7 +8,7 @@ import { setLocation } from '../../store/mapStore';
 import { getLocation } from "../../store/userLocation"
 import apocWeatherConverter from './apocweatherfunc';
 import placeholderWeatherData from './weatherdataplaceholder';
-
+import apocWeatherData from './AWNApocWeatherData';
 
 
 
@@ -31,7 +31,7 @@ const getNuclearIcon = () => {
 
 // function CustomMarker({ map }) {
 
-//   return locations.map(location => (
+//   return (location => (
 //     <Marker key={location.name} position={[location.lat, location.lng]} icon={getNuclearIcon()}>
 //       <Popup className='nuclearPopup'>
 //         {`${location.name} is a dangerous place.`}
@@ -89,14 +89,21 @@ function ApocMap() {
 
 
 
-  // function displayUserLocation({map}){
+   // Function to get custom icon based on weather code
+  const getCustomIcon = (weatherCode) => {
+    const eventInfo = apocWeatherConverter(weatherCode);
+    console.log("****eventINFO",eventInfo)
+    const eventIcon = eventInfo.source;
+    console.log("*****eventIcon",eventIcon)
+    const eventName = eventInfo.name;
 
-  //   return <Marker key={sessionUser.location} position={[sessionUser.latitude, sessionUser.longitude]} icon={getNuclearIcon()}>
-  //   <Popup className='nuclearPopup'>
-  //     {`${sessionUser.location} is a dangerous place.`}
-  //   </Popup>
-  // </Marker>
-  // }
+    return L.icon({
+      iconUrl: eventIcon,
+      iconSize: ICON_SIZE,
+      iconAnchor: [ICON_SIZE[0] / 2, ICON_SIZE[1] - 1],
+      popupAnchor: [0, -50],
+    });
+  };
 
 
   useEffect(() => {
@@ -150,7 +157,7 @@ function ApocMap() {
                     setWeatherData(data);
                     const currentTemp = data.current_weather.temperature;
                     const currentSituation = apocWeatherConverter(data.current_weather.weathercode).name;
-                    const customIcon = getNuclearIcon([iconSize, iconSize]);
+                    const customIcon = getCustomIcon(data.current_weather.weathercode)
                     const situationDescription = apocWeatherConverter(data.current_weather.weathercode).description;
 
                     const marker = L.marker([lat, lng], {
@@ -181,7 +188,7 @@ useEffect(() => {
     setCenter([sessionUser.latitude, sessionUser.longitude]);
   }
 }, [sessionUser]);
-
+console.log("sessionuser info",sessionUser)
 
 
 return (
@@ -195,6 +202,20 @@ return (
         <MapContainer whenCreated={setMap} className='mapmap' center={center} zoom={11} scrollWheelZoom={true}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {/* <CustomMarker map={map} className='leaflet-marker-icon'/> */}
+          {weatherData.current_weather.weathercode !== "Waiting to receive data" && (
+        <Marker
+          position={center}
+          icon={getCustomIcon(weatherData.current_weather.weathercode)}
+        >
+          {/* Adding Popup here */}
+          <Popup>
+            <div>
+              <h3>{`Location: ${sessionUser ? sessionUser.location : "Unknown"}`}</h3>
+              <p>{`Current Situation: ${apocWeatherConverter(weatherData.current_weather.weathercode).name}`}</p>
+            </div>
+          </Popup>
+        </Marker>
+      )}
           <displayUserLocation map={map} className='leaflet-marker-icon'/>
         </MapContainer>
         <section className="auto-search-wrapper">
