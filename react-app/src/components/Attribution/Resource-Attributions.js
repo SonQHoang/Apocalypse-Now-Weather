@@ -149,7 +149,116 @@ const iconAttributions = {
         url: "https://www.flaticon.com/free-icons/aurora",
         creator: "Freepik - Flaticon"
     },
-
+    Sparkle: {
+        title: "sparkle icons",
+        url: "https://www.flaticon.com/free-icons/sparkle",
+        creator: "Freepik - Flaticon"
+    },
+    Volcano: {
+        title: "volcano icons",
+        url: "https://www.flaticon.com/free-icons/volcano",
+        creator: "GOWI - Flaticon"
+    },
+    PocketWatch: {
+        title: "pocket watch icons",
+        url: "https://www.flaticon.com/free-icons/pocket-watch",
+        creator: "Freepik - Flaticon"
+    },
+    BiomeShift: {
+        title: "jungle icons",
+        url: "https://www.flaticon.com/free-icons/jungle",
+        creator: "Freepik - Flaticon"
+    },
+    DyingEarth: {
+        title: "dying icons",
+        url: "https://www.flaticon.com/free-icons/dying",
+        creator: "Freepik - Flaticon"
+    },
+    Blind: {
+        title: "ignore icons",
+        url: "https://www.flaticon.com/free-icons/ignore",
+        creator: "Freepik - Flaticon"
+    },
+    GravityWaves: {
+        title: "gravity icons",
+        url: "https://www.flaticon.com/free-icons/gravity",
+        creator: "Freepik - Flaticon"
+    },
+    Locust: {
+        title: "locust icons",
+        url: "https://www.flaticon.com/free-icons/locust",
+        creator: "Freepik - Flaticon"
+    },
+    ToxicCloud: {
+        title: "toxic icons",
+        url: "https://www.flaticon.com/free-icons/toxic",
+        creator: "Freepik - Flaticon"
+    },
+    Shadows: {
+        title: "shadow icons",
+        url: "https://www.flaticon.com/free-icons/shadow",
+        creator: "Leremy - Flaticon"
+    },
+    Aliens: {
+        title: "alien icons",
+        url: "https://www.flaticon.com/free-icons/alien",
+        creator: "Smashicons - Flaticon"
+    },
+    RealityRipples: {
+        title: "illusion icons",
+        url: "https://www.flaticon.com/free-icons/illusion",
+        creator: "berkahicon - Flaticon"
+    },
+    Confusion: {
+        title: "illusion icons",
+        url: "https://www.flaticon.com/free-icons/illusion",
+        creator: "AbtoCreative - Flaticon"
+    },
+    EclipsedSun: {
+        title: "eclipse icons",
+        url: "https://www.flaticon.com/free-icons/eclipse",
+        creator: "Freepik - Flaticon"
+    },
+    Eclipsedarkearth: {
+        title: "eclipse icons",
+        url: "https://www.flaticon.com/free-icons/eclipse",
+        creator: "Freepik - Flaticon"
+    },
+    Dyingvampbreeze: {
+        title: "dying icons",
+        url: "https://www.flaticon.com/free-icons/dying",
+        creator: "Freepik - Flaticon"
+    },
+    Zombie: {
+        title: "zombie icons",
+        url: "https://www.flaticon.com/free-icons/zombie",
+        creator: "Maximka - Flaticon"
+    },
+    ReverseRain: {
+        title: "rain icons",
+        url: "https://www.flaticon.com/free-icons/rain",
+        creator: "justicon - Flaticon"
+    },
+    PetrifyingFog: {
+        title: "sculpture icons",
+        url: "https://www.flaticon.com/free-icons/sculpture",
+        creator: "Freepik - Flaticon"
+    },
+    Chlorine: {
+        title: "periodic table icons",
+        url: "https://www.flaticon.com/free-icons/periodic-table",
+        creator: "bearicons - Flaticon"
+    },
+    DimensionalRifts:{
+        title: "coin etherum icons",
+        url: "https://www.flaticon.com/free-icons/coin-etherum",
+        creator: "Kise1ki - Flaticon"
+    },
+    QuantumSwirls:{
+        title: "atom icons",
+        url: "https://www.flaticon.com/free-icons/atom",
+        creator: "Freepik - Flaticon"
+    },
 };
 
 export default iconAttributions;
