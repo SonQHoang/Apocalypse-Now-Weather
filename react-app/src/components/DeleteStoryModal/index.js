@@ -21,8 +21,8 @@ const DeleteStoryModal = (story) => {
             </div>
             <form onSubmit={handleSubmit} id='delete-story-modal-form'>
                 <div id='delete-story-modal-buttons'>
-                    <button id='delete-story-yes-button' type='submit'>Yes (Delete Story)</button>
-                    <button id='delete-story-no-button' onClick={closeModal}>No (Keep Story)</button>
+                    <button id='delete-story-button' className="delete-story-button-yes" type='submit'>Yes (Delete Story)</button>
+                    <button id='delete-story-button' onClick={closeModal}>No (Keep Story)</button>
                 </div>
             </form>
         </div>

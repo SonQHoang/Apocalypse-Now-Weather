@@ -35,6 +35,7 @@ const UpdateStoryModal = (story) => {
 
     return (
         <div id='update-story-modal-container'>
+            <div className="update-story-modal-content-container">
             <div id='update-story-modal-header'>
                 <h1>Update Story</h1>
             </div>
@@ -79,6 +80,7 @@ const UpdateStoryModal = (story) => {
             {/* <div>
                 <button onClick={closeModal}>Cancel</button>
             </div> */}
+        </div>
         </div>
     )
 }

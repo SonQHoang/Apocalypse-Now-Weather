@@ -3,8 +3,8 @@
     z-index: 9000;
     border: 5px solid #ff7518;
     border-radius: 45px;
-    height: 65%;
-    width: 52%;
+    height: 70%;
+    width: 40%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -17,13 +17,22 @@
     right: 0;
     color: whitesmoke;
     margin: auto;
+    padding: 40px;
+}
 
+.update-story-modal-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #update-story-button-container {
     margin-left: 12px;
     margin-top: 5px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-title-input {
@@ -41,13 +50,19 @@
 }
 
 #update-story-title-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-body-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #submit-updated-story-button, #cancel-story-update-button {
     font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #ff7518;
+    padding: 5px;
+    margin-top: 20px;
 }
