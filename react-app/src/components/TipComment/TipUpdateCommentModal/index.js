@@ -16,7 +16,7 @@ function EditCommentModal(props) {
   const commentToEdit = (tipComments[commentId])
   const dispatch = useDispatch();
 
-  console.log(commentToEdit)
+  // console.log(commentToEdit)
   const [body, setComment] = useState('');
   const [errors, setErrors] = useState({});
 

@@ -1,0 +1,12 @@
+#survivor-profile-exit-container {
+    margin-bottom: 20px;
+}
+
+#survivor-profile-exit-button {
+    width: 100px;
+    height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+    background-color: #ff7518;
+    font-size: 18px;
+}

@@ -21,7 +21,7 @@ export default function TipComments(prop) {
   }
   const props = { tipId, currentUserId };
 
-  // 
+  //
   const sessionuser = useSelector(state => state.session.user)
   // console.log('sessionuser==========>', sessionuser)
   //
@@ -31,14 +31,14 @@ export default function TipComments(prop) {
   }, [dispatch, tipId]);
 
   const commentsList = Object.values(tipComments);
-  console.log('tipComments',tipComments)
-  console.log('COMMENTLSIT',commentsList)
+  // console.log('tipComments',tipComments)
+  // console.log('COMMENTLSIT',commentsList)
   // rewrites the date to month, year
   let createdAtSplit;
   let createdAtSlice = 0;
   if(commentsList.length > 0 && commentsList[0].body){
     let createdAtDate = commentsList.map((comment) => (
-      console.log('COMMENT',comment),
+      // console.log('COMMENT',comment),
 
       createdAtSplit = comment.date_created.split(''),
       createdAtSlice = createdAtSplit.slice(8, 16).join('')

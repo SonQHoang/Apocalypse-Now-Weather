@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import { getTipById } from '../../store/tips'
 import TipComments from '../TipComment/TipComments'
 import "./TipDetails.css"
@@ -32,7 +32,7 @@ function TipDetailsPage() {
                     <h3 className="tip-details-weather-category">{tip.weather_category}</h3>
                 </div>
                 <div className="single-tip-author">
-                        <p>By: {sessionUser.username}</p>
+                        <p>By: <NavLink exact to={`/survivors/${sessionUser.id}`} className='author-nav-link'>{sessionUser.username}</NavLink></p>
                 </div>
                 </div>
                 <div>

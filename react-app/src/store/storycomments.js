@@ -53,7 +53,7 @@ export const postComment = (storyId, userId, commentBody) => async (dispatch) =>
 
   if (response.ok) {
     const comment = await response.json();
-    console.log(comment)
+    // console.log(comment)
     dispatch(getComments(storyId));
     dispatch(getOneStory(storyId))
     return comment;
@@ -76,10 +76,10 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
     },
     body: JSON.stringify(responseBody),
   });
-  console.log('response', response)
+  // console.log('response', response)
   if (response.ok) {
     const comment = await response.json();
-    console.log(comment)
+    // console.log(comment)
     dispatch(getComments(storyId));
     dispatch(getOneStory(storyId))
     return comment;
