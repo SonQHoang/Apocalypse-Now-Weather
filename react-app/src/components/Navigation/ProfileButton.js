@@ -48,20 +48,19 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button id="mainprofilebutton" onClick={openMenu}>
        <img id="usericon" src="/icons/user.png" alt="User Profile"/>
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={user ? 'user-logged-in' : 'user-not-logged-in'} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
-              <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
-              <NavLink exact to={`/survivors/current`}><button>My Profile</button></NavLink>
+            <div>User: {user.username}</div>
+            <div>Email:{user.email}</div>
+            <div className="dropdownbut"><NavLink exact to='/stories/manage'><button>My Stories</button></NavLink></div>
+             <div className="dropdownbut"><NavLink exact to='/tips/manage'><button>My Tips</button></NavLink></div>
+             <div className="dropdownbut"><NavLink exact to={`/survivors/current`}><button>My Profile</button></NavLink></div>
               <button onClick={handleLogout}>Log Out</button>
-            </li>
+
           </>
         ) : (
           <>
@@ -76,12 +75,12 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignUpFormModal/>}
             /> */}
-            <li>
+            <button id="signupnavbutton">
               <Link to="/signup" onClick={closeMenu}>Sign Up</Link>
-            </li>
+            </button>
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

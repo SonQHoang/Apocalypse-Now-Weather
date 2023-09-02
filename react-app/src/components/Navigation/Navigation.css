@@ -6,23 +6,48 @@
   cursor: pointer;
 }
 
-ul.profile-dropdown {
+.user-logged-in {
+  position: absolute;
+  top: 100px;
+  padding: 8px;
+  right: 20px;
+  width: 200px;
   background-color: #2f2f2f;
   border: 2px solid black;
+  border-radius: 15px;
   z-index: 55;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
 }
+.user-not-logged-in{
 
+}
 .profile-button-container {
   margin-left: 10px;
   z-index: 55
 
 }
+.dropdownbut{
 
+}
 .dropdown-button {
   width: 150px;
   background-color: none;
 }
+#signupnavbutton{
+background-color: #ff7518;
+    border-radius: 10px;
+}
+#signinnavbutton{
+background-color: #ff7518;
+    border-radius: 10px;
+}
 
+.nav-container button{
+  background-color:#ff7518;
+  border-radius: 10px;
+}
 .hidden {
   display: none;
 }
@@ -30,10 +55,7 @@ ul.profile-dropdown {
 .navbar {
   color: white
 }
-.nav-container button{
-  background-color:#ff7518;
-  border-radius: 10px;
-}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
