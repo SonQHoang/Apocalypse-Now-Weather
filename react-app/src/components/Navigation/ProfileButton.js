@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -43,6 +43,9 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
+  const sessionUser = useSelector(state => state.session.user)
+  // console.log('sessionuser====>', sessionUser.id)
+
   return (
     <>
       <button onClick={openMenu}>
@@ -56,6 +59,7 @@ function ProfileButton({ user }) {
             <li>
               <NavLink exact to='/stories/manage'><button>My Stories</button></NavLink>
               <NavLink exact to='/tips/manage'><button>My Tips</button></NavLink>
+              <NavLink exact to={`/survivors/current`}><button>My Profile</button></NavLink>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>

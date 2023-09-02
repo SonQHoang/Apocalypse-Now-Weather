@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './OtherSurvivorProfile.css'
 
 const OtherSurvivorProfile = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [userData, setUserData] = useState({})
 
-    const { id } = useParams()
+    // const { id } = useParams()
+    const sessionUser = useSelector(state => state.session.user)
 
-    const grabUser = async (id) => {
-        const res = await fetch(`/api/users/survivor/${id}`)
-        if(res.ok) {
+    const grabUser = async () => {
+        const res = await fetch(`/api/users/survivor/${sessionUser.id}`)
+        console.log('What is res======>', res)
+        if (res.ok) {
             const data = await res.json()
             setIsLoaded(true)
             setUserData(data)
@@ -20,7 +23,7 @@ const OtherSurvivorProfile = () => {
     }
 
     useEffect(() => {
-        grabUser(id)
+        grabUser(sessionUser.id)
         return
     }, [])
 
@@ -57,8 +60,13 @@ const OtherSurvivorProfile = () => {
                         <p>{isLoaded && userData?.prepper_description}</p>
                     </div>
                 </div>
-                <div id='survivor-profile-exit-container'>
-                    <a href='/'><button id='survivor-profile-exit-button'>Exit</button></a>
+                <div id="survivor-profile-buttons-container">
+                    <div id='survivor-profile-update-container'>
+                        <a href='/update'><button id='survivor-profile-update-button'>Update Profile</button></a>
+                    </div>
+                    <div id='survivor-profile-exit-container'>
+                        <a href='/'><button id='survivor-profile-exit-button'>Exit</button></a>
+                    </div>
                 </div>
             </div>
         </div>
