@@ -124,7 +124,9 @@ body, html {
 .mappagebodycontainer .leaflet-marker-icon{
  border: 2px solid black;
  border-radius: 15px;
-
+ background-color: white;
+ margin-left: -15.5px !important;
+ margin-top: -36px !important;
 
 
 }
