@@ -23,10 +23,12 @@ const SingleStoryComponent = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
-    const userId = sessionUser.id
+    // const userId = sessionUser.id
+
+    console.log(currentStory.author)
 
     useEffect(() => {
-        dispatch(storyActions.getOneStory(id))
+        dispatch(storyActions.getOneStory(Number(id)))
         .then(() => {
             setIsLoaded(true)
         })
@@ -36,14 +38,14 @@ const SingleStoryComponent = () => {
         setSelectedStory(story)
         setModalType("delete")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     const handleUpdateClick = async (story) => {
         setSelectedStory(story)
         setModalType("update")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     return (
@@ -57,7 +59,9 @@ const SingleStoryComponent = () => {
                         <p>By: </p>
                     </div> */}
                         {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
-                    <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p>
+                    {/* <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p> */}
+                    <p className='story-author-name'>By: {isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name} </p>
+
                 </div>
                 <div id='single-story-body'>
                     <p>{isLoaded && currentStory && currentStory?.body}</p>
