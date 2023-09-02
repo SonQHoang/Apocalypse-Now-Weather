@@ -17,6 +17,7 @@
     right: 0;
     color: whitesmoke;
     margin: auto;
+    padding: 40px;
 
     z-index: 5000;
 }
@@ -25,6 +26,8 @@
     margin-left: 12px;
     margin-top: 5px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-title-input {
@@ -42,15 +45,21 @@
 }
 
 #update-story-title-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-body-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #submit-updated-story-button, #cancel-story-update-button {
     font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #ff7518;
+    padding: 5px;
+    margin-top: 20px;
     background-color: #ff7518;
     height: 50px;
     width: 100px;
