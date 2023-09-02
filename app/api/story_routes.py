@@ -112,7 +112,7 @@ def post_story():
     return {'errors': story_validation_errors_to_error_messages(form.errors)}, 401
 
 
-@login_required
+# @login_required
 @story_routes.route('/<int:id>/update', methods=["PUT"])
 def update_story(id):
     curr_story = Stories.query.get(id)
@@ -143,7 +143,7 @@ def get_user_stories(id):
         result[dict_curr_story['id']] = dict_curr_story
     return result
 
-@login_required
+# @login_required
 @story_routes.route('/<int:id>/delete', methods=["DELETE"])
 def delete_story(id):
     story = Stories.query.get(id)

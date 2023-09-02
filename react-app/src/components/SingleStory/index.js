@@ -11,8 +11,6 @@ import StoryLikesComponent from "../StoryLikes";
 import SurvivorProfile from "../SurvivorProfile";
 import UpdateStory from "../ManageStories/UpdateStory";
 import DeleteStory from "../ManageStories/DeleteStory";
-import UpdateModal from "./UpdateModal";
-import DeleteModal from "./DeleteModal";
 
 const SingleStoryComponent = () => {
     const dispatch = useDispatch()
@@ -72,42 +70,10 @@ const SingleStoryComponent = () => {
                                 return handleDeleteClick(currentStory)
                             }}>Delete</button>
                             <DeleteStory storyId={currentStory.id} />
-
-
                         </div>
+
                         ) : ''}
                 </div>
-                {showModal && modalType === "delete" && (
-                    <DeleteModal storyId={selectedStory.id}
-                    onSubmit={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    onClose={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    />
-                )}
-
-                    {showModal && modalType === "update" && (
-                    <UpdateModal
-                    storyId={selectedStory.id}
-                    storyData={selectedStory}
-                    onSubmit={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    onClose={() => {
-                        setShowModal(false)
-                        setSelectedStory(null)
-                        setModalType(null)
-                    }}
-                    />
-                )}
                 <div>
                     {sessionUser ? (
                         <StoryLikesComponent story={currentStory} />
