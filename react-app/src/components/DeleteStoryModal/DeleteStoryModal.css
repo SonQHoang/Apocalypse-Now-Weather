@@ -23,15 +23,15 @@
 }
 
 #delete-story-modal-buttons {
-    height: 40px;
-    margin-top: 10px;
+    /* border: 2px solid red; */
+    padding: 5px;
 }
 
-#delete-story-yes-button, #delete-story-no-button {
-    height: 40px;
-    width: 125px;
+#delete-story-button {
+    padding: 5px;
 }
 
-#delete-story-yes-button {
-    margin-right: 8px;
+.delete-story-button-yes {
+    background-color: #ff7518;
+    color: white
 }

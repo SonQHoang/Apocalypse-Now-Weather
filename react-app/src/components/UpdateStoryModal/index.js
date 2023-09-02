@@ -44,6 +44,7 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
 
     return (
         <div id='update-story-modal-container'>
+            <div className="update-story-modal-content-container">
             <div id='update-story-modal-header'>
                 <h1>Update Story</h1>
             </div>
@@ -88,6 +89,7 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
             {/* <div>
                 <button onClick={closeModal}>Cancel</button>
             </div> */}
+        </div>
         </div>
     )
 }
