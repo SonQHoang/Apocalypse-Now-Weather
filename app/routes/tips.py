@@ -16,7 +16,8 @@ def get_all_tips():
         "body": tip.body,
         "user_id": tip.user_id,
         "date_created": tip.date_created,
-        "id": tip.id
+        "id": tip.id,
+        "author": tip.author.to_dict()
     } for tip in tips]
     # print('This is my tips data=====>', tips_data)
     return jsonify(tips_data)
@@ -70,7 +71,9 @@ def get_user_tips():
 def get_tip_by_id(tip_id):
     tip = Tips.query.get(tip_id)
 
-    print(tip.author)
+    # print("""
+    #       LOOK HERE ++++++++++++++++
+    #       """, tip.author.to_dict())
 
     if tip is None:
         return jsonify({"error": "Tip not found"}), 404
@@ -78,7 +81,8 @@ def get_tip_by_id(tip_id):
     tip_data = {
     "title": tip.title,
     "weather_category": tip.weather_category,
-    "body": tip.body
+    "body": tip.body,
+    "author": tip.author.to_dict()
 }
     return jsonify(tip_data)
 
