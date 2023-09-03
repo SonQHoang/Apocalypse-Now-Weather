@@ -10,7 +10,9 @@
     text-shadow: 1px 1px 2px rgba(255, 250, 250, 0.887);
     margin-bottom: 0;
 }
-
+#all-tips-h1{
+    margin-bottom: 15px;
+}
 .manage-tips-header {
     background-color: #2f2f2f;
     width: 100%;
@@ -36,24 +38,26 @@
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    color: #ff7518; 
+    color: #ff7518;
     margin-bottom: 10px;
 }
 
 .tip-update-button {
-        height: 40px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        font-family: 'Montserrat', sans-serif;
-        padding: 10px;
+    background-color: #ff7518;
+    border-radius: 8px;
+
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
 
 }
 .tip-delete-button {
-    height: 40px;
-    margin-bottom: 15px;
+    background-color: #ff7518;
     border-radius: 8px;
+
+    margin-right: 5px;
+    margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
-    padding: 10px;
 }
 
 .tip-delete-button:hover {
