@@ -60,7 +60,7 @@ function GetAllTips() {
                         <div className="single-tip-header">
                             <h2 className="single-tip-title">{`${tip.title}`}</h2>
                             <h3 className="single-tip-weather-category">{`${tip.weather_category}`}</h3>
-                            <p className="single-tip-author">{user ? <p> By: {user.username}</p> : null}</p>
+                            <p className="single-tip-author">{tip?.author?.username ? <p> By: {tip?.author?.username}</p> : null}</p>
                         </div>
                         <div className="tip-body-container">
                             <p className="tip-body">{`${tip.body}`}</p>

@@ -15,7 +15,7 @@ function TipDetailsPage() {
     const tip = useSelector((state) => state.tips.singleTip)
     // console.log('Do I see any tips?====> Yes', tip)
 
-    console.log(allTips[tipId-1])
+    // console.log(tip.author)
 
     useEffect(() => {
         dispatch(getTipById(tipId))
@@ -32,10 +32,10 @@ function TipDetailsPage() {
                     <h1 className="tip-details-title">{tip.title}</h1>
                 </div>
                 <div>
-                    <h3 className="tip-details-weather-category">{tip.weather_category}</h3>
+                    <h3 className="tip-details-weather-category">{tip?.weather_category}</h3>
                 </div>
                 <div className="single-tip-author">
-                        <p>By: <NavLink exact to={`/survivors/${sessionUser.id}`} className='author-nav-link'>{sessionUser.username}</NavLink></p>
+                        <p>By: <NavLink exact to={`/survivors/${tip?.author?.id}`} className='author-nav-link'>{tip?.author?.username}</NavLink></p>
                 </div>
                 </div>
                 <div>
