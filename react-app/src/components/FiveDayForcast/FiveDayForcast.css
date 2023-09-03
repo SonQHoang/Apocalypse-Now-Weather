@@ -1,0 +1,24 @@
+.heading-container {
+    display: flex;
+    justify-content: center;
+    color: #ff7518;
+    margin-top: 40px;
+}
+
+
+.forcast-container {
+    display: flex;
+    justify-content: center;
+    color: #ff7518;
+    gap: 35px;
+}
+
+
+.forcast-container-weather-date {
+    padding-bottom: 10px;
+}
+
+
+.forcast-container-weather-weather {
+    padding-bottom: 10px;
+}

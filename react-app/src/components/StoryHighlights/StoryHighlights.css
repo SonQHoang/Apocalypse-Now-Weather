@@ -7,6 +7,10 @@
     z-index: 0;
     /* border: 2px solid red; */
 }
+.five-day-forcast-container {
+    z-index: 500;
+    width: 100%;
+}
 
 .awn_logo {
     text-align: center;
