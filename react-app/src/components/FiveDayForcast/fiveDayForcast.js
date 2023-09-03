@@ -47,22 +47,35 @@ const FiveDayForcast = () =>{
         setWeatherData(weathercode)
     }
 
-
+    console.log(weatherData)
 
 
 
     if(weatherData && weatherData.dailyWeather) {
         const dailyWeather = weatherData.dailyWeather
-        console.log(dailyWeather)
       return (
         <>
           <h1>5 Day Forcast</h1>
           <div className="forcast-container">
-            {dailyWeather.map((day) => (
-                        <>
-                        <div className='forcast-container-weather'>{day}</div>
-                        </>
-            ))}
+
+            <>
+                <div className='forcast-container-weather-temp'>
+                    {dailyWeather[0]}
+                </div>
+                <div className='forcast-container-weather-temp'>
+                    {dailyWeather[1]}
+                </div>
+                <div className='forcast-container-weather-temp'>
+                    {dailyWeather[2]}
+                </div>
+                <div className='forcast-container-weather-temp'>
+                    {dailyWeather[3]}
+                </div>
+                <div className='forcast-container-weather-temp'>
+                    {dailyWeather[4]}
+                </div>
+            </>
+
           </div>
         </>
       );
