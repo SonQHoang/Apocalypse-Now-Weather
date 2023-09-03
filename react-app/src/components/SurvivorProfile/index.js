@@ -1,5 +1,6 @@
 // import { useModal } from '../../context/Modal.js'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 import './SurvivorProfile.css'
 
 const SurvivorProfile = () => {
@@ -38,9 +39,18 @@ const SurvivorProfile = () => {
                         <p>{sessionUser.prepper_description}</p>
                     </div>
                 </div>
-                {/* <div>
-                    <button >Exit</button>
-                </div> */}
+                <div className="survivor-profile-buttons">
+                    <div>
+                        <Link to="/update">
+                            <button className="survivor-update-button">Update Profile</button>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/">
+                            <button className="survivor-exit-button">Exit</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     )
