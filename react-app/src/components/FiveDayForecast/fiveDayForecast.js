@@ -12,8 +12,9 @@ const FiveDayForecast = () =>{
     const userLocation = useSelector((state) => state.userLocation.userLocation);
     const userForcast = useSelector((state) => state.userLocation.userForcast);
     const sessionUser = useSelector((state) => state.session.user);
+    const city = useSelector((state)=> state.userLocation.city)
+    const country = useSelector((state)=> state.userLocation.country)
     const [isLoaded, setIsLoaded] = useState(false);
-
 
     const getDayOfWeek = (dateString) => {
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -65,23 +66,21 @@ const FiveDayForecast = () =>{
     }
 
     if (weatherData && weatherData.dailyWeather) {
-      // Convert the 'date' array to an array of day names
+
       const date = time;
       const daysOfWeek = date.slice(5, 10).map((dateString) => {
-        // Assumes dateString is in the format "MM/DD"
+
         const [month, day] = dateString.split("/");
-        const currentYear = new Date().getFullYear();  // Get the current year
+        const currentYear = new Date().getFullYear();
         return getDayOfWeek(`${currentYear}-${month}-${day}`);
       });
 
-    // if (weatherData && weatherData.dailyWeather) {
-    //   const date = time;
-    //   const dailyWeather = weatherData.dailyWeather;
+
       return (
           <>
            <section className='fiveday-main-container'>
         <div className='heading-container'>
-          <h1>5 Day Forecast</h1>
+          <h1>5 Day Forecast for {city}, {country}</h1>
         </div>
         <div className="forecast-container">
           {daysOfWeek.map((day, index) => (
