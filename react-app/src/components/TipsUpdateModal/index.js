@@ -47,11 +47,12 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
     };
 
     return (
+        <>
         <div className="update-modal-overlay" ref={modalOverlayRef}>
             <div className="update-modal-content">
                 <h2>Confirm Update</h2>
                 <p>Are you sure you want to update this tip?</p>
-            
+
             <div className="update-tip-inputs-container">
 
                 <div className="tip-title-input-container">
@@ -97,6 +98,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
