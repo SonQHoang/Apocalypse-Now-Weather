@@ -27,12 +27,12 @@ function GetAllTips() {
 
     // const formatDate = (dateString) => {
     //     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    //     return new Date(dateString).toLocaleDateString(undefined, options) 
+    //     return new Date(dateString).toLocaleDateString(undefined, options)
     // }
 
     return (
         <>
-            <div className="all-tips-container">
+            <div className="all-tips-header-container">
                 <h1>All Tips</h1>
                 {user !== null ? (
                     <NavLink exact to='/tips/new'>
@@ -40,6 +40,8 @@ function GetAllTips() {
                     </NavLink>
                 ) : null}
             </div>
+
+            <div className="all-single-tips-container">
 
             {tips.map(tip => (
                 <div
@@ -56,9 +58,13 @@ function GetAllTips() {
                         }
                     }} >
                         <div className="single-tip-header">
-                            <h2 className="single-tip-title">{`${tip.title}`}</h2>
+                            <NavLink className="remove-nav-link-underline" exact to={`/tips/${tip.id}`}>
+                                <h2 className="single-tip-title">{`${tip.title}`}</h2>
+                            </NavLink>
                             <h3 className="single-tip-weather-category">{`${tip.weather_category}`}</h3>
-                            <p className="single-tip-author">{user ? <p> By: {user.username}</p> : null}</p>
+                            <NavLink className="remove-nav-link-underline" exact to={`survivors/${tip.author.id}`}>
+                                <p className="single-tip-author">{tip?.author?.username ? <p> By: {tip?.author?.username}</p> : null}</p>
+                            </NavLink>
                         </div>
                         <div className="tip-body-container">
                             <p className="tip-body">{`${tip.body}`}</p>
@@ -66,6 +72,7 @@ function GetAllTips() {
                     </div>
                 </div>
             ))}
+                        </div>
         </>
     );
 }

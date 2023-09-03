@@ -31,21 +31,29 @@ function PostCommentModal(props) {
 
   return (
     <div className="post-tip-confirm-delete-modal">
-      <h1>Leave a Comment</h1>
-      {/* <>{errors.message}</> */}
-      <textarea
-        className="post-comment-form-modal"
-        placeholder="Leave your comment here.."
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      ></textarea>
-      <button
-        className="submit-comment-buttom"
-        onClick={submitComment}
-        disabled={isDisabled}
-      >
-        Submit Your Comment
-      </button>
+      <div className="tip-comment-content-container">
+        <div className="tip-comment-leave-a-comment">
+          <h1>Leave a Comment</h1>
+        </div>
+        {/* <>{errors.message}</> */}
+        <div className="tip-comment-text-area-container">
+          <textarea
+            className="post-comment-form-modal"
+            placeholder="Leave your comment here.."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
+        </div>
+        <div className="tip-comment-submit-button-container">
+          <button
+            className="tip-comment-submit-button"
+            onClick={submitComment}
+            disabled={isDisabled}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

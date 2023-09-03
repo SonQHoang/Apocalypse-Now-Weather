@@ -22,7 +22,7 @@ const StoryLikesComponent = (story) => {
     if(story.story.likes) {
         storyLikes = Object.values(story.story.likes)
         numLikes = storyLikes.length
-        console.log(story.story.likes)
+        // console.log(story.story.likes)
 
         // console.log(storyLikes.length())
 
@@ -57,6 +57,7 @@ const StoryLikesComponent = (story) => {
         dispatch(storyLikeActions.addStoryLike(story.story.id, newLike)).then(() => {
             setLikesNum(likesNum + 1)
             setIsLiked(true)
+            return
         })
     }
 
@@ -66,6 +67,7 @@ const StoryLikesComponent = (story) => {
             dispatch(storyLikeActions.deleteStoryLike(grabbedLike.id)).then(() => {
                 setLikesNum(likesNum - 1)
                 setIsLiked(false)
+                return
             })
         }
     }

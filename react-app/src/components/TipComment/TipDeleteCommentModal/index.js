@@ -5,7 +5,7 @@ import "./TipDeleteCommentModal.css";
 
 function DeleteCommentModal(props) {
   const { id, tipId } = props.props;
-  console.log("props", props.props, "id", id, "tip", tipId);
+  // console.log("props", props.props, "id", id, "tip", tipId);
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -19,16 +19,22 @@ function DeleteCommentModal(props) {
 
   return (
     <div className="delete-tip-confirm-delete-modal">
-      <h1 className="confirm-delete-modal-heading">Confirm Delete</h1>
-      <h2 className="confirm-delete-modal-text">
-        Are you sure you want to delete this Comment?
-      </h2>
-      <button className="delete-modal-delete-Comment" onClick={handleDelete}>
-        Yes (Delete Comment)
-      </button>
-      <button className="delete-modal-keep-Comment" onClick={closeModal}>
-        No (Keep Comment)
-      </button>
+      <div className="delete-tip-comment-modal-container">
+        <h1 className="confirm-delete-modal-heading">Confirm Delete</h1>
+        <div className="confirm-delete-modal-text-container">
+          <h2 className="confirm-delete-modal-text-h2">
+            Are you sure you want to delete this Comment?
+          </h2>
+        </div>
+        <div className="delete-comment-modal-button-container">
+          <button className="delete-modal-delete-Comment" onClick={handleDelete}>
+            Yes (Delete Comment)
+          </button>
+          <button className="delete-modal-keep-Comment" onClick={closeModal}>
+            No (Keep Comment)
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

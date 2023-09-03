@@ -3,10 +3,10 @@
     z-index: 9000;
     border: 5px solid #ff7518;
     border-radius: 45px;
-    height: 65%;
+    height: 70%;
     width: 52%;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
@@ -17,13 +17,17 @@
     right: 0;
     color: whitesmoke;
     margin: auto;
+    padding: 40px;
 
+    z-index: 5000;
 }
 
 #update-story-button-container {
     margin-left: 12px;
     margin-top: 5px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-title-input {
@@ -35,19 +39,44 @@
 
 #update-story-body-input {
     width: 300px;
-    height: 300px;
+    height: 200px;
     margin-top: 10px;
     font-family: 'Montserrat', sans-serif;
 }
 
 #update-story-title-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #update-story-body-label {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #submit-updated-story-button, #cancel-story-update-button {
     font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #ff7518;
+    padding: 5px;
+    margin-top: 20px;
+    background-color: #ff7518;
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+#update-st-title-label-div {
+    text-align: center;
+}
+
+#update-st-body-label-div {
+    text-align: center;
+}
+
+#update-story-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

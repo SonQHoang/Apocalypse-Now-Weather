@@ -53,10 +53,10 @@ export const postComment = (tipId, userId, commentBody) => async (dispatch) => {
     },
     body: JSON.stringify(responseBody),
   });
-  console.log(response.errors)
+  // console.log(response.errors)
   if (response.ok) {
     const comment = await response.json();
-    console.log(comment)
+    // console.log(comment)
     dispatch(getComments(tipId));
     dispatch(getTipById(tipId))
     return comment;
@@ -71,7 +71,7 @@ export const editComment = (tipId, userId, body, commentId) => async (dispatch) 
     user_id: userId,
     tip_id: tipId
   }
-  console.log(responseBody)
+  // console.log(responseBody)
   const response = await fetch(`/api/tip-comments/comments/${commentId}`, {
     method: "PUT",
     headers: {
@@ -80,10 +80,10 @@ export const editComment = (tipId, userId, body, commentId) => async (dispatch) 
     },
     body: JSON.stringify(responseBody),
   });
-  console.log('response', response)
+  // console.log('response', response)
   if (response.ok) {
     const comment = await response.json();
-    console.log(comment)
+    // console.log(comment)
     dispatch(getComments(tipId));
     dispatch(getTipById(tipId))
     return comment;

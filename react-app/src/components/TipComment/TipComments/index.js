@@ -21,20 +21,24 @@ export default function TipComments(prop) {
   }
   const props = { tipId, currentUserId };
 
+  //
+  const sessionuser = useSelector(state => state.session.user)
+  // console.log('sessionuser==========>', sessionuser)
+  //
 
   useEffect(() => {
     dispatch(getComments(tipId));
   }, [dispatch, tipId]);
 
   const commentsList = Object.values(tipComments);
-  console.log('tipComments',tipComments)
-  console.log('COMMENTLSIT',commentsList)
+  // console.log('tipComments',tipComments)
+  // console.log('COMMENTLSIT',commentsList)
   // rewrites the date to month, year
   let createdAtSplit;
   let createdAtSlice = 0;
-  if(commentsList[0].body){
+  if(commentsList.length > 0 && commentsList[0].body){
     let createdAtDate = commentsList.map((comment) => (
-      console.log('COMMENT',comment),
+      // console.log('COMMENT',comment),
 
       createdAtSplit = comment.date_created.split(''),
       createdAtSlice = createdAtSplit.slice(8, 16).join('')
@@ -43,17 +47,17 @@ export default function TipComments(prop) {
   return (
     <div className="tip-comments-container">
       <div className="div-post-your-comment-button">
-        {
+        {currentUser && (
           <OpenModal
             buttonText="Post A Comment"
             modalComponent={<PostCommentModal props={props} />}
           />
-        }
+        )}
       </div>
       <div className="comments-div-holder">
-        {commentsList.map(({ id, body, user_id, date_created }) => (
+        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">User.firstName</div>
+            <div className="comment-firstname">{commenter?.first_name}</div>
             <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
             <div className="tip-comment-modal-button-container">

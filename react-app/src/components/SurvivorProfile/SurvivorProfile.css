@@ -32,7 +32,7 @@
     background-color: white;
     color: black;
     margin-top: 0;
-    height: 50%;
+    height: 50px;
     border: 1px solid #ff7518;
     font-weight: bold;
 }
@@ -41,8 +41,12 @@
     font-weight: 700;
 }
 
+#first-bubble-container {
+    height: fit-content;
+}
+
 #first-bubble-data, #second-bubble-data {
-    height: 50%;
+    height: fit-content;
     /* border: 1px solid red; */
 }
 
@@ -64,4 +68,32 @@
 
 #last-bubble-data {
     padding: 10px;
+}
+
+.survivor-profile-buttons {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.survivor-update-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ff7518;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 100px
+}
+
+.survivor-exit-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ff7518;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 100px
 }

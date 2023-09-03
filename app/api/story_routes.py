@@ -9,10 +9,21 @@ from ..forms.story_like_form import NewStoryLikeForm
 from .auth_routes import validation_errors_to_error_messages
 
 story_routes = Blueprint('stories', __name__)
+session = db.session
+
+def story_validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'A story {field} is required')
+    return errorMessages
 
 @story_routes.route('/all', methods=["GET"])
 def story_index():
-    all_stories = Stories.query.all()
+    all_stories = session.query(Stories).order_by(Stories.date_created)
     if not all_stories:
         error = {}
         error.message = "No stories found!"
@@ -80,7 +91,7 @@ def single_story(id):
     # result['likes'] = likes_result
     return result
 
-@login_required
+# @login_required
 @story_routes.route('/new', methods=["POST"])
 def post_story():
     form = NewStoryForm()
@@ -98,10 +109,10 @@ def post_story():
         db.session.add(story)
         db.session.commit()
         return story.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': story_validation_errors_to_error_messages(form.errors)}, 401
 
 
-@login_required
+# @login_required
 @story_routes.route('/<int:id>/update', methods=["PUT"])
 def update_story(id):
     curr_story = Stories.query.get(id)
@@ -120,7 +131,7 @@ def update_story(id):
         updated_story_dict = updated_story.to_dict()
         db.session.commit()
         return updated_story_dict
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': story_validation_errors_to_error_messages(form.errors)}, 401
 
 @story_routes.route('/user/<int:id>', methods=["GET"])
 def get_user_stories(id):
@@ -132,7 +143,7 @@ def get_user_stories(id):
         result[dict_curr_story['id']] = dict_curr_story
     return result
 
-@login_required
+# @login_required
 @story_routes.route('/<int:id>/delete', methods=["DELETE"])
 def delete_story(id):
     story = Stories.query.get(id)
@@ -144,7 +155,7 @@ def delete_story(id):
     db.session.commit()
     return story.to_dict()
 
-@login_required
+# @login_required
 @story_routes.route('/<int:id>/likes/new', methods=["POST"])
 def add_story_like(id):
     form = NewStoryLikeForm()
@@ -163,7 +174,7 @@ def add_story_like(id):
         return new_like.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@login_required
+# @login_required
 @story_routes.route('/likes/<int:likeId>/delete', methods=["DELETE"])
 def delete_story_like(likeId):
     story_like = StoryLikes.query.filter(StoryLikes.id == likeId).first()

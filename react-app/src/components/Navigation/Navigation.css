@@ -2,38 +2,7 @@
   height: auto;
   max-width: 150px;
 }
-.navbar button{
-  cursor: pointer;
-}
 
-ul.profile-dropdown {
-  background-color: #2f2f2f;
-  border: 2px solid black;
-  z-index: 55;
-}
-
-.profile-button-container {
-  margin-left: 10px;
-  z-index: 55
-
-}
-
-.dropdown-button {
-  width: 150px;
-  background-color: none;
-}
-
-.hidden {
-  display: none;
-}
-
-.navbar {
-  color: white
-}
-.nav-container button{
-  background-color:#ff7518;
-  border-radius: 10px;
-}
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -42,7 +11,81 @@ ul.profile-dropdown {
   font-family: 'Montserrat', sans-serif;
   background-color: #2f2f2f;
   border-bottom: #ff7518 1px solid;
+  position: relative;
 }
+
+.navbar button{
+  cursor: pointer;
+}
+
+#user-logged-in {
+  position: absolute;
+  top: 100px;
+  padding: 8px;
+  right: 20px;
+  width: 200px;
+  background-color: #2f2f2f;
+  border: 3px solid black;
+  box-shadow: 1px 1px 4px;
+  border-radius: 15px;
+  z-index: 9999 !important;
+  height: 150px;
+  font-size: 16px;
+  flex-direction: column;
+}
+#user-logged-in button{
+  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+#user-not-logged-in{
+  position: absolute;
+  top: 100px;
+  padding: 8px;
+  right: 20px;
+  width: 200px;
+  background-color: #2f2f2f;
+  border: 3px solid black;
+  box-shadow: 1px 1px 4px;
+  border-radius: 15px;
+  z-index: 55;
+  height: 85px;
+  align-items: center;
+}
+#user-not-logged-in button{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 4px;
+  font-size: 16px !important;
+  text-decoration: none !important;
+}
+
+#user-not-logged-in a{
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+.profile-button-container {
+  margin-left: 10px;
+  z-index: 55
+
+}
+
+.nav-container button{
+  background-color:#ff7518;
+  border-radius: 10px;
+}
+.hidden {
+  display: none;
+}
+
+.navbar {
+  color: white
+}
+
+
 
 .nav-left,
 .nav-right {
@@ -58,11 +101,9 @@ ul.profile-dropdown {
   margin: 0 10px;
 }
 
-.nav-left a,
-.nav-right a {
+.nav-left a {
   color: black;
   text-decoration: none;
-  font-weight: bold;
   font-size: 16px
 }
 

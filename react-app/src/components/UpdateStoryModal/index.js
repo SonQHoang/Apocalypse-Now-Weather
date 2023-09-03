@@ -1,47 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as storyActions from '../../store/stories'
-import { useDispatch } from 'react-redux'
-import { useModal } from '../../context/Modal.js'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import './UpdateStoryModal.css'
 
-const UpdateStoryModal = (story) => {
+const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
     const dispatch = useDispatch()
+    const modalOverlayRef = useRef()
+    const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
-    const { closeModal } = useModal()
-    const [title, setTitle] = useState(story.story.title)
-    const [body, setBody] = useState(story.story.body)
+    const [title, setTitle] = useState(storyData.title)
+    const [body, setBody] = useState(storyData.body)
     const [errors, setErrors] = useState([])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleClickOutside = (e) => {
+        if(modalOverlayRef.current === e.target) {
+            onClose()
+        }
+    }
 
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
+    const handleSubmit =  async () => {
         const updatedStory = {
             title: title,
             body: body
         }
 
-        dispatch(storyActions.updateUserStory(story.story.id, updatedStory)).then(async res => {
-            console.log("RESPONSE: ", res)
-            console.log(res.errors)
+        dispatch(storyActions.updateUserStory(storyId, updatedStory)).then(async res => {
             if(res.errors) {
                 setErrors(res.errors)
             } else {
-                closeModal()
+                dispatch(storyActions.getAllUserStories(sessionUser.id))
             }
         })
-        return history.push(`/stories/manage`)
+        return onSubmit()
     }
 
     return (
         <div id='update-story-modal-container'>
+            <div className="update-story-modal-content-container">
             <div id='update-story-modal-header'>
                 <h1>Update Story</h1>
             </div>
             <form id='update-create-story-form' onSubmit={handleSubmit}>
                 <div>
-                    <div>
-                        <label id='update-story-title-label' htmlFor='title'>Title</label>
+                    <div id='update-st-title-label-div'>
+                        <label id='update-story-title-label'>Title</label>
                     </div>
                     <div>
                         <input
@@ -55,7 +65,7 @@ const UpdateStoryModal = (story) => {
                     <div>{errors?.errors?.title}</div>
                 </div>
                 <div>
-                    <div>
+                    <div id='update-st-body-label-div'>
                         <label id='update-story-body-label' htmlFor='body'>Body</label>
                     </div>
                     <div>
@@ -73,12 +83,13 @@ const UpdateStoryModal = (story) => {
                     <div>{err}</div>
                 ))}
                 <div id='update-story-button-container'>
-                    <button type='submit' id='submit-updated-story-button'>Submit</button> <button id='cancel-story-update-button' onClick={closeModal}>Cancel</button>
+                    <button type='submit' id='submit-updated-story-button' onClick={handleSubmit}>Submit</button> <button id='cancel-story-update-button' onClick={onClose}>Cancel</button>
                 </div>
             </form>
             {/* <div>
                 <button onClick={closeModal}>Cancel</button>
             </div> */}
+        </div>
         </div>
     )
 }

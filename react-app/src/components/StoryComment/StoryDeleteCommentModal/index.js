@@ -5,7 +5,7 @@ import "./DeleteCommentModal.css";
 
 function DeleteCommentModal(props) {
   const { id, storyId } = props.props;
-  console.log("props", props.props, "id", id, "story", storyId);
+  // console.log("props", props.props, "id", id, "story", storyId);
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -23,12 +23,15 @@ function DeleteCommentModal(props) {
       <h2 className="confirm-delete-modal-text">
         Are you sure you want to delete this Comment?
       </h2>
+      <div>
+
       <button className="delete-modal-delete-Comment" onClick={handleDelete}>
         Yes (Delete Comment)
       </button>
       <button className="delete-modal-keep-Comment" onClick={closeModal}>
         No (Keep Comment)
       </button>
+      </div>
     </div>
   );
 }

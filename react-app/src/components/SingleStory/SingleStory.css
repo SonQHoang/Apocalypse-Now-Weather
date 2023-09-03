@@ -49,12 +49,13 @@
     background-color: white;
 }
 
-#modal-button {
+#single-story-container #modal-button {
     font-family: 'Montserrat', sans-serif;
     background-color: white;
     border: 1px solid black;
     height: 30px;
     margin-bottom: 2px;
+    /* border: blue solid 2px; */
 }
 
 #modal-button:hover {

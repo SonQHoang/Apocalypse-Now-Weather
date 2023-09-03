@@ -36,34 +36,44 @@ function LoginFormModal() {
   return (
     <>
       <section className="logincontainer">
+        <section className="logintitle">
       <h1>Log In</h1>
+      </section>
+      <section className="loginform">
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Email
+        <section className="loginInput">
+        <label className="logininputlabel">
+          Email</label>
           <input
+            className="loginInputField"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Password
+          /></section>
+        <section className="loginInput">
+        <label className="logininputlabel">
+          Password </label>
           <input
+            className="loginInputField"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Log In</button>
+        </section>
+        <section className="loginSubmitContainer">
+        <button id="loginsub" type="submit">Log In</button>
+        </section>
+
       </form>
-      <button className='demo-user' onClick={loginDemo}>Log In as Demo User</button>
+      </section>
+      <button id="demousersub" className='demo-user' onClick={loginDemo}>Log In as Demo User</button>
       </section>
     </>
   );

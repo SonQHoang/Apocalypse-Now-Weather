@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createTip } from "../../store/tips";
 import { useHistory } from 'react-router-dom';
@@ -13,7 +13,14 @@ const TipsAddForm = () => {
     const user = useSelector((state) => state.session.user);
     // console.log('Am I getting my user data back and does it have an id========> Yes', user)
 
-    
+    const isMountedRef = useRef(true)
+
+    useEffect(() => {
+        return () => {
+            isMountedRef.current = false
+        }
+    }, [])
+
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
     };
@@ -29,22 +36,29 @@ const TipsAddForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newTip = {
-            title: title,
-            weather_category: selectedCategory,
-            body: body,
-        };
+        if(isMountedRef.current) {
+            const newTip = {
+                title: title,
+                weather_category: selectedCategory,
+                body: body,
+            };
+
 
         // console.log('We are getting new tip data=====> Yes', newTip)
 
-        dispatch(createTip(newTip, user.id));
+        const createdTip = await dispatch(createTip(newTip, user.id));
 
+        if (createdTip) {
+            // console.log("Is the tip created?====>", createdTip)
+            history.push(`/tips/${createdTip.id}`)
+            // console.log("Push was fired======>")
+        }
         // Reset form fields after submission
         setTitle("");
         setSelectedCategory("");
         setBody("");
         // console.log('Do I get new tip back in this scope=======>', newTip)
-
+    }
     };
 
     return (
