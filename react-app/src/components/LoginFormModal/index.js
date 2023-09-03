@@ -46,15 +46,16 @@ function LoginFormModal() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        <section className="loginInput">
         <label>
-          Email
+          Email</label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </label>
+          /></section>
+
         <label>
           Password
           <input
