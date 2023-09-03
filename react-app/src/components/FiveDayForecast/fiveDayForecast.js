@@ -66,18 +66,16 @@ const FiveDayForecast = () =>{
     }
 
     if (weatherData && weatherData.dailyWeather) {
-      // Convert the 'date' array to an array of day names
+
       const date = time;
       const daysOfWeek = date.slice(5, 10).map((dateString) => {
-        // Assumes dateString is in the format "MM/DD"
+
         const [month, day] = dateString.split("/");
-        const currentYear = new Date().getFullYear();  // Get the current year
+        const currentYear = new Date().getFullYear();
         return getDayOfWeek(`${currentYear}-${month}-${day}`);
       });
 
-    // if (weatherData && weatherData.dailyWeather) {
-    //   const date = time;
-    //   const dailyWeather = weatherData.dailyWeather;
+
       return (
           <>
            <section className='fiveday-main-container'>
