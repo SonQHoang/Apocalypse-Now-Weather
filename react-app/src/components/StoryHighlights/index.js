@@ -22,6 +22,7 @@ const StoryHighlights = () => {
             <div className="awn_logo">
                 <img src="https://res.cloudinary.com/dgxpqnbwn/image/upload/v1693530420/AWN_Banner_1_-PhotoRoom.png-PhotoRoom_juuzmy.png" alt="AWN_banner"/>
             </div>
+            <FiveDayForcast />
         </div>
         <div id='landing-page-description-container'>
             <p>Welcome to Apocalypse Weather Now: Your portal to the world of cataclysmic climate. Explore the awe-inspiring and terrifying weather phenomena that could reshape our world. From solar flares and sentient clouds to time-skipping storms and fractal rain, delve into a world where Mother Nature's fury knows no bounds. Discover these fantastical weather events, their impacts, and the survival stories that emerge from the chaos. Step into a realm where the unpredictable reigns supreme, and prepare to be astonished.</p>

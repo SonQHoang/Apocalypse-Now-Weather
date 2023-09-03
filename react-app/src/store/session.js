@@ -23,6 +23,7 @@ export const authenticate = () => async (dispatch) => {
 	});
 	if (response.ok) {
 		const data = await response.json();
+		console.log(data)
 		if (data.errors) {
 			return;
 		}
@@ -133,6 +134,7 @@ export const signUp = (formBody, history) => async (dispatch) => {
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
+
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };
