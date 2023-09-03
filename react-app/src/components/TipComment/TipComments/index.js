@@ -47,12 +47,12 @@ export default function TipComments(prop) {
   return (
     <div className="tip-comments-container">
       <div className="div-post-your-comment-button">
-        {
+        {currentUser && (
           <OpenModal
             buttonText="Post A Comment"
             modalComponent={<PostCommentModal props={props} />}
           />
-        }
+        )}
       </div>
       <div className="comments-div-holder">
         {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (

@@ -28,15 +28,15 @@ function TipDetailsPage() {
         <>
             <div className="tip-details-container">
                 <div className="tip-details-header">
-                <div className="single-tip-h1-tag">
-                    <h1 className="tip-details-title">{tip.title}</h1>
-                </div>
-                <div>
-                    <h3 className="tip-details-weather-category">{tip?.weather_category}</h3>
-                </div>
-                <div className="single-tip-author">
+                    <div className="single-tip-h1-tag">
+                        <h1 className="tip-details-title">{tip.title}</h1>
+                    </div>
+                    <div>
+                        <h3 className="tip-details-weather-category">{tip?.weather_category}</h3>
+                    </div>
+                    <div className="single-tip-author">
                         <p>By: <NavLink exact to={`/survivors/${tip?.author?.id}`} className='author-nav-link'>{tip?.author?.username}</NavLink></p>
-                </div>
+                    </div>
                 </div>
                 <div>
                     <p className="tip-details-body">{tip.body}</p>

@@ -58,9 +58,13 @@ function GetAllTips() {
                         }
                     }} >
                         <div className="single-tip-header">
-                            <h2 className="single-tip-title">{`${tip.title}`}</h2>
+                            <NavLink className="remove-nav-link-underline" exact to={`/tips/${tip.id}`}>
+                                <h2 className="single-tip-title">{`${tip.title}`}</h2>
+                            </NavLink>
                             <h3 className="single-tip-weather-category">{`${tip.weather_category}`}</h3>
-                            <p className="single-tip-author">{tip?.author?.username ? <p> By: {tip?.author?.username}</p> : null}</p>
+                            <NavLink className="remove-nav-link-underline" exact to={`survivors/${tip.author.id}`}>
+                                <p className="single-tip-author">{tip?.author?.username ? <p> By: {tip?.author?.username}</p> : null}</p>
+                            </NavLink>
                         </div>
                         <div className="tip-body-container">
                             <p className="tip-body">{`${tip.body}`}</p>
