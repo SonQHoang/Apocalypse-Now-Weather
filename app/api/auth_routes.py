@@ -117,6 +117,7 @@ def update_profile():
     form = UpdateProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    print("auth route form", form)
     if form.validate_on_submit():
         user = current_user
 

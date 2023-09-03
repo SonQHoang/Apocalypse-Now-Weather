@@ -117,7 +117,7 @@ export const update = (formBody, history) => async (dispatch) => {
 		},
 		body: JSON.stringify(formBody),
 	});
-
+		console.log("thunk response", response)
 	const data = await response.json();
 	console.log("session data========>", data)
 	if (response.ok) {
