@@ -24,10 +24,9 @@ export default function StoryComments(prop) {
   const props = { storyId, currentUserId };
 
     //
-    const sessionuser = useSelector(state => state.session.user)
+  const sessionuser = useSelector(state => state.session.user)
     // console.log('sessionuser==========>', sessionuser)
     //
-
 
   useEffect(() => {
     dispatch(getComments(storyId));
@@ -59,9 +58,9 @@ return (
       </div>
       )}
       <div className="comments-div-holder">
-        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created }) => (
+        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">{sessionuser?.first_name}</div>
+            <div className="comment-firstname">{commenter?.first_name}</div>
             <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
             {user_id === currentUserId &&  (

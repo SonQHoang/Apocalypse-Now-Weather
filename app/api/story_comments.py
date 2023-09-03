@@ -18,7 +18,19 @@ def get_story_comments(id):
     comments = StoryComments.query.filter(StoryComments.story_id == id).all()
     users = User.query.all()
     result = [comment.to_dict() for comment in comments]
-    return jsonify(result)
+    results = []
+    for comment in comments:
+        comment_dict = comment.to_dict()
+        commenter = comment.commenter
+        comment_dict['commenter'] = commenter.to_dict()
+        results.append(comment_dict)
+    print("""
+          THEIR RESULT:
+          """, result)
+    print("""
+          MY RESULT:
+          """, results)
+    return jsonify(results)
 
 @story_comments.route("/comments/new", methods=['POST'])
 def post_comment():

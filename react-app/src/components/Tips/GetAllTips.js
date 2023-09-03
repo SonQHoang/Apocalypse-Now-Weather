@@ -53,9 +53,9 @@ function GetAllTips() {
                         </div>
                     </div> */}
                     <div className="single-tip-container" onClick={() => {
-                        // if (user !== null) {
+                        if (user !== null) {
                             history.push(`/tips/${tip.id}`)
-                        // }
+                        }
                     }} >
                         <div className="single-tip-header">
                             <h2 className="single-tip-title">{`${tip.title}`}</h2>
