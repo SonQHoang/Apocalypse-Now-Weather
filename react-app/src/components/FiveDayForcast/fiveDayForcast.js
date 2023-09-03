@@ -8,22 +8,18 @@ import { getForcast } from "../../store/userForcast";
 
 const FiveDayForcast = () =>{
     const dispatch = useDispatch()
-    const userLocation = useSelector(state => state.userLocation.userLocation)
-    const userForcast = useSelector((state) => state.userLocation.userForcast);
+
+    const userLocationAndForcast = useSelector((state) => state.userLocation);
     const sessionUser = useSelector((state) => state.session.user);
-    const [count, setCount] = useState(0);
+
     let dailyWeatherCode;
-
-    console.log("FORCAST", userForcast);
-
     let weatherData = {};
 
     useEffect(() => {
-      dispatch(getLocation());
-      setCount(1);
+        dispatch(getLocation());
+    }, [dispatch]);
 
-    }, [dispatch, userLocation]);
-
+    console.log(userLocationAndForcast.userForcast)
 
     const setWeatherData = (userForcast, weatherData) => {
       console.log("USER FORCAST", userForcast);

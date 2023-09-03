@@ -21,25 +21,17 @@ export default function TipComments(prop) {
   }
   const props = { tipId, currentUserId };
 
-  //
-  const sessionuser = useSelector(state => state.session.user)
-  // console.log('sessionuser==========>', sessionuser)
-  //
 
   useEffect(() => {
     dispatch(getComments(tipId));
   }, [dispatch, tipId]);
 
   const commentsList = Object.values(tipComments);
-  // console.log('tipComments',tipComments)
-  // console.log('COMMENTLSIT',commentsList)
-  // rewrites the date to month, year
+
   let createdAtSplit;
   let createdAtSlice = 0;
   if(commentsList.length > 0 && commentsList[0].body){
     let createdAtDate = commentsList.map((comment) => (
-      // console.log('COMMENT',comment),
-
       createdAtSplit = comment.date_created.split(''),
       createdAtSlice = createdAtSplit.slice(8, 16).join('')
     ))
@@ -55,7 +47,7 @@ export default function TipComments(prop) {
         )}
       </div>
       <div className="comments-div-holder">
-        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (
+        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, commenter }) => (
           <div key={id} className="spot-single-comment-div">
             <div className="comment-firstname">{commenter?.first_name}</div>
             <div className="comment-created-date">{createdAtSlice}</div>
