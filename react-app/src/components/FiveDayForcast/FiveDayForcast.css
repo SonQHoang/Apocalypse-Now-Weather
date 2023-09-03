@@ -14,8 +14,20 @@
 }
 
 
+.forcast-container-weather{
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 5px
+}
+
+
+
 .forcast-container-weather-date {
     padding-bottom: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
 }
 
 

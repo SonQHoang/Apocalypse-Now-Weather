@@ -70,7 +70,7 @@ const FiveDayForcast = () =>{
           <div className="forcast-container">
             <>
               <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[5]}</div>
+                <div className='forcast-container-weather-date first-weather-container'>{date[5]}</div>
                 <div className='forcast-container-weather-weather'>{dailyWeather[0]}</div>
                 <div>Temp: {maxTemp[0]}</div>
               </div>
