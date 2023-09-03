@@ -9,27 +9,30 @@ import { getForcast } from "../../store/userForcast";
 const FiveDayForcast = () =>{
     const dispatch = useDispatch()
 
-    const userLocationAndForcast = useSelector((state) => state.userLocation);
+    const userLocation = useSelector((state) => state.userLocation.userLocation);
+    const userForcast = useSelector((state) => state.userLocation.userForcast);
     const sessionUser = useSelector((state) => state.session.user);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    let dailyWeatherCode;
-    let weatherData = {};
+
+
+
 
     useEffect(() => {
-        dispatch(getLocation());
+        dispatch(getLocation()).then(() => setIsLoaded(true))
     }, [dispatch]);
 
-    console.log(userLocationAndForcast.userForcast)
+    let time;
+    let weathercode;
+    let maxTemp;
+    let weatherData;
 
-    const setWeatherData = (userForcast, weatherData) => {
-      console.log("USER FORCAST", userForcast);
-      weatherData.dailyMaxTemp = userForcast.temperature_2m_max;
-      console.log('WEATHERDATA.DAILYMAXTEMP', weatherData.dailyMaxTemp)
-      dailyWeatherCode = userForcast.weathercode;
+    const setWeatherData = (weathercode) => {
+      weatherData = {}
       let convertedDailyWeather = [];
       let dailyWeather = [];
-      for (let i = 0; i < dailyWeatherCode.length; i++) {
-        convertedDailyWeather.push(apocWeatherConverter(dailyWeatherCode[i]));
+      for (let i = 0; i < weathercode.length; i++) {
+        convertedDailyWeather.push(apocWeatherConverter(weathercode[i]));
       }
       convertedDailyWeather.forEach((day) => {
         dailyWeather.push(day.name);
@@ -37,27 +40,29 @@ const FiveDayForcast = () =>{
       weatherData.dailyWeather = dailyWeather;
       return weatherData;
     };
+    if(userForcast && userForcast.time) {
+        time = userForcast.time
+        weathercode = userForcast.weathercode
+        maxTemp = userForcast.temperature_2m_max
+        setWeatherData(weathercode)
+    }
 
 
-    console.log("WEATHER DATA", weatherData);
 
 
 
-    if(weatherData) {
-      // console.log('DAILY WEATHER',weatherData)
-      // console.log('DAILY WEATHER WEATHER', weatherData.dailyWeather)
-      // console.log('DAILY WEATHER TEMP', weatherData.dailyMaxTemp)
-      // console.log('OBJECT KEYS', Object.values(weatherData))
+    if(weatherData && weatherData.dailyWeather) {
+        const dailyWeather = weatherData.dailyWeather
+        console.log(dailyWeather)
       return (
         <>
-          {/* <h1>5 Day Forcast</h1> */}
+          <h1>5 Day Forcast</h1>
           <div className="forcast-container">
-            {/* {weatherData.map((dailyMaxTemp, dailyWeather) = (
+            {dailyWeather.map((day) => (
                         <>
-                        <div className='forcast-container-weather'>{dailyWeather}</div>
-                        <div className='forcast-container-weather'>{dailyMaxTemp}</div>
+                        <div className='forcast-container-weather'>{day}</div>
                         </>
-                    ))} */}
+            ))}
           </div>
         </>
       );

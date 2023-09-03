@@ -9,6 +9,7 @@ const StoryHighlights = () => {
   const dispatch = useDispatch();
   const stories = useSelector((state) => state.stories.allStories);
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
 
     useEffect(() => {
         dispatch(storyActions.getHighlights()).then(() => setIsLoaded(true))
@@ -22,7 +23,7 @@ const StoryHighlights = () => {
             <div className="awn_logo">
                 <img src="https://res.cloudinary.com/dgxpqnbwn/image/upload/v1693530420/AWN_Banner_1_-PhotoRoom.png-PhotoRoom_juuzmy.png" alt="AWN_banner"/>
             </div>
-            <FiveDayForcast />
+            <FiveDayForcast key={sessionUser.id}/>
         </div>
         <div id='landing-page-description-container'>
             <p>Welcome to Apocalypse Weather Now: Your portal to the world of cataclysmic climate. Explore the awe-inspiring and terrifying weather phenomena that is reshaping our world. From solar flares and sentient clouds to time-skipping storms and fractal rain, delve into a world where Mother Nature's fury knows no bounds.</p>
