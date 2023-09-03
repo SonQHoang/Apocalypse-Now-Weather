@@ -52,6 +52,7 @@ function CustomMarker({ map }) {
     ));
 }
 
+// Adding a new comment.... to update
 function LocationSetter({ setLatitude, setLongitude }) {
     const map = useMapEvents({
         click: (e) => {
