@@ -78,8 +78,8 @@ function UpdateProfileModal() {
     const [email, setEmail] = useState(sessionUser.email);
     const [username, setUsername] = useState(sessionUser.username);
     const [location, setlocation] = useState(sessionUser.location);
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
+    const [latitude, setLatitude] = useState(sessionUser.latitude);
+    const [longitude, setLongitude] = useState(sessionUser.longitude);
     const [bio, setBio] = useState(sessionUser.bio);
     const [prepper_type, setPrepperType] = useState(sessionUser.prepper_type);
     const [prepper_description, setPrepper_Description] = useState(sessionUser.prepper_description);

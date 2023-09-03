@@ -106,8 +106,8 @@ export const signUp = (formBody, history) => async (dispatch) => {
 };
 
 export const update = (formBody, history) => async (dispatch) => {
-	// console.log('New info in formBody====>', formBody)
-	// console.log("What is history=====>", history)
+	console.log('New info in formBody====>', formBody)
+	console.log("What is history=====>", history)
 	// try {
 	const response = await fetch("/api/auth/update", {
 		method: "PUT",
@@ -118,7 +118,7 @@ export const update = (formBody, history) => async (dispatch) => {
 	});
 
 	const data = await response.json();
-	console.log("session data*********", data)
+	console.log("session data========>", data)
 	if (response.ok) {
 		dispatch(setUser(data));
 		history.push('/');
