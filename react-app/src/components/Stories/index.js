@@ -4,7 +4,7 @@ import * as storyActions from '../../store/stories'
 import { NavLink } from 'react-router-dom'
 import './Stories.css'
 import StoryLikesComponent from '../StoryLikes'
-import FiveDayForcast from "../FiveDayForcast/fiveDayForcast";
+
 
 const StoriesComponent = () => {
   const dispatch = useDispatch();

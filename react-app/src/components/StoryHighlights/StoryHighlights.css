@@ -7,9 +7,22 @@
     z-index: 0;
     /* border: 2px solid red; */
 }
-.five-day-forcast-container {
-    z-index: 500;
-    width: 100%;
+.five-day-forecast-container {
+    width: 1000px;
+    height:200px;
+    border: 1px solid #ff7518;;
+    margin-top: 20px;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.five-day-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .awn_logo {

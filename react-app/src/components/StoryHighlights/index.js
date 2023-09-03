@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as storyActions from '../../store/stories'
 import { NavLink } from 'react-router-dom'
-import FiveDayForcast from "../FiveDayForcast/fiveDayForcast";
+import FiveDayForecast from '../FiveDayForecast/fiveDayForecast'
 
 const StoryHighlights = () => {
     const dispatch = useDispatch();
@@ -28,9 +28,9 @@ const StoryHighlights = () => {
                 <p>Welcome to Apocalypse Weather Now: Your portal to the world of cataclysmic climate. Explore the awe-inspiring and terrifying weather phenomena that is reshaping our world. From solar flares and sentient clouds to time-skipping storms and fractal rain, delve into a world where Mother Nature's fury knows no bounds.</p>
                 <p>Discover these fantastical weather events, their impacts, and the survival stories that emerge from the chaos. Step into a realm where the unpredictable reigns supreme, and prepare to be astonished.</p>
             </div>
-        <div>
-                <div className='five-day-forcast-container'>
-                    <FiveDayForcast />
+        <div className='five-day-container'>
+                <div className='five-day-forecast-container'>
+                    <FiveDayForecast />
                 </div>
 
         </div>

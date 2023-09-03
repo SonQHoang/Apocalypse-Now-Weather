@@ -1,4 +1,4 @@
-import './FiveDayForcast.css'
+import './FiveDayForecast.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLocation } from "../../store/userLocation"
@@ -6,7 +6,7 @@ import apocWeatherConverter from '../ApocWeather/apocweatherfunc'
 import { getForcast } from "../../store/userForcast";
 
 
-const FiveDayForcast = () =>{
+const FiveDayForecast = () =>{
     const dispatch = useDispatch()
 
     const userLocation = useSelector((state) => state.userLocation.userLocation);
@@ -15,7 +15,13 @@ const FiveDayForcast = () =>{
     const [isLoaded, setIsLoaded] = useState(false);
 
 
-
+    const getDayOfWeek = (dateString) => {
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const [year, month, day] = dateString.split('-');
+      const date = new Date(Date.UTC(year, month - 1, day));
+      const dayIndex = date.getUTCDay();
+      return days[dayIndex];
+    };
 
 
     useEffect(() => {
@@ -59,43 +65,34 @@ const FiveDayForcast = () =>{
     }
 
     if (weatherData && weatherData.dailyWeather) {
+      // Convert the 'date' array to an array of day names
       const date = time;
-      const dailyWeather = weatherData.dailyWeather;
+      const daysOfWeek = date.slice(5, 10).map((dateString) => {
+        // Assumes dateString is in the format "MM/DD"
+        const [month, day] = dateString.split("/");
+        const currentYear = new Date().getFullYear();  // Get the current year
+        return getDayOfWeek(`${currentYear}-${month}-${day}`);
+      });
+
+    // if (weatherData && weatherData.dailyWeather) {
+    //   const date = time;
+    //   const dailyWeather = weatherData.dailyWeather;
       return (
           <>
-          <div className='heading-container'>
-            <h1>5 Day Forcast</h1>
-
-          </div>
-          <div className="forcast-container">
-            <>
-              <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[5]}</div>
-                <div className='forcast-container-weather-weather'>{dailyWeather[0]}</div>
-                <div>Temp: {maxTemp[0]}</div>
-              </div>
-              <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[6]}</div>
-                <div className='forcast-container-weather-weather'>{dailyWeather[1]}</div>
-                <div>Temp: {maxTemp[1]}</div>
-              </div>
-              <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[7]}</div>
-                <div className='forcast-container-weather-weather'>{dailyWeather[2]}</div>
-                <div>Temp: {maxTemp[2]}</div>
-              </div>
-              <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[8]}</div>
-                <div className='forcast-container-weather-weather'>{dailyWeather[3]}</div>
-                <div>Temp: {maxTemp[3]}</div>
-              </div>
-              <div className="forcast-container-weather">
-                <div className='forcast-container-weather-date'>{date[9]}</div>
-                <div className='forcast-container-weather-weather'>{dailyWeather[4]}</div>
-                <div>Temp: {maxTemp[4]}</div>
-              </div>
-            </>
-          </div>
+           <section className='fiveday-main-container'>
+        <div className='heading-container'>
+          <h1>5 Day Forecast</h1>
+        </div>
+        <div className="forecast-container">
+          {daysOfWeek.map((day, index) => (
+            <div className="forecast-container-weather" key={index}>
+              <div className='forecast-container-weather-date'>{day}</div>
+              <div className='forecast-container-weather-weather'>{weatherData.dailyWeather[index]}</div>
+              <div className='forecast-container-weather-temp'>Temp: {maxTemp[index]}</div>
+            </div>
+          ))}
+        </div>
+      </section>
         </>
       );
     } else {
@@ -117,4 +114,4 @@ const FiveDayForcast = () =>{
 }
 
 
-export default FiveDayForcast;
+export default FiveDayForecast;
