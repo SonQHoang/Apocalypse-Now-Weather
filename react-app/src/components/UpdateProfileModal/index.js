@@ -71,7 +71,7 @@ function UpdateProfileModal() {
 
     const sessionUser = useSelector(state => state.session.user)
     console.log('sessionUser===========>', sessionUser)
-
+    console.log("session user prepper type", sessionUser.prepper_type)
     const dispatch = useDispatch();
     const history = useHistory()
     const [first_name, setFirst_Name] = useState(sessionUser.first_name);
@@ -202,7 +202,7 @@ function UpdateProfileModal() {
             // console.log("Setting description:", description);
             setPrepper_Description(description);
         }
-    }, [prepper_type, setPrepperType]);
+    }, [prepper_type]);
 
     return (
         <>
