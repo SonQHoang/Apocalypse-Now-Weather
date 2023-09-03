@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
 import * as storyActions from '../../store/stories'
 import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from '../../context/Modal.js'
@@ -7,21 +7,22 @@ import './DeleteStoryModal.css'
 const DeleteStoryModal = ({ onSubmit, onClose, storyId }) => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    const modalOverlayRef = useRef()
+    const modalOverlayRef = useRef();
     const { closeModal } = useModal()
 
-    const handleClickOutside = (e) => {
-        if(modalOverlayRef.current === e.target) {
-            onClose()
+    const handleClickOutside = useCallback((e) => {
+        if (modalOverlayRef.current === e.target) {
+            onClose();
         }
-    }
+    }, [onClose]);
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    }, [handleClickOutside])
+
 
     // const handleSubmit = (e) => {
     //     e.preventDefault()
@@ -35,7 +36,10 @@ const DeleteStoryModal = ({ onSubmit, onClose, storyId }) => {
     }
 
     return (
-        <div id='delete-story-modal-container' ref={modalOverlayRef}>
+        <>
+        <div className='story-delete-modal-backdrop'></div>
+        <div className="delete-modal-overlay" ref={modalOverlayRef}>
+        <div id='delete-story-modal-container'>
             <div id='delete-story-modal-header'>
                 <h1>Confirm Delete</h1>
                 <p>Are you sure you want to permanently delete this story?</p>
@@ -47,6 +51,8 @@ const DeleteStoryModal = ({ onSubmit, onClose, storyId }) => {
                 </div>
             </form>
         </div>
+        </div>
+        </>
     )
 }
 
