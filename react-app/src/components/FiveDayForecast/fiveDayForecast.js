@@ -12,8 +12,9 @@ const FiveDayForecast = () =>{
     const userLocation = useSelector((state) => state.userLocation.userLocation);
     const userForcast = useSelector((state) => state.userLocation.userForcast);
     const sessionUser = useSelector((state) => state.session.user);
+    const city = useSelector((state)=> state.userLocation.city)
+    const country = useSelector((state)=> state.userLocation.country)
     const [isLoaded, setIsLoaded] = useState(false);
-
 
     const getDayOfWeek = (dateString) => {
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -81,7 +82,7 @@ const FiveDayForecast = () =>{
           <>
            <section className='fiveday-main-container'>
         <div className='heading-container'>
-          <h1>5 Day Forecast</h1>
+          <h1>5 Day Forecast for {city}, {country}</h1>
         </div>
         <div className="forecast-container">
           {daysOfWeek.map((day, index) => (
