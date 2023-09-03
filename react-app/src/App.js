@@ -88,11 +88,11 @@ function App() {
           <Route exact path='/quiz'>
             <PrepperTypeQuiz />
           </Route>
-          <Route exact path='/survivors/:id'>
-            <OtherSurvivorProfile />
-          </Route>
           <Route exact path='/survivors/current'>
             <SurvivorProfile />
+          </Route>
+          <Route exact path='/survivors/:id'>
+            <OtherSurvivorProfile />
           </Route>
         </Switch>
       )}
