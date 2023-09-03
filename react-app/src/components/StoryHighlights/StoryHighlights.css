@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #c52233;
+    background-color: #BF0101;
     border-radius: 5px;
 }
 
@@ -58,6 +58,10 @@
     color: white;
 }
 
+#story-highlights-author-text {
+    color: white
+}
+
 #story-highlights-author-text, #story-highlights-body-preview {
     font-family: 'Montserrat', sans-serif;
 }
@@ -70,8 +74,13 @@
 }
 
 #story-highlights-title-div {
-    background-color: #7400cc;
+    background-color: #2f2f2f;
     border-radius: 16px 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid orange; */
 }
 
 #single-story-body-container {
@@ -80,6 +89,7 @@
 
 .individual-story-title-preview {
     padding-left: 15px;
+    color: #ff7518
 }
 
 #landing-page-parent {
