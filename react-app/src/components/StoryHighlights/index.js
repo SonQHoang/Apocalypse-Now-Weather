@@ -34,9 +34,10 @@ const StoryHighlights = () => {
                 </div>
 
         </div>
-            <div id='landing-page-parent'>
+        <h2 id='story-highlights-header'>Trending Stories</h2>
+
                 <div id='story-highlights-parent'>
-                    <h2 id='story-highlights-header'>Trending Stories</h2>
+                <div id="story-highlights-outer-container">
                     <div id='story-highlights-container'>
                         {isLoaded && storiesToMap && storiesToMap?.map(story => (
                             <div id='individual-story-preview-container'>
@@ -57,14 +58,16 @@ const StoryHighlights = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-                <div id='banner-div'>
+                    </div>
+                    <div id='banner-div'>
                     <NavLink exact to='/quiz'>
                         <img id='landing-page-quiz-banner' src="https://i.ibb.co/VJJkHQR/newest-banner.png" alt="prepper-type-banner" border="0"></img>
                     </NavLink>
                 </div>
+                </div>
+
             </div>
-        </div>
+
     )
 }
 
