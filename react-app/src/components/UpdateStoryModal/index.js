@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import * as storyActions from '../../store/stories'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -13,18 +13,19 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
     const [body, setBody] = useState(storyData.body)
     const [errors, setErrors] = useState([])
 
-    const handleClickOutside = (e) => {
-        if(modalOverlayRef.current === e.target) {
-            onClose()
+
+    const handleClickOutside = useCallback((e) => {
+        if (modalOverlayRef.current === e.target) {
+            onClose();
         }
-    }
+    }, [onClose]);
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [])
+    }, [handleClickOutside])
 
     const handleSubmit =  async () => {
         const updatedStory = {
@@ -43,10 +44,13 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
     }
 
     return (
+        <>
+        <div className='story-update-modal-backdrop'></div>
+        <div className="update-modal-overlay" ref={modalOverlayRef}>
         <div id='update-story-modal-container'>
             <div className="update-story-modal-content-container">
             <div id='update-story-modal-header'>
-                <h1>Update Story</h1>
+                <h2>Update Story</h2>
             </div>
             <form id='update-create-story-form' onSubmit={handleSubmit}>
                 <div>
@@ -83,7 +87,8 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
                     <div>{err}</div>
                 ))}
                 <div id='update-story-button-container'>
-                    <button type='submit' id='submit-updated-story-button' onClick={handleSubmit}>Submit</button> <button id='cancel-story-update-button' onClick={onClose}>Cancel</button>
+                    <button type='submit' id='submit-updated-story-button' onClick={handleSubmit}>Submit</button>
+                    <button id='cancel-story-update-button' onClick={onClose}>Cancel</button>
                 </div>
             </form>
             {/* <div>
@@ -91,6 +96,8 @@ const UpdateStoryModal = ({ onSubmit, onClose, storyId, storyData }) => {
             </div> */}
         </div>
         </div>
+        </div>
+        </>
     )
 }
 

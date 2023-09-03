@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom"
@@ -44,7 +45,7 @@ const ManageTips = () => {
         <>
             <div className="manage-tips-container">
                 <div className="manage-tips-header">
-                    <h1>Manage Your Tips</h1>
+                    <h1 id='all-tips-h1'>Manage Your Tips</h1>
                     {user !== null ? (
                         <NavLink exact to='/tips/new'>
                             <button className="create-new-tip-button">Create a New Tip</button>
@@ -68,7 +69,7 @@ const ManageTips = () => {
                             return handleUpdateClick(tip)
                         }}>Update Tip</button>
                         <UpdateTip tipId={tip.id} />
-                        
+
                         <button className="tip-delete-button" onClick={() => {
                             return handleDeleteClick(tip)
                         }}>Delete Tip</button>

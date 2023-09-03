@@ -7,3 +7,12 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
+
+#single-story-container button{
+    background-color: #ff7518;
+    border-radius: 8px;
+
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}

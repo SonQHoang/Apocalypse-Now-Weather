@@ -32,6 +32,8 @@ const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
     };
 
     return (
+        <>
+        <div className='delete-modal-backdrop'></div>
         <div className="delete-modal-overlay" ref={modalOverlayRef}>
             <div className="delete-modal-content">
                 <h2>Confirm Delete</h2>
@@ -50,6 +52,7 @@ const DeleteTipsModal = ({ onSubmit, onClose, tipId}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
