@@ -32,7 +32,7 @@
     background-color: white;
     color: black;
     margin-top: 0;
-    height: 50%;
+    height: 50px;
     border: 1px solid #ff7518;
     font-weight: bold;
 }
@@ -41,8 +41,12 @@
     font-weight: 700;
 }
 
+#first-bubble-container {
+    height: fit-content;
+}
+
 #first-bubble-data, #second-bubble-data {
-    height: 50%;
+    height: fit-content;
     /* border: 1px solid red; */
 }
 
