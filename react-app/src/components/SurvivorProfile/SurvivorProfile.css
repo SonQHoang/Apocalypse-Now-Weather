@@ -81,7 +81,8 @@
 .survivor-update-button {
     font-family: 'Montserrat', sans-serif;
     background-color: #ff7518;
-    color: white;
+    color: black;
+    font-weight: bold;
     border-radius: 8px;
     padding: 5px;
     min-width: 100px
@@ -90,8 +91,9 @@
 .survivor-exit-button {
     font-family: 'Montserrat', sans-serif;
     background-color: #ff7518;
-    color: white;
+    color: black;
+    font-weight: bold;
     border-radius: 8px;
     padding: 5px;
-    min-width: 100px 
+    min-width: 100px
 }
