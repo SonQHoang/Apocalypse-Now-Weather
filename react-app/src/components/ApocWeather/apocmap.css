@@ -17,8 +17,11 @@ body, html {
   width: 100%;
   border: 5px solid #ff7518;
   /* overflow: visible; */
-}
 
+}
+.mappagebodycontainer .leaflet-touch{
+  z-index: 0;
+}
 .mappagebodycontainer .titleinfo{
   display: flex;
   justify-content: center;
@@ -36,6 +39,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 .mappagebodycontainer .mapmap{
   width: 60%;

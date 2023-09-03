@@ -28,7 +28,7 @@
   border: 3px solid black;
   box-shadow: 1px 1px 4px;
   border-radius: 15px;
-  z-index: 55;
+  z-index: 9999 !important;
   height: 150px;
   font-size: 16px;
   flex-direction: column;
