@@ -60,7 +60,7 @@ const StoryHighlights = () => {
                 </div>
                 <div id='banner-div'>
                     <NavLink exact to='/quiz'>
-                        <img id='landing-page-quiz-banner' src="https://i.ibb.co/fMFWNzL/banner-red-background.png" alt="prepper-type-banner" border="0"></img>
+                        <img id='landing-page-quiz-banner' src="https://i.ibb.co/VJJkHQR/newest-banner.png" alt="prepper-type-banner" border="0"></img>
                     </NavLink>
                 </div>
             </div>
