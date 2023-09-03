@@ -69,10 +69,12 @@ def get_user_tips():
 @bp.route('/tips/<int:tip_id>')
 def get_tip_by_id(tip_id):
     tip = Tips.query.get(tip_id)
-    
+
+    print(tip.author)
+
     if tip is None:
         return jsonify({"error": "Tip not found"}), 404
-    
+
     tip_data = {
     "title": tip.title,
     "weather_category": tip.weather_category,

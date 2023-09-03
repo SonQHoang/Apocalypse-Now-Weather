@@ -11,8 +11,11 @@ function TipDetailsPage() {
     const sessionUser = useSelector(state => state.session.user)
     // console.log('sessionuser=========>', sessionUser.username)
     const dispatch = useDispatch()
+    const allTips = useSelector((state) => state.tips.allTips)
     const tip = useSelector((state) => state.tips.singleTip)
     // console.log('Do I see any tips?====> Yes', tip)
+
+    console.log(allTips[tipId-1])
 
     useEffect(() => {
         dispatch(getTipById(tipId))
