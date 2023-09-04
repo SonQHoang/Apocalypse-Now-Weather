@@ -7,7 +7,8 @@ const SurvivorProfile = () => {
     const sessionUser = useSelector(state => state.session.user)
     // const { closeModal } = useModal()
     return (
-        <div id='survivor-profile-wrapper'>
+        <>
+        <div className='survivor-profile-wrapper'>
             <div id='survivor-profile-container'>
                 <div className='profile-item-container' id='first-profile-item'>
                     <h2>{sessionUser.first_name} {sessionUser.last_name}</h2>
@@ -53,6 +54,7 @@ const SurvivorProfile = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
