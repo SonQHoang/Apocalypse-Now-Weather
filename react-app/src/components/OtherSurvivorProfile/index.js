@@ -25,10 +25,15 @@ const OtherSurvivorProfile = () => {
     }, [])
 
     return (
+        <>
+        <section className='profilecontainerother'>
         <div id='survivor-profile-wrapper'>
             <div id='survivor-profile-container'>
                 <div className='profile-item-container' id='first-profile-item'>
                     <h2>{isLoaded && userData?.first_name} {isLoaded && userData?.last_name}</h2>
+                </div>
+                <div className='profile-item-container' id='location-profile-item'>
+                    <h2>Hiding in the vicinity of: <br></br> {isLoaded && userData?.location}</h2>
                 </div>
                 <div className='profile-item-container' id='second-profile-item'>
                     <h3>@{isLoaded && userData?.username}</h3>
@@ -62,6 +67,8 @@ const OtherSurvivorProfile = () => {
                 </div>
             </div>
         </div>
+        </section>
+        </>
     )
 }
 

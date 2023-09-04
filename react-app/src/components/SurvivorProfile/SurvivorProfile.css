@@ -6,11 +6,11 @@ body, html {
     flex-direction: column;
 }
 
-
-
 .survivor-profile-wrapper{
-height: 85%;
+height: 100%;
 }
+
+
 #survivor-profile-container {
     display: flex;
     flex-direction: column;
@@ -20,7 +20,8 @@ height: 85%;
     border-right: #ff7518 5px solid;
     font-family: 'Montserrat', sans-serif;
     height: 100%;
-    margin-bottom: 25px;
+    padding-bottom: 20px;
+
 }
 
 .profile-item-container {
@@ -94,7 +95,8 @@ height: 85%;
     font-weight: bold;
     border-radius: 8px;
     padding: 5px;
-    min-width: 100px
+    min-width: 100px;
+    margin-right: 10px;
 }
 
 .survivor-exit-button {
