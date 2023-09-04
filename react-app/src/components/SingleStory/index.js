@@ -49,7 +49,8 @@ const SingleStoryComponent = () => {
     }
 
     return (
-        <div>
+        <>
+            <section className="singlestorycontainer">
             <div id='single-story-container'>
                 <div id='single-story-header'>
                     <div id='title-and-manage-dots-div'>
@@ -122,7 +123,8 @@ const SingleStoryComponent = () => {
             <div className="comments-container">
                 <StoryComments props={id}/>
             </div>
-        </div>
+            </section>
+        </>
     )
 }
 

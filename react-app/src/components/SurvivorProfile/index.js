@@ -7,13 +7,17 @@ const SurvivorProfile = () => {
     const sessionUser = useSelector(state => state.session.user)
     // const { closeModal } = useModal()
     return (
-        <div id='survivor-profile-wrapper'>
+        <>
+        <div className='survivor-profile-wrapper'>
             <div id='survivor-profile-container'>
                 <div className='profile-item-container' id='first-profile-item'>
                     <h2>{sessionUser.first_name} {sessionUser.last_name}</h2>
                 </div>
                 <div className='profile-item-container' id='second-profile-item'>
-                    <h3>@{sessionUser.username}</h3>
+                    <h3>Hiding in the vicinity of: <br></br>{sessionUser.location}</h3>
+                </div>
+                <div className='profile-item-container' id='second-profile-item'>
+                    <h3>username: {sessionUser.username}</h3>
                 </div>
                 <div className='profile-item-container bubble-container' id='first-bubble-container'>
                     <div className='bubble-container-header'>
@@ -53,6 +57,7 @@ const SurvivorProfile = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

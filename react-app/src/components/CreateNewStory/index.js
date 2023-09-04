@@ -42,6 +42,7 @@ const CreateNewStory = () => {
     }
 
     return (
+        <>
         <div id='create-new-story-form-container'>
             <form id='create-story-form' onSubmit={handleSubmit}>
                 <h1 id='create-new-story-form-header-h1'>Create a New Story</h1>
@@ -83,6 +84,7 @@ const CreateNewStory = () => {
                 </div>
             </form>
         </div>
+        </>
     )
 }
 
