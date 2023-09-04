@@ -159,7 +159,8 @@ function ApocMap() {
                     const currentSituation = apocWeatherConverter(data.current_weather.weathercode).name;
                     const customIcon = getCustomIcon(data.current_weather.weathercode)
                     const situationDescription = apocWeatherConverter(data.current_weather.weathercode).description;
-
+                    const dailyHigh = data.temperature_2m_max
+                    const dailyLow = data.temperature_2m_max;
                     const marker = L.marker([lat, lng], {
                         title: `Current temperature: ${currentTemp}°F`,
                         icon: customIcon
@@ -190,7 +191,7 @@ useEffect(() => {
 }, [sessionUser]);
 console.log("sessionuser info",sessionUser)
 
-
+console.log("weatherdata*****",weatherData)
 return (
   <>
     <section className='mappagebodycontainer'>
@@ -225,11 +226,16 @@ return (
     </section>
     <section className='detailed_weather'>
         <h1>Detailed Information</h1>
-        <p>Temperature: {weatherData.current_weather.temperature}
+        <p><span className="Detailedlabel">Current Temperature:</span> {weatherData.current_weather.temperature}
         {weatherData.current_weather.temperature !== "Waiting to receive data" ? "°F" : ""}
         </p>
-        <p>Current Situation: {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).name : "Waiting to receive data"}</p>
-        <p>Description of situation: {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).description : "Waiting to receive data"}</p>
+        <p>
+        <span className="Detailedlabel">Daily High:</span> {weatherData.daily.temperature_2m_max[0] !== "Waiting to receive data" ? `${weatherData.daily.temperature_2m_max[0]}°F` : "Waiting to receive data"}
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span className="Detailedlabel">Daily Low:</span> {weatherData.daily.temperature_2m_min[0] !== "Waiting to receive data" ? `${weatherData.daily.temperature_2m_min[0]}°F` : "Waiting to receive data"}
+  </p>
+        <p> <span className="Detailedlabel">Current Situation:</span> {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).name : "Waiting to receive data"}</p>
+        <p> <span className="Detailedlabel">Description of situation:</span> {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).description : "Waiting to receive data"}</p>
       </section>
   </>
 );

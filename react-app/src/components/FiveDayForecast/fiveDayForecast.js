@@ -32,6 +32,7 @@ const FiveDayForecast = () =>{
     let time;
     let weathercode;
     let maxTemp;
+    let minTemp
     let weatherData;
 
     const setWeatherData = (weathercode) => {
@@ -62,6 +63,7 @@ const FiveDayForecast = () =>{
 
       weathercode = userForcast.weathercode;
       maxTemp = userForcast.temperature_2m_max;
+      minTemp = userForcast.temperature_2m_min;
       setWeatherData(weathercode);
     }
 
@@ -87,7 +89,8 @@ const FiveDayForecast = () =>{
             <div className="forecast-container-weather" key={index}>
               <div className='forecast-container-weather-date'>{day}</div>
               <div className='forecast-container-weather-weather'>{weatherData.dailyWeather[index]}</div>
-              <div className='forecast-container-weather-temp'>Temp: {maxTemp[index]}</div>
+              <div className='forecast-container-weather-temp'>Daily High: {maxTemp[index]} °F</div>
+              <div className='forecast-container-weather-temp'>Daily Low: {minTemp[index]} °F</div>
             </div>
           ))}
         </div>
