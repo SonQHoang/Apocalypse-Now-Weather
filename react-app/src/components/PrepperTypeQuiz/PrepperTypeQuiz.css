@@ -135,14 +135,14 @@
 }
 
 #submit-button-container {
-    margin: 0 auto;
     /* border: 1px solid white; */
-    width: 50%;
+    display: flex;
+    justify-content: center;
+
 }
 
 #quiz-submit-button {
     background-color: orange;
-    margin-left: 80px;
     height: 50px;
     width: 130px;
     font-family: 'Montserrat', sans-serif;
