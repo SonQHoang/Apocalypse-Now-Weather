@@ -26,6 +26,7 @@ function TipDetailsPage() {
     }
     return (
         <>
+            <section className='tipdetailcontainer'>
             <div className="tip-details-container">
                 <div className="tip-details-header">
                     <div className="single-tip-h1-tag">
@@ -45,6 +46,7 @@ function TipDetailsPage() {
             <div className='tip-comments'>
                 <TipComments props={tipId} />
             </div>
+            </section>
         </>
     )
 }
