@@ -43,6 +43,7 @@ const CreateNewStory = () => {
 
     return (
         <>
+        {/* <div className='update-modal-backdrop'></div> */}
         <div id='create-new-story-form-container'>
             <form id='create-story-form' onSubmit={handleSubmit}>
                 <h1 id='create-new-story-form-header-h1'>Create a New Story</h1>
