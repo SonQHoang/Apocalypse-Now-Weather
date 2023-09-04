@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getPrepperDescription } from './resultfunction'
 import { useHistory } from 'react-router-dom'
-
+import { setUser } from '../../store/session'
 const QuizResults = ({results}) => {
     const sessionUser = useSelector(state => state.session.user)
     const prepper_description = getPrepperDescription(results.result)
     const history = useHistory()
+    const dispatch = useDispatch();
 
     const handleSubmit = async () => {
         const userInfo = {
@@ -23,6 +24,8 @@ const QuizResults = ({results}) => {
         console.log('req===========>', req)
 
         if(req.ok) {
+            const updatedUser = await req.json();
+            dispatch(setUser(updatedUser));
             history.push('/survivors/current')
             return
         } else {
