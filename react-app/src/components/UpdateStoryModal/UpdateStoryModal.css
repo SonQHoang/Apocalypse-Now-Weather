@@ -63,20 +63,32 @@
     justify-content: center;
 }
 
-#submit-updated-story-button, #cancel-story-update-button {
+ #cancel-story-update-button {
     font-family: 'Montserrat', sans-serif;
     color: white;
     background-color: #ff7518;
-    padding: 5px;
-    margin-top: 20px;
-    background-color: #ff7518;
-    height: 50px;
-    width: 100px;
+    height: 40px;
     margin-bottom: 20px;
-    border-radius: 20px;
-    font-size: 18px;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
 }
-
+#submit-updated-story-button{
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color:whitesmoke;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
 #update-st-title-label-div {
     text-align: center;
 }

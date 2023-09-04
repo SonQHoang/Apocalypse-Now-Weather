@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import * as storyActions from '../../store/stories'
 import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from '../../context/Modal.js'
-// import './DeleteStoryModal.css'
 import { useHistory } from 'react-router-dom'
 
 const DeleteModal = ({ onSubmit, onClose, storyId }) => {

@@ -53,11 +53,13 @@
 .update-button {
     background-color: #ff7518;
     color: white;
+    font-size: 14px;
 }
 
 .cancel-button {
     color: black;
     background-color: #f4f4f4;
+    font-size: 14px;
 }
 
 .weather-category-container {
