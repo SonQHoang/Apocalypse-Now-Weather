@@ -3,6 +3,7 @@ import { getPrepperDescription } from './resultfunction'
 import { useHistory } from 'react-router-dom'
 
 const QuizResults = ({results}) => {
+    // console.log('What are all of the results==========>', results)
     const sessionUser = useSelector(state => state.session.user)
     const prepper_description = getPrepperDescription(results.result)
     const history = useHistory()
