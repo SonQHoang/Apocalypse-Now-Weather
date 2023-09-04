@@ -1,16 +1,8 @@
-<<<<<<<< HEAD:migrations/versions/b829ccfd3207_create_tables.py
-"""create tables
+"""Creating tables
 
-Revision ID: b829ccfd3207
+Revision ID: 83284e1ecc51
 Revises: 
-Create Date: 2023-09-01 23:35:18.510077
-========
-"""empty message
-
-Revision ID: 7fc25bb51191
-Revises: 
-Create Date: 2023-09-01 18:54:48.911352
->>>>>>>> 001a94df5e548cd2fd0a02b92eb6618fc8454cb5:migrations/versions/7fc25bb51191_.py
+Create Date: 2023-09-03 17:54:00.228608
 
 """
 from alembic import op
@@ -18,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:migrations/versions/b829ccfd3207_create_tables.py
-revision = 'b829ccfd3207'
-========
-revision = '7fc25bb51191'
->>>>>>>> 001a94df5e548cd2fd0a02b92eb6618fc8454cb5:migrations/versions/7fc25bb51191_.py
+revision = '83284e1ecc51'
 down_revision = None
 branch_labels = None
 depends_on = None
