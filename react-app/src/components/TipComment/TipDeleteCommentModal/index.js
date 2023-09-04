@@ -5,7 +5,6 @@ import "./TipDeleteCommentModal.css";
 
 function DeleteCommentModal(props) {
   const { id, tipId } = props.props;
-  // console.log("props", props.props, "id", id, "tip", tipId);
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 

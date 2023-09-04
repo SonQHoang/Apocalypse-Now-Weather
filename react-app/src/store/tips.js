@@ -8,7 +8,6 @@ const GET_TIP_BY_ID = "tips/tipById"
 const UPDATE_TIP = "tips/updateTips"
 
 const acCreateTip = (tips) => {
-    // console.log('Am I getting a new tip?======> Yes', tips)
     return {
         type: CREATE_TIP,
         tips,
@@ -16,7 +15,6 @@ const acCreateTip = (tips) => {
 }
 
 const acGetAllTips = (tips) => {
-    // console.log('Tips in my AC====>', tips)
     return {
         type: GET_ALL_TIPS,
         tips
@@ -24,14 +22,12 @@ const acGetAllTips = (tips) => {
 }
 
 const acGetUserTips = (tips) => {
-    // console.log('What is the data in acGetUserTips=====>', tips)
     return {
         type: GET_USER_TIPS,
         tips
     }
 }
 const acGetTipById = (tipId) => {
-    // console.log('Does tipId contain the expected payload====> Yes', tipId)
     return {
         type: GET_TIP_BY_ID,
         tipId
@@ -39,7 +35,6 @@ const acGetTipById = (tipId) => {
 }
 
 const acUpdateTip = (tipId) => {
-    // console.log('What does tipId look like======>', tipId)
     return {
         type: UPDATE_TIP,
         tipId
@@ -47,7 +42,6 @@ const acUpdateTip = (tipId) => {
 }
 
 const acDeleteTip = (tipId) => {
-    // console.log('Is tipId giving me a number=====>', tipId)
     return {
         type: DELETE_TIP,
         tipId,
@@ -56,7 +50,6 @@ const acDeleteTip = (tipId) => {
 
 // Thunk
 export const createTip = (data, userId) => async (dispatch) => {
-    // console.log('Stop two. Do I have data?====>', data, "how about userId========>", userId)
     try {
         const response = await fetch(`/${userId}/tips`, {
             method: "POST",
@@ -64,9 +57,7 @@ export const createTip = (data, userId) => async (dispatch) => {
             body: JSON.stringify(data)
         });
         if (response.ok) {
-            // console.log('What does my response look like====>', response)
             const tips = await response.json()
-            // console.log('What does this tip data look like=========>', tips)
             dispatch(acCreateTip(tips))
             return tips
         } else {
@@ -81,10 +72,8 @@ export const createTip = (data, userId) => async (dispatch) => {
 export const getAllTips = () => async (dispatch) => {
     try {
         const response = await fetch(`/tips`)
-        // console.log('what does my response look like?====>', response)
         if (response.ok) {
             const tips = await response.json()
-            // console.log('This is my data======>', data)
             dispatch(acGetAllTips(tips))
         }
     } catch (error) {
@@ -95,10 +84,8 @@ export const getAllTips = () => async (dispatch) => {
 export const getUserTips = () => async (dispatch) => {
     try {
         const response = await fetch(`/user_tips`)
-        // console.log('what does my response look like?====>', response)
         if (response.ok) {
             const tips = await response.json()
-            // console.log('This is my data======>', tips)
             dispatch(acGetUserTips(tips))
         }
     } catch (error) {
@@ -109,10 +96,8 @@ export const getUserTips = () => async (dispatch) => {
 export const getTipById = (tipId) => async (dispatch) => {
     try {
         const response = await fetch(`/tips/${tipId}`)
-        // console.log('Am I getting a 200 response?====> Yes', response)
         if (response.ok) {
             const tip = await response.json()
-            // console.log('Does the tip have all the data I need?====> Yes', tip)
 
             dispatch(acGetTipById(tip))
         }
@@ -122,8 +107,6 @@ export const getTipById = (tipId) => async (dispatch) => {
 }
 
 export const updateTips = (tipId, updatedTip) => async (dispatch) => {
-    // console.log('We are getting a valid tipid!======>', tipId)
-    // console.log('We are getting a valid newTip!======>', updatedTip)
     try {
         const response = await fetch(`/tips/${tipId}`, {
             method: "PUT",
@@ -144,11 +127,8 @@ export const deleteTips = (tipId) => async (dispatch) => {
             method: "DELETE",
             headers: {"Content-Type": 'application/json'}
         });
-        // console.log('Am I getting any response back====> Yes, 200', response)
         if (response.ok) {
-            // const tips = await response.json()
             dispatch(acDeleteTip(tipId))
-            // return tips
         }
     } catch (error) {
         console.error(error)
@@ -166,9 +146,7 @@ let newState
 const tipReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TIP: {
-            // console.log('Before creation:', state);
             return { ...state, allTips: { ...state.allTips, [action.tips.id]: action.tips } };
-            // return newState
         }
         case GET_ALL_TIPS: {
             return {
@@ -192,20 +170,12 @@ const tipReducer = (state = initialState, action) => {
         }
 
         case DELETE_TIP: {
-            // console.log('Deleting tip with ID:', action.tipId);
-            // console.log('Before deletion:', state); 
 
             const newState = { ...state, allTips: { ...state.allTips } }
             delete newState.allTips[action.tipId]
-            // console.log('After deletion:', newState);
             return newState
-            
-        }
-// Something may be causing state to not re-render
-// Need to cause a new ref in memory
 
-// Check for a useSelector for resource changes
-// slice of state boolean, change that to force the change
+        }
         default:
             return state;
     }

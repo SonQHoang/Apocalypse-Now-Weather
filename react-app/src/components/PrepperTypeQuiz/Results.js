@@ -1,18 +1,19 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getPrepperDescription } from './resultfunction'
 import { useHistory } from 'react-router-dom'
-
+import { setUser } from '../../store/session'
 const QuizResults = ({results}) => {
-    // console.log('What are all of the results==========>', results)
     const sessionUser = useSelector(state => state.session.user)
     const prepper_description = getPrepperDescription(results.result)
     const history = useHistory()
+    const dispatch = useDispatch();
 
     const handleSubmit = async () => {
         const userInfo = {
             prepper_type: results.result,
             prepper_description: prepper_description
         }
+        console.log('user info=============>', userInfo)
         const req = await fetch(`/api/users/${sessionUser.id}/update-prepper-type`, {
             method: "PUT",
             headers: {
@@ -20,13 +21,14 @@ const QuizResults = ({results}) => {
             },
             body: JSON.stringify(userInfo)
         })
+        console.log('req===========>', req)
 
         if(req.ok) {
-            // console.log("THIS WORKED")
+            const updatedUser = await req.json();
+            dispatch(setUser(updatedUser));
             history.push('/survivors/current')
             return
         } else {
-            // console.log("THIS DIDNT WORK")
             return "There was an error"
         }
     }

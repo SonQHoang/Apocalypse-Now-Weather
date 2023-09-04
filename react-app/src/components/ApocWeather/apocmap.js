@@ -92,9 +92,7 @@ function ApocMap() {
    // Function to get custom icon based on weather code
   const getCustomIcon = (weatherCode) => {
     const eventInfo = apocWeatherConverter(weatherCode);
-    console.log("****eventINFO",eventInfo)
     const eventIcon = eventInfo.source;
-    console.log("*****eventIcon",eventIcon)
     const eventName = eventInfo.name;
 
     return L.icon({
@@ -173,7 +171,6 @@ function ApocMap() {
                   .catch(error => console.error('Error fetching weather data:', error));
           },
           onSelectedItem: ({ index, element, object }) => {
-              console.log("onSelectedItem:", index, element, object);
           },
           noResults: ({ currentValue, template }) =>
               template(`<li>No results found: "${currentValue}"</li>`),
@@ -189,9 +186,7 @@ useEffect(() => {
     setCenter([sessionUser.latitude, sessionUser.longitude]);
   }
 }, [sessionUser]);
-console.log("sessionuser info",sessionUser)
 
-console.log("weatherdata*****",weatherData)
 return (
   <>
     <section className='mappagebodycontainer'>

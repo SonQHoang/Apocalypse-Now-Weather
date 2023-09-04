@@ -42,7 +42,6 @@ function apocWeatherConverter(weatherCode) {
     eTwelve,
     eThirteen,
   } = weatherCategory;
-  // console.log(eOne);
 
   if (weatherCode === 0) {
     return eOne;

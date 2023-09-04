@@ -17,7 +17,6 @@ function Attribution() {
             <div className="thank-you-container">
                 {Object.keys(iconAttributions).map(key => {
                     const attribution = iconAttributions[key];
-                    // console.log('attribution============>', attribution)
                     return (
                         <ul key={key}>
                             <div className="attribution-list-container">

@@ -61,7 +61,6 @@ export const getAllStories = () => async (dispatch) => {
         const response = await fetch('/api/stories/all');
         if(response.ok) {
             const data = await response.json();
-            // console.log('data from inside thunk: ', data);
             dispatch(getStories(data));
             return data;
         } else {
@@ -168,7 +167,6 @@ export const getHighlights = () => async (dispatch) => {
         const response = await fetch('/api/stories/story-highlights');
         if(response.ok) {
             const data = await response.json();
-            // console.log('data from inside thunk: ', data);
             dispatch(highlights(data));
             return data;
         } else {

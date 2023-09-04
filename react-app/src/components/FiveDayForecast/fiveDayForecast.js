@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocation } from "../../store/userLocation";
 import apocWeatherConverter from '../ApocWeather/apocweatherfunc';
-import { getForcast } from "../../store/userForcast";
+
 
 const FiveDayForecast = () => {
     const dispatch = useDispatch();
@@ -85,7 +85,6 @@ const FiveDayForecast = () => {
             </>
         );
     } else {
-      // console.log('DAILY WEATHER',weatherData)
       return (
         <>
         </>

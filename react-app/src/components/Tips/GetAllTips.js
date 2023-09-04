@@ -13,22 +13,16 @@ function GetAllTips() {
     const user = useSelector(state => state.session.user)
 
     const tips = Object.values(useSelector(state => state.tips.allTips))
-    // console.log('What info am I getting back from tips====>', tips)
 
     useEffect(() => {
         dispatch(getAllTips());
     }, [dispatch]);
 
     const handleDeleteClick = (tip) => {
-        // console.log("Does the delete button trigger with data?======> Yes", tip);
         setSelectedTip(tip)
         setShowModal(true)
     }
 
-    // const formatDate = (dateString) => {
-    //     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    //     return new Date(dateString).toLocaleDateString(undefined, options)
-    // }
 
     return (
         <>
