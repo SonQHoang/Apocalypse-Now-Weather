@@ -11,7 +11,6 @@ const TipsAddForm = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
     const [body, setBody] = useState("");
     const user = useSelector((state) => state.session.user);
-    // console.log('Am I getting my user data back and does it have an id========> Yes', user)
 
     const isMountedRef = useRef(true)
 
@@ -44,20 +43,16 @@ const TipsAddForm = () => {
             };
 
 
-        // console.log('We are getting new tip data=====> Yes', newTip)
 
         const createdTip = await dispatch(createTip(newTip, user.id));
 
         if (createdTip) {
-            // console.log("Is the tip created?====>", createdTip)
             history.push(`/tips/${createdTip.id}`)
-            // console.log("Push was fired======>")
         }
         // Reset form fields after submission
         setTitle("");
         setSelectedCategory("");
         setBody("");
-        // console.log('Do I get new tip back in this scope=======>', newTip)
     }
     };
 

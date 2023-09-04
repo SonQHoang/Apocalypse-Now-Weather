@@ -72,7 +72,6 @@ const interpretResult = (quiz) => {
         twelve: 0,
         thirteen: 0
     }
-    console.log('answer count=======>', answerCount)
 
     if(quiz.one === 'A') {
         answerCount.one += 1
@@ -428,20 +427,14 @@ const interpretResult = (quiz) => {
 
     const valuesArr = Object.values(answerCount)
     const max = findMax(valuesArr)
-    // console.log('max=====>', max)
     const resultArr = findAnswer(answerCount, max)
-    // console.log('resultArr.length======>', resultArr.length)
     const index = Math.floor(Math.random() * resultArr.length)
     // Random between 0 and 1 * length of array
-    // console.log('What is this index==========>', index)
     const finalResult = matchToType(resultArr[index])
-    // console.log('finaResult===========>', finalResult)
-    // console.log("NEW CONSOLE LOG: ", answerCount, max, resultArr[0])
     return finalResult
 }
 
 export const getPrepperDescription = (result) => {
-    // console.log("FROM GET PREPPER DESCRIPTION: ", result)
     if(result.toLowerCase() === one.toLowerCase()) {
         return "These individuals prepare for nuclear war or a nuclear accident. Their preps often include underground bunkers, Geiger counters, potassium iodide pills, and measures to shield against radioactive fallout."
     } else if(result.toLowerCase() === two.toLowerCase()) {

@@ -146,7 +146,6 @@ function SignUpFormModal() {
               map.setView([lat, lng], 8);
           },
           onSelectedItem: ({ index, element, object }) => {
-              console.log("onSelectedItem:", index, element, object);
           },
           noResults: ({ currentValue, template }) =>
               template(`<li>No results found: "${currentValue}"</li>`),
@@ -172,7 +171,6 @@ const handleSubmit = async (e) => {
         const formBody = {first_name, bio, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description}
         setErrors({})
         const data = await dispatch(signUp(formBody, history))
-        console.log("****data****", data)
         // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
         if (data && data.errors) {
           if (Array.isArray(data.errors)) {
@@ -184,7 +182,6 @@ const handleSubmit = async (e) => {
               );
               setErrors(newErrorObject);
           } else {
-              console.log("Unexpected data.errors format:", data.errors);
           }
       }
   } else {
@@ -199,10 +196,8 @@ const handleSubmit = async (e) => {
 
 
     useEffect(() => {
-      console.log("Current prepper_type:", prepper_type);
       if (prepper_type) {
         const description = prepper_descriptions[prepper_type]
-        console.log("Setting description:", description);
         setPrepper_Description(description);
       }
     }, [prepper_type, setPrepperType]);

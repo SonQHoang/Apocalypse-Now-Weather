@@ -85,7 +85,6 @@ const FiveDayForecast = () => {
             </>
         );
     } else {
-      // console.log('DAILY WEATHER',weatherData)
       return (
         <>
         </>

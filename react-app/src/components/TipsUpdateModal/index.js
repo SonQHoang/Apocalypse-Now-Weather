@@ -5,8 +5,6 @@ import { getUserTips } from '../../store/tips';
 import './TipsUpdateModal.css'
 
 const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
-    // console.log('is tipId giving me the number I want====> Yes', tipId)
-    // console.log('Am I getting tipData =====>',  tipData)
     const modalOverlayRef = useRef();
     const dispatch = useDispatch()
     const [newTip, setNewTip] = useState(tipData.body)
@@ -38,10 +36,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
     }
 
     const handleConfirmUpdate = async () => {
-        // console.log("Does pressing confirm delete send the data=====> Yes", tipId);
         dispatch(updateTips(tipId, updatedTip))
-        // getUserTips is triggering the re-render
-        // .then waits til the the delete is done. Then fires to get all of the User's tips
         .then(() => dispatch(getUserTips()))
         onSubmit();
     };

@@ -29,7 +29,6 @@ const CreateNewStory = () => {
             body: body,
         }
 
-        // console.log(new_story)
         dispatch(storyActions.addNewStory(new_story)).then(async res => {
             if(res.errors) {
                 setErrors(res.errors)

@@ -59,7 +59,6 @@ const PrepperTypeQuiz = () => {
         submittedQuizResult = {
             result: resultString.toString()
         }
-        // console.log("SUBMITTED: ", submittedQuizResult)
         setFinalResult(submittedQuizResult)
         setIsSubmitted(true)
         return

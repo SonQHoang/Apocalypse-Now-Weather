@@ -23,10 +23,7 @@ export default function StoryComments(prop) {
   }
   const props = { storyId, currentUserId };
 
-  //
   const sessionuser = useSelector(state => state.session.user)
-  // console.log('sessionuser==========>', sessionuser)
-  //
 
   useEffect(() => {
     dispatch(getComments(storyId));

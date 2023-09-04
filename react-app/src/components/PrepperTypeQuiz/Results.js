@@ -3,7 +3,6 @@ import { getPrepperDescription } from './resultfunction'
 import { useHistory } from 'react-router-dom'
 
 const QuizResults = ({results}) => {
-    // console.log('What are all of the results==========>', results)
     const sessionUser = useSelector(state => state.session.user)
     const prepper_description = getPrepperDescription(results.result)
     const history = useHistory()
@@ -22,11 +21,9 @@ const QuizResults = ({results}) => {
         })
 
         if(req.ok) {
-            // console.log("THIS WORKED")
             history.push('/survivors/current')
             return
         } else {
-            // console.log("THIS DIDNT WORK")
             return "There was an error"
         }
     }
