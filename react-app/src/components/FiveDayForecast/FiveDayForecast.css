@@ -1,0 +1,46 @@
+.fivedaymaincontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.heading-container {
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    border-bottom: 1px solid #ff7518;
+    width: 100%;
+    margin-top: -5px;
+    margin-bottom: -5px;
+
+
+}
+
+
+.forecast-container {
+    display: flex;
+    margin-top: 15px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    justify-content: center;
+    color: #ff7518;
+    gap: 35px;
+}
+
+
+.forecast-container-weather-date {
+    padding-bottom: 10px;
+}
+
+
+.forecast-container-weather-weather {
+    padding-bottom: 10px;
+    color: whitesmoke;
+}
+
+.forecast-container-weather-temp{
+    color: whitesmoke;
+}

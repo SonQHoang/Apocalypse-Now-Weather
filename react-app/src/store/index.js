@@ -7,6 +7,7 @@ import commentsReducer from "./storycomments";
 import tipcommentsReducer from './tipcomments';
 import storyLikesReducer from './storyLikes';
 import userLocationReducer from './userLocation';
+import userForcastReducer from './userForcast';
 
 const rootReducer = combineReducers({
   comments: commentsReducer,
@@ -15,7 +16,7 @@ const rootReducer = combineReducers({
   tips: tipReducer,
   stories: storyReducer,
   storyLikes: storyLikesReducer,
-  userLocation: userLocationReducer
+  userLocation: userLocationReducer,
 });
 
 

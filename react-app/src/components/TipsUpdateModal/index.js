@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { useDispatch } from 'react-redux';
 import { updateTips } from '../../store/tips';
 import { getUserTips } from '../../store/tips';
@@ -14,11 +14,11 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
     const [newTitle, setNewTitle] = useState(tipData.title);
 
 
-    const handleClickOutside = (e) => {
+    const handleClickOutside = useCallback((e) => {
         if (modalOverlayRef.current === e.target) {
             onClose();
         }
-    }
+    }, [onClose]);
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -29,7 +29,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [useEffect])
+    }, [handleClickOutside])
 
     const updatedTip = {
         body: newTip,
@@ -47,11 +47,14 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
     };
 
     return (
+        <>
+        <div className='update-modal-backdrop'></div>
         <div className="update-modal-overlay" ref={modalOverlayRef}>
+
             <div className="update-modal-content">
-                <h2>Confirm Update</h2>
+                <h2>Update Tip</h2>
                 <p>Are you sure you want to update this tip?</p>
-            
+
             <div className="update-tip-inputs-container">
 
                 <div className="tip-title-input-container">
@@ -77,11 +80,12 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                     <option value="Unpredictable Transformations">Unpredictable Transformations</option>
                 </select>
                 </div>
+                <div className='textareacontainer'>
                 <textarea className="text-area-input"
                 value={newTip}
                 onChange = {(e) => setNewTip(e.target.value)}
                 >
-                </textarea>
+                </textarea></div>
                 <div className="update-modal-buttons">
                     <button
                         className="update-button"
@@ -97,6 +101,7 @@ const UpdateTipsModal = ({ onSubmit, onClose, tipId, tipData}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

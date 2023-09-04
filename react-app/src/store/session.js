@@ -23,6 +23,7 @@ export const authenticate = () => async (dispatch) => {
 	});
 	if (response.ok) {
 		const data = await response.json();
+		console.log(data)
 		if (data.errors) {
 			return;
 		}
@@ -71,23 +72,23 @@ export const logout = () => async (dispatch) => {
 
 export const signUp = (formBody, history) => async (dispatch) => {
 	// try {
-	  const response = await fetch("/api/auth/signup", {
+	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
-		  "Content-Type": "application/json",
+			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(formBody),
-	  });
-
-	  const data = await response.json();
-	  console.log("session data*********", data)
-	  if (response.ok) {
+	});
+	console.log("THUNK RESPONSE****", response)
+	const data = await response.json();
+	console.log("session data*********", data)
+	if (response.ok) {
 		dispatch(setUser(data));
 		history.push('/');
 		// return Promise.resolve(data);
 
 		return data
-	  } else {
+	} else {
 		return data
 		// const errorObject = Object.values(data)
 		// const newErrorObject = Object.fromEntries(
@@ -98,13 +99,36 @@ export const signUp = (formBody, history) => async (dispatch) => {
 		// 	})
 		// )
 		// return newErrorObject
-	  }
+	}
 	// } catch (error) {
 	// 	console.log("catch block error", error)
 	//   return Promise.reject(error);
 	// }
-  };
+};
 
+export const update = (formBody, history) => async (dispatch) => {
+	console.log('New info in formBody====>', formBody)
+	console.log("What is history=====>", history)
+	// try {
+	const response = await fetch("/api/auth/update", {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(formBody),
+	});
+		console.log("thunk response", response)
+	const data = await response.json();
+	console.log("session data========>", data)
+	if (response.ok) {
+		dispatch(setUser(data));
+		history.push('/');
+
+		return data
+	} else {
+		return data
+	}
+};
 // export const signUp =(formBody, history) => async (dispatch) => {
 // 	// const responseBody = (first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio)
 // 	// console.log("responsebody", responseBody)
@@ -133,6 +157,7 @@ export const signUp = (formBody, history) => async (dispatch) => {
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
+
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };

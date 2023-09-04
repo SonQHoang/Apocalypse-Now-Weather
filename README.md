@@ -22,9 +22,6 @@ https://awn-render.onrender.com
 ![Screenshot 2023-09-01 at 9 58 14 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/4bd2c093-ffc2-4932-b902-1d343f6c658e)
 
 
-
-
-
 ## Getting Started
 
 1. Install dependencies

@@ -23,11 +23,10 @@ export default function StoryComments(prop) {
   }
   const props = { storyId, currentUserId };
 
-    // 
-    const sessionuser = useSelector(state => state.session.user)
-    // console.log('sessionuser==========>', sessionuser)
-    //
-
+  //
+  const sessionuser = useSelector(state => state.session.user)
+  // console.log('sessionuser==========>', sessionuser)
+  //
 
   useEffect(() => {
     dispatch(getComments(storyId));
@@ -38,7 +37,7 @@ export default function StoryComments(prop) {
   // rewrites the date to month, year
   let createdAtSplit;
   let createdAtSlice;
-  if(commentsList.length > 0 && commentsList[0].body){
+  if (commentsList.length > 0 && commentsList[0].body) {
     let createdAtDate = commentsList.map((comment) => (
 
       createdAtSplit = comment.date_created.split(''),
@@ -46,44 +45,44 @@ export default function StoryComments(prop) {
     ))
   }
 
-return (
+  return (
     <div>
-      {currentUserId &&  (
-      <div className="div-post-your-comment-button">
-        {
-              <OpenModal
-                buttonText="Post A Comment"
-                modalComponent={<PostCommentModal props={props} />}
-              />
-        }
-      </div>
+      {currentUserId && (
+        <div className="div-post-your-comment-button">
+          {
+            <OpenModal
+              buttonText="Post A Comment"
+              modalComponent={<PostCommentModal props={props} />}
+            />
+          }
+        </div>
       )}
       <div className="comments-div-holder">
-        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created }) => (
+        {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">{sessionuser.first_name}</div>
+            <div className="comment-firstname">{commenter?.first_name}</div>
             <div className="comment-created-date">{createdAtSlice}</div>
             <div className="comment-comment">{body}</div>
-            {user_id === currentUserId &&  (
+            {user_id === currentUserId && (
               <>
-              <div>
+                <div>
 
-                {" "}
-                  { <OpenModal
+                  {" "}
+                  {<OpenModal
                     buttonText="Update"
                     modalComponent={
                       <EditCommentModal props={{ id, storyId }} />
                     }
                     className="story-comments-button"
-                  /> }
-                  { <OpenModal
+                  />}
+                  {<OpenModal
                     buttonText="Delete"
                     modalComponent={
                       <DeleteCommentModal props={{ id, storyId }} />
                     }
                     className="story-comments-button"
-                  /> }
-                                </div>
+                  />}
+                </div>
 
               </>
             )}

@@ -53,10 +53,18 @@
     margin-bottom: 10px;
 }
 
+.single-tip-title:hover {
+    cursor: pointer
+}
+
 .single-tip-author {
     color: white;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+}
+
+.single-tip-author:hover {
+    cursor: pointer
 }
 
 .single-tip-body {
@@ -112,4 +120,8 @@
 
 .create-new-tip-button:hover {
     cursor: pointer;
+}
+
+.remove-nav-link-underline {
+    text-decoration: none;
 }

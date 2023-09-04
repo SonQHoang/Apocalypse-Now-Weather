@@ -8,11 +8,11 @@ import UpdateStoryModal from '../UpdateStoryModal'
 import './SingleStory.css'
 import StoryComments from "../StoryComment/StoryComments";
 import StoryLikesComponent from "../StoryLikes";
-import SurvivorProfile from "../SurvivorProfile";
+// import SurvivorProfile from "../SurvivorProfile";
 import UpdateStory from "../ManageStories/UpdateStory";
 import DeleteStory from "../ManageStories/DeleteStory";
 import UpdateModal from "./UpdateModal";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from './DeleteModal'
 
 const SingleStoryComponent = () => {
     const dispatch = useDispatch()
@@ -21,29 +21,31 @@ const SingleStoryComponent = () => {
     const [modalType, setModalType] = useState(null)
     const currentStory = useSelector((state) => state.stories.singleStory)
     const sessionUser = useSelector((state) => state.session.user)
-    const [isLoaded, setIsLoaded] = useState(false)
+    // const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
-    const userId = sessionUser.id
+    // const userId = sessionUser.id
+
+    // console.log(currentStory.author)
 
     useEffect(() => {
-        dispatch(storyActions.getOneStory(id))
-        .then(() => {
-            setIsLoaded(true)
-        })
-    }, [dispatch, isLoaded])
+        dispatch(storyActions.getOneStory(Number(id)))
+        // .then(() => {
+        //     setIsLoaded(true)
+        // })
+    }, [dispatch])
 
     const handleDeleteClick = async (story) => {
         setSelectedStory(story)
         setModalType("delete")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     const handleUpdateClick = async (story) => {
         setSelectedStory(story)
         setModalType("update")
         setShowModal(true)
-        await dispatch(storyActions.getAllUserStories(userId))
+        await dispatch(storyActions.getOneStory(id))
     }
 
     return (
@@ -51,16 +53,18 @@ const SingleStoryComponent = () => {
             <div id='single-story-container'>
                 <div id='single-story-header'>
                     <div id='title-and-manage-dots-div'>
-                        <h1 id='single-story-h1-tag'>{isLoaded && currentStory && currentStory?.title}</h1>
+                        <h1 id='single-story-h1-tag'>{currentStory && currentStory?.title}</h1>
                     </div>
                     {/* <div>
                         <p>By: </p>
                     </div> */}
                         {/* <OpenModalButton buttonText={`${currentStory.author.first_name} ${currentStory.author.last_name}`} /> */}
-                    <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{isLoaded && currentStory && currentStory?.author?.first_name} {isLoaded && currentStory && currentStory?.author?.last_name}</NavLink> </p>
+                    <p className='story-author-name'>By: <NavLink exact to={`/survivors/${currentStory?.author?.id}`} className='author-nav-link'>{currentStory && currentStory?.author?.first_name} {currentStory && currentStory?.author?.last_name}</NavLink> </p>
+                    {/* <p className='story-author-name'>By: {currentStory && currentStory?.author?.first_name} {currentStory && currentStory?.author?.last_name} </p> */}
+
                 </div>
                 <div id='single-story-body'>
-                    <p>{isLoaded && currentStory && currentStory?.body}</p>
+                    <p>{currentStory && currentStory?.body}</p>
                     {(sessionUser && sessionUser.id === currentStory?.author?.id) ? (
                         <div>
                             <button className="story-update-button" onClick={() => {
@@ -72,11 +76,11 @@ const SingleStoryComponent = () => {
                                 return handleDeleteClick(currentStory)
                             }}>Delete</button>
                             <DeleteStory storyId={currentStory.id} />
-
-
                         </div>
+
                         ) : ''}
                 </div>
+                <div>
                 {showModal && modalType === "delete" && (
                     <DeleteModal storyId={selectedStory.id}
                     onSubmit={() => {
@@ -108,6 +112,7 @@ const SingleStoryComponent = () => {
                     }}
                     />
                 )}
+                </div>
                 <div>
                     {sessionUser ? (
                         <StoryLikesComponent story={currentStory} />
