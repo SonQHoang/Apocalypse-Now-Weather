@@ -101,15 +101,6 @@ const FiveDayForecast = () =>{
       // console.log('DAILY WEATHER',weatherData)
       return (
         <>
-          {/* <h1>5 Day Forcast</h1> */}
-          <div className="forcast-container">
-            {/* {weatherData.map((dailyMaxTemp, dailyWeather) = (
-                    <>
-                    <div className='forcast-container-weather'>{dailyWeather}</div>
-                    <div className='forcast-container-weather'>{dailyMaxTemp}</div>
-                    </>
-                ))} */}
-          </div>
         </>
       );
     }
