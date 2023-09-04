@@ -37,7 +37,7 @@ def update_prepper_type(id):
     if form.validate_on_submit():
 
         first_name = request.json.get("first_name")
-        last_name = request.json("last_name")
+        last_name = request.json.get("last_name")
         username = request.json.get("username")
         location = request.json.get("location")
         latitude = request.json.get("latitude")
