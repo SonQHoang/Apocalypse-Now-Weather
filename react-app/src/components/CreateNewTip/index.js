@@ -62,6 +62,8 @@ const TipsAddForm = () => {
     };
 
     return (
+        <>
+        {/* <div className='update-modal-backdrop'></div> */}
         <div className="create-new-tip-form-container">
             <form className="create-tip-form" onSubmit={handleSubmit}>
                 <h1 className="create-new-tip-form-header">Create a New Tip</h1>
@@ -111,6 +113,7 @@ const TipsAddForm = () => {
                 </div>
             </form>
         </div>
+        </>
     );
 };
 
