@@ -21,17 +21,11 @@ const SingleStoryComponent = () => {
     const [modalType, setModalType] = useState(null)
     const currentStory = useSelector((state) => state.stories.singleStory)
     const sessionUser = useSelector((state) => state.session.user)
-    // const [isLoaded, setIsLoaded] = useState(false)
     const { id } = useParams()
-    // const userId = sessionUser.id
 
-    // console.log(currentStory.author)
 
     useEffect(() => {
         dispatch(storyActions.getOneStory(Number(id)))
-        // .then(() => {
-        //     setIsLoaded(true)
-        // })
     }, [dispatch])
 
     const handleDeleteClick = async (story) => {

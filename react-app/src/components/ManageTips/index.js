@@ -17,20 +17,17 @@ const ManageTips = () => {
     const user = useSelector(state => state.session.user)
 
     const sessionUser = useSelector(state => state.session.user)
-    // console.log('sessionuser=======>', sessionUser)
     const userId = sessionUser.id
     const user_tips = Object.values(useSelector(state => state.tips.allTips))
 
     useEffect(() => {
         dispatch(getUserTips())
-        // console.log('What is the userId====>', userId)
     }, [dispatch, userId])
 
     const handleDeleteClick = async (tip) => {
         setSelectedTip(tip)
         setModalType("delete");
         setShowModal(true)
-        // console.log('Is deleteClick being triggered==========>', tip)
         await dispatch(getUserTips())
     }
 

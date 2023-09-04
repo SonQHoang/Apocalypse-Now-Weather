@@ -44,7 +44,6 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   const sessionUser = useSelector(state => state.session.user)
-  // console.log('sessionuser====>', sessionUser.id)
 
   return (
     <>

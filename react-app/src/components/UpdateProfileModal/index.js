@@ -70,8 +70,6 @@ function LocationSetter({ setLatitude, setLongitude }) {
 function UpdateProfileModal() {
 
     const sessionUser = useSelector(state => state.session.user)
-    console.log('sessionUser===========>', sessionUser)
-    console.log("session user prepper type", sessionUser.prepper_type)
     const dispatch = useDispatch();
     const history = useHistory()
     const [first_name, setFirst_Name] = useState(sessionUser.first_name);
@@ -148,7 +146,6 @@ function UpdateProfileModal() {
                     map.setView([lat, lng], 8);
                 },
                 onSelectedItem: ({ index, element, object }) => {
-                    console.log("onSelectedItem:", index, element, object);
                 },
                 noResults: ({ currentValue, template }) =>
                     template(`<li>No results found: "${currentValue}"</li>`),
@@ -173,7 +170,6 @@ function UpdateProfileModal() {
             const formBody = { first_name, bio, last_name, username, email, location, latitude, longitude, prepper_type, prepper_description }
             setErrors({})
             const data = await dispatch(update(formBody, history))
-            console.log("****data****", data)
             // const data = await dispatch(signUp(first_name, last_name, username, email, password, location, latitude, longitude, prepper_type, prepper_description, bio));
             if (data && data.errors) {
                 if (Array.isArray(data.errors)) {
@@ -185,7 +181,6 @@ function UpdateProfileModal() {
                     );
                     setErrors(newErrorObject);
                 } else {
-                    console.log("Unexpected data.errors format:", data.errors);
                 }
             }
     };
@@ -196,10 +191,8 @@ function UpdateProfileModal() {
 
 
     useEffect(() => {
-        console.log("Current prepper_type:", prepper_type);
         if (prepper_type) {
             const description = prepper_descriptions[prepper_type]
-            // console.log("Setting description:", description);
             setPrepper_Description(description);
         }
     }, [prepper_type]);

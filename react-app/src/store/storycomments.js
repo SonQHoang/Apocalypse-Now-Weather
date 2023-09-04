@@ -53,7 +53,6 @@ export const postComment = (storyId, userId, commentBody) => async (dispatch) =>
 
   if (response.ok) {
     const comment = await response.json();
-    // console.log(comment)
     dispatch(getComments(storyId));
     dispatch(getOneStory(storyId))
     return comment;
@@ -76,10 +75,8 @@ export const editComment = (storyId, userId, commentBody, commentId) => async (d
     },
     body: JSON.stringify(responseBody),
   });
-  // console.log('response', response)
   if (response.ok) {
     const comment = await response.json();
-    // console.log(comment)
     dispatch(getComments(storyId));
     dispatch(getOneStory(storyId))
     return comment;
@@ -108,7 +105,6 @@ const commentsReducer = (state = initalState, action) => {
   switch (action.type) {
     case GET_COMMENTS:
       newState = Object.assign({}, state);
-      // console.log(' this is what im logging ', newState)
       let newObject = {}
 
       action.comments.forEach(comment => {

@@ -7,15 +7,10 @@ import "./TipDetails.css"
 
 function TipDetailsPage() {
     const { tipId } = useParams()
-    // console.log('==============>', tipId)
     const sessionUser = useSelector(state => state.session.user)
-    // console.log('sessionuser=========>', sessionUser.username)
     const dispatch = useDispatch()
     const allTips = useSelector((state) => state.tips.allTips)
     const tip = useSelector((state) => state.tips.singleTip)
-    // console.log('Do I see any tips?====> Yes', tip)
-
-    // console.log(tip.author)
 
     useEffect(() => {
         dispatch(getTipById(tipId))
