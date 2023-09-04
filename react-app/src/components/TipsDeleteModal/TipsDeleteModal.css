@@ -42,7 +42,8 @@
 
 .delete-modal-buttons {
     height: 40px;
-    margin-top: 5px
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 .delete-modal-buttons button {
