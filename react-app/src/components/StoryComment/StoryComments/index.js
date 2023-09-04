@@ -46,12 +46,18 @@ export default function StoryComments(prop) {
   }
 
   return (
-    <div>
+    <div className="story-comments-container">
+      <div className="story-comments-header">
+        <h2>
+          Comments
+        </h2>
+      </div>
       {currentUserId && (
         <div className="div-post-your-comment-button">
           {
             <OpenModal
               buttonText="Post A Comment"
+              className="post-a-comment-button-story-comments"
               modalComponent={<PostCommentModal props={props} />}
             />
           }
@@ -60,8 +66,10 @@ export default function StoryComments(prop) {
       <div className="comments-div-holder">
         {commentsList.length > 0 && commentsList.map(({ id, body, user_id, date_created, commenter }) => (
           <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">{commenter?.first_name}</div>
-            <div className="comment-created-date">{createdAtSlice}</div>
+            <div className="comments-user-info">
+              <div className="comment-firstname">{commenter?.first_name}</div>
+              <div className="comment-created-date">{createdAtSlice}</div>
+            </div>
             <div className="comment-comment">{body}</div>
             {user_id === currentUserId && (
               <>

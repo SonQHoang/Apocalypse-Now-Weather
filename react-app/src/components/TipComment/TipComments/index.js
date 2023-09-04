@@ -38,6 +38,12 @@ export default function TipComments(prop) {
   }
   return (
     <div className="tip-comments-container">
+      
+      <div className="tip-comments-header">
+        <h2>
+          Comments
+        </h2>
+      </div>
       <div className="div-post-your-comment-button">
         {currentUser && (
           <OpenModal
@@ -48,9 +54,11 @@ export default function TipComments(prop) {
       </div>
       <div className="comments-div-holder">
         {commentsList.length > 0 && commentsList.map(({ id, body, user_id, commenter }) => (
-          <div key={id} className="spot-single-comment-div">
-            <div className="comment-firstname">{commenter?.first_name}</div>
-            <div className="comment-created-date">{createdAtSlice}</div>
+          <div key={id} className="post-tip-comment-div">
+            <div className="user-info-container">
+              <div className="comment-firstname">{commenter?.first_name}</div>
+              <div className="comment-created-date">{createdAtSlice}</div>
+            </div>
             <div className="comment-comment">{body}</div>
             <div className="tip-comment-modal-button-container">
             {user_id === currentUserId && (

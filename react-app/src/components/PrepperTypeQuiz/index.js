@@ -4,26 +4,26 @@ import interpretResult from './resultfunction'
 import QuizResults from './Results'
 
 const PrepperTypeQuiz = () => {
-    const [questionOneAnswer, setQuestionOneAnswer] = useState('')
-    const [questionTwoAnswer, setQuestionTwoAnswer] = useState('')
-    const [questionThreeAnswer, setQuestionThreeAnswer] = useState('')
-    const [questionFourAnswer, setQuestionFourAnswer] = useState('')
-    const [questionFiveAnswer, setQuestionFiveAnswer] = useState('')
-    const [questionSixAnswer, setQuestionSixAnswer] = useState('')
-    const [questionSevenAnswer, setQuestionSevenAnswer] = useState('')
-    const [questionEightAnswer, setQuestionEightAnswer] = useState('')
-    const [questionNineAnswer, setQuestionNineAnswer] = useState('')
-    const [questionTenAnswer, setQuestionTenAnswer] = useState('')
-    const [questionElevenAnswer, setQuestionElevenAnswer] = useState('')
-    const [questionTwelveAnswer, setQuestionTwelveAnswer] = useState('')
-    const [questionThirteenAnswer, setQuestionThirteenAnswer] = useState('')
-    const [questionFourteenAnswer, setQuestionFourteenAnswer] = useState('')
-    const [questionFifteenAnswer, setQuestionFifteenAnswer] = useState('')
-    const [questionSixteenAnswer, setQuestionSixteenAnswer] = useState('')
-    const [questionSeventeenAnswer, setQuestionSeventeenAnswer] = useState('')
-    const [questionEighteenAnswer, setQuestionEighteenAnswer] = useState('')
-    const [questionNineteenAnswer, setQuestionNineteenAnswer] = useState('')
-    const [questionTwentyAnswer, setQuestionTwentyAnswer] = useState('')
+    const [questionOneAnswer, setQuestionOneAnswer] = useState(null)
+    const [questionTwoAnswer, setQuestionTwoAnswer] = useState(null)
+    const [questionThreeAnswer, setQuestionThreeAnswer] = useState(null)
+    const [questionFourAnswer, setQuestionFourAnswer] = useState(null)
+    const [questionFiveAnswer, setQuestionFiveAnswer] = useState(null)
+    const [questionSixAnswer, setQuestionSixAnswer] = useState(null)
+    const [questionSevenAnswer, setQuestionSevenAnswer] = useState(null)
+    const [questionEightAnswer, setQuestionEightAnswer] = useState(null)
+    const [questionNineAnswer, setQuestionNineAnswer] = useState(null)
+    const [questionTenAnswer, setQuestionTenAnswer] = useState(null)
+    const [questionElevenAnswer, setQuestionElevenAnswer] = useState(null)
+    const [questionTwelveAnswer, setQuestionTwelveAnswer] = useState(null)
+    const [questionThirteenAnswer, setQuestionThirteenAnswer] = useState(null)
+    const [questionFourteenAnswer, setQuestionFourteenAnswer] = useState(null)
+    const [questionFifteenAnswer, setQuestionFifteenAnswer] = useState(null)
+    const [questionSixteenAnswer, setQuestionSixteenAnswer] = useState(null)
+    const [questionSeventeenAnswer, setQuestionSeventeenAnswer] = useState(null)
+    const [questionEighteenAnswer, setQuestionEighteenAnswer] = useState(null)
+    const [questionNineteenAnswer, setQuestionNineteenAnswer] = useState(null)
+    const [questionTwentyAnswer, setQuestionTwentyAnswer] = useState(null)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [finalResult, setFinalResult] = useState('')
 
@@ -85,6 +85,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-one'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -111,6 +112,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-three'
                                     type='radio'
                                     onClick={() => setQuestionTwoAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Very Important</p>
                                 </div>
@@ -146,6 +148,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-six'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Firearm</p>
                                 </div>
@@ -193,6 +196,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-ten'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -220,6 +224,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twelve'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -247,6 +252,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-fourteen'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Shotgun</p>
                                 </div>
@@ -294,6 +300,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-eighteen'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -321,6 +328,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -348,6 +356,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-two'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Losing Access to Technology</p>
                                 </div>
@@ -358,6 +367,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-three'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("B")}
+                                    required="true"
                                     />
                                     <p>Financial Instability</p>
                                 </div>
@@ -368,6 +378,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-four'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("C")}
+                                    required="true"
                                     />
                                     <p>Physical Harm to Self or Loved Ones</p>
                                 </div>
@@ -378,6 +389,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-five'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("D")}
+                                    required="true"
                                     />
                                     <p>Loss of Basic Resources</p>
                                 </div>
@@ -395,6 +407,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-six'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -422,6 +435,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-twenty-eight'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -449,6 +463,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-thirty'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Security Measures</p>
                                 </div>
@@ -496,6 +511,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-thirty-four'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -523,6 +539,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-thirty-six'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -550,6 +567,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-thirty-nine'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -577,6 +595,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-forty-one'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Remote Wilderness</p>
                                 </div>
@@ -624,6 +643,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-forty-five'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -651,6 +671,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-forty-seven'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -678,6 +699,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-forty-eight'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>Yes</p>
                                 </div>
@@ -705,6 +727,7 @@ const PrepperTypeQuiz = () => {
                                     id='radio-button-fifty'
                                     type='radio'
                                     onClick={() => setQuestionOneAnswer("A")}
+                                    required="true"
                                     />
                                     <p>In a Vehicle</p>
                                 </div>
