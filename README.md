@@ -18,6 +18,9 @@ https://awn-render.onrender.com
 
 <img width="1436" alt="Screenshot 2023-09-04 at 9 40 01 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/1d6356e9-4fc0-4ea4-a855-526c0d6157f2">
 
+<img width="1428" alt="Screenshot 2023-09-04 at 9 46 18 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/ff8346d7-e911-4dc5-8c99-8e91ea79ccc9">
+
+
 <img width="1428" alt="Screenshot 2023-09-04 at 9 40 12 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/6612d2e4-cd88-4011-a984-0ef60a0991eb">
 
 <img width="1426" alt="Screenshot 2023-09-04 at 9 40 40 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/2f554c17-ae47-4cbd-b777-05e8156c7085">
