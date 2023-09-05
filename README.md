@@ -12,14 +12,15 @@ https://awn-render.onrender.com
 - Frontend and Backend Routes: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/Routes
 - What We're Working on Next: https://github.com/SonQHoang/Apocalypse-Weather-Now/wiki/What's-Coming-Up-Next
 
-![Screenshot 2023-09-01 at 9 57 36 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/5daad1f9-e1bf-4b9e-9551-af5e3e101886)
+<img width="1426" alt="Screenshot 2023-09-04 at 9 40 40 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/2f554c17-ae47-4cbd-b777-05e8156c7085">
 
-![Screenshot 2023-09-01 at 9 57 49 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/7fdb8a2e-d2c5-47d6-b986-031efa3facb2)
+<img width="1428" alt="Screenshot 2023-09-04 at 9 40 12 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/6612d2e4-cd88-4011-a984-0ef60a0991eb">
 
+<img width="1436" alt="Screenshot 2023-09-04 at 9 40 01 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/1d6356e9-4fc0-4ea4-a855-526c0d6157f2">
 
-![Screenshot 2023-09-01 at 9 58 04 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/3f97d29a-6f93-452a-a103-fea34c5c22c5)
+<img width="1423" alt="Screenshot 2023-09-04 at 9 42 04 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/4e64b067-6392-46db-8c53-dd81830fcf50">
 
-![Screenshot 2023-09-01 at 9 58 14 AM](https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/4bd2c093-ffc2-4932-b902-1d343f6c658e)
+<img width="1414" alt="Screenshot 2023-09-04 at 9 41 34 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/3e6067d2-db9d-47d9-a4e2-96639c01e9b1">
 
 
 ## Getting Started
