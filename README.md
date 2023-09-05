@@ -14,14 +14,15 @@ https://awn-render.onrender.com
 - 
 <img width="1423" alt="Screenshot 2023-09-04 at 9 42 04 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/4e64b067-6392-46db-8c53-dd81830fcf50">
 
-<img width="1426" alt="Screenshot 2023-09-04 at 9 40 40 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/2f554c17-ae47-4cbd-b777-05e8156c7085">
-
-<img width="1428" alt="Screenshot 2023-09-04 at 9 40 12 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/6612d2e4-cd88-4011-a984-0ef60a0991eb">
 
 <img width="1436" alt="Screenshot 2023-09-04 at 9 40 01 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/1d6356e9-4fc0-4ea4-a855-526c0d6157f2">
 
+<img width="1428" alt="Screenshot 2023-09-04 at 9 40 12 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/6612d2e4-cd88-4011-a984-0ef60a0991eb">
+
+
 <img width="1414" alt="Screenshot 2023-09-04 at 9 41 34 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/3e6067d2-db9d-47d9-a4e2-96639c01e9b1">
 
+<img width="1426" alt="Screenshot 2023-09-04 at 9 40 40 PM" src="https://github.com/SonQHoang/Apocalypse-Weather-Now/assets/116997524/2f554c17-ae47-4cbd-b777-05e8156c7085">
 
 ## Getting Started
 
