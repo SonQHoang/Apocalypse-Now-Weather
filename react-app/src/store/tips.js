@@ -97,7 +97,7 @@ export const getTipById = (tipId) => async (dispatch) => {
     try {
         const response = await fetch(`/tips/${tipId}`)
         if (response.ok) {
-            const tip = await response.json()
+            const tip = await response.json() 
 
             dispatch(acGetTipById(tip))
         }

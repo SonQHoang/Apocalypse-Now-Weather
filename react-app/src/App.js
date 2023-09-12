@@ -7,12 +7,12 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ApocMap from "./components/ApocWeather/apocmap";
 import { Provider } from 'react-redux';
-import {store} from './index'
+import { store } from './index'
 import StoriesComponent from "./components/Stories";
 import SingleStoryComponent from "./components/SingleStory";
 import CreateNewStory from "./components/CreateNewStory";
 import ManageStories from "./components/ManageStories";
-import LoginFormModal from "./components/LoginFormModal";import StoryHighlights from './components/StoryHighlights';
+import LoginFormModal from "./components/LoginFormModal"; import StoryHighlights from './components/StoryHighlights';
 import AboutUs from "./components/AboutUs";
 import PrepperTypeQuiz from "./components/PrepperTypeQuiz";
 import SurvivorProfile from "./components/SurvivorProfile";
@@ -38,69 +38,69 @@ function App() {
 
   return (
     <Provider store={store}>  {/* Now the store is defined */}
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          {/* <Route path="/login" >
+      <>
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <Switch>
+            {/* <Route path="/login" >
             <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route> */}
-          <Route path="/attributions">
-            <Attribution/>
-          </Route>
-          <Route path="/forecast">
-          <ApocMap/>
-          </Route>
-          <Route exact path='/stories/manage'>
-            <ManageStories />
-          </Route>
-          <Route path='/stories/new'>
-            <CreateNewStory />
-          </Route>
-          <Route path='/stories/:id'>
-            <SingleStoryComponent />
-          </Route>
-          <Route path="/stories">
-            <StoriesComponent />
-          </Route>
-          <Route exact path="/tips">
-            <Tips/>
-          </Route>
-          <Route path="/signup">
-            <SignUpFormModal/>
-          </Route>
-          <Route exact path="/tips/manage">
-            <ManageTips/>
-          </Route>
-          <Route path='/tips/new'>
-            <CreateNewTip />
-          </Route>
-          <Route exact path="/tips/:tipId" component={TipDetailsPage} />
-          <Route exact path='/'>
-            <StoryHighlights />
-          </Route>
-          <Route exact path='/about-us'>
-            <AboutUs />
-          </Route>
-          <Route exact path='/quiz'>
-            <PrepperTypeQuiz />
-          </Route>
-          <Route exact path='/survivors/current'>
-            <SurvivorProfile />
-          </Route>
-          <Route exact path='/survivors/:id'>
-            <OtherSurvivorProfile />
-          </Route>
-          <Route exact path='/update'>
-            <UpdateProfileModal/>
-          </Route>
-        </Switch>
-      )}
-    </>
-    <Footer/>
+            <Route path="/attributions">
+              <Attribution />
+            </Route>
+            <Route path="/forecast">
+              <ApocMap />
+            </Route>
+            <Route exact path='/stories/manage'>
+              <ManageStories />
+            </Route>
+            <Route path='/stories/new'>
+              <CreateNewStory />
+            </Route>
+            <Route path='/stories/:id'>
+              <SingleStoryComponent />
+            </Route>
+            <Route path="/stories">
+              <StoriesComponent />
+            </Route>
+            <Route exact path="/tips">
+              <Tips />
+            </Route>
+            <Route path="/signup">
+              <SignUpFormModal />
+            </Route>
+            <Route exact path="/tips/manage">
+              <ManageTips />
+            </Route>
+            <Route path='/tips/new'>
+              <CreateNewTip />
+            </Route>
+            <Route exact path="/tips/:tipId" component={TipDetailsPage} />
+            <Route exact path='/'>
+              <StoryHighlights />
+            </Route>
+            <Route exact path='/about-us'>
+              <AboutUs />
+            </Route>
+            <Route exact path='/quiz'>
+              <PrepperTypeQuiz />
+            </Route>
+            <Route exact path='/survivors/current'>
+              <SurvivorProfile />
+            </Route>
+            <Route exact path='/survivors/:id'>
+              <OtherSurvivorProfile />
+            </Route>
+            <Route exact path='/update'>
+              <UpdateProfileModal />
+            </Route>
+          </Switch>
+        )}
+      </>
+      <Footer />
     </Provider>
   );
 }
