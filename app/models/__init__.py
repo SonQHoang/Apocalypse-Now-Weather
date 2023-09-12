@@ -7,4 +7,3 @@ from .stories import Stories
 from .story_comments import StoryComments
 from .story_likes import StoryLikes
 from .tip_likes import TipLikes
-from .db import environment, SCHEMA
