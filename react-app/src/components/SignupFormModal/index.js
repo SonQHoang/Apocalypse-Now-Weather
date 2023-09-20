@@ -7,10 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { setLocation } from '../../store/mapStore';
 import { signUp } from "../../store/session";
-
 import './SignupForm.css'
-
-
 
 
 const prepper_descriptions = {

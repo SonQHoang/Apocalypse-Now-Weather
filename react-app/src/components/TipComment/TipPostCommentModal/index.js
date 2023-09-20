@@ -50,7 +50,7 @@ function PostCommentModal(props) {
             onClick={submitComment}
             disabled={isDisabled}
           >
-            Submit
+            Submit Your Comment
           </button>
         </div>
       </div>

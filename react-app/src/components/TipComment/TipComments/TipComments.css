@@ -36,17 +36,14 @@
     color: white
 }
 
-.tip-comment-modal-button-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .div-post-your-comment-button button {
+    font-family: 'Montserrat', sans-serif;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
 .tip-comment-modal-button-container button {
+    font-family: 'Montserrat', sans-serif;
     background-color: #ff7518;
     margin-right: 5px;
     border-radius: 8px;

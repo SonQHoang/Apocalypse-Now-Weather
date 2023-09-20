@@ -20,9 +20,8 @@ function GetAllTips() {
 
     const handleDeleteClick = (tip) => {
         setSelectedTip(tip)
-        setShowModal(true)
+        setShowModal(true) 
     }
-
 
     return (
         <>

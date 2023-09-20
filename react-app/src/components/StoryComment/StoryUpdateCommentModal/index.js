@@ -2,7 +2,7 @@ import { useModal } from "../../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { editComment } from "../../../store/storycomments";
 import React, { useState } from "react";
-import "./UpdateCommentModal.css";
+import "./UpdateCommentModal.css"; 
 
 
 
@@ -37,14 +37,14 @@ function EditCommentModal(props) {
 
 
   return (
-    <div className="update-story-confirm-delete-modal">
+    <div className="update-story-confirm-update-modal">
       <h1>Edit your Comment</h1>
       <>{errors.message}</>
       <textarea
         className="post-comment-form-modal"
         onChange={(e) => setComment(e.target.value)}
       >{commentToEdit.body}</textarea>
-      <button className='submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
+      <button className='submit-comment-button' onClick={submitComment} disabled={isDisabled}>
         Submit Your Comment
       </button>
     </div>

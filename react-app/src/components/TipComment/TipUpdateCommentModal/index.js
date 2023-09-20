@@ -47,7 +47,7 @@ function EditCommentModal(props) {
           onChange={(e) => setComment(e.target.value)}
         >{commentToEdit.body}</textarea>
       </div>
-      <button className='update-tip-submit-comment-buttom' onClick={submitComment} disabled={isDisabled}>
+      <button className='update-tip-submit-comment-button' onClick={submitComment} disabled={isDisabled}>
         Submit Your Comment
       </button>
     </div>
