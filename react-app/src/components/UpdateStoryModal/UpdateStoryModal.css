@@ -1,6 +1,7 @@
 .update-modal-overlay{
     position: fixed;
     z-index: 9000;
+    border: 5px solid #ff7518;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,7 +26,7 @@
     justify-content: center;
     height: auto;
 }
-#update-story-modal-header{
+#update-story-modal-header {
     display: flex;
     justify-content: center;
     align-items: center;

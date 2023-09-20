@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import GetAllTips from './GetAllTips';
 import "./tips.css"
 
-function Tips() {
+function Tips() { 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [submittedTips, setSubmittedTips] = useState([])
 

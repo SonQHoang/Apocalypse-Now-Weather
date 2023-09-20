@@ -40,7 +40,7 @@ function PostCommentModal(props) {
         onChange={(e) => setComment(e.target.value)}
       ></textarea>
       <button
-        className="submit-comment-buttom"
+        className="submit-comment-button"
         onClick={submitComment}
         disabled={isDisabled}
       >
