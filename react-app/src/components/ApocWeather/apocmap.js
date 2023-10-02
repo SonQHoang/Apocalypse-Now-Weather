@@ -189,6 +189,7 @@ useEffect(() => {
 
 return (
   <>
+    <section className='forecastContainer'>
     <section className='mappagebodycontainer'>
       <section className='titleinfo'>
         <h1>Apocalypse Weather Now</h1>
@@ -219,6 +220,7 @@ return (
         </section>
       </section>
     </section>
+    <section className='DW_Container'>
     <section className='detailed_weather'>
         <h1>Detailed Information</h1>
         <p><span className="Detailedlabel">Current Temperature:</span> {weatherData.current_weather.temperature}
@@ -231,6 +233,8 @@ return (
   </p>
         <p> <span className="Detailedlabel">Current Situation:</span> {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).name : "Waiting to receive data"}</p>
         <p> <span className="Detailedlabel">Description of situation:</span> {weatherData.current_weather.weathercode !== "Waiting to receive data" ? apocWeatherConverter(weatherData.current_weather.weathercode).description : "Waiting to receive data"}</p>
+      </section>
+      </section>
       </section>
   </>
 );
