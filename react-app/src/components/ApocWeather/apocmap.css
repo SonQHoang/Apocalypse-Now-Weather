@@ -4,6 +4,11 @@ body, html {
   height: 100%;
 }
 
+.forecastContainer{
+  min-height: calc(100vh - 255px);
+  background-color: #2f2f2f;
+}
+
 .bodycontainer{
   display: flex;
   justify-content: center;
@@ -116,10 +121,16 @@ body, html {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
+  color: whitesmoke;
 }
 
 .detailed_weather P{
   margin-top: -5px;
+}
+
+.DW_Container{
+  min-height: 30vh;
+  background-color: #2f2f2f;
 }
 
 .Detailedlabel{

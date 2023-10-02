@@ -6,7 +6,7 @@ body, html {
     flex-direction: column;
 }
 .tipdetailcontainer{
-    height: 87%;
+    min-height: calc(100vh - 265px);
 }
 
 .tip-details-container {
