@@ -2,7 +2,9 @@
     width: fit-content;
     margin: 0 auto;
 }
-
+#all-stories-wrapper{
+    min-height: calc(100vh - 255px);
+}
 .story-author-name {
     color: white;
     font-family: 'Montserrat', sans-serif;

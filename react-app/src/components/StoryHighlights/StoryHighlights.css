@@ -1,3 +1,9 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+
 .awn_logo_container {
     display: flex;
     justify-content: center;
@@ -181,4 +187,6 @@ border-radius: 60px;
 
 #landing-page-wrapper {
     background-color: #2f2f2f;
+    min-height: calc(100vh - 255px);
+
 }

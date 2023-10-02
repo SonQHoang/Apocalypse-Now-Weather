@@ -40,6 +40,7 @@ const ManageTips = () => {
 
     return (
         <>
+        <section className="mgmContainer">
             <div className="manage-tips-container">
                 <div className="manage-tips-header">
                     <h1 id='all-tips-h1'>Manage Your Tips</h1>
@@ -107,6 +108,7 @@ const ManageTips = () => {
                 />
             )}
         </div>
+        </section>
         </>
     );
 }
