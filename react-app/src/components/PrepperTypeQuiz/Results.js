@@ -13,7 +13,6 @@ const QuizResults = ({results}) => {
             prepper_type: results.result,
             prepper_description: prepper_description
         }
-        console.log('user info=============>', userInfo)
         const req = await fetch(`/api/users/${sessionUser.id}/update-prepper-type`, {
             method: "PUT",
             headers: {
@@ -21,7 +20,6 @@ const QuizResults = ({results}) => {
             },
             body: JSON.stringify(userInfo)
         })
-        console.log('req===========>', req)
 
         if(req.ok) {
             const updatedUser = await req.json();
