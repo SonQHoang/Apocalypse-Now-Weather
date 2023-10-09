@@ -12,9 +12,9 @@ body, html {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 20px;
-    height: 79%;
     margin-bottom: 25px;
     z-index: 9999;
+    min-height: calc(100vh - 350px);
 }
 
 #create-new-story-form-header-h1 {
